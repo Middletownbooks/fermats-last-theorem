@@ -82,10 +82,10 @@
     {
       "id": "D9",
       "kind": "contested-claim",
-      "status": "unvalidated",
+      "status": "closed-dropped",
       "where": "SOURCE-RESPONSE.md, P3 item 7",
       "claim": "Against E5(b): the better discriminator is whether the existence guarantee is strictly cheaper than the target, not formula versus existence. Banaszczyk's move, Marcus-Spielman-Srivastava and Dvir all rest on existence statements and all succeed.",
-      "action": "n = 3, and it has the same flaw as the criterion it replaces: derived from the cases that motivated it.",
+      "action": "CLOSED. See p3-taxonomy/D9-ADJUDICATION.md. The ORIGINAL criterion is now mechanically scoreable (move_kind added to every case): 2 of 10 scoreable successes had existence-theorem moves, which refutes any reading where existence moves are disqualifying but cannot test it as a discriminator, because all 13 P1 cases are SUCCESSES. The REPLACEMENT is DROPPED: 'strictly cheaper than the target' states no metric for cheapness, so it is not computable from the before-board — the same standard that dropped auxiliary-witness lift. Also note E5(b)'s exact statement is absent from the seed material, as with the unnamed transformations (D12).",
       "attack_requested_of": "the originating instance"
     },
     {
@@ -219,6 +219,14 @@
       "where": "p3-taxonomy/BASELINE.md",
       "claim": "The retrospective arm cannot measure a diagnostic's value. A rule-less rater given the same item scored J = 1.000 (5/5 positives, 8/8 negatives) against product-law matching's 0.675, a lift of -0.325, with a recognition probe of 13/13.",
       "action": "Nothing to fix; this is a property of retrospective cases, not a bug. What it CHANGES: no retrospective 2x2 in this tree may be quoted as evidence that a diagnostic works. The prospective arm is now the only instrument that can answer the question, and this is the third independent measurement saying so (step D 100%, L2 5-of-5, this 13/13)."
+    },
+    {
+      "id": "D26",
+      "kind": "corpus-limitation",
+      "status": "structural",
+      "where": "p3-taxonomy/D9-ADJUDICATION.md",
+      "claim": "The benchmark cannot evaluate any criterion about success versus failure, because all 13 P1 cases are successes. The negative twins are negatives about the TIGHTNESS of a bound, not about moves that failed.",
+      "action": "Needs a corpus of FAILED board changes — attempts that changed the board and did not work. The seed flagged survivorship selection as blocking PPV estimates; this is the second distinct thing it blocks. Collecting failed attempts is harder than collecting famous successes and is the main thing that would make the benchmark able to test a criterion rather than merely fit one."
     }
   ],
   "failure_register": [

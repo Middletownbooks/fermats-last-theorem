@@ -13,9 +13,16 @@
       "diagnostic": "Stated in the seed only informally.",
       "seed_verdict": "WRONG SHAPE AS STATED",
       "seed_evidence": {
-        "fires_correctly": ["04-kadison-singer"],
-        "fires_loosely": ["13-pcp-weak"],
-        "direction_error": ["02-cap-set", "03-shannon-capacity-c5"],
+        "fires_correctly": [
+          "04-kadison-singer"
+        ],
+        "fires_loosely": [
+          "13-pcp-weak"
+        ],
+        "direction_error": [
+          "02-cap-set",
+          "03-shannon-capacity-c5"
+        ],
         "note": "On cases 2 and 3 the needed move runs the opposite way: progress required an invariant that is MULTIPLICATIVE, because the target itself is (super)multiplicative. Case 1 changes the product law from additive to Pythagorean."
       },
       "proposed_replacement": "product-law-matching"
@@ -28,8 +35,15 @@
       "diagnostic": "A union bound over m events appears in the composition slot.",
       "seed_verdict": "POOR SPECIFICITY",
       "seed_evidence": {
-        "fires_correctly": ["08-spencer-discrepancy", "04-kadison-singer"],
-        "fires_and_fails": ["N1-johnson-lindenstrauss", "N2-epsilon-nets", "N8-discrepancy-many-sets"],
+        "fires_correctly": [
+          "08-spencer-discrepancy",
+          "04-kadison-singer"
+        ],
+        "fires_and_fails": [
+          "N1-johnson-lindenstrauss",
+          "N2-epsilon-nets",
+          "N8-discrepancy-many-sets"
+        ],
         "note": "Candidate refinement, UNTESTED: ask whether some instance in the class makes the m bad events near-independent. If it does, the log is real."
       }
     },
@@ -41,7 +55,11 @@
       "diagnostic": null,
       "seed_verdict": "NO STATED DIAGNOSTIC; NEAR-ZERO DISCRIMINATING POWER",
       "seed_evidence": {
-        "fits": ["01-sensitivity", "03-shannon-capacity-c5", "05-finite-field-kakeya"],
+        "fits": [
+          "01-sensitivity",
+          "03-shannon-capacity-c5",
+          "05-finite-field-kakeya"
+        ],
         "note": "Fits almost anything post hoc. This is the programme's own E9 criticism applied to the programme."
       }
     },
@@ -53,7 +71,9 @@
       "statement": null,
       "seed_verdict": "PROBABLE ARTEFACT",
       "seed_evidence": {
-        "fits_weakly": ["02-cap-set"],
+        "fits_weakly": [
+          "02-cap-set"
+        ],
         "note": "Only case 2 fits, and only weakly - it abolishes the iteration entirely."
       }
     },
@@ -64,7 +84,10 @@
       "name_status": "NOT IN SEED MATERIAL",
       "statement": null,
       "seed_verdict": "PROBABLE ARTEFACT",
-      "seed_evidence": { "fits": [], "note": "Nothing in P1 fits it." }
+      "seed_evidence": {
+        "fits": [],
+        "note": "Nothing in P1 fits it."
+      }
     }
   ],
   "candidate_replacements": [
@@ -78,10 +101,31 @@
     }
   ],
   "label_vocabulary": {
-    "atoms": ["de-tensorize", "collectivize-a-union-bound", "auxiliary-witness-lift", "t3", "t5"],
+    "atoms": [
+      "de-tensorize",
+      "collectivize-a-union-bound",
+      "auxiliary-witness-lift",
+      "t3",
+      "t5"
+    ],
     "combination_separator": "+",
-    "special": ["none", "unlabelled"],
+    "special": [
+      "none",
+      "unlabelled"
+    ],
     "none_means": "The historical change fits no entry in the catalogue.",
     "unlabelled_means": "The seed's preliminary scoring assigned no label. Not the same as 'none'."
-  }
+  },
+  "dropped_criteria": [
+    {
+      "id": "auxiliary-witness-lift",
+      "dropped": "no before-board-computable diagnostic exists",
+      "where": "DIAGNOSTIC.md"
+    },
+    {
+      "id": "existence-guarantee-strictly-cheaper",
+      "dropped": "no metric for 'cheaper' is stated, so it is not computable from the before-board. Same standard as auxiliary-witness lift. See D9-ADJUDICATION.md.",
+      "where": "D9-ADJUDICATION.md"
+    }
+  ]
 }

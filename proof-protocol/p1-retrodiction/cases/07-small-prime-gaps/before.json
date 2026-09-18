@@ -56,5 +56,10 @@
       "evidence": "The weights are a one-dimensional function of the product. The ratio saturates at 2*theta*(1+o(1)) regardless of k.",
       "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
     }
-  ]
+  ],
+  "move_kind": {
+    "kind": "formula",
+    "reason": "sieve weights are written down",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  }
 }

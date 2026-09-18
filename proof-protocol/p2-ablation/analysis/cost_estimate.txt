@@ -1,0 +1,33 @@
+DESIGN AS CONFIGURED
+  20 arms x 15 items x 2 reps = 600 main runs (1800 API calls)
+  pilot: 15 items x 3 reps = 45 runs (135 calls)
+  models: answer claude-opus-5, judges claude-opus-5 + claude-sonnet-5
+
+PER-RUN TOKEN ESTIMATE (chars / 4.0; replace with usage after batch 1)
+  answer in  ~   1475   answer out ~   4000 (incl. adaptive thinking)
+  judge in   ~   4873 x2  judge out  ~    800 x2
+
+COST
+  pilot             45 runs   ~   0.5M in  ~  0.3M out   ~$8
+  main study       600 runs   ~   6.7M in  ~  3.4M out   ~$102
+  pilot + main     645 runs   ~   7.2M in  ~  3.6M out   ~$109
+
+POWER: can the design reach its own threshold?
+  runs per factor level: 300  (20.0 per problem per level)
+  assumed ICC 0.1 -> design effect 2.90; assumed base rate 40%
+  smallest detectable difference at 80% power: 19.4 points
+
+  The pre-registered target is ~30 points. The configured design REACHES it.
+  to detect 30 points:    122 runs per level ->   300 main runs  ~$51
+  to detect 20 points:    281 runs per level ->   600 main runs  ~$102
+  to detect 15 points:    501 runs per level ->  1200 main runs  ~$203
+  to detect 10 points:   1123 runs per level ->  2400 main runs  ~$407
+
+  THE BINDING CONSTRAINT IS THE DESIGN EFFECT, NOT THE BUDGET.
+  Clustering by problem inflates the variance by the factor above, and it is driven by
+  the SMALL NUMBER OF PROBLEMS, not the number of runs. Adding reps on 15 problems buys
+  progressively less; adding problems buys more per dollar. If the pilot leaves fewer
+  than ~12 usable problems, no affordable number of reps reaches 30 points, and the
+  right response is to enlarge the battery rather than to buy more runs.
+
+  Also unbudgeted: continuations when a reply is cut off (up to 1 per run), and re-runs after any failed batch.

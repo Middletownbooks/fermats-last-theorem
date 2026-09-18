@@ -50,5 +50,10 @@
       "evidence": "Game value is not multiplicative. Provers correlate across coordinates.",
       "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
     }
-  ]
+  ],
+  "move_kind": {
+    "kind": "n/a",
+    "reason": "P1 records no move slot",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  }
 }

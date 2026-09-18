@@ -57,5 +57,10 @@
       "evidence": "Counting controls the mean degree, not the maximum. The unsigned spectrum of Q_n is n-2k, additive under Cartesian product, so the median eigenvalue is about 0 and interlacing is empty.",
       "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
     }
-  ]
+  ],
+  "move_kind": {
+    "kind": "formula",
+    "reason": "subcube refinement is carried out, not asserted to exist",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  }
 }

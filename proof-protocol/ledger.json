@@ -1,0 +1,166 @@
+{
+  "purpose": "Every prediction this programme has made, and how it turned out. MEASUREMENTS.md records what was measured; this records what was EXPECTED, so the next instance's judgement is calibratable instead of confident. Rendered to LEDGER.md by tools/render_ledger.py.",
+  "as_of": "2026-09-18",
+  "scoring": "correct | wrong | partly | open | unscored. 'unscored' means the instrument to settle it exists but has not been run; 'open' means it cannot be settled yet.",
+  "predictions": [
+    {
+      "id": "P-01",
+      "by": "seed",
+      "predicted": "Transformations #3 and #5 are probably artefacts of the originating trio; the catalogue should shrink before it grows.",
+      "outcome": "correct, and understated. Step D measured label kappa = 0.048 across ALL FIVE entries, not just two. The vocabulary is not operational.",
+      "status": "correct",
+      "cost": "none — it protected against a sixth entry being added"
+    },
+    {
+      "id": "P-02",
+      "by": "seed",
+      "predicted": "Forced-choice discrimination fails as a contamination control because it is still solved by recognition.",
+      "outcome": "correct, three times over. Recognition measured at 100% (step D), 5 of 5 (L2), and 13 of 13 (the rule-less baseline).",
+      "status": "correct",
+      "cost": "none"
+    },
+    {
+      "id": "P-03",
+      "by": "seed",
+      "predicted": "L4: anonymisation will fail on famous cases at any abstraction level that still permits computing the diagnostic. Only a prospective arm gives a clean estimate.",
+      "outcome": "correct. The rule-less baseline named every one of 13 problems from a deliberately abstracted description and scored PERFECTLY (J = 1.000).",
+      "status": "correct",
+      "cost": "none — and it is the finding the whole programme now rests on"
+    },
+    {
+      "id": "P-04",
+      "by": "seed",
+      "predicted": "De-tensorize, as stated, is the right shape.",
+      "outcome": "wrong. It fires the opposite way on cases 2 and 3, and the seed itself caught this in its own P3 pass.",
+      "status": "wrong",
+      "cost": "the entry was replaced by product-law matching, which then had its own problems"
+    },
+    {
+      "id": "P-05",
+      "by": "seed",
+      "predicted": "Product-law matching should replace de-tensorize. Flagged by the seed itself as circular: derived from the cases it was scored on.",
+      "outcome": "partly. Restated leak-free it separates positives from twins (J = 0.675 against chance J = 0), but it LOSES to a rule-less rater by 0.325, and it takes a false positive on N8 that exposed a domain defect.",
+      "status": "partly",
+      "cost": "one withdrawn headline claim; one new open debt (D23)"
+    },
+    {
+      "id": "P-06",
+      "by": "seed",
+      "predicted": "Against E5(b): the better discriminator is whether the existence guarantee is strictly cheaper than the target. Flagged n = 3 and the same circularity.",
+      "outcome": "scored. The ORIGINAL criterion is refuted as a disqualifying condition (2 of 10 successes had existence-theorem moves) but untestable as a discriminator, because all P1 cases are successes. The REPLACEMENT is DROPPED: no metric for 'cheaper' is stated, so it is not computable — the same standard that dropped auxiliary-witness lift.",
+      "status": "wrong",
+      "cost": "the replacement is dropped rather than carried; it also exposed D26, that the corpus cannot test any success-versus-failure criterion at all"
+    },
+    {
+      "id": "P-07",
+      "by": "seed",
+      "predicted": "Many of the 15 textbook battery items will hit ceiling in the pilot.",
+      "outcome": "not yet scored — the pilot needs an API key. The cost estimate shows the full study is ~$109, so this is not blocked by money.",
+      "status": "unscored",
+      "cost": "none yet"
+    },
+    {
+      "id": "P-08",
+      "by": "seed",
+      "predicted": "2 of 15 headline results (sphere packing, Kelley-Meka) were better play on an unchanged board, so the programme's hypothesis should carry that denominator.",
+      "outcome": "upheld. ADJ-14 confirmed the sphere-packing reclassification from sources: Cohn-Elkies 2003 was itself the board change over Kabatyanskii-Levenshtein, and Cohn and Elkies conjectured their own board would settle dimensions 8 and 24.",
+      "status": "correct",
+      "cost": "none"
+    },
+    {
+      "id": "P-09",
+      "by": "seed",
+      "predicted": "Case 9 (Vinogradov): the pre-Wooley bound and the log-k-rounds leak, flagged [K, medium confidence].",
+      "outcome": "the flag was warranted but for the wrong reason. The bound is correct for the classical method; the CUTOFF DATE was wrong — Wooley is arXiv:1101.0574, posted eleven months inside it. The case was voided.",
+      "status": "partly",
+      "cost": "one of five L2 cases voided, a fifth of that sample"
+    },
+    {
+      "id": "P-10",
+      "by": "seed",
+      "predicted": "Case 5 (Kakeya): the pre-Dvir exponent, flagged as the shakiest citation.",
+      "outcome": "the flag was right and the error was WORSE than flagged. Not a wrong exponent but (a) a missing regime — (n+2)/2 > 4n/7 exactly when n < 14 — and (b) a probable Euclidean/finite-field conflation, since 4n/7 is Katz-Tao's Minkowski-dimension bound.",
+      "status": "partly",
+      "cost": "a schema change (multi-regime bound) that turned out to be needed anyway"
+    },
+    {
+      "id": "P-11",
+      "by": "L2",
+      "predicted": "L2-1 (its own pre-registered prediction).",
+      "outcome": "FAILED on both halves. It survives only if PARTIAL is counted with AGREE. It was scored as failed.",
+      "status": "wrong",
+      "cost": "none — scoring it honestly is what makes the rest of L2 readable"
+    },
+    {
+      "id": "P-12",
+      "by": "this session",
+      "predicted": "The rebuilt diagnostic takes zero false positives over eight negatives.",
+      "outcome": "WRONG, and withdrawn. Three blind raters unanimously assigned N8 max/l2 where I had additive/additive; I checked and they were right. Corrected specificity 7/8.",
+      "status": "wrong",
+      "cost": "one retracted headline; it exposed D23, which is worth more than the claim was"
+    },
+    {
+      "id": "P-13",
+      "by": "this session",
+      "predicted": "Moving the judgement onto two closed-vocabulary fields will make it reproduce where the free-text leak did not.",
+      "outcome": "correct on the fields: Fleiss kappa +0.811 and +0.755 against the measured 0.048 baseline. NOT correct on the rule built from them: +0.618 with CI [+0.220, +0.904].",
+      "status": "partly",
+      "cost": "none — and the field/rule gap is itself a finding"
+    },
+    {
+      "id": "P-14",
+      "by": "this session",
+      "predicted": "Implicitly, that the retrospective 2x2 measured something about the diagnostic.",
+      "outcome": "WRONG. A rule-less rater scores J = 1.000 against the diagnostic's 0.675 — lift of -0.325 — with 13/13 recognition. The retrospective arm is saturated by recall and cannot measure a diagnostic's value at all.",
+      "status": "wrong",
+      "cost": "every retrospective 2x2 in the tree is downgraded to self-consistency; this is the largest single correction the programme has made"
+    },
+    {
+      "id": "P-15",
+      "by": "this session",
+      "predicted": "Six named textbook battery items will ceiling and are the right ones to retire.",
+      "outcome": "not scored — no pilot. The list is labelled a prediction in battery.py and should be scored against the measured per-item rates when a key exists.",
+      "status": "unscored",
+      "cost": "none; it is a free pre-registered forecast"
+    },
+    {
+      "id": "P-16",
+      "by": "this session",
+      "predicted": "Erdos distinct distances in R^3 is a clean negative twin because Guth-Katz does not transfer.",
+      "outcome": "wrong. A search found a recent claim of N^{2/3-o(1)} in R^3. The candidate was rejected before it entered the set.",
+      "status": "wrong",
+      "cost": "none — caught at vetting; recorded in twins/REJECTED.json so it is not re-proposed"
+    },
+    {
+      "id": "P-17",
+      "by": "this session",
+      "predicted": "The P2 study's budget would be the binding constraint on its power.",
+      "outcome": "wrong. The full study is ~$109 and the configured design already detects 19.4 points against a 30-point target. The binding constraint is the DESIGN EFFECT from having few problems, which more runs cannot fix.",
+      "status": "wrong",
+      "cost": "none — it redirects the fix from buying runs to enlarging the battery"
+    },
+    {
+      "id": "P-18",
+      "by": "this session",
+      "predicted": "Five sealed prospective predictions: 2607.21517 no-fire, 2609.15025 fire, 2608.14454 not-applicable, 2608.30273 no-fire, 2606.12181 fire.",
+      "outcome": "open. All five await resolution.",
+      "status": "open",
+      "cost": "none yet; this is the only uncontaminated instrument in the programme"
+    },
+    {
+      "id": "P-19",
+      "by": "this session",
+      "predicted": "D9 could be scored mechanically once schema v2 made formula-vs-existence its own field.",
+      "outcome": "half right. The original criterion became scoreable; the replacement did not, and the corpus turned out to contain no failures to score either against.",
+      "status": "partly",
+      "cost": "none — the attempt is what surfaced D26"
+    }
+  ],
+  "lessons": [
+    "Every flag the seed raised about its own citations was warranted, and in two of two cases the error was WORSE than flagged. A self-flagged low-confidence claim should be treated as probably wrong, not probably imprecise.",
+    "Three of the four wrong predictions made this session were mine, and two were caught only by an external check — three blind raters on N8, and a rule-less rater on the baseline. Self-scoring found the vocabulary bug; it did not find either of the substantive errors.",
+    "The predictions that held up best were the seed's about CONTAMINATION. The ones that failed worst were everyone's about DIAGNOSTIC VALUE. That asymmetry is the programme's central result so far: it is much easier to establish that a measurement is confounded than to establish that a procedure helps.",
+    "No prediction in this programme has yet been settled by a retrospective 2x2. They were settled by a dating check, an arithmetic check, a unanimous rater disagreement, and a baseline.",
+    "Twice now a criterion has been dropped for the same reason: no computable diagnostic (auxiliary-witness lift, and the E5(b) replacement). Both were phrased as insights rather than as procedures. A criterion that cannot say what it reads off the page is not a criterion, and the catalogue has shrunk from five transformations plus two proposals to two tested rules."
+  ]
+}

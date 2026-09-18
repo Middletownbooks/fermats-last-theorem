@@ -72,8 +72,23 @@ def cmd_open(a) -> int:
     return 0
 
 
+def _seals_intact(log) -> list[str]:
+    return [f"{r.get('id')}/{r.get('phase')}" for r in log if r.get("seal") != seal(r)]
+
+
 def cmd_resolve(a) -> int:
     log = read_log()
+    # GATE: a broken seal anywhere voids resolution. Checking this BEFORE recording an outcome is
+    # the whole point — a seal verified afterwards proves nothing about what was predicted.
+    broken = _seals_intact(log)
+    if broken:
+        print("REFUSING to resolve: seals are broken on " + ", ".join(broken))
+        print("A prediction whose seal does not verify is VOID, not resolvable. Record it as void.")
+        return 1
+    if not a.method_read_by:
+        print("REFUSING to resolve: --method-read-by is required. Who read the method section is "
+              "part of the record.")
+        return 1
     if not [r for r in log if r["id"] == a.id and r["phase"] == "open"]:
         print(f"no sealed prediction for {a.id}; open one first")
         return 1
@@ -81,7 +96,8 @@ def cmd_resolve(a) -> int:
         print(f"{a.id} is already resolved")
         return 1
     append({"phase": "resolve", "id": a.id, "outcome": a.outcome,
-            "what_they_did": a.what_they_did, "notes": a.notes or ""})
+            "what_they_did": a.what_they_did, "method_read_by": a.method_read_by,
+            "seals_verified_before_reading": True, "notes": a.notes or ""})
     print(f"resolved {a.id}: {a.outcome}")
     return 0
 
@@ -128,6 +144,12 @@ def cmd_report(a) -> int:
              "FALSE NEGATIVE" if pos else "TN")
         tp += f_ and pos; fp += f_ and not pos; fn += (not f_) and pos; tn += (not f_) and not pos
         print(f"  {i:16} {o['prediction']:14} {r['outcome']:26} {o['how_much_was_read']:32} {v}")
+    na = sum(1 for o in opens.values() if o["prediction"] == "not-applicable")
+    print(f"\n  NOT-APPLICABLE RATE: {na}/{len(opens)} = {na / max(len(opens), 1):.0%} of sealed "
+          f"predictions.")
+    print("  This is a first-class number, not a footnote. A diagnostic that declines to speak on")
+    print("  most new work is not useful even when it is never wrong, and the not-applicable rate")
+    print("  is the only honest measure of that.")
     n = tp + fp + tn + fn
     if n:
         print(f"\n  uncontaminated 2x2 on {n} resolved item(s): "
@@ -153,7 +175,10 @@ def main() -> int:
     p.add_argument("--notes"); p.set_defaults(fn=cmd_open)
     p = sub.add_parser("resolve")
     p.add_argument("--id", required=True); p.add_argument("--outcome", choices=OUTCOMES, required=True)
-    p.add_argument("--what-they-did", required=True); p.add_argument("--notes")
+    p.add_argument("--what-they-did", required=True)
+    p.add_argument("--method-read-by", required=True,
+                   help="who read the method section; recorded, and required")
+    p.add_argument("--notes")
     p.set_defaults(fn=cmd_resolve)
     sub.add_parser("verify").set_defaults(fn=cmd_verify)
     sub.add_parser("report").set_defaults(fn=cmd_report)

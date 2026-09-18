@@ -64,5 +64,10 @@
     "source": "L2",
     "was": "s >~ c*k^2*log k, flagged [K, medium confidence]",
     "why": "The bound is correct for the classical method. The seed's low-confidence flag was warranted, but for the wrong reason: the fault was the cutoff date, not the recall."
+  },
+  "move_kind": {
+    "kind": "formula",
+    "reason": "p-adic congruencing iteration is computed",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
   }
 }

@@ -50,5 +50,10 @@
       "evidence": "Size is multiplicative in the exponent under product.",
       "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
     }
-  ]
+  ],
+  "move_kind": {
+    "kind": "formula",
+    "reason": "k-fold parallel repetition is applied",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  }
 }

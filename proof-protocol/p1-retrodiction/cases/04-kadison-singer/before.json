@@ -56,5 +56,10 @@
       "evidence": "The factor n in tr exp gives log n. It is tight on direct sums of independent blocks (the maximum of n independent quantities).",
       "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
     }
-  ]
+  ],
+  "move_kind": {
+    "kind": "existence-theorem",
+    "reason": "random partition: the argument needs a good partition to exist",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  }
 }

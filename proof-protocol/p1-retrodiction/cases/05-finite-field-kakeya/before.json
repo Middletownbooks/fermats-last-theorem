@@ -88,5 +88,10 @@
       "what": "Beyond the ordering error L2 found, the high-dimensional exponent itself appears to import a Euclidean Minkowski-dimension bound into a finite-field cardinality bound.",
       "consequence": "The n < 14 crossover in tools/check_corrections.py is correct AS ARITHMETIC on the two exponents as P1 writes them, but if 4n/7 is not the finite-field exponent then the crossover POINT is an artefact. The two-regime finding that motivated the schema change does not depend on the crossover point."
     }
+  },
+  "move_kind": {
+    "kind": "formula",
+    "reason": "bush/hairbrush incidence counting is computed",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
   }
 }

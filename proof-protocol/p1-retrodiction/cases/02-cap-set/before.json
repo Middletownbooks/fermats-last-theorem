@@ -63,5 +63,10 @@
     "was": "n^{1+eps} (Bateman-Katz 2012)",
     "why": "P1 dropped the 3^n. Beside a neighbouring entry reading '3^n/n', the shorthand reads as a bound OF SIZE n^{1+eps}. Also redated 2012 -> 2011 under the arXiv-dating rule.",
     "verified_by": "web search; JAMS 25(2) 2012, arXiv:1101.5851"
+  },
+  "move_kind": {
+    "kind": "existence-theorem",
+    "reason": "the move needs a large Fourier coefficient to EXIST before restricting",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
   }
 }

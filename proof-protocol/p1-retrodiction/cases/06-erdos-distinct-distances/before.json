@@ -56,5 +56,10 @@
       "evidence": "Circle incidence bounds are weaker than line incidence bounds. The exponent stays stuck below 1.",
       "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
     }
-  ]
+  ],
+  "move_kind": {
+    "kind": "formula",
+    "reason": "counting isosceles triangles / circle incidences",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  }
 }

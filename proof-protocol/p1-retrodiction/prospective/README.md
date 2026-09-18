@@ -72,3 +72,51 @@ it accumulates slowly.
 
 The thing to protect is the seal. One unsealed prediction, or one prediction logged after a glance
 at the method, and the arm is worth exactly as much as the retrospective cases.
+
+---
+
+## Resolution procedure
+
+**Written before any prediction is resolvable, not after.** The tool enforces the parts it can.
+
+1. **Verify the seals first.** `prospective.py verify` must pass *before* the method section is
+   opened. `resolve` refuses to run while any seal is broken, and a prediction whose seal does not
+   verify is **void, not resolvable** — record it as void and say so. A seal checked *after* reading
+   proves nothing about what was predicted.
+2. **Then read the method section.** Not before. The whole value of the arm is that this order held.
+3. **Record who read it.** `--method-read-by` is required. In a single-instance programme the
+   resolver will often be the predictor; that is permitted and **must be recorded**, because it is a
+   weaker resolution than an independent one.
+4. **Resolve against the published method, not an abstract.** An abstract can say "new approach"
+   about better play, and "improved bound" about a board change. If only the abstract is available,
+   leave it pending.
+5. **Re-run `verify` afterwards** and keep its output with the resolution.
+6. **One prediction per item, ever.** `open` refuses a second. If the first was wrong, that is the
+   result.
+
+### What counts as which outcome
+
+| outcome | means |
+|---|---|
+| `board-changed` | a genuinely new invariant, certificate or object; the argument tracks something different |
+| `same-board-better-play` | the bound improved within the existing framework |
+| `tight-no-change` | the bound was essentially the best available, or shown tight |
+| `withdrawn` | the claim was retracted or the paper withdrawn |
+| `unresolved` | still open after the method was read |
+
+Only `board-changed` counts as a positive. `same-board-better-play` is a **negative** — that
+distinction is the whole point of the controls (sphere packing, Kelley–Meka), and collapsing it
+would make every improvement a board change.
+
+### The not-applicable rate is a result
+
+`report` prints it as a first-class number. Of the five sealed predictions, **one (20%) is
+`not-applicable`**. A diagnostic that declines to speak on most new work is not useful even when it
+is never wrong, and this rate is the only honest measure of that. It should be quoted alongside any
+accuracy figure this arm ever produces.
+
+### Maintenance
+
+Log more, every session, however few. Five is not a sample. The arm's value is entirely in its
+length, and it is the only instrument here that recall cannot inflate — which, after the baseline
+result, makes it the only one that can answer the programme's actual question.

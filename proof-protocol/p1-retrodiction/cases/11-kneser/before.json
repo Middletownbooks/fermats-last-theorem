@@ -50,5 +50,10 @@
       "evidence": "No factor. Counting cannot see the obstruction, which is qualitative.",
       "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
     }
-  ]
+  ],
+  "move_kind": {
+    "kind": "formula",
+    "reason": "combinatorial and inductive arguments",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  }
 }

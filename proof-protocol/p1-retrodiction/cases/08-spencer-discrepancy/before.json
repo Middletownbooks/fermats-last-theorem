@@ -65,5 +65,10 @@
     },
     "consequence": "These are not the same board. Any diagnostic computed here must say which board it is computed on. Expect this class of divergence on re-encoding.",
     "source": "L2"
+  },
+  "move_kind": {
+    "kind": "formula",
+    "reason": "uniform random colouring; P1 states this explicitly",
+    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
   }
 }

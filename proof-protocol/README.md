@@ -14,6 +14,16 @@ else here is an instrument, not a result.
 |---|---|---|
 | **Step D** | label κ over the five transformations | **κ = 0.048.** The vocabulary is not operational. Settled. |
 | **L2** | blind re-encoding, 5 cases | **2 of 5** leading leak mechanisms agree, but **6 of 7** are named somewhere. The leak field does not reproduce; `bound` does (3 of 4). |
+| **D20** | two-field κ, 3 blind raters | fields reproduce (**+0.811**, **+0.755**); the **rule** built on them does not, at +0.618 [+0.220, +0.904]; the zero-false-positive claim **failed**. |
+| **Baseline** | rule-less rater vs the diagnostic | the rater scores **J = 1.000** against the diagnostic's **0.675** — lift **−0.325** — with **13/13 recognition**. |
+
+> ### The result that reframes everything else
+>
+> **The retrospective arm is saturated by recall.** A rater with no rule, given the same item,
+> separates positives from twins perfectly, and names every problem while doing it. So no
+> retrospective 2×2 in this tree measures whether a diagnostic *works* — only whether it is
+> self-consistent, against a baseline that beats it. `p1-retrodiction/prospective/` is now not one
+> instrument among several; it is the only one. See `p3-taxonomy/BASELINE.md`.
 
 | Part | What it is | State |
 |---|---|---|
@@ -61,14 +71,19 @@ python3 proof-protocol/p1-retrodiction/tools/pack.py --id 01-sensitivity
 
 | # | Task | State |
 |---|---|---|
-| 1 | Verify the citation layer | **Done as far as the network allows.** `CITATIONS.md`: 20 verified, 1 corrected, 1 disputed, 1 partial, **10 declared unverified**. Two errors found. Both reclassifications adjudicated. |
+| 1 | Verify the citation layer | `CITATIONS.md`: **23 verified**, 1 corrected, 1 disputed, 2 partial, **7 declared unverified**. Two errors found. Both reclassifications adjudicated. Every egress route is blocked; search only. |
 | 2 | Fix and port the harness | **Done.** DEFECT-1 fixed and recorded; fidelity test runs the artifact's own JavaScript; non-repeating placebos; two judge families; exact arithmetic in code. |
 | 3 | Replace the battery's weakest items | **Corpus in, ground truths machine-verified. Pilot not run** — no API key here, so the retirement list is a labelled prediction. |
 | 4 | Rebuild the diagnostic on fields that reproduce | **Done.** `p3-taxonomy/DIAGNOSTIC.md`. |
-| 5 | Grow the negative twins | **8 → 20** against a target of ~25; the shortfall is stated, not padded. One candidate rejected and recorded. |
+| 5 | Grow the negative twins | **8 → 20**, and — more importantly — **6 of the 8 "standard" twins verified**, leaving 2 declared. Every twin now carries a re-check date. One candidate rejected and recorded. |
 | 6 | Pre-register the analysis | **Done**, with the defining relation `I = ABCE = BCDF = ADEF` verified computationally and the alias groups listed. |
-| 7 | Start the prospective arm | **Done.** Five sealed predictions; blinding is structural (arXiv unreachable, ids post-date the cutoff). |
-| 8 | Re-run L2 properly | **Instrument built** — all four design fixes. Not run: it needs fresh encoders on fresh cases. |
+| 7 | Start the prospective arm | **Done.** Five sealed predictions; blinding is structural. Resolution procedure now written, `resolve` gated on seal verification, not-applicable rate promoted to a first-class number (**20%**). |
+| 8 | Re-run L2 properly | **Instrument built** — all four design fixes. Deliberately **not run**: D20 was the cheap version of the same question and its answer is split. |
+| — | **D20** closed | Inputs, three filled rater sheets and verbatim output in `p3-taxonomy/d20/`. Provenance disclosed in `d20/PROVENANCE.md` — **not a fresh run**. |
+| — | **Baseline** run | `p3-taxonomy/BASELINE.md`. The finding above. |
+| — | **D9** closed | `p3-taxonomy/D9-ADJUDICATION.md`. The E5(b) replacement is **dropped**, not rescued. |
+| — | **Cost estimate** | `p2-ablation/analysis/cost_estimate.txt`. Full study ≈ **$109**, and it *reaches* its power target. Budget was never the constraint; the design effect from having few problems is. |
+| — | **Prediction ledger** | `LEDGER.md`. 19 predictions, 16 settled: **4 correct, 5 partly, 7 wrong**. |
 
 ## Do not do
 
