@@ -91,7 +91,14 @@ def main() -> int:
             sample = " ".join(sorted(overlap)[0])
             errors.append(f"{d.name}: after-board text leaked into before.json: ...{sample}...")
 
-        # L2: sources must pre-date the superseding paper.
+        # `verification_sources` may post-date the cutoff: they are what a later reader checked
+        # the row against, not what the encoder was allowed to use. Conflating the two produced a
+        # false positive here, which is how the distinction was found.
+        for vs in before.get("verification_sources", []):
+            if not vs.get("role"):
+                warnings.append(f"{d.name}: verification source {vs.get('cite')!r} has no role note")
+
+        # L2: sources_before must pre-date the superseding paper.
         sup = years(before.get("supersede", {}).get("date", ""))
         sup_year = min(sup) if sup else None
         if sup_year is None:

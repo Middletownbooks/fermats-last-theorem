@@ -419,6 +419,14 @@
         "expected": "not-applicable",
         "truth": "tight",
         "class": "negative"
+      },
+      "16-zhang-smooth-moduli": {
+        "applicable": false,
+        "operation": "none on admissible tuples",
+        "expected": "not-applicable",
+        "truth": "no board change at level n",
+        "class": "negative",
+        "note": "Contemporaneous within-problem control for case 7a. Carries a LEVEL FLAG: Zhang changed the equidistribution board one level DOWN, so this is a level-(n-1) board change feeding an unchanged level-n board -- a third category the catalogue lacks (D30)."
       }
     },
     "positive_class": "the board changed, so a correct diagnostic fires",
@@ -562,5 +570,26 @@
   "auxiliary_witness_lift": {
     "verdict": "DROPPED",
     "reason": "The task required either a diagnostic computable from the before-board alone, or removal. No such diagnostic exists: 'introduce an auxiliary object whose existence certifies the bound' has no before-board trigger, because essentially every proof introduces one. The seed already conceded near-zero discriminating power, step D measured kappa = 0.048 across the catalogue, and the standing instruction is that the catalogue should shrink before it grows. Dropped rather than rescued."
-  }
+  },
+  "candidate_diagnostics": [
+    {
+      "id": "variational-ceiling",
+      "status": "PROPOSAL, NOT A RESULT",
+      "source": "citations response sec. 4.2, from Granville on case 7",
+      "rule": "The invariant is an optimum of a ratio over a function class. Compute sup rho over the current class. FIRE iff that supremum is bounded by a constant INDEPENDENT of the problem's size parameter, while the class is legally enlargeable.",
+      "inputs": "the bound and the extremal function. NO LEAK TABLE -- the same kind of object as the product-law rule, and testable the same way.",
+      "evidence": "n = 1. On case 7: sup rho = 4 over one-variable F, independent of k -> fires; enlarging to k variables gives log k, which is what happened. Verified in p1-retrodiction/tools/check_citations_response.py.",
+      "not_circular_the_same_way": "It comes from a case that was ALREADY outside the taxonomy before anyone went looking for a rule (seed P3 finding 5 put case 7 outside it), unlike product-law matching, which was derived from the cases it was then scored on.",
+      "must_be_run_against_first": [
+        "N6-discrepancy-arithmetic-progressions",
+        "N1-johnson-lindenstrauss",
+        "N8-discrepancy-many-sets"
+      ],
+      "why_those": "A bounded optimum is sometimes bounded BECAUSE THE ANSWER IS. On those twins the rule must decline, and if it does not, it is measuring tightness again.",
+      "and_it_must_beat_this": {
+        "baseline": "the one-line bound-strength test (D28), J = +0.750, and the rule-less rater, J = +1.000",
+        "why": "D28 established that product-law matching is SURPLUS because a one-liner beat it. Any new candidate has to clear that bar, not merely clear chance. Scoring it against J = 0 would repeat the error the baseline work just corrected."
+      }
+    }
+  ]
 }

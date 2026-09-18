@@ -10,19 +10,20 @@ Every prediction this programme has made, and how it turned out. MEASUREMENTS.md
 |---|---|
 | correct | 4 |
 | partly | 6 |
-| wrong | 9 |
+| wrong | 11 |
 | unscored | 2 |
 | open | 1 |
-| **total** | **22** |
+| **total** | **24** |
 
-**19 of 22 predictions are settled.** Of those, **4 correct, 6 partly, 9 wrong.**
+**21 of 24 predictions are settled.** Of those, **4 correct, 6 partly, 11 wrong.**
 
 By author:
 
+- **this session** — 11 predictions, 9 settled, 7 wrong
 - **seed** — 10 predictions, 9 settled, 2 wrong
-- **this session** — 10 predictions, 8 settled, 6 wrong
 - **L2** — 1 predictions, 1 settled, 1 wrong
 - **this session (pre-registered before the audit)** — 1 predictions, 1 settled, 0 wrong
+- **citations responder** — 1 predictions, 1 settled, 1 wrong
 
 ## The predictions
 
@@ -36,7 +37,7 @@ By author:
 | `P-06` | seed | Against E5(b): the better discriminator is whether the existence guarantee is strictly cheaper than the target. Flagged n = 3 and the same circularity. | scored. The ORIGINAL criterion is refuted as a disqualifying condition (2 of 10 successes had existence-theorem moves) but untestable as a discriminator, because all P1 cases are successes. The REPLACEMENT is DROPPED: no metric for 'cheaper' is stated, so it is not computable — the same standard that dropped auxiliary-witness lift. | **wrong** |
 | `P-07` | seed | Many of the 15 textbook battery items will hit ceiling in the pilot. | not yet scored — the pilot needs an API key. The cost estimate shows the full study is ~$109, so this is not blocked by money. | **unscored** |
 | `P-08` | seed | 2 of 15 headline results (sphere packing, Kelley-Meka) were better play on an unchanged board, so the programme's hypothesis should carry that denominator. | upheld. ADJ-14 confirmed the sphere-packing reclassification from sources: Cohn-Elkies 2003 was itself the board change over Kabatyanskii-Levenshtein, and Cohn and Elkies conjectured their own board would settle dimensions 8 and 24. | **correct** |
-| `P-09` | seed | Case 9 (Vinogradov): the pre-Wooley bound and the log-k-rounds leak, flagged [K, medium confidence]. | the flag was warranted but for the wrong reason. The bound is correct for the classical method; the CUTOFF DATE was wrong — Wooley is arXiv:1101.0574, posted eleven months inside it. The case was voided. | **partly** |
+| `P-09` | seed | Case 9 (Vinogradov): the pre-Wooley bound and the log-k-rounds leak, flagged [K, medium confidence]. | the flag was warranted but for the wrong reason. The bound is correct for the classical method; the CUTOFF DATE was wrong — Wooley is arXiv:1101.0574, posted eleven months inside it. The case was voided. NOW FULLY RESOLVED at PRIMARY tier: the classical shape is confirmed, the constant's history recorded (3 -> 2 -> 1), the posting date independently confirmed, and the leak DERIVED rather than asserted. D1 closes. | **partly** |
 | `P-10` | seed | Case 5 (Kakeya): the pre-Dvir exponent, flagged as the shakiest citation. | the flag was right and the error was WORSE than flagged. Not a wrong exponent but (a) a missing regime — (n+2)/2 > 4n/7 exactly when n < 14 — and (b) a probable Euclidean/finite-field conflation, since 4n/7 is Katz-Tao's Minkowski-dimension bound. | **partly** |
 | `P-11` | L2 | L2-1 (its own pre-registered prediction). | FAILED on both halves. It survives only if PARTIAL is counted with AGREE. It was scored as failed. | **wrong** |
 | `P-12` | this session | The rebuilt diagnostic takes zero false positives over eight negatives. | WRONG, and withdrawn. Three blind raters unanimously assigned N8 max/l2 where I had additive/additive; I checked and they were right. Corrected specificity 7/8. | **wrong** |
@@ -50,6 +51,8 @@ By author:
 | `P-20` | this session | N9 is 'the single result most worth trying to break' -- the strongest claim in the rebuild. | WRONG, and backwards. It was the most CONFOUNDED example: over-determined by a simpler bound-strength test, resting on a target law that cannot be read because the feasible set is not closed under the product, and carrying a label that is split-dependent with a maximum signal of a factor sqrt(2). Withdrawn. | **wrong** |
 | `P-21` | this session (pre-registered before the audit) | Attack point 1 moves (substitution/vacuity); point 2 survives with a rounding caveat and possible doubt about all n; point 3 moves. | 2 of 3 directions right. Point 1: right, and the audit found two stronger arguments I missed -- non-closure of the feasible set, and split-dependence of the label. Point 2: direction right but BOTH my caveats were unnecessary -- integrality closes the rounding for all n and monotonicity makes the perfect-squares construction sufficient. Point 3: right, and the audit supplied the exponent range [2,4]. | **partly** |
 | `P-22` | this session | Implicitly, that product-law matching was worth rebuilding and testing at all. | WRONG. A one-line bound-strength test beats it (+0.750 vs +0.607) with zero false positives, differs from it only where it is wrong, and needs none of its machinery. The rule is surplus. | **wrong** |
+| `P-23` | citations responder | The Peluse survey would also cover Kelley-Meka, giving three rows from one document. | WRONG, and self-reported. The survey is Bourbaki June 2022 on Bloom-Sisask 2020; its table of records ends at Schoen 2021 and Kelley-Meka appears nowhere. Two rows, not three. Control 15 remains unsourced (D29). | **wrong** |
+| `P-24` | this session | The citations response's four derivations would need checking and might contain errors. | WRONG in the direction that matters: all four verify (23 checks). The two failures my test reported were MY bugs -- a hand-arithmetic error on the Behrend coefficient (I claimed 2.3542 against the document's correct 2.3548) and a too-tight tolerance plus a coding slip on the C9 ratio. | **wrong** |
 
 ## What it cost
 
@@ -73,6 +76,8 @@ By author:
 - **P-20** — the flagship specificity test and one positive both leave the domain; J falls 0.675 -> 0.607
 - **P-21** — none -- pre-registering it is what made the comparison possible, and it shows independent audit found what self-audit did not
 - **P-22** — none in hindsight — the rebuild is what produced D20's field kappa, D23, D27 and D28, all of which are worth more than the rule. The cost was in believing the 2x2 before it had a baseline.
+- **P-23** — one control still unsourced; the error was recorded by its author, which is the standard this project asks for
+- **P-24** — none, but it is the second time this session that checking someone else's work surfaced an error of mine rather than theirs
 
 ## Lessons
 
@@ -83,3 +88,4 @@ By author:
 5. Twice now a criterion has been dropped for the same reason: no computable diagnostic (auxiliary-witness lift, and the E5(b) replacement). Both were phrased as insights rather than as procedures. A criterion that cannot say what it reads off the page is not a criterion, and the catalogue has shrunk from five transformations plus two proposals to two tested rules.
 6. Pre-registering my own answer before the audit was worth more than the audit alone. It showed that self-analysis reached the right VERDICT on all three points but missed the two strongest ARGUMENTS on the decisive one. The pattern across this session is consistent: self-scoring finds bugs, external checks find substantive errors.
 7. The rebuild produced four findings and no working rule. Every finding came from something BREAKING: a unanimous rater disagreement (N8), an adversarial audit (N9), a baseline (D25), and a simpler rival (D28). Nothing came from the rule working. Build the rival and the baseline FIRST next time — they are cheaper than the rule and they are what produces the findings.
+8. Twice this session I set out to check another party's work and found my own error instead: the positive-class vocabulary bug, and now the Behrend coefficient. Both times the other party was right. Combined with N8 (three raters right, me wrong) and the N9 audit (auditor right on all three points), the pattern is now unambiguous: on this project my error rate on substantive checks is higher than that of the people and agents I am checking. Weight external results accordingly.

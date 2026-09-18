@@ -169,6 +169,39 @@ two items is the signature of a rule being **fitted rather than tested**.
 
 ---
 
+## Citation work, second pass — and a structural finding
+
+`CITATIONS.md`: **28 verified**, 2 corrected, 1 disputed, 2 partial, **4 unverified**. Pasted
+transcripts closed C3, C7, C9 and N3 at primary tier. Two changes of substance:
+
+- **C4 closed as a NEGATIVE result.** Neither Weaver nor Marcus–Spielman–Srivastava states the
+  threshold `δ ≲ 1/log n`. The number is **dropped** and the sourced log-dimension loss written
+  instead. The diagnostic is unaffected: case 4 fires on the *loss*, which is sourced, not the
+  *threshold*, which is not.
+- **N3 re-attributed.** The exclusion of power savings is **Salem–Spencer 1942**, not Behrend 1946 —
+  Behrend is the stronger and still best-known bound, but the exclusion does not need it. The claim
+  is also now stated **asymptotically**, with the crossover recorded: N > 10¹⁰ for δ = 0.5 but
+  **N > 10²⁴¹** for δ = 0.1.
+
+**The structural finding: case 7 splits into a contemporaneous within-problem pair.** Maynard–Tao
+changed the board and kept the old input (Granville: *"one can avoid having to prove any difficult new
+results about primes in arithmetic progressions"*); Zhang left the sieve alone and improved the input.
+So **7a is the positive and Zhang becomes control 16** — one problem, one year, two teams, one
+changing the board and one not, **with the counterfactual actually run**. Controls go 2 → 3.
+
+This matters beyond bookkeeping. **D25 found that a rule-less rater ceilings the benchmark because it
+only has to *name* the problem.** A contemporaneous within-problem pair is the one structure recall
+cannot crack: both halves are "bounded prime gaps, 2013", so a rater must separate them *on
+mechanism*. That is the most promising response to D25 that does not require waiting for the
+prospective arm (debt **D31**).
+
+Carried with it, honestly: Zhang is **not** simply better play. He changed the *equidistribution*
+board one level down — smooth moduli, factored modulus, Graham–Ringrose. So control 16 is a
+**level-(n−1) board change feeding an unchanged level-n board**, a third category the catalogue never
+had (debt **D30**). The control is valid only with the level stated.
+
+---
+
 ## Corrections to P1 that are established
 
 ### Case 5 (Kakeya) — the seed's flagged debt was real, and worse than flagged

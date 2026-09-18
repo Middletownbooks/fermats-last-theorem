@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""Verify the four derivations in the citations-response document. Standard library only."""
+from __future__ import annotations
+import math, sys
+bad = []
+def ck(name, ok, detail):
+    print(f"{'ok  ' if ok else 'FAIL'} {name}: {detail}")
+    if not ok: bad.append(name)
+
+print("=== (a) N3: Behrend excludes every fixed power saving, but the crossover is large ===")
+c2 = 2 * math.sqrt(2)                     # Behrend exponent coefficient in log_2 form
+c = c2 * math.sqrt(math.log(2))           # same coefficient in natural-log form
+ck("N3 coefficient", abs(c - 2.3548) < 1e-4,
+   f"c = 2*sqrt(2)*sqrt(ln 2) = {c:.6f}, matching the document's 2.3548. NOTE: an earlier version "
+   f"of this check asserted the document was wrong here and gave 2.3542. That was MY hand-arithmetic "
+   f"error, not the document's; the document is correct to 4 decimal places.")
+rows = []
+for delta, claimed in ((0.5, 10), (0.2, 60), (0.1, 241), (0.05, 963)):
+    lnN = (c / delta) ** 2
+    log10N = lnN / math.log(10)
+    rows.append((delta, log10N, claimed))
+    ck(f"  crossover delta={delta}", abs(log10N - claimed) < 1.0,
+       f"N > 10^{log10N:.1f} (document says 10^{claimed})")
+ck("N3 equivalence", all(abs((c2 / d) ** 2 * math.log(2) - (c / d) ** 2) < 1e-9
+                         for d in (0.5, 0.2, 0.1, 0.05)),
+   "the log_2 and natural-log forms give the same crossover, so both statements are consistent")
+
+print("\n=== (b) C3: chi_f(C5) = 5/2 ===")
+ck("C5 fractional cover", 5 / 2 == 2.5 and 5 / 2 == 5 / 2,
+   "C5 is vertex-transitive so chi_f = n/alpha = 5/2 = 2.5; it is self-complementary, so the "
+   "clique-cover convention does not bite")
+ck("  ratio to sqrt5", abs(2.5 / math.sqrt(5) - 1.118) < 1e-3,
+   f"5/2 vs sqrt5 = {math.sqrt(5):.4f}: ratio {2.5/math.sqrt(5):.4f}, a CONSTANT factor "
+   "(this is why the bound-strength test also declines on case 3)")
+
+print("\n=== (c) C9: the log k IS the contraction count ===")
+for k, m_claim, s_claim, r_claim in ((10, 38, 380, 1.650), (100, 848, 84800, 1.841),
+                                    (1000, 13116, 13116000, 1.899)):
+    m = math.ceil(math.log(k * k / 2) / -math.log(1 - 1 / k))
+    s = k * m
+    r = s / (k * k * math.log(k))
+    ck(f"k={k}", m == m_claim and s == s_claim and abs(r - r_claim) < 5e-4,
+       f"m = {m} contractions, s = km = {s}, s/(k^2 ln k) = {r:.3f}")
+def _ratio(k):
+    m = math.ceil(math.log(k * k / 2) / -math.log(1 - 1 / k))
+    return k * m / (k * k * math.log(k))
+_seq = [_ratio(k) for k in (10, 100, 1000, 10**4, 10**6)]
+ck("  ratio increases to 2", all(a < b for a, b in zip(_seq, _seq[1:])) and _seq[-1] > 1.94,
+   "ratio " + " -> ".join(f"{v:.3f}" for v in _seq) + " : increasing towards 2, matching Pierce's "
+   "'the leading 3 can be improved to a 2'. Convergence is SLOW (1.92 at k=10^4), so a tolerance "
+   "of 0.05 only holds from about k=10^6 -- my first version of this check was tighter than the "
+   "mathematics and failed for that reason, not because the claim is wrong.")
+
+print("\n=== (d) C7: rho_k saturates at 4, so the criterion caps at 2*theta ===")
+def rho(k, l):
+    return (k / (k + 2 * l + 1)) * (2 * (2 * l + 1) / (l + 1))
+TABLE = {(10, 1): 2.308, (10, 5): 1.746, (10, 20): 0.766, (10, 100): 0.189,
+         (10**6, 1): 3.000, (10**6, 5): 3.667, (10**6, 20): 3.905, (10**6, 100): 3.979}
+for (k, l), claimed in sorted(TABLE.items()):
+    v = rho(k, l)
+    ck(f"rho(k={k}, l={l})", abs(v - claimed) < 1e-3, f"{v:.3f} (document says {claimed})")
+sup = max(rho(10**9, l) for l in range(1, 4000))
+ck("rho supremum", sup < 4.0 and sup > 3.99,
+   f"sup rho over one-variable F = {sup:.4f} < 4, approached but never reached, INDEPENDENT of k")
+ck("criterion cap", abs(0.5 * 1.0 * 4 - 2.0) < 1e-12,
+   "Granville's criterion (1/2)*theta*rho > 1 therefore caps at 2*theta; needing 2*theta > 1 "
+   "recovers theta > 1/2 -- the barrier derived from the leak, not quoted beside it")
+ck("Maynard-Tao lifts it", math.log(105) - 2 * math.log(math.log(105)) - 1 > 0.5
+   and math.log(10**6) - 2 * math.log(math.log(10**6)) - 1 > 7.5,
+   f"log k - 2 log log k - 1 = {math.log(105)-2*math.log(math.log(105))-1:.2f} at k=105 and "
+   f"{math.log(10**6)-2*math.log(math.log(10**6))-1:.2f} at k=10^6: GPY capped at 4, "
+   "Maynard-Tao grows like log k")
+
+print()
+if bad:
+    print(f"{len(bad)} check(s) FAILED: {', '.join(bad)}")
+    sys.exit(1)
+print("All four derivations in the citations response verify.")

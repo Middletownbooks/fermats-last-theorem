@@ -5,7 +5,7 @@
   "surface_leak": "The whole problem is about tensors under product, which is the surface signature of a product-law failure.",
   "verdict": "open, but the law already matches",
   "wrongly_fires": "product-law-matching",
-  "why_negative": "Border rank is already submultiplicative under tensor product and omega is DEFINED through a limit of products, so the invariant's product law matches the target's. This is a specificity test: product-law matching is in its domain here and must not fire. It does not.",
+  "why_negative": "Border rank is SUBMULTIPLICATIVE -- possibly STRICTLY so -- under the Kronecker product, and omega = liminf log_n(borderrank(M_<n>)). The twin's role as a negative depends on the law being SUB-multiplicative rather than fully multiplicative: arXiv:1801.04852 exists precisely because that distinction is live. Product-law matching is in domain here and must not fire; it does not.",
   "sources": [
     {
       "cite": "Strassen; Coppersmith-Winograd and successors",
@@ -23,5 +23,6 @@
     "encoder": null,
     "kappa": null
   },
-  "recheck_by": "2027-09-18"
+  "recheck_by": "2027-09-18",
+  "qualifier": "sub- versus fully multiplicative is a LIVE distinction, not a formality"
 }

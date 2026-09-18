@@ -1,0 +1,40 @@
+{
+  "id": "16-zhang-smooth-moduli",
+  "problem": "Bounded prime gaps via smooth moduli (Zhang 2013)",
+  "role": "control",
+  "control_kind": "no-board-change-at-this-level",
+  "expected_diagnostic_behaviour": "must-not-fire",
+  "twin_of": "07-small-prime-gaps",
+  "within_problem_pair": true,
+  "board": {
+    "name": "the GPY sieve, UNCHANGED",
+    "S": "Selberg sieve weights lambda_d, one-variable F -- exactly GPY's",
+    "M": "Selberg's explicit formula, unchanged",
+    "I": "the same ratio criterion, still capped at 2*theta"
+  },
+  "what_happened": "Zhang works WITHIN GPY. He does not touch the sieve; he improves its INPUT, raising the effective level of distribution past 1/2 for smooth moduli: Theorem 3.2, y-smooth moduli, Q = x^{1/2+eta}, eta/2 = delta = 1/1168. Granville sec. 5 asks whether GPY survives Zhang's restrictions -- i.e. Zhang is measured against an unchanged GPY board.",
+  "tests_for": "False board-change alarms, and uniquely: it is CONTEMPORANEOUS with a real board change on the SAME problem at the same stakes (case 7a). Every other positive/control comparison in P1 is cross-problem and confounded by difficulty. This one is not.",
+  "level_flag": {
+    "warning": "ZHANG IS NOT SIMPLY BETTER PLAY, and calling him that would mislabel this control.",
+    "what_he_did": "He changed the EQUIDISTRIBUTION board one level down -- smooth moduli, factored modulus, Graham-Ringrose. So 7b is a LEVEL-(n-1) BOARD CHANGE feeding an UNCHANGED LEVEL-n board.",
+    "consequence": "This is a THIRD CATEGORY the five-transformation catalogue never had and the rebuilt diagnostic does not express. The control is valid only with the level stated: at level n (the sieve) the board did not change, which is what a diagnostic reading the sieve board must not fire on. At level n-1 it did.",
+    "recorded_as": "debt D30"
+  },
+  "sources": [
+    {
+      "cite": "Zhang 2013, Theorem 3.2 (y-smooth moduli, Q = x^{1/2+eta}, delta = 1/1168)",
+      "date": "2013",
+      "verified": true
+    }
+  ],
+  "verification_sources": [
+    {
+      "cite": "Granville arXiv:1410.8400 sec. 5",
+      "date": "2014",
+      "verified": true,
+      "role": "fetched source for the split and the level reading"
+    }
+  ],
+  "encoder": "citations-response-2026-09-18",
+  "encoding_pass": "case-7-split"
+}

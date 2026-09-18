@@ -5,12 +5,19 @@
   "surface_leak": "A density-increment iteration with the same shape as the cap-set argument.",
   "verdict": "tight-in-the-relevant-sense",
   "expected_diagnostic_behaviour": "fires",
-  "why_negative": "Behrend's construction excludes power savings, and slice rank gives nothing here. The cap-set after-board does not transfer.",
+  "why_negative": "SALEM-SPENCER 1942 constructed 3AP-free subsets of [N] of density exp(-log N/log log N), showing the true order of r_3(N) exceeds N^{1-eps} for every fixed eps > 0. That exclusion of power savings is what N3 asserts, and it is Salem-Spencer's, not Behrend's. BEHREND 1946 gives the stronger and still essentially best-known lower bound r_3(N) = Omega(N/exp(C sqrt(log N))). The cap-set after-board does not transfer.",
   "sources": [
     {
-      "cite": "Behrend 1946",
+      "cite": "Salem, Spencer 1942 -- the exclusion of power savings",
+      "date": "1942",
+      "verified": true,
+      "role": "states the consequence N3 asserts, outright"
+    },
+    {
+      "cite": "Behrend 1946 -- the best known lower bound",
       "date": "1946",
-      "verified": false
+      "verified": true,
+      "role": "stronger bound; the exclusion does not need it"
     }
   ],
   "role": "negative-twin",
@@ -21,5 +28,24 @@
     "encoder": null,
     "kappa": null
   },
-  "recheck_by": "2027-09-18"
+  "recheck_by": "2027-09-18",
+  "verification": "VERIFIED (PRIMARY, pasted transcript), re-attributed",
+  "asymptotic_only": {
+    "statement": "The exclusion is ASYMPTOTIC. Behrend's set exceeds N^{1-delta} only past a crossover, and the crossover is large.",
+    "crossovers": {
+      "delta=0.5": "N > 10^10",
+      "delta=0.2": "N > 10^60",
+      "delta=0.1": "N > 10^241",
+      "delta=0.05": "N > 10^963"
+    },
+    "derivation": "c = 2*sqrt(2)*sqrt(ln 2) = 2.3548; need ln N > (c/delta)^2. Verified in tools/check_citations_response.py."
+  },
+  "decay_watch": "arXiv:2406.12290 (June 2024) is the FIRST quasipolynomial improvement to Behrend since 1946. It does NOT change N3's status -- a quasipolynomial improvement to a sub-power-saving bound is still sub-power-saving -- but it is the class of event that moved Erdos distinct distances in R^3 into REJECTED.json. Re-check the other twins for movement.",
+  "verification_sources": [
+    {
+      "cite": "Peluse, Seminaire Bourbaki, arXiv:2206.10037 -- the fetched source for both",
+      "date": "2022",
+      "verified": true
+    }
+  ]
 }

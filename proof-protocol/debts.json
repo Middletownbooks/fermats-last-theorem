@@ -10,11 +10,11 @@
     {
       "id": "D1",
       "kind": "citation",
-      "status": "unverified",
+      "status": "closed",
       "confidence": "medium",
       "where": "p1-retrodiction/cases/09-vinogradov-mean-value/",
       "claim": "The pre-Wooley bound is s >~ c*k^2*log k, and the leak is that each congruencing iteration recovers a fixed fraction of the defect so about log k rounds are needed.",
-      "action": "Still not fetched. Note the case is VOID for L2 purposes through the cutoff design error, so this debt no longer blocks anything downstream."
+      "action": "CLOSED by the citations response (PRIMARY: Pierce, arXiv:1707.00119). The classical bound is confirmed as a shape and the constant's history recorded (3 -> 2 -> 1). The leak is now DERIVED, not asserted: eta_{s+k,k} <= eta_{s,k}(1-1/k), so the log k IS the contraction count, s ~ 2k^2 log k. Wooley's posting date independently confirmed."
     },
     {
       "id": "D2",
@@ -166,10 +166,10 @@
     {
       "id": "D19",
       "kind": "citation",
-      "status": "partly-closed",
+      "status": "four-rows-left",
       "where": "CITATIONS.md",
       "claim": "Ten citation rows remain unverified: cases 4, 7, 9, 10, 11, 12, 13, twin N3, the Gotsman-Linial reduction, and Shannon's 5/2 upper bound.",
-      "action": "Egress re-tested this session and ALL routes are blocked, including non-arXiv hosts (jstor, springer, ams, crossref, doi.org). Web search remains the only door and was used: C11 (Kneser/Lovasz) and C13 (Dinur) are now VERIFIED, and C4 is PARTIAL (after-board verified, before-board bound not). Seven rows remain unverified: C7, C9, C10, C12, N3, C1-gotsman, C3-shannon. Ask the user to paste abstracts for those seven — it is one message, not seven, and it converts standing debts into verified rows. The single request is written out as CITATIONS-NEEDED.md, naming the exact seven rows and what is needed from each. N3 is the highest priority: it is the discriminator for the only within-family separation the diagnostic makes."
+      "action": "Down from ten rows to FOUR (C10, C12, N16, N20), plus control 15. C3, C7, C9 and N3 closed at PRIMARY tier from pasted transcripts -- which count as fetched primary sources by this project's standard. Routes for the rest: control 15 needs arXiv:2302.07211; C12 needs math/0211159 (low stakes, case 12 fits no transformation); C10's primaries are largely pre-arXiv and probably unimprovable by transcript; N16 and N20 are already there in substance and now carry their qualifiers."
     },
     {
       "id": "D20",
@@ -243,6 +243,31 @@
       "where": "p3-taxonomy/d20/N9-audit-result.md",
       "claim": "The rule 'does the best known lower bound match the upper bound to within a constant factor?' reproduces product-law matching's verdicts on the hypercube boards exactly, needs no product-law machinery, and is immune to the rater dispute over the counting board's label. Verified: the l2-vs-max distinction can carry at most a factor sqrt(2), and it was being used to flag a polynomial (log n vs sqrt n) gap.",
       "action": "RUN. d28_bound_strength.json + BASELINE.md. The one-line test 'is the bound tight to within a constant factor?' scores J = +0.750 against product-law matching's +0.607, with ZERO false positives where the diagnostic takes one, and differs on exactly one item — N8, where the diagnostic is wrong. The product-law machinery is SURPLUS: more complicated, worse-performing, and needing two post-hoc domain patches the one-line test does not need. Both lose to the rule-less rater (+1.000). What survives of the rebuild is D20's field kappa and the falsifications themselves, not the rule."
+    },
+    {
+      "id": "D29",
+      "kind": "unsourced",
+      "status": "open",
+      "where": "p1-retrodiction/controls/15-roth-kelley-meka.json",
+      "claim": "Control 15 (Kelley-Meka) is still unsourced. The Peluse survey was expected to cover it and does NOT -- it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere.",
+      "action": "arXiv:2302.07211 is the candidate; one transcript closes it. Recorded as an error in the citations response's own sec. 5, which is the standard this project asks for."
+    },
+    {
+      "id": "D30",
+      "kind": "catalogue-gap",
+      "status": "open",
+      "where": "p1-retrodiction/controls/16-zhang-smooth-moduli.json",
+      "claim": "The catalogue has no axis for WHAT LEVEL and IN WHAT SUBSTRATE a change occurred. Two independent signs: (a) Zhang changed the equidistribution board one level DOWN while leaving the GPY sieve unchanged, so 7b is a level-(n-1) board change feeding an unchanged level-n board; (b) Pierce sec. 8.5 argues efficient congruencing and l^2 decoupling share rescaling, multilinear estimates, iteration and transversality, quoting Wooley that they may be 'p-adic and Archimedean perspectives of one unified method' -- a same-mechanism-two-substrates claim about a case the taxonomy calls a board change, made by the survey author rather than by us.",
+      "action": "Encode the level explicitly on every board change, or control 16 is mislabelled. Do NOT add a transformation: the standing rule is that catalogues shrink before they grow, and this is an AXIS, not an entry."
+    },
+    {
+      "id": "D31",
+      "kind": "the-best-answer-to-D25-so-far",
+      "status": "open",
+      "where": "p1-retrodiction/controls/16-zhang-smooth-moduli.json",
+      "claim": "The case 7 split gives the benchmark its FIRST CONTEMPORANEOUS WITHIN-PROBLEM CONTROL: 7a (Maynard-Tao, board changed) against 16 (Zhang, level-n board unchanged) -- one problem, one year, two teams, with the counterfactual actually run. Every other positive/control comparison in P1 is cross-problem and confounded by difficulty.",
+      "why_it_matters": "D25 measured that a rule-less rater ceilings the benchmark at J = 1.000 with 13/13 recognition -- it only has to NAME the problem. A contemporaneous within-problem pair is the one structure recall cannot crack: both halves are 'bounded prime gaps, 2013', so the rater must separate Maynard-Tao from Zhang ON MECHANISM. This is the most promising response to D25 that does not require waiting for the prospective arm.",
+      "action": "Run the rule-less baseline on JUST this pair and see whether it still separates them. If it cannot, contemporaneous within-problem pairs are the item type the benchmark should be rebuilt around, and finding more of them becomes the priority over adding twins. If it still can, recall is deeper than problem-naming and the retrospective arm is finished."
     }
   ],
   "failure_register": [
@@ -317,6 +342,7 @@
     "Do not treat P1's numbers as verified beyond the 20 rows CITATIONS.md marks VERIFIED.",
     "Do not reuse L2's five original blind encodings in a re-run; they would contaminate new raters.",
     "Do not log a prospective prediction after glancing at a method section. One unsealed prediction and that arm is worth no more than the retrospective cases.",
-    "Do not quote any retrospective 2x2 in this tree as evidence that a diagnostic WORKS. Measured: a rule-less rater beats the best diagnostic here by 0.325 in Youden's J, with 13/13 recognition (D25). Quote them, if at all, as self-consistency against a baseline that beats them."
+    "Do not quote any retrospective 2x2 in this tree as evidence that a diagnostic WORKS. Measured: a rule-less rater beats the best diagnostic here by 0.325 in Youden's J, with 13/13 recognition (D25). Quote them, if at all, as self-consistency against a baseline that beats them.",
+    "Do not score a new candidate diagnostic against chance (J = 0). The bar is now the one-line bound-strength test, J = +0.750, and the rule-less rater, J = +1.000. Scoring against chance is the error the baseline work corrected."
   ]
 }

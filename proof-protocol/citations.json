@@ -59,9 +59,11 @@
       "id": "C3-shannon",
       "where": "case 3 bound_then",
       "claim": "sqrt 5 <= Theta <= 5/2 (Shannon 1956)",
-      "found": "Not separately confirmed this session.",
-      "status": "UNVERIFIED",
-      "note": "Low risk — it is the standard pre-Lovasz statement — but it was not checked, and the standard here is that unchecked means unverified."
+      "found": "Shannon determined Theta(G) for all graphs on at most SIX vertices except C5, proved Theta(C5) >= sqrt5 via the explicit independent set {t(1,2) : t in Z_5}, and THE 5/2 UPPER BOUND IS HIS OWN, by what is now called the fractional clique covering number. The before-board needs no change.",
+      "status": "VERIFIED",
+      "note": "Low risk — it is the standard pre-Lovasz statement — but it was not checked, and the standard here is that unchecked means unverified.",
+      "source": "pasted transcript (PRIMARY)",
+      "refinement": "A search snippet relayed earlier said FIVE vertices; the transcript says six. Use six. Load-bearing and it holds: case 3 is the one principled false negative precisely because chi_f is multiplicative under the strong product and merely not tight -- and chi_f(C5) = 5/2 is COMPUTED here (vertex-transitive, n/alpha), ratio 1.118 to sqrt5, a constant factor."
     },
     {
       "id": "C5-wolff",
@@ -208,24 +210,31 @@
       "id": "C4",
       "where": "case 4",
       "claim": "Weaver KS_2 needs delta <~ 1/log n; MSS interlacing families",
-      "status": "PARTIAL",
+      "status": "CORRECTED",
       "note": "Split row: after-board verified, before-board bound still unverified.",
-      "found": "The AFTER-board is verified: Marcus-Spielman-Srivastava, 'Interlacing Families II: Mixed Characteristic Polynomials and the Kadison-Singer Problem', arXiv:1306.3969, Annals 182(1) 2015, proves Weaver's KS_2 by bounding the largest root of expected mixed characteristic polynomials. The BEFORE-board detail (that the matrix-Chernoff route needs delta <~ 1/log n) was NOT confirmed by any source reached this session.",
-      "source": "arXiv:1306.3969"
+      "found": "NEITHER Weaver (math/0209078) NOR Marcus-Spielman-Srivastava (1306.3969) states the threshold delta <~ 1/log n. A negative result, and the flagged remedy applies.",
+      "source": "Weaver math/0209078; MSS 1306.3969",
+      "correction": "The number is DROPPED from case 4's bound_then and replaced by the sourced statement: the matrix-Chernoff / random-partition route loses a factor logarithmic in the dimension, and interlacing families remove it. Keeping a figure no source states is exactly the defect C2 and C5 already were. The diagnostic is unaffected -- case 4 fires on the LOSS, which is sourced, not the THRESHOLD, which is not."
     },
     {
       "id": "C7",
       "where": "case 7",
       "claim": "GPY needs theta > 1/2; Bombieri-Vinogradov gives exactly 1/2; Zhang and Maynard after-boards",
-      "status": "UNVERIFIED",
-      "note": "Not checked this session."
+      "status": "VERIFIED",
+      "note": "Not checked this session.",
+      "found": "Granville, arXiv:1410.8400v1, verifies every field verbatim or in substance: the sieve weights, the ratio criterion, two primes in the tuple, and theta > 1/2 against Bombieri-Vinogradov's exactly 1/2.",
+      "source": "arXiv:1410.8400v1 (PRIMARY)",
+      "refinement": "Three additions. (1) The invariant's threshold is not literally 1: Prop. 6.3 gives rho(F) > 4h unconditionally, > 2h under Elliott-Halberstam. (2) bound_then named only theta, but D = [d_1,d_2] <= R^2 binds the sieve as R < x^{1/4-o(1)}, which sec. 4.2 calls 'an important barrier' -- the same barrier from two sides, and a field naming one loses the form in which it bites, exactly as case 5's single-regime field lost a dimension range. (3) Two EMPTY slots are now filled: move = Selberg's explicit formula lambda(d) = mu(d)G(log d/log R), composition = multiplicativity of omega. The leak is DERIVED: rho_k caps at 4 independent of k, so the criterion caps at 2*theta and theta > 1/2 follows."
     },
     {
       "id": "C9",
       "where": "case 9",
       "claim": "s >~ c k^2 log k classical; Wooley efficient congruencing",
-      "status": "UNVERIFIED",
-      "note": "Not checked this session. The case is void for L2 purposes anyway, through the cutoff design error. The arXiv id 1101.0574 and its 2011-01-03 posting date are taken from the task list and were not independently confirmed here."
+      "status": "VERIFIED",
+      "note": "Not checked this session. The case is void for L2 purposes anyway, through the cutoff design error. The arXiv id 1101.0574 and its 2011-01-03 posting date are taken from the task list and were not independently confirmed here.",
+      "found": "Pierce, arXiv:1707.00119, confirms the classical shape and gives eta_{s,k} = (1/2)k^2(1-1/k)^{[s/k]} with s >= 3k^2(log k + O(log log k)), the leading 3 improvable to 2; Wooley's 1992 thesis gives the constant 1. Wooley's efficient congruencing is confirmed as arXiv:1101.0574, 3 January 2011, Annals 175(3) 1575-1627.",
+      "source": "arXiv:1707.00119 (PRIMARY) + derivation (DERIVED)",
+      "refinement": "The leak is now a DEMONSTRATION rather than a claim: each block of k variables multiplies the defect by a fixed fraction, so burning k^2/2 to O(1) needs ~k log(k^2/2) contractions and s ~ 2k^2 log k. THE log k IS THE CONTRACTION COUNT. Case 9 was one of only two cases where L2's encoders agreed on the leading mechanism, and this is why. D1 CLOSES."
     },
     {
       "id": "C10",
@@ -261,8 +270,12 @@
       "id": "N3",
       "where": "twin N3",
       "claim": "Behrend excludes power savings; slice rank gives nothing in [N]",
-      "status": "UNVERIFIED",
-      "note": "Not checked this session. N3 is load-bearing for the rebuilt diagnostic (it is the discriminator against case 2), but the diagnostic's use of it rests on the ABSENCE of a product structure on [N], which is structural and does not depend on Behrend."
+      "status": "VERIFIED",
+      "note": "Not checked this session. N3 is load-bearing for the rebuilt diagnostic (it is the discriminator against case 2), but the diagnostic's use of it rests on the ABSENCE of a product structure on [N], which is structural and does not depend on Behrend.",
+      "found": "Peluse, arXiv:2206.10037: SALEM-SPENCER (1942) constructed 3AP-free subsets of [N] of density exp(-log N/log log N), 'showing that the true order of magnitude of r_3(N) is larger than N^{1-eps} for any fixed eps > 0'. Behrend (1946) gives the stronger, still essentially best-known Omega(N/exp(C sqrt(log N))).",
+      "correction": "RE-ATTRIBUTED. The exclusion of power savings -- the thing N3 asserts -- is SALEM-SPENCER's, not Behrend's. Both are now cited in their roles.",
+      "source": "arXiv:2206.10037 (PRIMARY)",
+      "refinement": "The exclusion is ASYMPTOTIC and the crossover is large: N > 10^10 for delta = 0.5 but N > 10^241 for delta = 0.1 (derived and verified here). The item now says so. Also logged: arXiv:2406.12290 is the first quasipolynomial improvement to Behrend since 1946 -- it does not change N3's status, but it is the class of event that rejected the Erdos-R^3 candidate."
     },
     {
       "id": "C1-gotsman",
@@ -278,6 +291,39 @@
       "found": "Six upgraded to verified this session: N11 (max of n Gaussians, asymptotically tight), N12 (Raab-Steger 1998, tight upper AND lower bounds), N13 (E[T] = n*H_n, verified by exact computation rather than citation), N17 (Alon-Boppana, attained by Lubotzky-Phillips-Sarnak and Margulis Ramanujan families), N18 (Szemeredi-Trotter, Elekes construction; except for the constant it cannot be improved), N19 (Sauer-Shelah, attained exactly by downward-closed systems).",
       "status": "VERIFIED",
       "refinement": "N16 (matrix-multiplication exponent) and N20 (Kovari-Sos-Turan) remain STANDARD and are declared so. Every twin now carries a recheck_by date, per D21 — twin candidates decay, as the rejected Erdos-R^3 candidate showed."
+    },
+    {
+      "id": "C10",
+      "where": "case 10",
+      "claim": "Fortnow then Feige counterexamples; Raz 1995 / Holenstein 2007 after-boards",
+      "found": "Search reaches it in substance, including the Fortnow-then-Feige ordering the row asserts (Feige-Verbitsky 2002 the simpler example), Raz's sub-exponential decay and Holenstein's simplification. The primaries are largely pre-arXiv, so a transcript is unlikely to improve it.",
+      "status": "SEARCH",
+      "note": "Case 10's target_law = 'none' rests on these counterexamples."
+    },
+    {
+      "id": "C12",
+      "where": "case 12",
+      "claim": "Perelman W-entropy and reduced volume give kappa-noncollapsing",
+      "found": "Bibliographic record confirmed (math/0211159, 11 Nov 2002); the cigar-soliton obstruction and the entropy-plus-reduced-distance remedy corroborated from a secondary source.",
+      "status": "PARTIAL",
+      "note": "Lowest stakes of any open row: case 12 fits none of the five transformations."
+    },
+    {
+      "id": "C2-after-split",
+      "where": "heldout/02-cap-set",
+      "claim": "P1 credited Croot-Lev-Pach and Ellenberg-Gijswijt jointly for the cap-set after-board.",
+      "found": "Peluse: CLP proved a bound for (Z/4Z)^n (O(3.61^n), improving Sanders); EG ADAPTED THE METHOD to prove the cap-set theorem. CLP supplied the method, EG the theorem.",
+      "status": "VERIFIED",
+      "source": "arXiv:2206.10037",
+      "refinement": "Same transcript confirms Meshulam O(3^n/n), Bateman-Katz O(3^n/n^{1+c}), Edel Omega(2.217^n), EG O(2.756^n)."
+    },
+    {
+      "id": "C15",
+      "where": "controls/15-roth-kelley-meka.json",
+      "claim": "Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N).",
+      "found": "STILL UNSOURCED. The Peluse survey was expected to cover it and does not: it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere.",
+      "status": "UNVERIFIED",
+      "note": "Recorded as an error in the citations response's own error section. arXiv:2302.07211 is the candidate; one transcript closes it. Debt D29."
     }
   ],
   "adjudications": [
@@ -293,5 +339,12 @@
       "verdict": "UPHELD on the stated ground",
       "reasoning": "This is a definitional argument, not a citation, so it is adjudicated rather than verified. The seed's ground holds: the before-board was a SUCCESSFUL proof — parallel repetition did amplify the gap — and the defect was size blow-up n^k, not a failing bound. The benchmark scores predictions about bounds that failed, so the item does not belong among the scored positives. Noted for the record: the rebuilt diagnostic WOULD fire on it (target law additive, bound law multiplicative), which is evidence the item is well-formed, not evidence it should be scored."
     }
-  ]
+  ],
+  "tiers": {
+    "PRIMARY": "a fetched source states it, quoted. A PASTED TRANSCRIPT counts as a fetched primary source by this project's standard. -> VERIFIED",
+    "DERIVED": "arithmetic, reproducible here, needs no source -> COMPUTED",
+    "SEARCH": "search snippets only. The same tier as the 23 rows already verified, no better.",
+    "OPEN": "nothing reached it -> stays UNVERIFIED",
+    "rule": "Where a transcript and a search snippet disagree, THE TRANSCRIPT WINS and the snippet row is corrected, not reconciled."
+  }
 }

@@ -141,10 +141,13 @@ different phenomenon from cases 1, 2, 4 and 10, and forcing it into the same ent
 original "de-tensorize" look incoherent. N4 (Θ(C7)) behaves identically and is still open, which is
 consistent: a tightness failure is not repaired by changing the law.
 
-**2. N3 is the discriminator, and it is the case the leak-based version could not do.** N3 (3AP-free
-sets in [N]) is case 2's twin and carries the *same surface leak*. But `[N₁] × [N₂]` is not
-`[N₁N₂]` for arithmetic-progression structure, so 3AP-free sets do not multiply as they do in
-F₃ⁿ — the product operation that makes case 2 fire is **absent**. The rebuilt diagnostic separates
+**2. N3 is the discriminator, and there is now a better-sourced reason for it than the one this file
+originally gave.** N3 (3AP-free sets in [N]) is case 2's twin and carries the *same surface leak*.
+The original reason given here was that `[N₁] × [N₂]` is not `[N₁N₂]` for AP structure, so the
+product operation is absent. **Peluse (arXiv:2206.10037) gives a sharper one:** the density increment
+costs **O(1) codimension per step in F₃ⁿ** (N_{i+1} ≍ N_i) but **N_{i+1} ≍ α^{O(1)}√N_i in [N]** —
+which is precisely why the same argument yields 3ⁿ/n there and only N/log log N here. That is the
+mechanism, stated by a survey author rather than inferred by us, and it should be preferred. The rebuilt diagnostic separates
 them on an objective structural fact. The same distinction explains N7 against case 5, and 15
 (Kelley–Meka) against case 2.
 

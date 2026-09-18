@@ -10,23 +10,23 @@
   },
   "before_board": {
     "S": "Sieve weights lambda_d with d dividing the product of (n + h_i) over an admissible k-tuple.",
-    "M": null,
-    "I": "Ratio S_2/S_1 > 1.",
-    "C": null,
+    "M": "Selberg's construction lambda(d) = mu(d)G(log d / log R) -- an EXPLICIT FORMULA, not an existence theorem.",
+    "I": "Ratio S_2/S_1 > 1. The threshold is not literally 1: Granville Prop. 6.3 gives rho(F) > 4h unconditionally and > 2h under Elliott-Halberstam.",
+    "C": "Multiplicativity of omega(.), which lets the divisor sums factor prime-by-prime (Granville sec. 4.2).",
     "T": "Two primes in the tuple."
   },
-  "bound_then": "GPY: needs level of distribution theta > 1/2; Bombieri-Vinogradov gives exactly 1/2.",
+  "bound_then": "GPY needs level of distribution theta > 1/2 and Bombieri-Vinogradov gives exactly 1/2. THE SAME BARRIER FROM THE OTHER SIDE: because D = [d_1,d_2] <= R^2, the constraint binds the sieve as R < x^{1/4 - o(1)}, which Granville sec. 4.2 calls 'an important barrier'. A field naming only theta loses the form in which it bites -- compare case 5, where a single-regime field lost a dimension range.",
   "leak": "The weights are a one-dimensional function of the product. The ratio saturates at 2*theta*(1+o(1)) regardless of k.",
   "sources_before": [
     {
       "cite": "Goldston, Pintz, Yildirim 2005/2009",
       "date": "2005",
-      "verified": false
+      "verified": true
     },
     {
       "cite": "Bombieri-Vinogradov",
       "date": "1965",
-      "verified": false
+      "verified": true
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",
@@ -39,12 +39,20 @@
   "schema_version": 2,
   "bound_regimes": [
     {
-      "regime": "sole",
-      "bound": "GPY: needs level of distribution theta > 1/2; Bombieri-Vinogradov gives exactly 1/2.",
-      "valid_range": "all n in scope",
+      "regime": "level of distribution",
+      "bound": "theta > 1/2 needed; Bombieri-Vinogradov gives 1/2",
+      "valid_range": "all k",
       "sources": [
-        "Goldston, Pintz, Yildirim 2005/2009",
+        "Goldston-Pintz-Yildirim",
         "Bombieri-Vinogradov"
+      ]
+    },
+    {
+      "regime": "sieve length",
+      "bound": "R < x^{1/4 - o(1)}, from D = [d_1,d_2] <= R^2",
+      "valid_range": "all k",
+      "sources": [
+        "Granville arXiv:1410.8400 sec. 4.2"
       ]
     }
   ],
@@ -59,7 +67,37 @@
   ],
   "move_kind": {
     "kind": "formula",
-    "reason": "sieve weights are written down",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
-  }
+    "reason": "Selberg's lambda(d) is written down explicitly",
+    "note": "Filled from the C7 verification. This slot was previously EMPTY; case 7 had 2 of 5 slots empty, consistent with L2's finding across P1."
+  },
+  "leak_derived": {
+    "statement": "rho_k saturates at 4 for one-variable F, INDEPENDENT of k, so the criterion caps at 2*theta and theta > 1/2 follows. The barrier is recovered FROM the leak, not quoted beside it.",
+    "derivation": "For F(t) = (1-t)^l/l!, rho_k(F) = [k/(k+2l+1)] * [2(2l+1)/(l+1)]. Both factors are bounded (-> 1 in k, -> 4 in l), so sup rho = 4 and is never attained. Granville's criterion (1/2)*theta*rho > 1 therefore caps at 2*theta.",
+    "table": {
+      "k=10": {
+        "l=1": 2.308,
+        "l=5": 1.746,
+        "l=20": 0.766,
+        "l=100": 0.189
+      },
+      "k=10^6": {
+        "l=1": 3.0,
+        "l=5": 3.667,
+        "l=20": 3.905,
+        "l=100": 3.979
+      }
+    },
+    "load_bearing_clause": "'regardless of k' -- the cap is a CONSTANT, not a function of the parameter.",
+    "board_change_in_one_number": "GPY capped at 4; Maynard-Tao gives log k - 2 log log k - 1 <= rho <= k log k/(k-1), i.e. 0.58 at k=105 and 7.56 at k=10^6. That verifies held-out 7a.",
+    "qualitative_half_is_sourced": "Granville sec. 6.6 states it outright: a one-variable F 'reverts to the original GPY argument, which was not quite powerful enough', so 'we should avoid selecting F to be a function of one variable'.",
+    "verified_by": "tools/check_citations_response.py"
+  },
+  "verification_sources": [
+    {
+      "cite": "Granville, Primes in intervals of bounded length, arXiv:1410.8400v1",
+      "date": "2014",
+      "verified": true,
+      "role": "fetched source for every C7 field"
+    }
+  ]
 }

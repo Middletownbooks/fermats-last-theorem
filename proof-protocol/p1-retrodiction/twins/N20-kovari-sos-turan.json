@@ -3,9 +3,9 @@
   "problem": "Kovari-Sos-Turan bound for K_{t,t}-free graphs",
   "twin_of": null,
   "surface_leak": "A double-counting bound n^{2-1/t} that looks improvable by a better invariant.",
-  "verdict": "tight for small t",
+  "verdict": "tight in the proved range only",
   "wrongly_fires": "collectivize-a-union-bound, product-law-matching",
-  "why_negative": "Norm graphs (Kollar-Ronyai-Szabo; Alon-Ronyai-Szabo) match the bound for t <= s, so the counting argument is sharp where it can be checked.",
+  "why_negative": "Kollar-Ronyai-Szabo norm graphs give tightness for t >= s!, improved by Alon-Ronyai-Szabo to t >= (s-1)!+1; KST is tight up to constants IN THAT RANGE ONLY. Whether KST is tight for t >= 4 is reported still open.",
   "sources": [
     {
       "cite": "Kollar-Ronyai-Szabo 1996; Alon-Ronyai-Szabo 1999",
@@ -23,5 +23,6 @@
     "encoder": null,
     "kappa": null
   },
-  "recheck_by": "2027-09-18"
+  "recheck_by": "2027-09-18",
+  "range_restriction": "THE TWIN IS VALID ONLY WHERE TIGHTNESS IS PROVED: t >= (s-1)!+1. Outside that range it is not a negative, because the bound is not known tight."
 }

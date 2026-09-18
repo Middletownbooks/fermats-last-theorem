@@ -15,14 +15,18 @@
     "C": null,
     "T": null
   },
-  "bound_then": "s >~ c*k^2*log k (classical).",
+  "bound_then": "s >~ c*k^2*log k (classical). CONSTANT HISTORY 3 -> 2 -> 1: s >= 3k^2(log k + O(log log k)) from Vinogradov-Linnik polished by Karatsuba and Stechkin; the leading 3 improvable to 2 by the same argument; Wooley's 1992 thesis gives s >= k^2(log k + 2 log log k + O(1)) = (1+o(1))k^2 log k.",
   "leak": "Each iteration recovers a fixed fraction of the defect, so about log k rounds are needed.",
   "sources_before": [
     {
-      "cite": "Vinogradov, classical mean value bounds",
-      "date": "pre-2011",
-      "verified": false,
-      "debt": "the seed flags both the bound s >~ c k^2 log k and the 'log k rounds' leak as medium confidence, recalled not fetched Cutoff corrected from pre-2012 to pre-2011: the old date was keyed to Wooley's journal year, not his arXiv posting (2011-01-03)."
+      "cite": "Vinogradov-Linnik, polished by Karatsuba (1973) and Stechkin (1975)",
+      "date": "1973-1975",
+      "verified": true
+    },
+    {
+      "cite": "Wooley 1992 thesis (the constant 1)",
+      "date": "1992",
+      "verified": true
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",
@@ -57,7 +61,8 @@
     "reason": "Cutoff design error. The L2 cutoff was set at 2011-12-31 intending 'before Wooley', but Wooley's efficient-congruencing paper is arXiv:1101.0574, posted 2011-01-03 — eleven months INSIDE the cutoff. The two encoders were answering different questions, so the comparison is void.",
     "scope": "Voids this case's L2 comparison. Does NOT void the bound itself.",
     "rule_learned": "Date every cutoff from the arXiv posting, never the journal year.",
-    "verified_by": "tools/check_corrections.py"
+    "verified_by": "tools/check_corrections.py",
+    "date_confirmed": "arXiv:1101.0574, 3 January 2011, Annals 175(3) 1575-1627 -- independently confirmed from Pierce. The void stands on a source."
   },
   "correction": {
     "status": "UPHELD",
@@ -69,5 +74,25 @@
     "kind": "formula",
     "reason": "p-adic congruencing iteration is computed",
     "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
-  }
+  },
+  "leak_derived": {
+    "statement": "THE log k IS THE CONTRACTION COUNT, and this is now derived rather than asserted.",
+    "derivation": "Pierce gives eta_{s,k} = (1/2)k^2(1-1/k)^{[s/k]}, so each block of k variables multiplies the defect by a FIXED FRACTION from a start of ~k^2/2. Burning it to O(1) needs m ~ k*log(k^2/2) contractions, hence s = km ~ 2k^2 log k.",
+    "table": {
+      "k=10": "m=38, s=380, s/(k^2 ln k)=1.650",
+      "k=100": "m=848, s=84800, ratio 1.841",
+      "k=1000": "m=13116, s=13116000, ratio 1.899"
+    },
+    "converges_to": "2, matching Pierce's 'the leading 3 can be improved to a 2'",
+    "verified_by": "tools/check_citations_response.py",
+    "significance": "Case 9 was one of only two cases where L2's encoders AGREED on the leading mechanism, explained as 'the leak is visible in the algebra of the bound itself'. That is now a demonstration rather than a claim."
+  },
+  "verification_sources": [
+    {
+      "cite": "Pierce, Seminaire Bourbaki, arXiv:1707.00119",
+      "date": "2017",
+      "verified": true,
+      "role": "the fetched source this row was verified against. POST-DATES the cutoff by design: a verification source is not a source the encoder may use, and the validator correctly rejected it from sources_before."
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "02-cap-set",
   "problem": "Cap set problem",
-  "after_board": "One-shot slice-rank / polynomial bound with no iteration: the diagonal tensor has rank |A| <= 3 * #{monomials of degree <= 2n/3}, about 2.756^n.",
+  "after_board": "One-shot slice-rank / polynomial bound with no iteration. CREDIT SPLIT: CROOT-LEV-PACH supplied THE METHOD, proving a bound for (Z/4Z)^n (O(3.61^n), improving Sanders' O(4^n/n(log n)^c)); ELLENBERG-GIJSWIJT ADAPTED it to prove THE CAP-SET THEOREM, |A| <= O(2.756^n). Tao's slice-rank formulation came later.",
   "multi_answer": false,
   "transformation": "t3",
   "transformation_note": "Seed P3: fits transformation #3 only weakly - it abolishes the iteration entirely. #3 is referenced by number in the seed; its name is not in the seed material.",
@@ -11,5 +11,17 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "credit_split": {
+    "method": "Croot-Lev-Pach, on (Z/4Z)^n",
+    "theorem": "Ellenberg-Gijswijt, cap sets",
+    "was": "P1 sec. 1.3 credited both jointly",
+    "source": "Peluse arXiv:2206.10037"
+  },
+  "record_of_bounds": {
+    "Meshulam": "O(3^n/n)",
+    "Bateman-Katz": "O(3^n/n^{1+c})",
+    "Edel (lower)": "Omega(2.217^n)",
+    "Ellenberg-Gijswijt": "O(2.756^n)"
+  }
 }

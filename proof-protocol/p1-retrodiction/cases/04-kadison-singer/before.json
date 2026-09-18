@@ -15,7 +15,7 @@
     "C": null,
     "T": "Both parts <= 1/2 + eps."
   },
-  "bound_then": "Needs delta <~ 1/log n.",
+  "bound_then": "The matrix-Chernoff / random-partition route loses a factor LOGARITHMIC IN THE DIMENSION; interlacing families remove it.",
   "leak": "The factor n in tr exp gives log n. It is tight on direct sums of independent blocks (the maximum of n independent quantities).",
   "sources_before": [
     {
@@ -40,11 +40,11 @@
   "bound_regimes": [
     {
       "regime": "sole",
-      "bound": "Needs delta <~ 1/log n.",
-      "valid_range": "all n in scope",
+      "bound": "a loss logarithmic in the dimension",
+      "valid_range": "all n",
       "sources": [
-        "Weaver 2004 (KS_2 formulation)",
-        "Matrix Chernoff bounds (Ahlswede-Winter / Tropp)"
+        "Weaver math/0209078",
+        "Marcus-Spielman-Srivastava 1306.3969"
       ]
     }
   ],
@@ -61,5 +61,12 @@
     "kind": "existence-theorem",
     "reason": "random partition: the argument needs a good partition to exist",
     "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  },
+  "correction": {
+    "status": "CORRECTED",
+    "source": "citations response, row C4",
+    "was": "Needs delta <~ 1/log n",
+    "why": "NEITHER Weaver (math/0209078) NOR Marcus-Spielman-Srivastava (1306.3969) states that threshold. Keeping a figure no source states is exactly the defect C2 and C5 already were, so the number is DROPPED and the sourced log-dimension loss written instead.",
+    "diagnostic_unaffected": "Case 4 fires because the target's law under direct sum is max while the bound's is additive. That reading needs the LOSS, which is sourced, not the THRESHOLD, which is not."
   }
 }

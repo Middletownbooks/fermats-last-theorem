@@ -1,15 +1,21 @@
 {
   "id": "07-small-prime-gaps",
   "problem": "Small prime gaps",
-  "after_board": "Two distinct answers; the rubric must accept either. (7a) Multidimensional weights lambda_{d_1...d_k}, where the ratio grows like log k. (7b) Breaking theta = 1/2 for smooth moduli.",
-  "multi_answer": true,
+  "after_board": "Multidimensional weights lambda_{d_1...d_k}: enlarge the move space from one-variable F to k-variable F, whereupon rho grows like log k instead of saturating at 4. Maynard's k = 105 polynomial in P_1 and P_2 gives rho(F) = 4.0020697 (Granville sec. 6.7).",
+  "multi_answer": false,
   "transformation": "none",
   "transformation_note": "Seed P3: 7a fits none of the five - it enlarges the dimension of the move space, de-collectivizing, the reverse of #4. Scoring must accept 7a or 7b.",
-  "source": "Maynard arXiv:1311.4600 (7a); Zhang 2013 (7b)",
+  "source": "Maynard arXiv:1311.4600; verified via Granville arXiv:1410.8400",
   "labelled_by": [
     "seed-chat-instance-2026-09-18"
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "split": {
+    "status": "SPLIT after the C7 verification",
+    "was": "two accepted answers, 7a (Maynard-Tao) and 7b (Zhang), with a rubric accepting either",
+    "now": "7a is the POSITIVE. 7b is promoted to a CONTROL, 16-zhang-smooth-moduli.",
+    "why": "They are not two routes to one thing. Maynard-Tao CHANGE THE BOARD and keep the old input -- Granville sec. 6.5: 'By the Bombieri-Vinogradov Theorem we can take R = x^{1/4-o(1)}', unimproved, and 'one can avoid having to prove any difficult new results about primes in arithmetic progressions'. Zhang leaves the sieve alone and improves the INPUT. One problem, one period, two teams, one changing the board and one not, WITH THE COUNTERFACTUAL ACTUALLY RUN."
+  }
 }

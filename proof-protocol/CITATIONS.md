@@ -12,12 +12,13 @@
 
 | status | rows |
 |---|---|
-| VERIFIED | 23 |
-| UNVERIFIED | 7 |
+| VERIFIED | 28 |
+| UNVERIFIED | 4 |
+| CORRECTED | 2 |
 | PARTIAL | 2 |
-| CORRECTED | 1 |
 | DISPUTED | 1 |
-| **total** | **34** |
+| SEARCH | 1 |
+| **total** | **38** |
 
 ## Rows that changed a claim
 
@@ -49,6 +50,18 @@ These are the ones downstream work must read instead of P1's original.
 
 *Source:* Katz-Tao 2002; Mockenhaupt-Tao arXiv:math/0204234; survey arXiv:2512.09397
 
+### C4 — CORRECTED
+
+**Where.** `case 4`
+
+**Claim as written.** Weaver KS_2 needs delta <~ 1/log n; MSS interlacing families
+
+**What the source says.** NEITHER Weaver (math/0209078) NOR Marcus-Spielman-Srivastava (1306.3969) states the threshold delta <~ 1/log n. A negative result, and the flagged remedy applies.
+
+**Correction.** The number is DROPPED from case 4's bound_then and replaced by the sourced statement: the matrix-Chernoff / random-partition route loses a factor logarithmic in the dimension, and interlacing families remove it. Keeping a figure no source states is exactly the defect C2 and C5 already were. The diagnostic is unaffected -- case 4 fires on the LOSS, which is sourced, not the THRESHOLD, which is not.
+
+*Source:* Weaver math/0209078; MSS 1306.3969
+
 ## All rows
 
 | id | where | status | claim as written | what the source says |
@@ -59,7 +72,7 @@ These are the ones downstream work must read instead of P1's original.
 | `C2-batemankatz` | case 2 bound_then | **CORRECTED** | n^{1+eps} (Bateman-Katz 2012) | Bateman-Katz prove any cap set in F_3^N has size at most C * 3^N / N^{1+eps}. |
 | `C2-after` | case 2 after-board | **VERIFIED** | slice rank gives about 2.756^n | Ellenberg-Gijswijt bound the largest cap in F_3^n by O(2.756^n); the exact constant is 3(207+33*sqrt 33)^{1/3}/8. |
 | `C3-theta` | case 3 after-board | **VERIFIED (COMPUTED)** | theta(C5) = sqrt 5 | COMPUTED: theta(C_n) = n cos(pi/n)/(1+cos(pi/n)); at n=5 this equals sqrt(5) = 2.2360679774998 to machine precision. |
-| `C3-shannon` | case 3 bound_then | **UNVERIFIED** | sqrt 5 <= Theta <= 5/2 (Shannon 1956) | Not separately confirmed this session. |
+| `C3-shannon` | case 3 bound_then | **VERIFIED** | sqrt 5 <= Theta <= 5/2 (Shannon 1956) | Shannon determined Theta(G) for all graphs on at most SIX vertices except C5, proved Theta(C5) >= sqrt5 via the explicit independent set {t(1,2) : t in Z_5}, and THE 5/2 UPPER BOUND IS HIS OWN, by what is now called the fractional clique covering number. The before-board needs no change. |
 | `C5-wolff` | case 5 bound_then, low-dimensional regime | **VERIFIED** | \|K\| >~ q^{(n+2)/2} | The finite-field benchmark is \|F\|^{(n+2)/2} for Besicovitch sets, with arithmetic improvements available in dimensions 5 and higher (Katz-Tao; Mockenhaupt-Tao 2004). |
 | `C5-4n7` | case 5 bound_then, high-dimensional regime | **DISPUTED** | later about q^{4n/7} | Katz-Tao 2002 prove a lower bound of 4n/7 + 3/7 on the MINKOWSKI DIMENSION of Kakeya sets in R^n — the EUCLIDEAN problem. The finite-field high-dimensional improvements over (n+2)/2 exist but are not stated anywhere reached this session as an exponent 4n/7 for \|K\| in F_q^n. |
 | `C5-after` | case 5 after-board | **VERIFIED** | Dvir: \|K\| >= q^n/n! | Dvir 2008 proves a Kakeya set in F_q^n has size at least q^n/n!, by finding a low-degree polynomial vanishing on a small K and deriving a contradiction from the lines it contains. |
@@ -77,25 +90,34 @@ These are the ones downstream work must read instead of P1's original.
 | `C14` | control 14 | **VERIFIED** | the board is Cohn-Elkies 2003; the actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies | Cohn-Elkies 2003 gave the first improvement in each dimension since Kabatyanskii-Levenshtein 1978, were the best bounds known for dimensions 4 through 36, and THE AUTHORS THEMSELVES CONJECTURED their approach would settle dimensions 8 and 24. |
 | `C15` | control 15 | **VERIFIED** | Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N) | Kelley-Meka: a 3AP-free A in [N] has \|A\| <= exp(-c (log N)^{1/12}) N. |
 | `O3` | battery item O3 | **VERIFIED AS OF 2026-09-18** | x^3 + y^3 + z^3 = 114 is still open | 114 is described as the lowest unsolved case; all n < 100 have known representations after Booker-Sutherland settled 33, 42 and 3, and 114 and 390 remain unsolved with searches ongoing. |
-| `C4` | case 4 | **PARTIAL** | Weaver KS_2 needs delta <~ 1/log n; MSS interlacing families | The AFTER-board is verified: Marcus-Spielman-Srivastava, 'Interlacing Families II: Mixed Characteristic Polynomials and the Kadison-Singer Problem', arXiv:1306.3969, Annals 182(1) 2015, proves Weaver's KS_2 by bounding the largest root of expected mixed characteristic polynomials. The BEFORE-board detail (that the matrix-Chernoff route needs delta <~ 1/log n) was NOT confirmed by any source reached this session. |
-| `C7` | case 7 | **UNVERIFIED** | GPY needs theta > 1/2; Bombieri-Vinogradov gives exactly 1/2; Zhang and Maynard after-boards | Not checked this session. |
-| `C9` | case 9 | **UNVERIFIED** | s >~ c k^2 log k classical; Wooley efficient congruencing | Not checked this session. The case is void for L2 purposes anyway, through the cutoff design error. The arXiv id 1101.0574 and its 2011-01-03 posting date are taken from the task list and were not independently confirmed here. |
+| `C4` | case 4 | **CORRECTED** | Weaver KS_2 needs delta <~ 1/log n; MSS interlacing families | NEITHER Weaver (math/0209078) NOR Marcus-Spielman-Srivastava (1306.3969) states the threshold delta <~ 1/log n. A negative result, and the flagged remedy applies. |
+| `C7` | case 7 | **VERIFIED** | GPY needs theta > 1/2; Bombieri-Vinogradov gives exactly 1/2; Zhang and Maynard after-boards | Granville, arXiv:1410.8400v1, verifies every field verbatim or in substance: the sieve weights, the ratio criterion, two primes in the tuple, and theta > 1/2 against Bombieri-Vinogradov's exactly 1/2. |
+| `C9` | case 9 | **VERIFIED** | s >~ c k^2 log k classical; Wooley efficient congruencing | Pierce, arXiv:1707.00119, confirms the classical shape and gives eta_{s,k} = (1/2)k^2(1-1/k)^{[s/k]} with s >= 3k^2(log k + O(log log k)), the leading 3 improvable to 2; Wooley's 1992 thesis gives the constant 1. Wooley's efficient congruencing is confirmed as arXiv:1101.0574, 3 January 2011, Annals 175(3) 1575-1627. |
 | `C10` | case 10 | **UNVERIFIED** | Fortnow/Feige counterexamples; Raz 1995 and Holenstein 2007 after-boards | Not checked this session. Raz 2008 (N5) was checked and is a different paper. |
 | `C11` | case 11 | **VERIFIED** | chi <= n-2k+2 (Kneser 1955); Lovasz 1978 neighbourhood complex with Borsuk-Ulam | Lovasz 1978 proves chi(KG(n,k)) = n-2k+2 via the neighbourhood complex: N(KG(n,k)) is (n-2k-1)-connected, and Borsuk-Ulam turns that connectivity into an obstruction to colouring. Both the Kneser 1955 upper bound and the Lovasz after-board are as P1 states them. |
 | `C12` | case 12 | **UNVERIFIED** | Perelman W-entropy and reduced volume give kappa-noncollapsing | Not checked this session. |
 | `C13` | case 13 | **VERIFIED** | Dinur 2007 graph powering plus alphabet reduction, constant-factor blow-up | Dinur 2007 amplifies the unsatisfiability factor by a factor of 2 per round while blowing up instance size by at most a CONSTANT factor, using a zig-zag-inspired preprocessing into a constant-degree expander, graph powering, and alphabet reduction. Exactly the P1 after-board. |
-| `N3` | twin N3 | **UNVERIFIED** | Behrend excludes power savings; slice rank gives nothing in [N] | Not checked this session. N3 is load-bearing for the rebuilt diagnostic (it is the discriminator against case 2), but the diagnostic's use of it rests on the ABSENCE of a product structure on [N], which is structural and does not depend on Behrend. |
+| `N3` | twin N3 | **VERIFIED** | Behrend excludes power savings; slice rank gives nothing in [N] | Peluse, arXiv:2206.10037: SALEM-SPENCER (1942) constructed 3AP-free subsets of [N] of density exp(-log N/log log N), 'showing that the true order of magnitude of r_3(N) is larger than N^{1-eps} for any fixed eps > 0'. Behrend (1946) gives the stronger, still essentially best-known Omega(N/exp(C sqrt(log N))). |
 | `C1-gotsman` | case 1 state slot | **UNVERIFIED** | the Gotsman-Linial 1992 reduction | Not checked this session. |
 | `TWINS-batch2` | p1-retrodiction/twins/ | **VERIFIED** | Eight twins carried their tightness claim as STANDARD rather than fetched. | Six upgraded to verified this session: N11 (max of n Gaussians, asymptotically tight), N12 (Raab-Steger 1998, tight upper AND lower bounds), N13 (E[T] = n*H_n, verified by exact computation rather than citation), N17 (Alon-Boppana, attained by Lubotzky-Phillips-Sarnak and Margulis Ramanujan families), N18 (Szemeredi-Trotter, Elekes construction; except for the constant it cannot be improved), N19 (Sauer-Shelah, attained exactly by downward-closed systems). |
+| `C10` | case 10 | **SEARCH** | Fortnow then Feige counterexamples; Raz 1995 / Holenstein 2007 after-boards | Search reaches it in substance, including the Fortnow-then-Feige ordering the row asserts (Feige-Verbitsky 2002 the simpler example), Raz's sub-exponential decay and Holenstein's simplification. The primaries are largely pre-arXiv, so a transcript is unlikely to improve it. |
+| `C12` | case 12 | **PARTIAL** | Perelman W-entropy and reduced volume give kappa-noncollapsing | Bibliographic record confirmed (math/0211159, 11 Nov 2002); the cigar-soliton obstruction and the entropy-plus-reduced-distance remedy corroborated from a secondary source. |
+| `C2-after-split` | heldout/02-cap-set | **VERIFIED** | P1 credited Croot-Lev-Pach and Ellenberg-Gijswijt jointly for the cap-set after-board. | Peluse: CLP proved a bound for (Z/4Z)^n (O(3.61^n), improving Sanders); EG ADAPTED THE METHOD to prove the cap-set theorem. CLP supplied the method, EG the theorem. |
+| `C15` | controls/15-roth-kelley-meka.json | **UNVERIFIED** | Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N). | STILL UNSOURCED. The Peluse survey was expected to cover it and does not: it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere. |
 
 ## Refinements worth carrying
 
 - **C1-bound** — The logarithm is base 2, which P1 leaves unstated. CFGS ALSO construct a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n) — so the sqrt(n) target came from their own matching construction, which is exactly the extremal-construction input the rebuilt diagnostic reads.
 - **C2-batemankatz** — Dating: arXiv:1101.5851 was posted January 2011; JAMS published April 2012 (electronic November 2011). Under the arXiv-dating rule adopted after the case 9 error, this work dates to 2011, not 2012.
 - **C2-after** — COMPUTED here: the exact constant is 2.7551046..., so 2.756 is correct as an upper bound but is not the constant itself. P1's 'approximately 2.756^n' is sound as written.
+- **C3-shannon** — A search snippet relayed earlier said FIVE vertices; the transcript says six. Use six. Load-bearing and it holds: case 3 is the one principled false negative precisely because chi_f is multiplicative under the strong product and merely not tight -- and chi_f(C5) = 5/2 is COMPUTED here (vertex-transitive, n/alpha), ratio 1.118 to sqrt5, a constant factor.
 - **N2-tight** — Kupavskii-Mustafa-Pach later generalised the Pach-Tardos construction to halfspaces in R^d for every d >= 4.
 - **C15** — NEW SINCE THE SEED: Bloom-Sisask improved the exponent from 1/12 to 1/9 a few months later (arXiv:2309.02353). The control's status is unaffected — both stayed on the same board — but the figure in P1 is no longer the record.
+- **C7** — Three additions. (1) The invariant's threshold is not literally 1: Prop. 6.3 gives rho(F) > 4h unconditionally, > 2h under Elliott-Halberstam. (2) bound_then named only theta, but D = [d_1,d_2] <= R^2 binds the sieve as R < x^{1/4-o(1)}, which sec. 4.2 calls 'an important barrier' -- the same barrier from two sides, and a field naming one loses the form in which it bites, exactly as case 5's single-regime field lost a dimension range. (3) Two EMPTY slots are now filled: move = Selberg's explicit formula lambda(d) = mu(d)G(log d/log R), composition = multiplicativity of omega. The leak is DERIVED: rho_k caps at 4 independent of k, so the criterion caps at 2*theta and theta > 1/2 follows.
+- **C9** — The leak is now a DEMONSTRATION rather than a claim: each block of k variables multiplies the defect by a fixed fraction, so burning k^2/2 to O(1) needs ~k log(k^2/2) contractions and s ~ 2k^2 log k. THE log k IS THE CONTRACTION COUNT. Case 9 was one of only two cases where L2's encoders agreed on the leading mechanism, and this is why. D1 CLOSES.
+- **N3** — The exclusion is ASYMPTOTIC and the crossover is large: N > 10^10 for delta = 0.5 but N > 10^241 for delta = 0.1 (derived and verified here). The item now says so. Also logged: arXiv:2406.12290 is the first quasipolynomial improvement to Behrend since 1946 -- it does not change N3's status, but it is the class of event that rejected the Erdos-R^3 candidate.
 - **TWINS-batch2** — N16 (matrix-multiplication exponent) and N20 (Kovari-Sos-Turan) remain STANDARD and are declared so. Every twin now carries a recheck_by date, per D21 — twin candidates decay, as the rejected Erdos-R^3 candidate showed.
+- **C2-after-split** — Same transcript confirms Meshulam O(3^n/n), Bateman-Katz O(3^n/n^{1+c}), Edel Omega(2.217^n), EG O(2.756^n).
 
 ## Adjudications
 
@@ -117,10 +139,7 @@ This is a definitional argument, not a citation, so it is adjudicated rather tha
 
 Declaring what could not be checked is part of the deliverable.
 
-- **C3-shannon** (`case 3 bound_then`) — sqrt 5 <= Theta <= 5/2 (Shannon 1956)
-- **C7** (`case 7`) — GPY needs theta > 1/2; Bombieri-Vinogradov gives exactly 1/2; Zhang and Maynard after-boards
-- **C9** (`case 9`) — s >~ c k^2 log k classical; Wooley efficient congruencing
 - **C10** (`case 10`) — Fortnow/Feige counterexamples; Raz 1995 and Holenstein 2007 after-boards
 - **C12** (`case 12`) — Perelman W-entropy and reduced volume give kappa-noncollapsing
-- **N3** (`twin N3`) — Behrend excludes power savings; slice rank gives nothing in [N]
 - **C1-gotsman** (`case 1 state slot`) — the Gotsman-Linial 1992 reduction
+- **C15** (`controls/15-roth-kelley-meka.json`) — Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N).
