@@ -30,5 +30,25 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "The gap amplifies but the instance size grows as n^k.",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Arora-Safra; Arora-Lund-Motwani-Sudan-Szegedy 1992"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "Size is multiplicative in the exponent under product.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

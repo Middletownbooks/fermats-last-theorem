@@ -35,5 +35,26 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "GPY: needs level of distribution theta > 1/2; Bombieri-Vinogradov gives exactly 1/2.",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Goldston, Pintz, Yildirim 2005/2009",
+        "Bombieri-Vinogradov"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "The weights are a one-dimensional function of the product. The ratio saturates at 2*theta*(1+o(1)) regardless of k.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

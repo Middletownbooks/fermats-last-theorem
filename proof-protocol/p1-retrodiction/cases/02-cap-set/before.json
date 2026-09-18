@@ -35,5 +35,26 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "3^n/n (Meshulam 1995); n^{1+eps} (Bateman-Katz 2012).",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Meshulam 1995",
+        "Bateman, Katz 2012"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "The per-step gain delta^2 against the additive cost of one dimension per step forces delta >~ 1/n. The invariant composes additively while the target (maximum cap size) is supermultiplicative under products, so the truth has the form c^n.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

@@ -217,8 +217,11 @@ def cmd_export(a, st):
         w.writerow(head)
         for r in sorted(rows, key=lambda r: r["id"]):
             arm = arm_by_id(r["arm"])
-            o1 = outcomes.outcome(r, types[r["pid"]], r.get("j1"))
-            o2 = outcomes.outcome(r, types[r["pid"]], r.get("j2"))
+            o1 = outcomes.outcome(r, types[r["pid"]], r["j1"]) if r.get("j1") else None
+            # DEFECT-1: outcome() falls back to j1 when handed a missing judgement, so
+            # outcome(r, r.get("j2")) scores judge 2's column from judge 1 on every row where the
+            # second judge did not run. Guard at the call site; the frozen rule is not touched.
+            o2 = outcomes.outcome(r, types[r["pid"]], r["j2"]) if r.get("j2") else None
             j1, j2 = r.get("j1") or {}, r.get("j2") or {}
             w.writerow([r["id"], r["phase"], r["pid"], types[r["pid"]], r["arm"], arm.kind] +
                        [(1 if arm.lv[b] > 0 else 0) if arm.lv else "" for b in BLOCK_IDS] +

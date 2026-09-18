@@ -30,5 +30,25 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "The programme was blocked at singularities.",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Hamilton, Ricci flow programme"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "There is no control on collapsing at singular times, so the cigar soliton cannot be excluded. This is qualitative.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

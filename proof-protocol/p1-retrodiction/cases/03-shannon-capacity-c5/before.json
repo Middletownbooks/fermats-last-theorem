@@ -30,5 +30,25 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "sqrt(5) <= Theta <= 5/2 (Shannon 1956).",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Shannon 1956"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "The linear program sees only cliques - for C5, only edges - so it is loose on odd cycles. Its product law is correct; its value is wrong.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

@@ -35,5 +35,26 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "Needs delta <~ 1/log n.",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Weaver 2004 (KS_2 formulation)",
+        "Matrix Chernoff bounds (Ahlswede-Winter / Tropp)"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "The factor n in tr exp gives log n. It is tight on direct sums of independent blocks (the maximum of n independent quantities).",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

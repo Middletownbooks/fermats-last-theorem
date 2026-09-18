@@ -30,5 +30,25 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "chi <= n - 2k + 2 known (Kneser 1955); no matching lower bound.",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Kneser 1955"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "No factor. Counting cannot see the obstruction, which is qualitative.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

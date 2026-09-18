@@ -30,5 +30,25 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "The conjectured invariant is false (Fortnow / Feige counterexamples).",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Fortnow; Feige counterexamples to multiplicativity"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "Game value is not multiplicative. Provers correlate across coordinates.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

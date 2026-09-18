@@ -36,5 +36,26 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "Delta >= (1/2 - o(1)) log n (Chung-Fueredi-Graham-Seymour 1988); sqrt(n) conjectured.",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Chung, Fueredi, Graham, Seymour 1988",
+        "Gotsman, Linial 1992"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "Counting controls the mean degree, not the maximum. The unsigned spectrum of Q_n is n-2k, additive under Cartesian product, so the median eigenvalue is about 0 and interlacing is empty.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }

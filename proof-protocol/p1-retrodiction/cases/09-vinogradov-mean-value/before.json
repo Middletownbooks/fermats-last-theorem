@@ -5,8 +5,8 @@
   "flag": null,
   "supersede": {
     "paper": "Wooley; Bourgain-Demeter-Guth",
-    "ref": "Wooley 2012; arXiv:1512.01565",
-    "date": "2012-01-01"
+    "ref": "Wooley arXiv:1101.0574 (posted 2011-01-03); Bourgain-Demeter-Guth arXiv:1512.01565",
+    "date": "2011-01-03"
   },
   "before_board": {
     "S": "The mean value J_{s,k}.",
@@ -20,9 +20,9 @@
   "sources_before": [
     {
       "cite": "Vinogradov, classical mean value bounds",
-      "date": "pre-2012",
+      "date": "pre-2011",
       "verified": false,
-      "debt": "the seed flags both the bound s >~ c k^2 log k and the 'log k rounds' leak as medium confidence, recalled not fetched"
+      "debt": "the seed flags both the bound s >~ c k^2 log k and the 'log k rounds' leak as medium confidence, recalled not fetched Cutoff corrected from pre-2012 to pre-2011: the old date was keyed to Wooley's journal year, not his arXiv posting (2011-01-03)."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",
@@ -31,5 +31,38 @@
     "done": false,
     "encoder": null,
     "kappa": null
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "s >~ c*k^2*log k (classical).",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Vinogradov, classical mean value bounds"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "Each iteration recovers a fixed fraction of the defect, so about log k rounds are needed.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ],
+  "void": {
+    "is_void": true,
+    "reason": "Cutoff design error. The L2 cutoff was set at 2011-12-31 intending 'before Wooley', but Wooley's efficient-congruencing paper is arXiv:1101.0574, posted 2011-01-03 — eleven months INSIDE the cutoff. The two encoders were answering different questions, so the comparison is void.",
+    "scope": "Voids this case's L2 comparison. Does NOT void the bound itself.",
+    "rule_learned": "Date every cutoff from the arXiv posting, never the journal year.",
+    "verified_by": "tools/check_corrections.py"
+  },
+  "correction": {
+    "status": "UPHELD",
+    "source": "L2",
+    "was": "s >~ c*k^2*log k, flagged [K, medium confidence]",
+    "why": "The bound is correct for the classical method. The seed's low-confidence flag was warranted, but for the wrong reason: the fault was the cutoff date, not the recall."
   }
 }

@@ -30,5 +30,40 @@
     "done": false,
     "encoder": null,
     "kappa": null
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "sqrt(n log n).",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Chernoff/union-bound folklore"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "The sqrt(log n) comes from the union bound over sets.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ],
+  "move_contested": {
+    "status": "TWO DISTINCT BOARDS, both reaching sqrt(n log n)",
+    "encoding_a": {
+      "by": "seed",
+      "move": "uniform random colouring, one shot",
+      "composition": "union bound over the n sets"
+    },
+    "encoding_b": {
+      "by": "blind encoder (L2)",
+      "move": "colour one more point, taking the smaller Chernoff potential (the sequential Erdos-Selfridge derandomisation)",
+      "composition": "NONE — this board has no composition step"
+    },
+    "consequence": "These are not the same board. Any diagnostic computed here must say which board it is computed on. Expect this class of divergence on re-encoding.",
+    "source": "L2"
   }
 }

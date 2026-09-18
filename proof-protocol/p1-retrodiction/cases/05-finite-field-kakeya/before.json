@@ -15,7 +15,7 @@
     "C": null,
     "T": null
   },
-  "bound_then": "|K| >~ q^{(n+2)/2}, later about q^{4n/7}.",
+  "bound_then": "TWO REGIMES, neither dominating: |K| >~ q^{(n+2)/2} (best known for n < 14) and |K| >~ q^{4n/7} (better only for n >= 15). See bound_regimes.",
   "leak": "Cauchy-Schwarz sees pairwise line interactions only, which caps the exponent near n/2.",
   "sources_before": [
     {
@@ -36,5 +36,47 @@
     "done": false,
     "encoder": null,
     "kappa": null
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "low-dimensional",
+      "bound": "|K| >~ q^{(n+2)/2}  (Wolff, bush argument)",
+      "valid_range": "best known for n < 14",
+      "sources": [
+        "Wolff 1999 (hairbrush/bush)"
+      ]
+    },
+    {
+      "regime": "high-dimensional",
+      "bound": "|K| >~ q^{4n/7}  (via sum-product)",
+      "valid_range": "exceeds Wolff only for n >= 15; the two are equal at n = 14",
+      "sources": [
+        "Bourgain-Katz-Tao sum-product"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": "exponent capped near n/2",
+      "mechanism": "union bound over m items",
+      "regime": "low-dimensional",
+      "evidence": "The bush argument double-counts incidences and uses no structure in the direction set; Cauchy-Schwarz sees pairwise line interactions only.",
+      "ranking": "leading for this regime (blind encoder, L2)"
+    },
+    {
+      "factor": "qualitative-only exponent",
+      "mechanism": "feasibility theorem",
+      "regime": "high-dimensional",
+      "evidence": "Bourgain-Katz-Tao supplies only a qualitative sum-product exponent, so the gain is not quantitative.",
+      "ranking": "leading for this regime (blind encoder, L2)"
+    }
+  ],
+  "correction": {
+    "status": "CORRECTED",
+    "source": "L2 blind re-encoding + arithmetic",
+    "was": "|K| >~ q^{(n+2)/2}, later about q^{4n/7} — ordered as though 4n/7 superseded Wolff",
+    "why": "(n+2)/2 > 4n/7 exactly when n < 14; they meet at n = 14. No single exponent dominated uniformly at the 2008 cutoff. The two regimes leak differently, so a single-regime bound field forced a single leak where there are two.",
+    "verified_by": "tools/check_corrections.py"
   }
 }

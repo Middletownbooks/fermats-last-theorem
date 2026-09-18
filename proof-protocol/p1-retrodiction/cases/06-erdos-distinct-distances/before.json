@@ -35,5 +35,26 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "schema_version": 2,
+  "bound_regimes": [
+    {
+      "regime": "sole",
+      "bound": "N^{0.864} (Katz-Tardos 2004).",
+      "valid_range": "all n in scope",
+      "sources": [
+        "Katz, Tardos 2004",
+        "Szemeredi, Trotter 1983"
+      ]
+    }
+  ],
+  "leaks": [
+    {
+      "factor": null,
+      "mechanism": "other",
+      "regime": "sole",
+      "evidence": "Circle incidence bounds are weaker than line incidence bounds. The exponent stays stuck below 1.",
+      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+    }
+  ]
 }
