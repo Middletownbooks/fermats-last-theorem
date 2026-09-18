@@ -1,6 +1,6 @@
 # What has been measured
 
-**Three** measurements have been completed. They are **finished**, and they supersede parts of what
+**Four** measurements have been completed. They are **finished**, and they supersede parts of what
 this repository encoded from the seed. Nothing else in this project has been measured.
 
 Read this before starting any task: both results change what is worth doing.
@@ -102,6 +102,35 @@ negatives" is **withdrawn** and the corrected specificity is 7/8.
 where they are close. And N8 exposes a defect in the rule's **domain condition** — it admits
 operations that move both coordinates of a two-parameter family. Every case the diagnostic gets
 right is single-parameter; its false positive is the two-parameter one (debt **D23**).
+
+---
+
+## The baseline — the retrospective arm is saturated by recall
+
+Full write-up: `p3-taxonomy/BASELINE.md`. Inputs and output: `p3-taxonomy/baseline/`.
+
+The rebuilt diagnostic's 2×2s were raw accuracies, which this programme's rules forbid. Scored
+against a baseline, with Youden's J:
+
+| | J |
+|---|---|
+| fire on everything / fire on nothing / coin flip | **0.000** by construction |
+| product-law matching | **+0.675** |
+| **a rule-less rater, same item, asked only "was this bound superseded?"** | **+1.000** |
+
+**Lift of the diagnostic over the rule-less rater: −0.325.** It is worse than no diagnostic. The
+rater got 5/5 positives and 8/8 negatives, and its **recognition probe came back 13 of 13** — it
+named every problem and was recalling, not inferring.
+
+**Consequence, and it is the most important sentence in this file:** a contaminated rater ceilings
+this benchmark perfectly, so **the retrospective arm cannot measure a diagnostic's value at all.**
+Every retrospective 2×2 here is a weaker version of recall. This is step D's 100% and L2's 5-of-5
+reproduced a third time, with the cost finally made explicit — and it is the seed's L4 claim,
+*"the only fully clean estimate is prospective"*, measured rather than argued.
+
+What survives: the twins still falsify (N8 caught the domain defect D23), D20's field κ still
+measures encoding reproducibility, and `p1-retrodiction/prospective/` is now not one instrument
+among several but the only one.
 
 ---
 

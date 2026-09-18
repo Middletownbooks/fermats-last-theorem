@@ -94,7 +94,7 @@
       "status": "measured",
       "where": "p1-retrodiction/README.md -> contamination control",
       "claim": "Forced-choice discrimination fails as a contamination control, because it is still solved by recognition; the four-layer alternative (score the procedure, negative twins, telegraph baseline, recognition probe, prospective arm) is better.",
-      "action": "CLOSED as a question. Step D measured 100% recognition and L2 measured 5 of 5, on encoders that were trying to comply. The seed's concern was correct and cutoff discipline does not fix it. The prospective arm (p1-retrodiction/prospective/) is the only remaining route.",
+      "action": "CLOSED as a question. Step D measured 100% recognition and L2 measured 5 of 5, on encoders that were trying to comply. The seed's concern was correct and cutoff discipline does not fix it. The prospective arm (p1-retrodiction/prospective/) is the only remaining route. THIRD confirmation, and the first with the consequence quantified: the rule-less baseline ceilings the benchmark at J = 1.000 (D25).",
       "attack_requested_of": "the commission"
     },
     {
@@ -211,6 +211,14 @@
       "where": "p3-taxonomy/d20/N8-adjudication.md",
       "claim": "The five-category law vocabulary cannot express 'the right law, degraded by a log'. Rater B declined to fire on case 4 (Kadison-Singer) by reading the matrix-Chernoff penalty that way, which is arguably exactly what that board did.",
       "action": "Do NOT add a category reflexively — the standing rule is that catalogues shrink before they grow. Decide first whether the gap explains other divergences; if it explains only case 4, it is a property of that case, not of the vocabulary."
+    },
+    {
+      "id": "D25",
+      "kind": "benchmark-invalidity",
+      "status": "measured",
+      "where": "p3-taxonomy/BASELINE.md",
+      "claim": "The retrospective arm cannot measure a diagnostic's value. A rule-less rater given the same item scored J = 1.000 (5/5 positives, 8/8 negatives) against product-law matching's 0.675, a lift of -0.325, with a recognition probe of 13/13.",
+      "action": "Nothing to fix; this is a property of retrospective cases, not a bug. What it CHANGES: no retrospective 2x2 in this tree may be quoted as evidence that a diagnostic works. The prospective arm is now the only instrument that can answer the question, and this is the third independent measurement saying so (step D 100%, L2 5-of-5, this 13/13)."
     }
   ],
   "failure_register": [
@@ -285,6 +293,6 @@
     "Do not treat P1's numbers as verified beyond the 20 rows CITATIONS.md marks VERIFIED.",
     "Do not reuse L2's five original blind encodings in a re-run; they would contaminate new raters.",
     "Do not log a prospective prediction after glancing at a method section. One unsealed prediction and that arm is worth no more than the retrospective cases.",
-    "Do not quote the product-law 2x2 or the union-bound 2x2 as results until a baseline exists. They are raw accuracies, and this programme's own rule is lift over a baseline, never raw accuracy. The telegraph arm has never been run."
+    "Do not quote any retrospective 2x2 in this tree as evidence that a diagnostic WORKS. Measured: a rule-less rater beats the best diagnostic here by 0.325 in Youden's J, with 13/13 recognition (D25). Quote them, if at all, as self-consistency against a baseline that beats them."
   ]
 }

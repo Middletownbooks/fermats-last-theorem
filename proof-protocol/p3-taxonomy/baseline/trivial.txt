@@ -1,0 +1,16 @@
+13 in-domain items: 5 positive, 8 negative
+
+  B0  fire on everything             TP 5  FN 0  FP 8  TN 0   sens 1.000  spec 0.000   J = +0.000
+  B1  fire on nothing                TP 0  FN 5  FP 0  TN 8   sens 0.000  spec 1.000   J = +0.000
+  B1b coin flip (20k trials)         mean J = -0.001   95% of trials in [-0.550, +0.550]
+
+  product-law matching               TP 4  FN 1  FP 1  TN 7   sens 0.800  spec 0.875   J = +0.675
+
+  LIFT over B0/B1 (both J = 0 by construction): +0.675
+
+  Clearing a constant rule is NECESSARY, NOT IMPRESSIVE. A coin flip also scores J = 0
+  in expectation, and its spread above shows what 13 items can produce by chance alone:
+  0.97% of coin flips reach J >= +0.675.
+
+  The baseline that decides whether the diagnostic ADDS anything is B2, the rule-less
+  rater. Run it with `baseline.py score`.

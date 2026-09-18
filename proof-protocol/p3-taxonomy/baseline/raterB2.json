@@ -1,0 +1,16 @@
+{
+  "item_01": {"board_changed": false, "recognised_problem": "Spencer's six standard deviations / combinatorial discrepancy", "why": "sqrt(n log(m/n)) is matched by known set systems, so tight up to constants; later work only made it algorithmic."},
+  "item_02": {"board_changed": true, "recognised_problem": "Gap amplification in the PCP theorem (Dinur)", "why": "Parallel repetition's n^k blow-up was superseded by graph powering on expanders plus assignment testers."},
+  "item_03": {"board_changed": true, "recognised_problem": "CFGS induced-subgraph problem on Q_n, i.e. the sensitivity conjecture", "why": "The logarithmic counting bound was superseded by Huang's signed adjacency matrix with A^2 = nI plus interlacing."},
+  "item_04": {"board_changed": true, "recognised_problem": "Cap set problem", "why": "The density-increment bound was superseded by Croot-Lev-Pach and Ellenberg-Gijswijt slice rank."},
+  "item_05": {"board_changed": false, "recognised_problem": "Parallel repetition for unique/projection games", "why": "eps^3 was closed to eps^2 by Rao sharpening the same information-theoretic argument; the odd-cycle game shows eps^2 is tight."},
+  "item_06": {"board_changed": true, "recognised_problem": "The parallel repetition conjecture, refuted by Fortnow and Feige", "why": "The multiplicative invariant is false; the correct statement needed Raz's information-theoretic argument."},
+  "item_07": {"board_changed": false, "recognised_problem": "Johnson-Lindenstrauss lemma", "why": "Larsen-Nelson's matching lower bound makes O(log n / eps^2) provably optimal."},
+  "item_08": {"board_changed": true, "recognised_problem": "Shannon capacity of the 5-cycle", "why": "The fractional clique cover bound was superseded by Lovasz's theta function."},
+  "item_09": {"board_changed": true, "recognised_problem": "Kadison-Singer / Weaver KS_2", "why": "The 1/log n loss was superseded by Marcus-Spielman-Srivastava interlacing families."},
+  "item_10": {"board_changed": false, "recognised_problem": "Exponent omega of matrix multiplication", "why": "Improvements come from refined laser-method analyses of Coppersmith-Winograd powers; still open, no new invariant."},
+  "item_11": {"board_changed": false, "recognised_problem": "Sensitivity conjecture / Huang's theorem", "why": "Huang's sqrt(n) exactly matches the CFGS ceil(n^{1/2}) construction, so it is tight."},
+  "item_12": {"board_changed": false, "recognised_problem": "Sauer-Shelah lemma", "why": "Downward-closed systems attain the bound exactly."},
+  "item_13": {"board_changed": false, "recognised_problem": "Shannon capacity of the 7-cycle", "why": "theta(C7) remains the best known upper bound against 367^{1/5}; the gap is still open."},
+  "item_14": {"board_changed": false, "recognised_problem": "Epsilon-net theorem (Haussler-Welzl) and its optimality", "why": "KPW plus Pach-Tardos show (d/eps)log(1/eps) is optimal for general bounded-VC range spaces."}
+}

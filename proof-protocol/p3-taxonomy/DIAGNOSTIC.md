@@ -61,6 +61,17 @@ instruction is that the catalogue shrinks before it grows. Dropped rather than r
 Run `python3 score_diagnostics.py`. The rules are applied mechanically from the structural fields;
 the recorded expectation is only a cross-check, and a disagreement is reported as an error.
 
+> ## FIRST, READ `BASELINE.md`: the diagnostic loses to no diagnostic
+>
+> A rule-less rater, given the same item text and asked only whether the bound was superseded,
+> scored **perfectly** — 5/5 positives, 8/8 negatives, Youden's **J = 1.000** against this
+> diagnostic's **0.675**. The lift is **−0.325**. Its recognition probe came back **13 of 13**: it
+> named every problem and was recalling answers, not inferring from product structure.
+>
+> So every table below is a *weaker version of recall*, measured against a ceiling recall already
+> reaches. They are evidence that the diagnostic is self-consistent, not that it works. The
+> retrospective arm cannot settle that question; only `../p1-retrodiction/prospective/` can.
+>
 > ## The zero-false-positive claim is WITHDRAWN
 >
 > An earlier version of this file reported **4 fires, 0 false positives over 8 negatives**. That

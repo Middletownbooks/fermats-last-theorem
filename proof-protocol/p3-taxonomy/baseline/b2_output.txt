@@ -1,0 +1,17 @@
+B2 rule-less rater: raterB2, 13 in-domain items scored
+
+  B2  rule-less rater                TP 5  FN 0  FP 0  TN 8   sens 1.000  spec 1.000   J = +1.000
+  product-law matching               TP 4  FN 1  FP 1  TN 7   sens 0.800  spec 0.875   J = +0.675
+
+  LIFT of the diagnostic over B2: -0.325 (J +0.675 vs +1.000)
+
+  RECOGNITION PROBE: the rater named a source problem on 13/13 items.
+  The baseline is substantially recognition, not inference. That is the L4 finding,
+  and it means B2 is an UPPER bound on what a clean baseline would score — so the
+  lift computed above is a LOWER bound on the diagnostic's true lift.
+
+  THE DIAGNOSTIC DOES NOT BEAT THE BASELINE. A rater with no rule, given the same
+  item, separates positives from twins at least as well. That is the finding, and it
+  matters more than the 2x2.
+
+  n = 1 rater. This is a single observation on 13 items, not a rate.
