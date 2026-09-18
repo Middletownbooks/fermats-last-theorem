@@ -2,6 +2,18 @@
 
 `taxonomy.json` is the catalogue. This file is the seed's preliminary scoring of it.
 
+> ## SUPERSEDED IN PART — read `../MEASUREMENTS.md` first
+>
+> **Step D has since measured label κ = 0.048** (three raters, eight after-boards, 100%
+> recognition, 20% agreement). The seed's own stop rule was κ < 0.6. **The five-transformation
+> vocabulary is not operational, and that is the P3 result.** Finding 4 below anticipated it for
+> two entries; the measurement extends it to the catalogue.
+>
+> **The rebuild is in `DIAGNOSTIC.md`.** Findings 1, 2 and 3 below are superseded by it: product-law
+> matching has been restated to read no leak table, the union-bound refinement has been corrected
+> and tested, and auxiliary-witness lift has been **dropped**. The preliminary findings are kept
+> below as the record of what was thought before either measurement existed.
+>
 > **One contaminated rater. [R] throughout.** The scoring below was produced by the same instance
 > that encoded P1, while knowing every answer, in a single pass with no second labeller. Its own
 > summary of its status: this is a counterexample generator, not a measurement. **Nothing here has
@@ -61,6 +73,9 @@ rather than formula versus existence.
 it (debt **D9**).
 
 ## Scoring it again, properly
+
+*(Superseded: step D ran this and got κ = 0.048. Kept because it is how the NEXT vocabulary gets
+tested — specifically the two-field assignment `DIAGNOSTIC.md` calls for.)*
 
 ~~~sh
 cd ../p1-retrodiction

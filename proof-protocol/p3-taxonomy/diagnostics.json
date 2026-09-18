@@ -1,0 +1,302 @@
+{
+  "version": "v1-leak-free",
+  "why": "L2 measured that the leak field does not reproduce (2 of 5 leading mechanisms agree) while bound does (3 of 4). A diagnostic that reads the leak reads a ranking that does not survive re-encoding. These two diagnostics read only: (a) the product operation of the problem, (b) how the TARGET behaves under it, read off the extremal construction, and (c) how the BOUND behaves under it, read off the formula. All three are objective and pre-existing.",
+  "laws": [
+    "multiplicative",
+    "additive",
+    "l2",
+    "max",
+    "none"
+  ],
+  "law_meanings": {
+    "multiplicative": "T(I1 (x) I2) = T(I1) * T(I2), so T grows like c^n",
+    "additive": "T(I1 (x) I2) = T(I1) + T(I2), so T grows like c*n",
+    "l2": "T(I1 (x) I2)^2 = T(I1)^2 + T(I2)^2, so T grows like sqrt(n)",
+    "max": "T(I1 (x) I2) = max(T(I1), T(I2)), so T is flat in n",
+    "none": "the target has no law under this product"
+  },
+  "product_law": {
+    "rule": "FIRE iff the product operation exists AND target_law != bound_law.",
+    "rationale": "No amount of better play on an invariant obeying the wrong product law closes a gap that grows under products. Where no product operation exists the diagnostic makes no claim: NOT APPLICABLE is not a prediction.",
+    "claimed_domain": "items where a product operation on instances exists and the size parameter is additive under it",
+    "items": {
+      "01-sensitivity": {
+        "applicable": true,
+        "operation": "Cartesian product of hypercubes: Q_{n1} x Q_{n2} = Q_{n1+n2}, n additive",
+        "target_law": "l2",
+        "target_evidence": "Chung-Fueredi-Graham-Seymour themselves construct a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n), so T(n) ~ sqrt(n) and squares add under the product.",
+        "bound_law": "additive",
+        "bound_evidence": "The bound is (1/2-o(1)) log_2 n, produced by degree-sum and edge-isoperimetric counting; the unsigned spectrum of Q_n is n-2k, which is ADDITIVE under Cartesian product.",
+        "expected": "fire",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "02-cap-set": {
+        "applicable": true,
+        "operation": "A1 x A2 in F_3^{n1+n2} is 3AP-free when both are; n additive",
+        "target_law": "multiplicative",
+        "target_evidence": "The product of caps is a cap, so T(n1+n2) >= T(n1)T(n2); by Fekete T(n) = c^n. Explicit small caps (|cap in F_3^4| = 20) give c >= 20^{1/4} ~ 2.11.",
+        "bound_law": "additive",
+        "bound_evidence": "The bound 3^n/n is a density bound delta <~ 1/n; the density-increment invariant costs one dimension per step, so it composes ADDITIVELY in n.",
+        "expected": "fire",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "03-shannon-capacity-c5": {
+        "applicable": true,
+        "operation": "strong graph product",
+        "target_law": "multiplicative",
+        "target_evidence": "Theta is defined as lim alpha(G^{box k})^{1/k}; alpha is supermultiplicative under the strong product.",
+        "bound_law": "multiplicative",
+        "bound_evidence": "The fractional clique cover number alpha* is MULTIPLICATIVE under the strong product. Shannon chose it for exactly that reason.",
+        "expected": "no-fire",
+        "truth": "board changed",
+        "note": "FALSE NEGATIVE, and a principled one: the LP's product law was already correct. Its failure was tightness, not law. This is a different phenomenon from cases 1, 2, 4, 10 and should not be forced into the same entry.",
+        "class": "positive"
+      },
+      "04-kadison-singer": {
+        "applicable": true,
+        "operation": "direct sum of vector systems",
+        "target_law": "max",
+        "target_evidence": "The largest root of a direct sum is the MAX over blocks, so the quantity the theorem needs is flat in the number of blocks.",
+        "bound_law": "additive",
+        "bound_evidence": "The factor n inside tr exp contributes log n, which GROWS with the number of blocks.",
+        "expected": "fire",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "10-parallel-repetition": {
+        "applicable": true,
+        "operation": "k-fold product of two-prover games",
+        "target_law": "none",
+        "target_evidence": "val(G^k) is NOT multiplicative — the Fortnow and Feige counterexamples are exactly that; provers correlate across coordinates.",
+        "bound_law": "multiplicative",
+        "bound_evidence": "The conjectured invariant IS val(G^k) = val(G)^k, i.e. exactly multiplicative.",
+        "expected": "fire",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "05-finite-field-kakeya": {
+        "applicable": false,
+        "operation": "none: a product of Kakeya sets is not a Kakeya set (it contains lines only in product directions)",
+        "expected": "not-applicable",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "06-erdos-distinct-distances": {
+        "applicable": false,
+        "operation": "none: no product on planar point sets preserving the distance-counting target",
+        "expected": "not-applicable",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "07-small-prime-gaps": {
+        "applicable": false,
+        "operation": "none on admissible tuples",
+        "expected": "not-applicable",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "08-spencer-discrepancy": {
+        "applicable": false,
+        "operation": "disjoint union exists, but the target is handled by the union-bound diagnostic below, whose domain this is",
+        "expected": "not-applicable",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "11-kneser": {
+        "applicable": false,
+        "operation": "none",
+        "expected": "not-applicable",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "12-geometrization": {
+        "applicable": false,
+        "operation": "none",
+        "expected": "not-applicable",
+        "truth": "board changed",
+        "class": "positive"
+      },
+      "13-pcp-weak": {
+        "applicable": true,
+        "operation": "k-fold parallel repetition",
+        "target_law": "additive",
+        "target_evidence": "The theorem needs instance size to grow by a CONSTANT FACTOR per amplification step.",
+        "bound_law": "multiplicative",
+        "bound_evidence": "Size grows as n^k: multiplicative in the exponent under the product.",
+        "expected": "fire",
+        "truth": "excluded",
+        "excluded_reason": "flagged fit-testing-only: its before-board was a successful proof, not a failing bound",
+        "class": "excluded"
+      },
+      "09-vinogradov-mean-value": {
+        "applicable": false,
+        "operation": "void",
+        "expected": "not-applicable",
+        "truth": "excluded",
+        "excluded_reason": "void through the L2 cutoff design error",
+        "class": "excluded"
+      },
+      "N1-johnson-lindenstrauss": {
+        "applicable": true,
+        "operation": "union of point sets; log n additive",
+        "target_law": "additive",
+        "target_evidence": "The true dimension is log n / eps^2 and is PROVEN TIGHT (Larsen-Nelson): log(n1 n2) = log n1 + log n2.",
+        "bound_law": "additive",
+        "bound_evidence": "The union bound over n^2 pairs also contributes log n, additively.",
+        "expected": "no-fire",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N2-epsilon-nets": {
+        "applicable": true,
+        "operation": "product of range spaces; VC dimension additive",
+        "target_law": "additive",
+        "target_evidence": "Net size (d/eps)log(1/eps) is tight in general and for halfspaces in R^4; d adds under products.",
+        "bound_law": "additive",
+        "bound_evidence": "The union bound over ranges contributes the same additive dependence.",
+        "expected": "no-fire",
+        "truth": "tight in general",
+        "class": "negative"
+      },
+      "N3-3ap-free-integers": {
+        "applicable": false,
+        "operation": "NONE: [N1] x [N2] is not [N1 N2] for arithmetic-progression structure, so 3AP-free sets do not multiply as they do in F_3^n",
+        "expected": "not-applicable",
+        "truth": "no board change available",
+        "note": "THE DISCRIMINATOR. This is case 2's twin and carries the same surface leak, but the product structure that makes case 2 fire is absent here. The leak-based diagnostic cannot tell them apart; this one can, and it does so on an objective structural fact.",
+        "class": "negative"
+      },
+      "N4-shannon-capacity-c7": {
+        "applicable": true,
+        "operation": "strong graph product",
+        "target_law": "multiplicative",
+        "target_evidence": "same as case 3",
+        "bound_law": "multiplicative",
+        "bound_evidence": "same as case 3: the LP law is correct",
+        "expected": "no-fire",
+        "truth": "still open",
+        "class": "negative"
+      },
+      "N5-strong-parallel-repetition": {
+        "applicable": true,
+        "operation": "k-fold product",
+        "target_law": "multiplicative",
+        "target_evidence": "The value decays exponentially in k; the eps^2 vs eps loss is real even for unique games (Raz 2008, odd-cycle game).",
+        "bound_law": "multiplicative",
+        "bound_evidence": "Raz's bound is likewise exponential in k.",
+        "expected": "no-fire",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N6-discrepancy-arithmetic-progressions": {
+        "applicable": false,
+        "operation": "none preserving AP structure",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N7-euclidean-kakeya": {
+        "applicable": false,
+        "operation": "NONE: as in case 5, a product of Kakeya sets is not Kakeya",
+        "expected": "not-applicable",
+        "truth": "method does not transfer",
+        "class": "negative"
+      },
+      "N8-discrepancy-many-sets": {
+        "applicable": true,
+        "operation": "disjoint union of set systems; n and m both add",
+        "target_law": "additive",
+        "target_evidence": "sqrt(n log(m/n)) is tight, so the dependence is real.",
+        "bound_law": "additive",
+        "bound_evidence": "The union bound over m sets gives the same additive dependence.",
+        "expected": "no-fire",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "14-sphere-packing-8-24": {
+        "applicable": false,
+        "operation": "dimension adds but optimal density does not product",
+        "expected": "not-applicable",
+        "truth": "no board change",
+        "class": "negative"
+      },
+      "15-roth-kelley-meka": {
+        "applicable": false,
+        "operation": "NONE: integers, as N3",
+        "expected": "not-applicable",
+        "truth": "no board change",
+        "class": "negative"
+      }
+    },
+    "positive_class": "the board changed, so a correct diagnostic fires"
+  },
+  "union_bound": {
+    "rule": "FIRE iff a union bound over m events produces the factor AND NOT (independence_realisable AND target_requires_simultaneous_control).",
+    "rationale": "The seed's refinement asked only whether some instance makes the m events near-independent. That is not sufficient: independence only makes the log REAL when the target must control all m events at once. Where the target decomposes over the events — where you may choose separately per block — independence is not an obstruction and the log is removable.",
+    "claimed_domain": "items whose bound carries a factor produced by a union bound over m events",
+    "items": {
+      "08-spencer-discrepancy": {
+        "applicable": true,
+        "m": "n sets on n points",
+        "independence_realisable": false,
+        "independence_evidence": "n sets on n points cannot realise n independent extreme events; the ground set is too small.",
+        "target_requires_simultaneous_control": true,
+        "target_evidence": "one colouring must serve every set at once.",
+        "expected": "fire",
+        "truth": "log removable (Spencer: 6 sqrt n)",
+        "class": "positive"
+      },
+      "04-kadison-singer": {
+        "applicable": true,
+        "m": "n blocks",
+        "independence_realisable": true,
+        "independence_evidence": "direct sums of independent blocks realise it exactly.",
+        "target_requires_simultaneous_control": false,
+        "target_evidence": "the theorem asks for EXISTENCE of a good partition, and on a direct sum the partition may be chosen independently per block, so the target decomposes.",
+        "expected": "fire",
+        "truth": "log removable (Marcus-Spielman-Srivastava: dimension-free)",
+        "class": "positive"
+      },
+      "N1-johnson-lindenstrauss": {
+        "applicable": true,
+        "m": "n^2 pairs",
+        "independence_realisable": true,
+        "independence_evidence": "random point sets make pairwise distances near-independent.",
+        "target_requires_simultaneous_control": true,
+        "target_evidence": "one embedding must preserve ALL pairs simultaneously.",
+        "expected": "no-fire",
+        "truth": "tight (Larsen-Nelson 2017)",
+        "class": "negative"
+      },
+      "N2-epsilon-nets": {
+        "applicable": true,
+        "m": "ranges",
+        "independence_realisable": true,
+        "independence_evidence": "general range spaces realise it.",
+        "target_requires_simultaneous_control": true,
+        "target_evidence": "one net must stab every heavy range.",
+        "expected": "no-fire",
+        "truth": "tight in general (Komlos-Pach-Woeginger; Pach-Tardos for halfspaces in R^4)",
+        "class": "negative"
+      },
+      "N8-discrepancy-many-sets": {
+        "applicable": true,
+        "m": "m >> n sets",
+        "independence_realisable": true,
+        "independence_evidence": "with m >> n the sets can be made near-independent.",
+        "target_requires_simultaneous_control": true,
+        "target_evidence": "one colouring must serve all m sets.",
+        "expected": "no-fire",
+        "truth": "tight (sqrt(n log(m/n)))",
+        "class": "negative"
+      }
+    },
+    "positive_class": "the log is REMOVABLE, so a correct diagnostic fires. Note this is a different positive class from product-law matching, whose positives are 'the board changed'. Scoring them against one vocabulary was an error in the first version of this file."
+  },
+  "auxiliary_witness_lift": {
+    "verdict": "DROPPED",
+    "reason": "The task required either a diagnostic computable from the before-board alone, or removal. No such diagnostic exists: 'introduce an auxiliary object whose existence certifies the bound' has no before-board trigger, because essentially every proof introduces one. The seed already conceded near-zero discriminating power, step D measured kappa = 0.048 across the catalogue, and the standing instruction is that the catalogue should shrink before it grows. Dropped rather than rescued."
+  }
+}
