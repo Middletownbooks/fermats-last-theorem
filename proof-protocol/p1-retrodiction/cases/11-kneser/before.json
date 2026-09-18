@@ -1,0 +1,34 @@
+{
+  "id": "11-kneser",
+  "problem": "Kneser conjecture",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Lovasz",
+    "ref": "Lovasz 1978",
+    "date": "1978-01-01"
+  },
+  "before_board": {
+    "S": "A colouring of the k-subsets of [n].",
+    "M": "Combinatorial and inductive arguments.",
+    "I": null,
+    "C": null,
+    "T": null
+  },
+  "bound_then": "chi <= n - 2k + 2 known (Kneser 1955); no matching lower bound.",
+  "leak": "No factor. Counting cannot see the obstruction, which is qualitative.",
+  "sources_before": [
+    {
+      "cite": "Kneser 1955",
+      "date": "1955",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

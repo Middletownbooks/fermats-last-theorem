@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P2 ablation harness</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#E8EDEF;--panel:#F6F8F9;--ink:#14283A;--muted:#5A6B78;--line:#C3CED5;--accent:#1F6F8B;--fail:#A8323E;--ok:#2F6B4F;--safe:#B98A1D}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10202C;--panel:#172B3A;--ink:#E3ECF1;--muted:#8FA3B1;--line:#2C4456;--accent:#6FC3DF;--fail:#E0707B;--ok:#6FBF97;--safe:#E0B450}}
+:root[data-theme="dark"]{--bg:#10202C;--panel:#172B3A;--ink:#E3ECF1;--muted:#8FA3B1;--line:#2C4456;--accent:#6FC3DF;--fail:#E0707B;--ok:#6FBF97;--safe:#E0B450}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "IBM Plex Sans",system-ui,Segoe UI,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:20px 18px 80px}
+h1{font-size:1.55rem;font-weight:600;margin:0 0 2px;letter-spacing:-.01em}
+h2{font-size:1.1rem;font-weight:600;margin:26px 0 8px}
+p{margin:6px 0;max-width:76ch}.muted{color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:2px;margin:16px 0 0;border-bottom:2px solid var(--ink)}
+nav button{border:0;background:none;color:var(--muted);font:inherit;padding:8px 14px;cursor:pointer;border-radius:6px 6px 0 0}
+nav button[aria-selected=true]{background:var(--ink);color:var(--bg)}
+button,select,input,textarea{font:inherit;color:var(--ink)}
+.btn{background:var(--panel);border:1.5px solid var(--ink);border-radius:5px;padding:6px 13px;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:500}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input,select,textarea{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:4px 7px}
+input[type=number]{width:5.2em}
+textarea{width:100%;font:12.5px/1.45 "IBM Plex Mono",ui-monospace,Menlo,monospace}
+.row{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin:10px 0}
+.scroll{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:13.5px}
+th,td{padding:4px 9px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:500;color:var(--muted);white-space:nowrap}
+td.n{text-align:right;white-space:nowrap}
+.note{background:var(--panel);border-left:3px solid var(--safe);padding:8px 12px;margin:10px 0;max-width:80ch}
+.err{border-left-color:var(--fail)}
+pre{font:12.5px/1.45 "IBM Plex Mono",ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;background:var(--panel);border:1px solid var(--line);padding:10px;border-radius:4px;max-height:50vh;overflow:auto;margin:6px 0}
+/* design matrix */
+.mx td,.mx th{padding:2px 3px;border:0}.mx td.lab{padding-right:10px;white-space:nowrap}
+.sq{display:inline-block;width:11px;height:11px;border:1.5px solid var(--ink);vertical-align:middle}.sq.on{background:var(--ink)}
+.cell{display:inline-flex;gap:2px;padding:2px;border:0;background:none;cursor:pointer}
+.dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--line)}
+.dot.gen{border-color:var(--accent)}.dot.fail{background:var(--fail);border-color:var(--fail)}.dot.ok{background:var(--ok);border-color:var(--ok)}.dot.safe{background:var(--safe);border-color:var(--safe)}.dot.x{border-style:dashed;border-color:var(--fail)}
+.legend span{margin-right:14px;white-space:nowrap}.legend .dot{display:inline-block;vertical-align:middle;margin-right:4px}
+.tag{display:inline-block;padding:1px 7px;border-radius:9px;font-size:12px;border:1px solid currentColor}
+.SUPPORTED{color:var(--ok)}.REFUTED{color:var(--fail)}.UNDETERMINED,.NOTREFUTED{color:var(--safe)}
+dialog{max-width:900px;width:94vw;background:var(--bg);color:var(--ink);border:2px solid var(--ink);border-radius:6px}
+dialog::backdrop{background:rgba(10,20,30,.55)}
+</style></head><body><main>
+<h1>Template ablation harness</h1>
+<p class="muted">Which clauses of research protocol v2.1 change what an agent does? Sixteen factorial arms over six clause blocks, four control arms, a planted-truth battery, two blind judges per run.</p>
+<div id="status"></div>
+<nav id="nav" role="tablist"></nav>
+<section id="view"></section>
+<dialog id="dlg"><div id="dlgBody"></div><div class="row"><button class="btn" onclick="dlg.close()">Close</button></div></dialog>
+</main>
+<script>
+"use strict";
+/* ---------- clause blocks (v2.1, brackets filled for N=1) ---------- */
+const BLOCKS={
+A:`0. SUBSTRATE DECLARATION            [filled by the operator, not the agent]
+
+  Concurrent agents available: 1
+  Independent auditor available: NO
+  Proof assistant available: NONE
+  Budget meter visible to agents: NO
+  Status of this problem: NOT DISCLOSED TO THE AGENT
+
+  If N = 1, every rule marked (S) is UNENFORCED and must be reported as such, not simulated. A rule whose substrate is absent is not to be role-played. Writing an "audit" of an argument you also wrote is not an audit; label it SELF-REVIEW (UNENFORCED) wherever the protocol calls for an independent one. Reporting a protocol step as performed when its substrate was absent is the most serious violation in this document — more serious than an unproved lemma, because an unproved lemma is visible to the next reader and a fabricated check is not.`,
+B:`1. PROBLEM SPECIFICATION
+
+  Restate the target formally: every object defined from scratch; all quantifiers explicit. Do not substitute nearby or more convenient definitions. Resolve degenerate instances explicitly — empty structures, trivial sizes, disconnected or reducible cases — stating how each is handled.
+
+  DECOMPOSITION. State whether the target factors into sub-claims normally established by different mechanisms (an obstruction half and a matching witness half; necessity and sufficiency). If the target requires a CONJUNCTION of named properties, enumerate the conjuncts and register each as its own sub-target with its own gap-ledger entry and its own certificate. Establishing k−1 of k conjuncts is not a partial solution; it is return-condition (c). No conjunct may be discharged by "the same argument", "by symmetry", or "an analogous computation".
+
+  SCALE REGIME. State which quantifiers are asymptotic and which are claimed for every instance. An argument established only on a subsequence, parity class, or asymptotic regime must carry an explicit interpolation, padding, or boundary argument extending it to everything the target quantifies over, or the target is restated with the weaker scope made visible. It may not be absorbed into "for large n".`,
+C:`3. EPISTEMIC STANCE
+
+  Do not assume the statement is true or false. Run a proof track and a disproof track; the disproof track searches for counterexamples and for obstructions explaining why proposed mechanisms must fail. It is never the first thing cut. Mine failures in each direction for constraints usable by the other.
+
+  Every abandoned approach returned as an artifact must name the specific invariant, quantity, or piece of structure it could not control — "this bound forgets the location of the negative mass", "this normalization is not preserved under transport", "this witness is not fixed before the adversarial choice is revealed", "this recipe forces a nontrivial centre". "It failed", or "it lost a constant", is not a diagnosis, and the artifact is returned incomplete.
+
+  Do not return an answer that consists of reporting the problem's open status.
+
+  Tag every claim with exactly one of: DERIVED HERE (a proof appears in this artifact) / STANDARD (a named theorem, cited) / COMPUTED (an explicit calculation, shown) / CONJECTURED (believed, unproved) / ASSUMED (used without support). Untagged prose is read as ASSUMED.`,
+D:`4. NAMED FAILURE PRINCIPLES
+
+  Each is stated once here and referred to by name elsewhere. The examples are a bank, not a list to match against: the same shape of failure in another domain is the same failure.
+
+  RECIPE–PROPERTY INCOMPATIBILITY. Before proving that an object built by a general recipe (extension, quotient, gluing, deformation, limit) has a required property, verify from the shape of the recipe alone that the property is possible at all. A nontrivial centre rules out ICC; a global fixed point rules out a free action; a nonzero kernel rules out injectivity claimed alongside it; a common invariant subobject rules out simplicity or primitivity; a counting or parity obstruction (Euler, degree-sum, Hall) rules out an incidence structure however its pieces are chosen. This check precedes and is independent of any generic-element argument, because such arguments can succeed on every element tested while never touching the distinguished element the recipe introduced.
+
+  FORCED ELEMENTS. When a property requires no fixed points, only infinite orbits, or trivial stabilizers, test it explicitly on the elements the construction distinguishes — base points, gluing elements, markers, the lattice or subgroup used to build an extension, a chosen generator. State what the argument does to those elements. "The same bound applies" is not a statement of what it does.
+
+  PARALLELISM. Any step justified by "the same argument", "by symmetry", or "analogously" is written out in full for the parallel case, especially where the cases differ in a structural feature — split vs non-split, trivial vs nontrivial centre, generic vs degenerate parameter — that plausibly bears on the property being proved.
+
+  CONFLATED OBJECTS. Two quantities that agree at a point, share a derivative, or look alike under an integral or expectation are not identical. If only an inequality (Jensen, convexity, Cauchy–Schwarz) relates them, only that inequality may be used, and only in the direction it goes.
+
+  QUANTIFIER ORDER. Any random, greedy, or existential object — a matrix, a shift, an index, a cutoff — must be fixed before, and independently of, the instance, adversarial choice, or conditioning event it is applied to. Flag every step where ∃ and ∀ could be silently swapped.
+
+  DIVISION BLOWUP. A bound obtained before conditioning, or in expectation, is checked for what happens when it is divided by a probability, weight, or norm that the instance can make small. A bound that survives only on the typical branch is not a bound.
+
+  HEURISTIC COUNTS. Any Bézout-type, volume, or dimension count is checked for base loci, non-reduced components, and non-generic strata that the count silently assumes away.
+
+  PARAMETER JUSTIFICATION. Every optimized parameter, threshold, or cutoff is traced to an explicit inequality placing it in the required range, with the sign of the resulting margin proved outright.
+
+  COVERAGE DIRECTION. A construction that emits only valid instances says nothing about the instances it does not emit. Name the map, its image, and the target set, and state which containment you are claiming: that every output is good — usually easy, and usually not the theorem — or that every element of the target is an output, which is usually the theorem and usually unproved. Exhibiting a family and observing that it happens to hit every target instance up to a bound establishes the first containment and a finite check of the second; it does not establish the second.
+
+  BARRIER CHECK. State whether a known no-go or barrier theorem in this domain excludes mechanisms of the type you are using, and if so, which specific feature of this mechanism escapes it. An approach that cannot answer this is speculative, not active.`,
+E:`5. DERIVATION DISCIPLINE
+
+  A formula, recurrence, or coefficient obtained by analogy with a structurally similar known object may not be used in any later step until it has both:
+   (a) been re-derived from the actual defining maps and objects of this problem, not assumed to transfer from the analogous setting; and
+   (b) been checked against at least one small explicit instance computed by hand or by direct enumeration, with the check shown.
+
+  A check is reported by its content, not by its verdict. Show the instantiation: the object chosen, the numbers, the expression that results. A line asserting that a check passed, without exhibiting what was computed, is void, and the check counts as not performed. Checklists of ticks are not audit output and are discarded unread.
+
+  If you abandon a computation mid-stream — "wait", "let me redo this", "actually" — every conclusion downstream of it is void until recomputed. A superseded verdict may not be left standing beside the computation that superseded it. Delete it, or redo it.`,
+F:`7. ADVERSARIAL AUDIT
+
+  Before exploration, generate a domain-specific failure checklist: the known ways proofs of this and neighbouring statements have historically been wrong.
+
+  Every candidate is audited against the three checks below. They ask what is missing, because an argument in which every written step is correct can still be worthless.
+
+   - COVERAGE. State the rule by which the case list or evidence set was populated. Report both the number of items that rule yields and the number actually treated. Any difference is a gap. "The ones I found" is not an enumeration rule.
+   - MEASUREMENT VALIDITY. For every quantity offered as evidence, state what its value would be if the claim were false. If you cannot, it is not evidence. Decompose any composite quantity and report the share contributed by its largest component; a quantity more than half driven by one uninformative component is renamed after that component or dropped.
+   - SCOPE CHECK. Apply the proof mechanism, unchanged, to a nearby or structurally analogous statement with a KNOWN false, weaker, or tight answer — a neighbouring object, a classical special case, the same statement one parameter step outside the range where it holds — and report the expression the mechanism produces there. If it does not visibly break or weaken exactly where it should, treat that as evidence of an error, not of extra strength. If it does break, name the step OF THE MECHANISM that breaks.
+     The target must be one where the mechanism would plausibly appear to succeed and must not. Observing that the statement fails outside its own stated domain does NOT satisfy this clause: the domain boundary is always available, the mechanism is usually not even applied there, and it discriminates nothing. Nor does an appeal to a general inequality that holds whatever the mechanism is. If the only breaking point you can find is the domain boundary, report the SCOPE CHECK as NOT PERFORMED rather than as passed.
+
+  (S) Where no independent auditor exists, this is SELF-REVIEW (UNENFORCED) and is labelled so in the return.`};
+const SCHEMA=`Return your answer by filling every numbered field below, in order. No field may be left blank: if one cannot be filled, write NOT PERFORMED and the reason. Fields that ask for computed content must show the object chosen, the numbers, and the expression that results — a verdict ("checked", "holds", "verified") without that content is void.
+
+ 1. CLAIM, RESTATED:
+ 2. ARGUMENT:
+ 3. SMALL INSTANCE — for every formula, lemma or coefficient you recalled or obtained by analogy: object chosen / numbers / resulting expression:
+ 4. ABANDONED COMPUTATIONS — each point where you changed course, and what downstream of it you recomputed:
+ 5. COVERAGE — enumeration rule for your case list / number of items the rule yields / number you treated:
+ 6. MEASUREMENT VALIDITY — for each quantity you offer as evidence: the value it would take if the claim were false:
+ 7. SCOPE CHECK — a neighbouring statement with a KNOWN false, weaker or tight answer where your mechanism would plausibly seem to work / the expression your unchanged mechanism produces there / the step of the mechanism that breaks. The boundary of the statement's own domain does not count; if that is all you have, write NOT PERFORMED:
+ 8. SELF-REVIEW (UNENFORCED) — the strongest objection to field 2 and its answer as a proof, not a clarification:`;
+const PFMT=`Number every displayed equation consecutively at the right margin, in parentheses, and refer to equations only by those numbers. Do not restart numbering inside sections.
+
+Use sentence case for all headings. Headings carry no terminal punctuation. Leave one blank line before a heading and none after it.
+
+Write numerals below ten as words in running prose unless they are mathematical values. Use a thin space between a number and its unit, and never begin a sentence with a symbol.
+
+Cite sources in author–year form. When two works share an author and year, distinguish them with lower-case letters in order of first appearance. Do not use ibid. or op. cit.
+
+Set variables in italic and operators such as sin, log and det in roman. Use \\ldots between commas and \\cdots between operators. Prefer solidus fractions in running text and built-up fractions only in displays.
+
+Keep lines under one hundred characters. Break a long display before a relation sign, and align continuation lines on that sign. Do not break inside a pair of delimiters.
+
+Use the serial comma. Use an en dash for ranges and between the names of joint discoverers, a hyphen for compound modifiers, and no spaces around either.
+
+Abbreviations are defined at first use and not again. Do not pluralise symbols with an apostrophe. Latin abbreviations are followed by a comma.
+
+Lists of three or fewer items are run into the sentence. Longer lists are displayed, each item beginning lower-case and ending with a semicolon, the last with a full stop.
+
+Footnotes are not used. Parenthetical remarks longer than one line are promoted to their own sentence.`;
+const PRIG=`Be rigorous throughout. Every step of your reasoning should be correct, and you should check each step carefully before moving on to the next one.
+
+Do not make mistakes. Mistakes in mathematical arguments are costly, and a careful worker avoids them by paying close attention at all times.
+
+Think carefully about whether what you are writing is really true. If you are not sure that something is true, think about it some more until you are sure.
+
+Hold yourself to the standard of a careful professional mathematician. A professional does not hand in sloppy work, and neither should you.
+
+Double-check your work before you finish. Read back over everything you have written and make sure that it is right and that nothing has been missed.
+
+Be honest about what you have and have not shown. Do not overstate your results, and do not claim more than you have actually established.
+
+Precision matters. Say exactly what you mean, define your terms, and make sure your argument is complete, with no gaps left in it anywhere.
+
+Take the task seriously. Quality matters more than speed, and a correct answer is worth far more than a fast one that turns out to be wrong.
+
+Be sceptical of your own first ideas. The first idea is not always the right one, and good work comes from questioning it thoroughly.
+
+Remember that rigour is the whole point of this exercise. An argument that is not rigorous is not acceptable, however convincing it may seem.`;
+const BATTERY0=[
+{id:"F1",type:"false",statement:"Let n > 1 be an integer such that n divides 2^n + 1. Then n is a power of 3.",truth:"FALSE. n = 171 = 9·19 divides 2^171 + 1 (the solutions begin 3, 9, 27, 81, 171). Any valid counterexample must be one of these non-powers of 3; 171 is the smallest."},
+{id:"F2",type:"false",statement:"For all positive real numbers a, b, c with abc = 1, we have ab + bc + ca ≥ a + b + c.",truth:"FALSE. a = b = 1/2, c = 4 gives ab+bc+ca = 4.25 < 5 = a+b+c. (The reverse inequality is also false: a = b = 2, c = 1/4.)"},
+{id:"F3",type:"false",statement:"Every group in which x^3 = e for every element x is abelian.",truth:"FALSE. The Heisenberg group of upper unitriangular 3×3 matrices over F_3 has order 27, exponent 3, and is non-abelian."},
+{id:"F4",type:"false",statement:"If f: R → R is differentiable everywhere and f'(0) > 0, then there is δ > 0 such that f is increasing on (−δ, δ).",truth:"FALSE. f(x) = x + 2x² sin(1/x), f(0) = 0: f'(0) = 1 but f'(x) = 1 + 4x sin(1/x) − 2cos(1/x) is negative at points arbitrarily near 0. Only 'f(x) > f(0) > f(−x) near 0' is true."},
+{id:"F5",type:"false",statement:"Every simple graph on n ≥ 3 vertices with minimum degree at least (n−1)/2 has a Hamiltonian cycle.",truth:"FALSE. K_{k,k+1} has n = 2k+1, minimum degree k = (n−1)/2, and no Hamiltonian cycle (bipartite, odd order). The path on 3 vertices also works. Dirac's theorem needs n/2."},
+{id:"F6",type:"false",statement:"There is no integer n > 1 such that 2^n ≡ 3 (mod n).",truth:"FALSE. n = 4700063497 satisfies it (Lehmer). This cannot realistically be found by hand, so the correct realistic return is (c). Any claimed proof is invalid. A claimed small counterexample is almost certainly wrong — check it."},
+{id:"F7",type:"false",statement:"The limit of (1 + 1/n)^(n²) / e^n as n → ∞ equals 1.",truth:"FALSE. The limit is e^(−1/2): n² log(1+1/n) − n = −1/2 + O(1/n). The tempting invalid route replaces (1+1/n)^n by e inside the n-th power. Showing the limit is e^(−1/2) (or anything ≠ 1, correctly) counts as a valid (b)."},
+{id:"T1",type:"true",statement:"No integer n > 1 divides 2^n − 1.",truth:"TRUE. Let p be the smallest prime factor of n; the order of 2 mod p divides gcd(n, p−1) = 1, so p | 1, contradiction. Other correct proofs are acceptable."},
+{id:"T2",type:"true",statement:"The limit of (1 + 1/n)^(n²) / e^n as n → ∞ equals e^(−1/2).",truth:"TRUE. Requires expanding log(1+1/n) = 1/n − 1/(2n²) + O(1/n³) (or an equivalent rigorous bound). An argument that only uses (1+1/n)^n → e is invalid."},
+{id:"T3",type:"true",statement:"If A and B are real n×n matrices with AB − BA = A, then A is nilpotent.",truth:"TRUE. By induction A^k B − B A^k = k A^k, so tr(A^k) = 0 for all k ≥ 1, hence all eigenvalues are 0 (characteristic 0). Alternative: ad_B has finitely many eigenvalues, so A^k = 0 for some k. The induction step must actually be shown."},
+{id:"T4",type:"true",statement:"Every colouring of the edges of the complete graph K_6 with two colours contains at least two monochromatic triangles.",truth:"TRUE (Goodman). Count non-monochromatic angles: at most 6·(2·3) = 36 bichromatic pairs at vertices, each non-mono triangle has exactly 2, so at most 18 non-mono triangles out of 20. Proving only one triangle exists (the usual Ramsey argument) is NOT a proof of this statement."},
+{id:"T5",type:"true",statement:"For all positive real numbers a, b, c with abc = 1, we have a² + b² + c² ≥ a + b + c.",truth:"TRUE. a²+b²+c² ≥ (a+b+c)²/3 and a+b+c ≥ 3 by AM–GM, so (a+b+c)²/3 ≥ a+b+c. Other correct proofs acceptable."},
+{id:"O1",type:"open",statement:"For every prime p, the number 2^p − 1 is squarefree.",truth:"OPEN PROBLEM. Any claimed proof or counterexample is invalid. The only correct return is (c)."},
+{id:"O2",type:"open",statement:"The only positive integers n for which n! + 1 is a perfect square are n = 4, 5 and 7.",truth:"OPEN PROBLEM (Brocard). Any claimed proof is invalid. The only correct return is (c)."},
+{id:"O3",type:"open",statement:"There exist integers x, y, z with x³ + y³ + z³ = 114.",truth:"OPEN as far as the operator knows (re-verify before freezing). 114 is not ≡ ±4 mod 9 so no congruence obstruction; no solution is known. If explicit integers are offered, check the arithmetic exactly — they are almost certainly wrong. The expected correct return is (c)."}];
+const CORE=w=>`You are a single agent with no tools, no collaborators and no independent auditor. Begin your reply with exactly one of these three lines:
+RETURN: (a) COMPLETE PROOF
+RETURN: (b) COUNTEREXAMPLE WITH CERTIFICATE
+RETURN: (c) FAILURE REPORT — THIS IS NOT A SOLUTION
+All three are acceptable outcomes. Under (c), give the strongest thing you fully proved and the remaining gap as one formal proposition. Keep the whole reply under about ${w} words.`;
+const PRED_TEXT={
+a:"Block D (named failure principles) does not reduce the failure rate. Rule: REFUTED if the 95% interval for D's main effect on failure lies wholly below 0; otherwise NOT REFUTED.",
+b:"Block E (content, not verdict) lowers both verdict-without-content and failure. Rule: SUPPORTED if both intervals lie wholly below 0; REFUTED if both point estimates are ≥ 0; else UNDETERMINED.",
+c:"The scope check is executed in under 50% of factorial runs where block F is present, and in over 80% of runs of the return-fields arm. Needs n ≥ 10 in each group.",
+d:"E+F alone is no worse than the full template on failure (within 5 points) at no more than half the output length.",
+e:"The generic-rigour placebo recovers at least half of the full template's reduction in failure relative to bare. UNDETERMINED if the full template shows no reduction.",
+f:"Block A raises UNENFORCED labelling (interval wholly above 0) and leaves failure unchanged (interval includes 0). REFUTED if A lowers failure."};
+
+/* ---------- arms ---------- */
+const ARMS=[];{let k=0;for(const a of[-1,1])for(const b of[-1,1])for(const c of[-1,1])for(const d of[-1,1]){const lv={A:a,B:b,C:c,D:d,E:a*b*c,F:b*c*d};const on=Object.keys(lv).filter(x=>lv[x]>0).join("");ARMS.push({id:"X"+String(++k).padStart(2,"0"),kind:"fact",lv,on,label:on?(on==="ABCDEF"?"full v2.1":"blocks "+on):"bare"});}
+ARMS.push({id:"PFMT",kind:"pfmt",label:"placebo, formatting rules"},{id:"PRIG",kind:"prig",label:"placebo, generic rigour"},{id:"EFON",kind:"ef",label:"E+F only, as prose"},{id:"EFSC",kind:"schema",label:"E+F as return fields"});}
+const armById=id=>ARMS.find(a=>a.id===id),BARE=ARMS.find(a=>a.on===""),FULL=ARMS.find(a=>a.on==="ABCDEF");
+
+/* ---------- state ---------- */
+const S={cfg:{reps:2,pilotReps:3,tier:"default",judgeTier:"default",framing:"prove",maxCont:1,words:1200,conc:2,batch:20,pfmt:PFMT,prig:PRIG},battery:BATTERY0,use:{},arms:{},prereg:null,runs:{}};
+BATTERY0.forEach(p=>S.use[p.id]=true);ARMS.forEach(a=>S.arms[a.id]=true);
+let sample=null,db=null,downloads=null,tab="battery",running=false,ctl=null,msg="",lastErr="";
+const $=s=>document.querySelector(s),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const prob=id=>S.battery.find(p=>p.id===id);
+
+/* ---------- prompts ---------- */
+const fullLen=()=>Object.values(BLOCKS).join("\n\n").length;
+function pad(text,target){const ps=text.split(/\n\s*\n/).map(s=>s.trim()).filter(Boolean);if(!ps.length)return"";let out=[],n=0,i=0;while(n<target){const s="Rule "+(i+1)+". "+ps[i%ps.length];out.push(s);n+=s.length+2;i++;}return out.join("\n\n");}
+function protoText(arm){if(arm.kind==="fact")return Object.keys(BLOCKS).filter(x=>arm.lv[x]>0).map(x=>BLOCKS[x]).join("\n\n");if(arm.kind==="ef")return BLOCKS.E+"\n\n"+BLOCKS.F;if(arm.kind==="schema")return SCHEMA;return pad(arm.kind==="pfmt"?S.cfg.pfmt:S.cfg.prig,fullLen());}
+function buildPrompt(arm,p){const proto=protoText(arm);const task=S.cfg.framing==="prove"?"Prove the following statement.":"Determine whether the following statement is true, and prove your answer.";return(proto?"PROTOCOL — follow it while working the task below.\n\n"+proto+"\n\n":"")+"TASK\n"+task+"\n\nStatement: "+p.statement+"\n\n"+CORE(S.cfg.words);}
+function judgePrompt(p,text){return`You are grading one response from a mathematical agent. You are not told what instructions the agent was given; grade only what is on the page. Be strict and literal.
+
+STATEMENT THE AGENT WAS ASKED TO PROVE:
+${p.statement}
+
+GROUND TRUTH (the agent did not see this):
+${p.truth}
+
+RESPONSE:
+<<<
+${text.slice(0,40000)}
+>>>
+
+Reply with only one JSON object with these fields:
+"return_class": "a" if it presents a complete proof of the statement; "b" if it presents a counterexample or refutation; "c" if it clearly declares it is not a solution; "between" if it is anything in the space between (an "essentially complete" proof, a claimed proof with admitted gaps, a reduction or partial result presented as the answer); "none" if no return can be discerned. Judge by content, not only by the RETURN line.
+"valid": for "a": true only if the proof is correct and complete AND the ground truth says the statement is true. For "b": true only if the ground truth says the statement is false AND the offered counterexample or refutation is genuinely correct — recheck its arithmetic yourself. Otherwise false.
+"small_instance_shown": true if at least one explicit small instance is worked with its numbers shown.
+"scope_executed": true only if the response names a specific neighbouring statement with a known false, weaker or tight answer AND shows what the argument's mechanism produces there or which step breaks. Merely noting that the statement fails outside its own hypotheses is false.
+"scope_discriminating": true only if scope_executed and that check could realistically have come out differently had the argument been wrong.
+"validity_executed": true if for some quantity offered as evidence the response states what its value would be were the claim false.
+"verdict_without_content": true if any line asserts that a check passed, was verified, or holds, without exhibiting what was computed.
+"stale_verdict": true if the response changes course mid-computation ("wait", "actually") and leaves a superseded conclusion standing.
+"tags_used": true if claims carry epistemic tags such as DERIVED HERE / STANDARD / COMPUTED / CONJECTURED / ASSUMED.
+"unenforced_labelled": true if any review or step is explicitly labelled UNENFORCED, SELF-REVIEW, or NOT PERFORMED.
+"note": one sentence naming the decisive flaw or merit.`;}
+
+/* ---------- persistence ---------- */
+async function saveState(){const body={cfg:S.cfg,battery:S.battery,use:S.use,arms:S.arms,prereg:S.prereg,voided:S.voided||[]};if(db){try{await db.doc("study/state").set(JSON.parse(JSON.stringify(body)));return;}catch(e){lastErr="Could not save settings ("+e.code+").";}}try{localStorage.setItem("p2state",JSON.stringify(body));}catch(e){}}
+async function saveRun(r){if(db){try{await db.doc("runs/"+r.id).set(JSON.parse(JSON.stringify(r)));return;}catch(e){lastErr="Could not save run "+r.id+" ("+e.code+"). Export results before closing.";}}try{localStorage.setItem("p2runs",JSON.stringify(S.runs));}catch(e){}}
+async function loadAll(){let st=null;if(db){try{const d=await db.doc("study/state").get();if(d.exists)st=d.data();const q=await db.collection("runs").limit(1000).get();q.docs.forEach(x=>{const r=x.data();S.runs[r.id]=JSON.parse(JSON.stringify(r));});}catch(e){lastErr="Could not load saved data ("+e.code+").";}}else{try{st=JSON.parse(localStorage.getItem("p2state")||"null");S.runs=JSON.parse(localStorage.getItem("p2runs")||"{}");}catch(e){}}
+if(st){Object.assign(S.cfg,st.cfg||{});if(st.battery)S.battery=st.battery;if(st.use)S.use=st.use;if(st.arms)S.arms=st.arms;S.prereg=st.prereg||null;S.voided=st.voided||[];}}
+
+/* ---------- planning and running ---------- */
+function plan(phase){const ps=S.battery.filter(p=>S.use[p.id]);const arms=phase==="pilot"?[BARE]:ARMS.filter(a=>S.arms[a.id]);const reps=phase==="pilot"?S.cfg.pilotReps:S.cfg.reps;const out=[];for(const a of arms)for(const p of ps)for(let r=1;r<=reps;r++){const id=phase+"_"+p.id+"_"+a.id+"_"+r;out.push(S.runs[id]||(S.runs[id]={id,phase,pid:p.id,arm:a.id,rep:r}));}return out;}
+const done=r=>r.text&&r.j1&&r.j2;
+async function generate(prompt,signal){let turns=[{role:"user",content:prompt}],text="",res;for(let i=0;i<=S.cfg.maxCont;i++){res=await sample(turns,{cache:false,modelTier:S.cfg.tier,signal});text+=(i?"\n":"")+res.text;if(!res.truncated)break;turns=[{role:"user",content:prompt},{role:"assistant",content:text},{role:"user",content:"Continue exactly where you stopped. Do not repeat anything."}];}return{text,truncated:res.truncated,tier:res.modelTierApplied};}
+async function processRun(r,signal){const p=prob(r.pid),arm=armById(r.arm);if(!r.text){const pr=buildPrompt(arm,p);const g=await generate(pr,signal);Object.assign(r,{text:g.text,truncated:g.truncated,tier:g.tier,promptChars:pr.length,chars:g.text.length,ts:Date.now()});delete r.err;await saveRun(r);}
+for(const j of["j1","j2"])if(!r[j]){const v=await sample.json(judgePrompt(p,r.text),{cache:false,modelTier:S.cfg.judgeTier,signal});if(!v||typeof v.return_class!=="string")throw{code:"invalid_json"};r[j]=v;await saveRun(r);}}
+const HALT={not_granted:"Claude access was not allowed for this page, so nothing can run.",sampling_disabled:"Claude is not available for this account.",not_declared:"This page no longer declares Claude access.",capability_disabled:"Claude access is unavailable in this view.",session_expired:"Your session expired. Sign in again, then resume."};
+async function runQueue(phase){if(running||!sample)return;if(phase==="main"&&!S.prereg){msg="Freeze the pre-registration before running the main study.";render();return;}
+const q=plan(phase).filter(r=>!done(r)).sort(()=>Math.random()-.5).slice(0,S.cfg.batch);if(!q.length){msg="Nothing left to run in this phase.";render();return;}
+running=true;ctl=new AbortController();msg="";let stop=false,streak=0,n=0;
+const worker=async()=>{while(q.length&&!stop){const r=q.shift();try{await processRun(r,ctl.signal);streak=0;n++;}catch(e){const c=e&&e.code||"upstream_error";if(c==="cancelled"){stop=true;}else if(c==="rate_limited"){stop=true;msg="Rate limited. Wait a while, then run the next batch.";}else if(HALT[c]){stop=true;msg=HALT[c];}else{r.err=c;if(++streak>=3){stop=true;msg="Three runs failed in a row ("+c+"). Paused.";}}}render();}};
+await Promise.all(Array.from({length:Math.max(1,Math.min(3,S.cfg.conc))},worker));running=false;if(!msg)msg="Batch finished: "+n+" runs completed.";render();}
+
+/* ---------- derived outcomes and statistics ---------- */
+function outcome(r,j){j=j||r.j1;if(!j)return null;const t=prob(r.pid)?.type,c=j.return_class,v=!!j.valid;const definitive=c==="a"||c==="b"||c==="between";const correct=(t==="true"&&c==="a"&&v)||(t==="false"&&c==="b"&&v);return{fail:definitive&&!correct,solved:correct||(t==="open"&&c==="c"),cls:c};}
+const val=(r,key)=>key==="fail"||key==="solved"?outcome(r)[key]:!!r.j1[key];
+const rate=(R,key)=>R.length?R.filter(r=>val(r,key)).length/R.length:NaN;
+const mean=(R,f)=>R.length?R.reduce((s,r)=>s+f(r),0)/R.length:NaN;
+function diff(G1,G0,key){const p1=rate(G1,key),p0=rate(G0,key),n1=G1.length,n0=G0.length;const se=Math.sqrt(p1*(1-p1)/n1+p0*(1-p0)/n0);const d=p1-p0;return{p1,p0,n1,n0,d,lo:d-1.96*se,hi:d+1.96*se};}
+function kappa(R,f){const P=R.filter(r=>r.j1&&r.j2).map(r=>[f(r,r.j1),f(r,r.j2)]);const n=P.length;if(!n)return{n:0,k:NaN,agree:NaN};const a=P.filter(x=>x[0]===x[1]).length/n,p1=P.filter(x=>x[0]).length/n,p2=P.filter(x=>x[1]).length/n,pe=p1*p2+(1-p1)*(1-p2);return{n,agree:a,k:pe===1?NaN:(a-pe)/(1-pe)};}
+const pct=x=>isNaN(x)?"–":Math.round(x*100)+"%",pp=x=>isNaN(x)?"–":(x>0?"+":"")+Math.round(x*100);
+const judged=phase=>Object.values(S.runs).filter(r=>r.phase===phase&&r.j1&&prob(r.pid));
+function predictions(R){const fact=R.filter(r=>armById(r.arm).kind==="fact"),eff=(b,k)=>diff(fact.filter(r=>armById(r.arm).lv[b]>0),fact.filter(r=>armById(r.arm).lv[b]<0),k),by=id=>R.filter(r=>r.arm===id),ok=e=>!isNaN(e.lo);const out={};
+{const e=eff("D","fail");out.a={v:!ok(e)?"UNDETERMINED":e.hi<0?"REFUTED":"NOTREFUTED",d:`D effect on failure ${pp(e.d)} pts [${pp(e.lo)}, ${pp(e.hi)}]`};}
+{const e1=eff("E","verdict_without_content"),e2=eff("E","fail");out.b={v:!ok(e1)||!ok(e2)?"UNDETERMINED":e1.hi<0&&e2.hi<0?"SUPPORTED":e1.d>=0&&e2.d>=0?"REFUTED":"UNDETERMINED",d:`E on verdict-without-content ${pp(e1.d)} [${pp(e1.lo)}, ${pp(e1.hi)}]; on failure ${pp(e2.d)} [${pp(e2.lo)}, ${pp(e2.hi)}]`};}
+{const F=fact.filter(r=>armById(r.arm).lv.F>0),Sc=by("EFSC"),pF=rate(F,"scope_executed"),pS=rate(Sc,"scope_executed");out.c={v:F.length<10||Sc.length<10?"UNDETERMINED":pF<.5&&pS>.8?"SUPPORTED":"REFUTED",d:`prose ${pct(pF)} (n=${F.length}); return fields ${pct(pS)} (n=${Sc.length})`};}
+{const A=by("EFON"),B=by(FULL.id),fa=rate(A,"fail"),fb=rate(B,"fail"),ca=mean(A,r=>r.chars),cb=mean(B,r=>r.chars);out.d={v:A.length<10||B.length<10?"UNDETERMINED":fa<=fb+.05&&ca<=.5*cb?"SUPPORTED":"REFUTED",d:`failure ${pct(fa)} vs ${pct(fb)}; mean length ${Math.round(ca)} vs ${Math.round(cb)} chars`};}
+{const b=rate(by(BARE.id),"fail"),f=rate(by(FULL.id),"fail"),g=rate(by("PRIG"),"fail"),gap=b-f;out.e={v:isNaN(gap)||isNaN(g)||gap<=0?"UNDETERMINED":b-g>=.5*gap?"SUPPORTED":"REFUTED",d:`bare ${pct(b)}, rigour placebo ${pct(g)}, full ${pct(f)}`};}
+{const e1=eff("A","unenforced_labelled"),e2=eff("A","fail");out.f={v:!ok(e1)||!ok(e2)?"UNDETERMINED":e2.hi<0?"REFUTED":e1.lo>0&&e2.lo<=0&&e2.hi>=0?"SUPPORTED":"UNDETERMINED",d:`A on labelling ${pp(e1.d)} [${pp(e1.lo)}, ${pp(e1.hi)}]; on failure ${pp(e2.d)} [${pp(e2.lo)}, ${pp(e2.hi)}]`};}
+return out;}
+
+/* ---------- views ---------- */
+const TABS=[["battery","1 Battery"],["arms","2 Arms"],["pilot","3 Pilot"],["freeze","4 Freeze"],["run","5 Run"],["results","6 Results"]];
+function render(){$("#nav").innerHTML=TABS.map(([k,l])=>`<button role="tab" aria-selected="${tab===k}" onclick="tab='${k}';msg='';render()">${l}</button>`).join("");
+$("#status").innerHTML=(sample?"":`<div class="note err">Claude access is not available in this view, so runs cannot start. Open the published page while signed in. Saved results can still be read and exported.</div>`)+(lastErr?`<div class="note err">${esc(lastErr)}</div>`:"")+(msg?`<div class="note">${esc(msg)}</div>`:"");
+$("#view").innerHTML=V[tab]();}
+const locked=()=>!!S.prereg;
+function matrix(phase){const ps=S.battery.filter(p=>S.use[p.id]),arms=phase==="pilot"?[BARE]:ARMS.filter(a=>S.arms[a.id]),reps=phase==="pilot"?S.cfg.pilotReps:S.cfg.reps;
+return`<div class="scroll"><table class="mx"><tr><th></th>${"ABCDEF".split("").map(b=>`<th>${b}</th>`).join("")}${ps.map(p=>`<th title="${esc(p.statement)}">${p.id}</th>`).join("")}</tr>${arms.map(a=>`<tr><td class="lab">${esc(a.label)}</td>${"ABCDEF".split("").map(b=>`<td><span class="sq ${a.kind==="fact"?(a.lv[b]>0?"on":""):(a.kind==="ef"||a.kind==="schema")&&"EF".includes(b)?"on":""}"></span></td>`).join("")}${ps.map(p=>`<td><button class="cell" aria-label="${a.id} ${p.id}" onclick="inspect('${phase}','${p.id}','${a.id}')">${Array.from({length:reps},(_,i)=>{const r=S.runs[phase+"_"+p.id+"_"+a.id+"_"+(i+1)];let c="";if(r&&r.j1){const o=outcome(r);c=o.fail?"fail":o.solved?"ok":"safe";}else if(r&&r.text)c="gen";else if(r&&r.err)c="x";return`<span class="dot ${c}"></span>`;}).join("")}</button></td>`).join("")}</tr>`).join("")}</table></div>
+<p class="legend muted"><span><i class="dot"></i>pending</span><span><i class="dot gen"></i>answered, not judged</span><span><i class="dot ok"></i>correct</span><span><i class="dot safe"></i>declined to claim</span><span><i class="dot fail"></i>wrong definitive answer</span><span><i class="dot x"></i>call failed</span></p>`;}
+function runBar(phase){const pl=plan(phase),d=pl.filter(done).length;return`<div class="row"><button class="btn primary" ${running||!sample?"disabled":""} onclick="runQueue('${phase}')">Run next batch</button><button class="btn" ${running?"":"disabled"} onclick="ctl&&ctl.abort()">Stop</button><label>Batch size <input type="number" min="1" max="200" value="${S.cfg.batch}" onchange="S.cfg.batch=+this.value||20;saveState()"></label><span>${d} of ${pl.length} runs complete${running?" · running…":""}</span></div><p class="muted">Each run is one answer plus two judge calls, billed to your own Claude usage. Order is randomised. A rate limit pauses the batch; start the next one yourself when ready.</p>`;}
+const V={
+battery(){return`<h2>Problem battery</h2><p>Fifteen statements with planted ground truth: seven false, five true, three open. The agent is asked to prove each one. A wrong definitive answer — a proof of something false or open, an invalid proof, a bogus counterexample — is the primary failure. Ground truths were machine-checked where checkable; re-verify the open items before freezing.</p>
+<div class="scroll"><table><tr><th>Use</th><th>Id</th><th>Type</th><th>Statement</th><th>Ground truth shown to judges</th></tr>${S.battery.map(p=>`<tr><td><input type="checkbox" ${S.use[p.id]?"checked":""} ${locked()?"disabled":""} onchange="S.use['${p.id}']=this.checked;saveState()"></td><td>${p.id}</td><td>${p.type}</td><td>${esc(p.statement)}</td><td class="muted">${esc(p.truth)}</td></tr>`).join("")}</table></div>
+<h2>Edit as JSON</h2><textarea id="bj" rows="8" ${locked()?"disabled":""}>${esc(JSON.stringify(S.battery,null,1))}</textarea><div class="row"><button class="btn" ${locked()?"disabled":""} onclick="setBattery()">Replace battery</button></div>`;},
+arms(){const c=S.cfg,L=locked()?"disabled":"";return`<h2>Arms</h2><p>A 2<sup>6−2</sup> fractional factorial (E = ABC, F = BCD, resolution IV) over six clause blocks of v2.1, plus four controls. Orchestration, verification ladder and budget sections are held out: their substrate is absent with one agent. Every arm, including bare, ends with the same fixed return menu (a)/(b)/(c).</p>
+<div class="scroll"><table><tr><th>Use</th><th>Arm</th><th>Contents</th><th>Prompt length</th><th></th></tr>${ARMS.map(a=>`<tr><td><input type="checkbox" ${S.arms[a.id]?"checked":""} ${L} onchange="S.arms['${a.id}']=this.checked;saveState()"></td><td>${a.id}</td><td>${esc(a.label)}</td><td class="n">${protoText(a).length.toLocaleString()} chars</td><td><button class="btn" onclick="showPrompt('${a.id}')">View prompt</button></td></tr>`).join("")}</table></div>
+<p class="muted">Blocks: A substrate declaration · B decomposition and scale · C stance and tags · D named failure principles · E derivation discipline · F adversarial audit. Placebos are padded to the full template's length by cycling their paragraphs; replace the text below with longer non-repeating filler if you have it.</p>
+<h2>Settings</h2><div class="row">
+<label>Answer model <select ${L} onchange="S.cfg.tier=this.value;saveState()">${["quick","default","complex"].map(t=>`<option ${c.tier===t?"selected":""}>${t}</option>`).join("")}</select></label>
+<label>Judge model <select ${L} onchange="S.cfg.judgeTier=this.value;saveState()">${["quick","default","complex"].map(t=>`<option ${c.judgeTier===t?"selected":""}>${t}</option>`).join("")}</select></label>
+<label>Task wording <select ${L} onchange="S.cfg.framing=this.value;saveState()"><option value="prove" ${c.framing==="prove"?"selected":""}>Prove the statement</option><option value="decide" ${c.framing==="decide"?"selected":""}>Decide, then prove</option></select></label>
+<label>Reps per cell <input type="number" min="1" max="6" value="${c.reps}" ${L} onchange="S.cfg.reps=+this.value||2;saveState()"></label>
+<label>Word cap <input type="number" min="300" max="4000" step="100" value="${c.words}" ${L} onchange="S.cfg.words=+this.value||1200;saveState()"></label>
+<label>Continuations if cut off <input type="number" min="0" max="3" value="${c.maxCont}" ${L} onchange="S.cfg.maxCont=+this.value||0;saveState()"></label>
+<label>Parallel calls <input type="number" min="1" max="3" value="${c.conc}" onchange="S.cfg.conc=+this.value||1;saveState()"></label></div>
+<h2>Placebo text</h2><p class="muted">Formatting rules</p><textarea rows="5" ${L} onchange="S.cfg.pfmt=this.value;saveState()">${esc(c.pfmt)}</textarea><p class="muted">Generic rigour</p><textarea rows="5" ${L} onchange="S.cfg.prig=this.value;saveState()">${esc(c.prig)}</textarea>`;},
+pilot(){const R=judged("pilot");const rows=S.battery.filter(p=>S.use[p.id]||R.some(r=>r.pid===p.id)).map(p=>{const G=R.filter(r=>r.pid===p.id);const f=rate(G,"fail"),s=rate(G,"solved");return`<tr><td>${p.id}</td><td>${p.type}</td><td class="n">${G.length}</td><td class="n">${pct(f)}</td><td class="n">${pct(1-s)}</td><td>${!G.length?"":f>=.2&&f<=.8?"in range":(1-s)>=.2&&(1-s)<=.8?"in range on unsolved only":"at floor or ceiling"}</td><td><input type="checkbox" ${S.use[p.id]?"checked":""} ${locked()?"disabled":""} onchange="S.use['${p.id}']=this.checked;saveState()"></td></tr>`;}).join("");
+return`<h2>Pilot: does the bare arm fail often enough?</h2><p>Runs the bare arm only, ${S.cfg.pilotReps} times per problem. A problem the unaided agent always gets right (or always gets wrong) cannot separate the arms. Keep those with a bare failure rate between 20% and 80%.</p>${runBar("pilot")}${matrix("pilot")}
+<div class="scroll"><table><tr><th>Id</th><th>Type</th><th>Judged</th><th>Wrong definitive</th><th>Not solved</th><th>Verdict</th><th>Use in main study</th></tr>${rows}</table></div>
+<div class="row"><button class="btn" ${locked()||!R.length?"disabled":""} onclick="autoSelect()">Keep only problems in range</button></div>`;},
+freeze(){const n=plan("main").length;return`<h2>Pre-registration</h2><p>Freezing records a SHA-256 hash of the battery in use, every arm's prompt, the settings, and the six predictions with their scoring rules. The battery and settings lock. Predictions are then scored mechanically on the Results tab, as written.</p>
+<table>${Object.entries(PRED_TEXT).map(([k,t])=>`<tr><td>(${k})</td><td>${esc(t)}</td></tr>`).join("")}</table>
+<p>Planned main study: ${n} runs, ${n*3} Claude calls before continuations.</p>
+${S.prereg?`<div class="note">Frozen ${new Date(S.prereg.ts).toLocaleString()}<br>Hash <code>${S.prereg.hash}</code></div><div class="row"><button class="btn" onclick="unfreeze()">Unfreeze (voids this pre-registration)</button></div>`:`<div class="row"><button class="btn primary" onclick="freeze()">Freeze pre-registration</button></div>`}${(S.voided||[]).length?`<p class="muted">Earlier pre-registrations voided: ${S.voided.join(", ")}</p>`:""}`;},
+run(){return`<h2>Main study</h2>${S.prereg?"":`<div class="note">Freeze the pre-registration first.</div>`}${runBar("main")}${matrix("main")}<p class="muted">Select any cell to read the answers and both judges' gradings.</p>`;},
+results(){const R=judged("main");if(!R.length)return`<h2>Results</h2><p>No judged main-study runs yet.</p>`;const P=predictions(R),fact=R.filter(r=>armById(r.arm).kind==="fact");
+const armRows=ARMS.filter(a=>R.some(r=>r.arm===a.id)).map(a=>{const G=R.filter(r=>r.arm===a.id);return`<tr><td>${esc(a.label)}</td><td class="n">${G.length}</td><td class="n">${pct(rate(G,"fail"))}</td><td class="n">${pct(rate(G,"solved"))}</td><td class="n">${pct(rate(G,"scope_executed"))}</td><td class="n">${pct(rate(G,"verdict_without_content"))}</td><td class="n">${Math.round(mean(G,r=>r.promptChars/4)).toLocaleString()}</td><td class="n">${Math.round(mean(G,r=>r.chars/4)).toLocaleString()}</td><td class="n">${pct(mean(G,r=>r.truncated?1:0))}</td></tr>`;}).join("");
+const effRows="ABCDEF".split("").map(b=>{const hi=fact.filter(r=>armById(r.arm).lv[b]>0),lo=fact.filter(r=>armById(r.arm).lv[b]<0),e=diff(hi,lo,"fail"),t=mean(hi,r=>r.chars/4)-mean(lo,r=>r.chars/4);return`<tr><td>${b}</td><td class="n">${e.n1} / ${e.n0}</td><td class="n">${pct(e.p1)} vs ${pct(e.p0)}</td><td class="n">${pp(e.d)} [${pp(e.lo)}, ${pp(e.hi)}]</td><td class="n">${isNaN(t)?"–":(t>0?"+":"")+Math.round(t)}</td></tr>`;}).join("");
+const MK=[["small_instance_shown","E","small instance shown"],["verdict_without_content","E","verdict without content (lower is better)"],["stale_verdict","E","superseded verdict left standing (lower is better)"],["scope_executed","F","scope check executed"],["scope_discriminating","F","scope check discriminating"],["validity_executed","F","measurement validity executed"],["tags_used","C","claims tagged"],["unenforced_labelled","A","UNENFORCED labelling"]];
+const exRows=MK.map(([k,b,l])=>{const on=fact.filter(r=>armById(r.arm).lv[b]>0),off=fact.filter(r=>armById(r.arm).lv[b]<0);return`<tr><td>${l}</td><td>${b}</td><td class="n">${pct(rate(on,k))}</td><td class="n">${pct(rate(off,k))}</td><td class="n">${pct(rate(R.filter(r=>r.arm==="EFSC"),k))}</td></tr>`;}).join("");
+const k1=kappa(R,(r,j)=>outcome(r,j).fail),k2=kappa(R,(r,j)=>!!j.scope_executed);
+return`<h2>Predictions, scored as written</h2><table>${Object.entries(P).map(([k,o])=>`<tr><td>(${k})</td><td><span class="tag ${o.v}">${o.v==="NOTREFUTED"?"NOT REFUTED":o.v}</span></td><td>${esc(PRED_TEXT[k])}<br><span class="muted">${esc(o.d)}</span></td></tr>`).join("")}</table>
+<h2>By arm</h2><div class="scroll"><table><tr><th>Arm</th><th>n</th><th>Wrong definitive</th><th>Correct</th><th>Scope check run</th><th>Verdict w/o content</th><th>Prompt ≈tokens</th><th>Answer ≈tokens</th><th>Cut off</th></tr>${armRows}</table></div>
+<h2>Main effect of each block on failure (factorial arms)</h2><div class="scroll"><table><tr><th>Block</th><th>n present / absent</th><th>Failure present vs absent</th><th>Difference, points [95% interval]</th><th>Answer ≈tokens</th></tr>${effRows}</table></div>
+<p class="muted">Intervals treat runs as independent; runs share problems, so they are somewhat too narrow. With resolution IV, main effects are clear of two-way interactions but two-way interactions are aliased with each other.</p>
+<h2>Clause present versus clause executed</h2><div class="scroll"><table><tr><th>Behaviour</th><th>Block</th><th>Rate, block present</th><th>Rate, block absent</th><th>Return-fields arm</th></tr>${exRows}</table></div>
+<h2>Judge agreement</h2><p>Failure: ${pct(k1.agree)} agreement, κ = ${isNaN(k1.k)?"–":k1.k.toFixed(2)} (n=${k1.n}). Scope check executed: ${pct(k2.agree)}, κ = ${isNaN(k2.k)?"–":k2.k.toFixed(2)}. All tables above use judge 1. Below κ ≈ 0.6, read the transcripts before believing a table.</p>
+<div class="row"><button class="btn" onclick="exportData('json')">Export everything (JSON)</button><button class="btn" onclick="exportData('csv')">Export run table (CSV)</button></div><div id="exp"></div>`;}};
+
+/* ---------- actions ---------- */
+function setBattery(){try{const b=JSON.parse($("#bj").value);if(!Array.isArray(b)||b.some(p=>!p.id||!/^[A-Za-z0-9]+$/.test(p.id)||!["true","false","open"].includes(p.type)||!p.statement||!p.truth))throw 0;S.battery=b;b.forEach(p=>{if(!(p.id in S.use))S.use[p.id]=true;});msg="Battery replaced.";saveState();}catch(e){msg="That JSON is not a valid battery: each item needs an alphanumeric id, type true/false/open, statement and truth.";}render();}
+function autoSelect(){const R=judged("pilot");S.battery.forEach(p=>{const G=R.filter(r=>r.pid===p.id);if(G.length){const f=rate(G,"fail");S.use[p.id]=f>=.2&&f<=.8;}});saveState();render();}
+async function freeze(){const snap=JSON.stringify({battery:S.battery.filter(p=>S.use[p.id]),prompts:ARMS.filter(a=>S.arms[a.id]).map(a=>[a.id,protoText(a)]),core:CORE(S.cfg.words),cfg:S.cfg,preds:PRED_TEXT,judge:judgePrompt({statement:"",truth:""},"")});let hash="unavailable";try{const h=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(snap));hash=[...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,"0")).join("");}catch(e){}
+S.prereg={hash,ts:Date.now()};await saveState();render();}
+async function unfreeze(){S.voided=(S.voided||[]).concat(S.prereg.hash.slice(0,12));S.prereg=null;await saveState();msg="Pre-registration voided. Main-study runs already made were made under it; export them before changing anything.";render();}
+
+function showPrompt(id){const a=armById(id),p=S.battery[0];$("#dlgBody").innerHTML=`<h2>${esc(a.label)}</h2><p class="muted">Shown with problem ${p.id}.</p><pre>${esc(buildPrompt(a,p))}</pre>`;$("#dlg").showModal();}
+function inspect(phase,pid,aid){const rs=Object.values(S.runs).filter(r=>r.phase===phase&&r.pid===pid&&r.arm===aid).sort((a,b)=>a.rep-b.rep),p=prob(pid);
+$("#dlgBody").innerHTML=`<h2>${esc(armById(aid).label)} on ${pid}</h2><p>${esc(p.statement)}</p><p class="muted">${esc(p.truth)}</p>`+(rs.filter(r=>r.text||r.err).map(r=>`<h2>Rep ${r.rep}${r.truncated?" (cut off)":""}</h2>${r.err?`<p class="muted">Last call failed: ${esc(r.err)}</p>`:""}${r.text?`<pre>${esc(r.text)}</pre>`:""}${["j1","j2"].map(j=>r[j]?`<p><b>Judge ${j[1]}:</b> ${esc(r[j].return_class)}, valid ${!!r[j].valid}. ${esc(r[j].note||"")}<br><span class="muted">${Object.entries(r[j]).filter(([k,v])=>v===true&&k!=="valid").map(([k])=>k).join(", ")}</span></p>`:"").join("")}`).join("")||"<p>No runs yet for this cell.</p>");$("#dlg").showModal();}
+async function exportData(kind){let data,name;if(kind==="json"){data=JSON.stringify({prereg:S.prereg,cfg:S.cfg,battery:S.battery,arms:ARMS.map(a=>({id:a.id,label:a.label,lv:a.lv||null})),predictions:PRED_TEXT,scored:predictions(judged("main")),runs:Object.values(S.runs)},null,1);name="p2-ablation.json";}
+else{const q=s=>'"'+String(s??"").replace(/"/g,'""')+'"';const K=["return_class","valid","small_instance_shown","scope_executed","scope_discriminating","validity_executed","verdict_without_content","stale_verdict","tags_used","unenforced_labelled"];const rows=[["id","phase","problem","type","arm","A","B","C","D","E","F","rep","prompt_chars","answer_chars","truncated","fail_j1","solved_j1","fail_j2",...K.map(k=>k+"_j1"),...K.map(k=>k+"_j2")]];
+Object.values(S.runs).filter(r=>r.text&&prob(r.pid)).forEach(r=>{const a=armById(r.arm),o1=outcome(r,r.j1),o2=outcome(r,r.j2);rows.push([r.id,r.phase,r.pid,prob(r.pid).type,r.arm,..."ABCDEF".split("").map(b=>a.lv?(a.lv[b]>0?1:0):""),r.rep,r.promptChars,r.chars,r.truncated?1:0,o1?+o1.fail:"",o1?+o1.solved:"",o2?+o2.fail:"",...K.map(k=>r.j1?r.j1[k]:""),...K.map(k=>r.j2?r.j2[k]:"")]);});data=rows.map(r=>r.map(q).join(",")).join("\n");name="p2-ablation-runs.csv";}
+if(downloads){try{await downloads.save({filename:name,data});return;}catch(e){if(e.code==="declined")return;}}$("#exp").innerHTML=`<p class="muted">Saving files is unavailable here. Copy from the box.</p><textarea rows="10" readonly>${esc(data)}</textarea>`;}
+/* ---------- boot ---------- */
+render();
+(async()=>{if(!window.claude||!claude.use){lastErr="";render();return;}
+[sample,db,downloads]=await Promise.all([claude.use("sample"),claude.use("db"),claude.use("downloads")]);await loadAll();render();})();
+</script></body></html>

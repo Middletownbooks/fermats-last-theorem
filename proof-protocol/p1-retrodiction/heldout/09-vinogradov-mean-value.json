@@ -1,0 +1,15 @@
+{
+  "id": "09-vinogradov-mean-value",
+  "problem": "Vinogradov mean value theorem",
+  "after_board": "Efficient congruencing, or l^2 decoupling.",
+  "multi_answer": false,
+  "transformation": "unlabelled",
+  "transformation_note": "The seed's preliminary P3 assigns no transformation to this case.",
+  "source": "Wooley 2012; Bourgain-Demeter-Guth arXiv:1512.01565",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

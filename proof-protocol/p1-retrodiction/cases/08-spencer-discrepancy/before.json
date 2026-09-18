@@ -1,0 +1,34 @@
+{
+  "id": "08-spencer-discrepancy",
+  "problem": "Spencer set discrepancy (six standard deviations)",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Spencer",
+    "ref": "Spencer 1985",
+    "date": "1985-01-01"
+  },
+  "before_board": {
+    "S": "A colouring of n points with n sets.",
+    "M": "Uniform random colouring.",
+    "I": "Per-set Chernoff bound.",
+    "C": "Union bound over the n sets.",
+    "T": null
+  },
+  "bound_then": "sqrt(n log n).",
+  "leak": "The sqrt(log n) comes from the union bound over sets.",
+  "sources_before": [
+    {
+      "cite": "Chernoff/union-bound folklore",
+      "date": "pre-1985",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

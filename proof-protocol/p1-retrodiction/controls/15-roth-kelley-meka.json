@@ -1,0 +1,23 @@
+{
+  "id": "15-roth-kelley-meka",
+  "problem": "Roth's theorem in [N] (Kelley-Meka 2023)",
+  "role": "control",
+  "control_kind": "no-board-change",
+  "expected_diagnostic_behaviour": "must-not-fire",
+  "board": {
+    "name": "density increment",
+    "S": "A 3AP-free subset of [N].",
+    "I": "Density increment."
+  },
+  "what_happened": "The work stayed on the density-increment board and improved the play (sifting and higher energies), giving exp(-c log^{1/12} N).",
+  "tests_for": "False board-change alarms where better play on an unchanged board produced a headline result.",
+  "sources": [
+    {
+      "cite": "Kelley, Meka 2023",
+      "date": "2023",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated"
+}

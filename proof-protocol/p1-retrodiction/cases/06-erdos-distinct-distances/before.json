@@ -1,0 +1,39 @@
+{
+  "id": "06-erdos-distinct-distances",
+  "problem": "Erdos distinct distances",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Guth-Katz",
+    "ref": "arXiv:1011.4105",
+    "date": "2010-11-01"
+  },
+  "before_board": {
+    "S": "N points in the plane.",
+    "M": "Count isosceles triangles, or circle incidences.",
+    "I": "Szemeredi-Trotter-type bounds.",
+    "C": null,
+    "T": null
+  },
+  "bound_then": "N^{0.864} (Katz-Tardos 2004).",
+  "leak": "Circle incidence bounds are weaker than line incidence bounds. The exponent stays stuck below 1.",
+  "sources_before": [
+    {
+      "cite": "Katz, Tardos 2004",
+      "date": "2004",
+      "verified": false
+    },
+    {
+      "cite": "Szemeredi, Trotter 1983",
+      "date": "1983",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

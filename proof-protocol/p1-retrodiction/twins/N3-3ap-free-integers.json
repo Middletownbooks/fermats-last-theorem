@@ -1,0 +1,24 @@
+{
+  "id": "N3-3ap-free-integers",
+  "problem": "3AP-free subsets of [N]",
+  "twin_of": "02-cap-set",
+  "surface_leak": "A density-increment iteration with the same shape as the cap-set argument.",
+  "verdict": "tight-in-the-relevant-sense",
+  "expected_diagnostic_behaviour": "fires",
+  "why_negative": "Behrend's construction excludes power savings, and slice rank gives nothing here. The cap-set after-board does not transfer.",
+  "sources": [
+    {
+      "cite": "Behrend 1946",
+      "date": "1946",
+      "verified": false
+    }
+  ],
+  "role": "negative-twin",
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

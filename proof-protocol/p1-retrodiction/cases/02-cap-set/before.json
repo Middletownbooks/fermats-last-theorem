@@ -1,0 +1,39 @@
+{
+  "id": "02-cap-set",
+  "problem": "Cap set problem",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Croot-Lev-Pach; Ellenberg-Gijswijt",
+    "ref": "arXiv:1605.01506; arXiv:1605.09223",
+    "date": "2016-05-01"
+  },
+  "before_board": {
+    "S": "A subset A of F_3^n of density delta with no three-term arithmetic progression.",
+    "M": "Large Fourier coefficient, then restrict to a hyperplane.",
+    "I": "Density increment delta -> delta + c*delta^2.",
+    "C": "About 1/delta iterations, each costing one dimension.",
+    "T": "Dimensions exhausted."
+  },
+  "bound_then": "3^n/n (Meshulam 1995); n^{1+eps} (Bateman-Katz 2012).",
+  "leak": "The per-step gain delta^2 against the additive cost of one dimension per step forces delta >~ 1/n. The invariant composes additively while the target (maximum cap size) is supermultiplicative under products, so the truth has the form c^n.",
+  "sources_before": [
+    {
+      "cite": "Meshulam 1995",
+      "date": "1995",
+      "verified": false
+    },
+    {
+      "cite": "Bateman, Katz 2012",
+      "date": "2012",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

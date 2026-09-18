@@ -1,0 +1,15 @@
+{
+  "id": "11-kneser",
+  "problem": "Kneser conjecture",
+  "after_board": "The neighbourhood complex with Borsuk-Ulam.",
+  "multi_answer": false,
+  "transformation": "none",
+  "transformation_note": "Seed P3: a category change; fits none of the five.",
+  "source": "Lovasz 1978",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

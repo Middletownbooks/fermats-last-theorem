@@ -1,0 +1,34 @@
+{
+  "id": "03-shannon-capacity-c5",
+  "problem": "Shannon capacity of C5",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Lovasz",
+    "ref": "Lovasz 1979, IEEE Trans. Inform. Theory",
+    "date": "1979-01-01"
+  },
+  "before_board": {
+    "S": "A graph under the strong product.",
+    "M": null,
+    "I": "Fractional clique cover alpha* (multiplicative).",
+    "C": null,
+    "T": "Theta <= alpha*."
+  },
+  "bound_then": "sqrt(5) <= Theta <= 5/2 (Shannon 1956).",
+  "leak": "The linear program sees only cliques - for C5, only edges - so it is loose on odd cycles. Its product law is correct; its value is wrong.",
+  "sources_before": [
+    {
+      "cite": "Shannon 1956",
+      "date": "1956",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

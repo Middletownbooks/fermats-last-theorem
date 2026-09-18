@@ -1,0 +1,25 @@
+{
+  "id": "N4-shannon-capacity-c7",
+  "problem": "Shannon capacity of C7",
+  "twin_of": "03-shannon-capacity-c5",
+  "surface_leak": "Same loose LP invariant on an odd cycle.",
+  "verdict": "open",
+  "expected_diagnostic_behaviour": "fires",
+  "why_negative": "The same after-board does not close it: theta(C7) is about 3.318 against a lower bound of about 3.258 (Polak-Schrijver 2019). Still open.",
+  "sources": [
+    {
+      "cite": "Polak, Schrijver 2019",
+      "date": "2019",
+      "verified": false,
+      "debt": "the seed flags the Polak-Schrijver lower bound for Theta(C7) as recalled, not fetched"
+    }
+  ],
+  "role": "negative-twin",
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

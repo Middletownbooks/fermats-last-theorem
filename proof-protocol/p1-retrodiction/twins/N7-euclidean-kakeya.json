@@ -1,0 +1,24 @@
+{
+  "id": "N7-euclidean-kakeya",
+  "problem": "Euclidean Kakeya",
+  "twin_of": "05-finite-field-kakeya",
+  "surface_leak": "Incidence-counting losses identical in shape to the finite-field case.",
+  "verdict": "method-does-not-transfer",
+  "expected_diagnostic_behaviour": "fires",
+  "why_negative": "Dvir's polynomial method does not transfer. R^3 was resolved by a different multi-scale route (Wang-Zahl 2025).",
+  "sources": [
+    {
+      "cite": "Wang, Zahl 2025",
+      "date": "2025",
+      "verified": false
+    }
+  ],
+  "role": "negative-twin",
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

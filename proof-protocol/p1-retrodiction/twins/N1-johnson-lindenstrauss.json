@@ -1,0 +1,24 @@
+{
+  "id": "N1-johnson-lindenstrauss",
+  "problem": "Johnson-Lindenstrauss dimension",
+  "twin_of": "08-spencer-discrepancy",
+  "surface_leak": "A union bound over n^2 pairs contributes a log n factor to the target dimension.",
+  "verdict": "tight",
+  "expected_diagnostic_behaviour": "fires",
+  "why_negative": "The log is real: dimension log n / eps^2 is proven tight (Larsen-Nelson 2017). A diagnostic that says 'collectivize this union bound' is wrong here.",
+  "sources": [
+    {
+      "cite": "Larsen, Nelson 2017",
+      "date": "2017",
+      "verified": false
+    }
+  ],
+  "role": "negative-twin",
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

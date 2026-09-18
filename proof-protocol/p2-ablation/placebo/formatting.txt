@@ -1,0 +1,133 @@
+Number every displayed equation consecutively at the right margin, in parentheses, and refer to equations only by those numbers. Do not restart numbering inside sections.
+
+Use sentence case for all headings. Headings carry no terminal punctuation. Leave one blank line before a heading and none after it.
+
+Write numerals below ten as words in running prose unless they are mathematical values. Use a thin space between a number and its unit, and never begin a sentence with a symbol.
+
+Cite sources in author-year form. When two works share an author and year, distinguish them with lower-case letters in order of first appearance. Do not use ibid. or op. cit.
+
+Set variables in italic and operators such as sin, log and det in roman. Prefer solidus fractions in running text and built-up fractions only in displays.
+
+Keep lines under one hundred characters. Break a long display before a relation sign, and align continuation lines on that sign. Do not break inside a pair of delimiters.
+
+Use the serial comma. Use an en dash for ranges and between the names of joint discoverers, a hyphen for compound modifiers, and no spaces around either.
+
+Abbreviations are defined at first use and not again. Do not pluralise symbols with an apostrophe. Latin abbreviations are followed by a comma.
+
+Lists of three or fewer items are run into the sentence. Longer lists are displayed, each item beginning lower-case and ending with a semicolon, the last with a full stop.
+
+Footnotes are not used. Parenthetical remarks longer than one line are promoted to their own sentence.
+
+Theorem environments are numbered in a single sequence with the displayed equations, so that Theorem 4 may be followed by equation (5). Do not maintain separate counters.
+
+A proof ends with an open square at the right margin. Where a proof ends with a display, place the square on its own line, flush right, rather than beside the display.
+
+Reserve boldface for vectors and for the first occurrence of a defined term. Do not use it for emphasis in running prose; recast the sentence instead.
+
+Quantifiers in displayed formulas are written as symbols; in running prose they are written as words. Do not mix the two conventions within a single sentence.
+
+Set-builder notation uses a vertical bar with thin spaces on both sides, never a colon, and the bar is sized to the taller of the two expressions it separates.
+
+Matrices are delimited by square brackets, determinants by vertical bars. Do not use parentheses for either. Block matrices carry thin rules between blocks.
+
+Where a symbol is defined by an equation rather than derived, mark the equality with a small triangle above the equals sign at that one occurrence only.
+
+Subscripts that are words rather than indices are set in roman: write the maximum with a roman subscript and the i-th entry with an italic one.
+
+The argument of a function is enclosed in parentheses unless the function is a single letter applied to a single letter, in which case the parentheses may be dropped.
+
+Ellipses between commas sit on the baseline; ellipses between operators sit at the vertical centre of the line. Never use three full stops typed by hand.
+
+Punctuation following a display belongs to the sentence, not the display: a comma or full stop is set immediately after the closing delimiter with no preceding space.
+
+Cross-references name the object and its number together, capitalised: write Theorem 3 and Section 2, not theorem 3 or the previous section.
+
+Where a constant is absolute, say so at its first appearance and thereafter write it without qualification. Where it depends on a parameter, show that dependence in the notation.
+
+Tables carry their captions above; figures carry their captions below. Both are numbered in their own sequences and both are referred to by number, never by position.
+
+Column headings in tables are set in sentence case without terminal punctuation. Numeric columns align on the decimal separator; text columns align left.
+
+An appendix is lettered rather than numbered, and its equations carry the letter as a prefix, so that the first display of Appendix A is (A.1).
+
+Acknowledgements precede the bibliography and are set as an unnumbered section. Funding statements belong there, not in a footnote to the title.
+
+The bibliography is ordered alphabetically by first author's surname, then by year, then by title. Do not order it by first citation.
+
+Preprint references carry the archive identifier and the year of first posting, not the year of the version consulted. Published versions supersede preprint entries entirely.
+
+Page ranges in references are given in full: write the closing page number without eliding its leading digits.
+
+Journal names are abbreviated according to the standard list; where a journal is absent from that list, its name is given in full.
+
+Titles of cited works retain the capitalisation of their originals, except that an initial capital is supplied where the original has none.
+
+Where a result is attributed to unpublished work, name the form of the communication and its year in the sentence, and omit it from the bibliography.
+
+Author names in the bibliography are given as surname followed by initials, with no space between initials and a comma before the final conjunction.
+
+The abstract is a single paragraph of at most two hundred words. It contains no citations, no displayed formulas and no defined symbols.
+
+Keywords follow the abstract, separated by semicolons, in lower case except for proper nouns, and are not terminated by a full stop.
+
+The title carries no terminal punctuation and no abbreviations. A subtitle, if any, is separated by a colon and begins with a capital.
+
+Running heads carry the author surnames on the verso and a shortened title on the recto, each in small capitals and each under fifty characters.
+
+Section numbering is decimal to at most three levels. A fourth level is set as a run-in heading in italic, terminated by a full stop, with no number.
+
+Displayed quotations are set in a smaller size, indented on the left only, with no quotation marks, and are followed by the attribution in parentheses.
+
+Where a proof is deferred, say where it appears at the point of deferral, and repeat the statement in full at that later point rather than referring back.
+
+Hypotheses are labelled with capital letters in parentheses at the point of statement, and are referred to by those labels wherever they are assumed.
+
+A remark that qualifies a theorem immediately follows it, before the proof. A remark that extends it follows the proof. Do not interleave the two kinds.
+
+Notation introduced for a single proof is confined to that proof and is not used again. Notation used throughout is collected in a table at the end of the introduction.
+
+Where two notations for the same object are current in the literature, choose one, say in a sentence which one, and do not alternate between them.
+
+Indices run over explicit ranges stated at their first use. An index whose range is clear from context is still given a range at least once.
+
+Summation limits are placed above and below the sign in displays, and beside it in running prose. Empty sums are declared to be zero at their first occurrence.
+
+The empty product is declared to be one, and the empty maximum is declared to be negative infinity, each at first use, and neither is left to inference.
+
+Inequalities that hold for all sufficiently large values of a parameter say so explicitly. Do not leave the threshold implicit in an asymptotic symbol.
+
+Asymptotic notation is defined in the introduction, including whether the implied constants may depend on fixed parameters and which parameters those are.
+
+Where a bound is stated with an unspecified constant, the constant is named, and its dependence on the problem's data is stated in the same sentence.
+
+Numerical values are given to the precision that the computation supports, and the precision is stated. Do not report digits the method cannot justify.
+
+Computations carried out by machine name the software and its version in the text, and the code is described in an appendix or deposited with the article.
+
+Algorithms are displayed in a numbered environment with the input and output stated on separate lines before the first step, each labelled in small capitals.
+
+Steps within an algorithm are numbered, and loops are indicated by indentation rather than by explicit end markers. Comments are set in roman after a double slash.
+
+Complexity claims state the model of computation and the cost measure. A bound on the number of operations is distinguished from a bound on the running time.
+
+Where a figure is generated from data, the data's source is named in the caption and the plotting conventions are stated there rather than in the text.
+
+Axes on plots are labelled with the quantity and its unit, separated by a solidus. Logarithmic axes state their base. Legends sit inside the plot area.
+
+Colour is never the only carrier of information in a figure: distinguish series additionally by line style or by marker shape.
+
+The same quantity keeps the same symbol throughout the article, including in figures and tables, and including where a source used a different one.
+
+Where an article corrects an earlier one, the correction is stated in the introduction with a precise reference, not merely implied by the new result.
+
+Where a definition is standard but contested, say whose definition you are using, and give the reference in the sentence that introduces it.
+
+Equations that are referred to only once may be set inline if they fit; equations referred to more than once are displayed and numbered regardless of length.
+
+The introduction states the main result in full before the notation section, even at the cost of forward references, which are given explicitly.
+
+Where a proof occupies more than two pages, it opens with a paragraph naming its steps in order, and each step is announced by a run-in heading.
+
+A statement proved only under an additional assumption carries that assumption in its statement, not in a remark following it.
+
+Symbols that differ only by typeface are not used for different objects in the same article, however clear the distinction appears to the author.

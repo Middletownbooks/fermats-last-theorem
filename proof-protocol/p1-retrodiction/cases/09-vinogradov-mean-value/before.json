@@ -1,0 +1,35 @@
+{
+  "id": "09-vinogradov-mean-value",
+  "problem": "Vinogradov mean value theorem",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Wooley; Bourgain-Demeter-Guth",
+    "ref": "Wooley 2012; arXiv:1512.01565",
+    "date": "2012-01-01"
+  },
+  "before_board": {
+    "S": "The mean value J_{s,k}.",
+    "M": "p-adic congruencing iteration.",
+    "I": "A recursive inequality on J.",
+    "C": null,
+    "T": null
+  },
+  "bound_then": "s >~ c*k^2*log k (classical).",
+  "leak": "Each iteration recovers a fixed fraction of the defect, so about log k rounds are needed.",
+  "sources_before": [
+    {
+      "cite": "Vinogradov, classical mean value bounds",
+      "date": "pre-2012",
+      "verified": false,
+      "debt": "the seed flags both the bound s >~ c k^2 log k and the 'log k rounds' leak as medium confidence, recalled not fetched"
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

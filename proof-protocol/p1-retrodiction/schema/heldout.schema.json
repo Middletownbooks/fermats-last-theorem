@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "p1-retrodiction/heldout",
+  "title": "Held-out answer. NEVER shown to a scored agent.",
+  "type": "object",
+  "required": ["id", "after_board", "transformation", "source", "labelled_by"],
+  "properties": {
+    "id": {"type": "string"},
+    "problem": {"type": "string"},
+    "after_board": {"type": "string"},
+    "multi_answer": {"type": "boolean",
+                     "description": "true where the rubric must accept either of two answers (case 7)"},
+    "transformation": {
+      "type": "string",
+      "description": "An atom from taxonomy.label_vocabulary, a '+'-joined combination, 'none', or 'unlabelled'."
+    },
+    "transformation_note": {"type": ["string", "null"]},
+    "source": {"type": "string"},
+    "labelled_by": {"type": "array", "items": {"type": "string"}},
+    "label_pass": {"type": "string"},
+    "second_blind_label": {"type": ["string", "null"],
+                           "description": "Required before any label kappa exists."},
+    "label_kappa": {"type": ["number", "null"]}
+  }
+}

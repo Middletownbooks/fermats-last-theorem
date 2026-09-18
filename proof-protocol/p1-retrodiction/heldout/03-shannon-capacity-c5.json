@@ -1,0 +1,15 @@
+{
+  "id": "03-shannon-capacity-c5",
+  "problem": "Shannon capacity of C5",
+  "after_board": "The theta function via orthonormal representations. It is multiplicative via the tensor product of vectors, and theta(C5) = sqrt(5).",
+  "multi_answer": false,
+  "transformation": "auxiliary-witness-lift",
+  "transformation_note": "Seed P3: the needed move runs opposite to 'de-tensorize' - progress required an invariant that is multiplicative, because the target is.",
+  "source": "Lovasz 1979",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

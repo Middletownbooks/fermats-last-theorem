@@ -1,0 +1,40 @@
+{
+  "id": "05-finite-field-kakeya",
+  "problem": "Finite-field Kakeya",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Dvir",
+    "ref": "arXiv:0803.2336",
+    "date": "2008-03-01"
+  },
+  "before_board": {
+    "S": "A Kakeya set K in F_q^n.",
+    "M": "Bush / hairbrush incidence counting.",
+    "I": "Cauchy-Schwarz incidence inequalities, plus sum-product.",
+    "C": null,
+    "T": null
+  },
+  "bound_then": "|K| >~ q^{(n+2)/2}, later about q^{4n/7}.",
+  "leak": "Cauchy-Schwarz sees pairwise line interactions only, which caps the exponent near n/2.",
+  "sources_before": [
+    {
+      "cite": "Wolff 1999 (hairbrush)",
+      "date": "1999",
+      "verified": false
+    },
+    {
+      "cite": "best pre-Dvir exponent",
+      "date": "pre-2008",
+      "verified": false,
+      "debt": "the seed wrote about q^{4n/7} with low confidence; not fetched"
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

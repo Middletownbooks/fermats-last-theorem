@@ -1,0 +1,34 @@
+{
+  "id": "13-pcp-weak",
+  "problem": "PCP theorem (weak case)",
+  "role": "positive",
+  "flag": "fit-testing-only",
+  "supersede": {
+    "paper": "Dinur",
+    "ref": "Dinur 2007",
+    "date": "2007-01-01"
+  },
+  "before_board": {
+    "S": "A two-prover game / CSP.",
+    "M": "k-fold parallel repetition.",
+    "I": "Value decay.",
+    "C": null,
+    "T": null
+  },
+  "bound_then": "The gap amplifies but the instance size grows as n^k.",
+  "leak": "Size is multiplicative in the exponent under product.",
+  "sources_before": [
+    {
+      "cite": "Arora-Safra; Arora-Lund-Motwani-Sudan-Szegedy 1992",
+      "date": "1992",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

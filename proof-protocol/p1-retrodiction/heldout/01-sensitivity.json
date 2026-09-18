@@ -1,0 +1,15 @@
+{
+  "id": "01-sensitivity",
+  "problem": "Sensitivity conjecture",
+  "after_board": "Signed adjacency matrix with A^2 = nI, so squares add under product and the spectrum is flat at +-sqrt(n); Cauchy interlacing; lambda_1 <= Delta.",
+  "multi_answer": false,
+  "transformation": "auxiliary-witness-lift",
+  "transformation_note": "Seed P3 also records that this case changes the product law from additive to Pythagorean, which is the evidence for the proposed 'product-law matching' replacement.",
+  "source": "Huang, arXiv:1907.00847",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

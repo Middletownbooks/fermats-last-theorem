@@ -1,0 +1,15 @@
+{
+  "id": "13-pcp-weak",
+  "problem": "PCP theorem (weak case)",
+  "after_board": "Graph powering on expanders plus alphabet reduction, with constant-factor size blow-up.",
+  "multi_answer": false,
+  "transformation": "de-tensorize",
+  "transformation_note": "Seed P3: 'de-tensorize' fires loosely here.",
+  "source": "Dinur 2007",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

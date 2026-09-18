@@ -1,0 +1,6 @@
+# The harness needs only the SDK. The analysis needs the rest.
+anthropic>=1.0
+# analysis/analyze.py model
+numpy
+pandas
+statsmodels

@@ -1,0 +1,87 @@
+{
+  "version": "v0-from-seed-2026-09-18",
+  "provenance": "Derived from the Banaszczyk / Bansal-Jiang / Guo-Fang-Lu trio, which are therefore calibration items and never scored.",
+  "warning": "Two of the five entries have NO NAME in the seed material. They are referenced only by number. Do not invent names for them; see DEBTS.md.",
+  "closed": true,
+  "closed_rationale": "Handoff task 7: do not add a sixth transformation. #3 and #5 fit almost nothing in P1 and are probably artefacts of the originating trio. The catalogue should shrink before it grows.",
+  "transformations": [
+    {
+      "id": "de-tensorize",
+      "number": null,
+      "name": "De-tensorize",
+      "statement": "Replace an invariant that composes badly under products with one that composes correctly.",
+      "diagnostic": "Stated in the seed only informally.",
+      "seed_verdict": "WRONG SHAPE AS STATED",
+      "seed_evidence": {
+        "fires_correctly": ["04-kadison-singer"],
+        "fires_loosely": ["13-pcp-weak"],
+        "direction_error": ["02-cap-set", "03-shannon-capacity-c5"],
+        "note": "On cases 2 and 3 the needed move runs the opposite way: progress required an invariant that is MULTIPLICATIVE, because the target itself is (super)multiplicative. Case 1 changes the product law from additive to Pythagorean."
+      },
+      "proposed_replacement": "product-law-matching"
+    },
+    {
+      "id": "collectivize-a-union-bound",
+      "number": 4,
+      "name": "Collectivize a union bound",
+      "statement": "Replace a union bound over m bad events with a single collective argument.",
+      "diagnostic": "A union bound over m events appears in the composition slot.",
+      "seed_verdict": "POOR SPECIFICITY",
+      "seed_evidence": {
+        "fires_correctly": ["08-spencer-discrepancy", "04-kadison-singer"],
+        "fires_and_fails": ["N1-johnson-lindenstrauss", "N2-epsilon-nets", "N8-discrepancy-many-sets"],
+        "note": "Candidate refinement, UNTESTED: ask whether some instance in the class makes the m bad events near-independent. If it does, the log is real."
+      }
+    },
+    {
+      "id": "auxiliary-witness-lift",
+      "number": null,
+      "name": "Auxiliary-witness lift",
+      "statement": "Introduce an auxiliary object whose existence certifies the bound.",
+      "diagnostic": null,
+      "seed_verdict": "NO STATED DIAGNOSTIC; NEAR-ZERO DISCRIMINATING POWER",
+      "seed_evidence": {
+        "fits": ["01-sensitivity", "03-shannon-capacity-c5", "05-finite-field-kakeya"],
+        "note": "Fits almost anything post hoc. This is the programme's own E9 criticism applied to the programme."
+      }
+    },
+    {
+      "id": "t3",
+      "number": 3,
+      "name": null,
+      "name_status": "NOT IN SEED MATERIAL",
+      "statement": null,
+      "seed_verdict": "PROBABLE ARTEFACT",
+      "seed_evidence": {
+        "fits_weakly": ["02-cap-set"],
+        "note": "Only case 2 fits, and only weakly - it abolishes the iteration entirely."
+      }
+    },
+    {
+      "id": "t5",
+      "number": 5,
+      "name": null,
+      "name_status": "NOT IN SEED MATERIAL",
+      "statement": null,
+      "seed_verdict": "PROBABLE ARTEFACT",
+      "seed_evidence": { "fits": [], "note": "Nothing in P1 fits it." }
+    }
+  ],
+  "candidate_replacements": [
+    {
+      "id": "product-law-matching",
+      "status": "HYPOTHESIS, NOT A SIXTH ENTRY",
+      "statement": "Compute how the target behaves on the product construction of the extremal family, and require the invariant to obey the same law.",
+      "relation": "E4 becomes the special case where the target is flat.",
+      "fatal_caveat": "Derived from the same cases it was then scored on. It needs cases chosen by someone who has not seen the hypothesis. Until then it is a guess.",
+      "validated": false
+    }
+  ],
+  "label_vocabulary": {
+    "atoms": ["de-tensorize", "collectivize-a-union-bound", "auxiliary-witness-lift", "t3", "t5"],
+    "combination_separator": "+",
+    "special": ["none", "unlabelled"],
+    "none_means": "The historical change fits no entry in the catalogue.",
+    "unlabelled_means": "The seed's preliminary scoring assigned no label. Not the same as 'none'."
+  }
+}

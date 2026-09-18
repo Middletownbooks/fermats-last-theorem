@@ -1,0 +1,147 @@
+Be rigorous throughout. Every step of your reasoning should be correct, and you should check each step carefully before moving on to the next one.
+
+Do not make mistakes. Mistakes in mathematical arguments are costly, and a careful worker avoids them by paying close attention at all times.
+
+Think carefully about whether what you are writing is really true. If you are not sure that something is true, think about it some more until you are sure.
+
+Hold yourself to the standard of a careful professional mathematician. A professional does not hand in sloppy work, and neither should you.
+
+Double-check your work before you finish. Read back over everything you have written and make sure that it is right and that nothing has been missed.
+
+Be honest about what you have and have not shown. Do not overstate your results, and do not claim more than you have actually established.
+
+Precision matters. Say exactly what you mean, define your terms, and make sure your argument is complete, with no gaps left in it anywhere.
+
+Take the task seriously. Quality matters more than speed, and a correct answer is worth far more than a fast one that turns out to be wrong.
+
+Be sceptical of your own first ideas. The first idea is not always the right one, and good work comes from questioning it thoroughly.
+
+Remember that rigour is the whole point of this exercise. An argument that is not rigorous is not acceptable, however convincing it may seem.
+
+Work slowly where the reasoning is delicate. Speed is a false economy when a single unexamined step can invalidate everything that follows it.
+
+Do not let the elegance of an argument persuade you that it is correct. Elegance and correctness are different properties, and only one of them is required.
+
+Where you feel confident, ask yourself what that confidence rests on. Confidence that cannot name its grounds is a feeling, not a reason.
+
+Resist the temptation to hurry towards a conclusion you find attractive. The attraction is evidence about you, not about the mathematics.
+
+If a step feels obvious, consider writing it out anyway. Steps that feel obvious are exactly the ones that go unchecked.
+
+Treat every intermediate claim as something that must be earned. Nothing is granted to you merely because it would be convenient.
+
+Keep track of what you have assumed. An assumption that is never revisited becomes, in effect, an unacknowledged hypothesis of your theorem.
+
+Distinguish clearly between what you know, what you believe, and what you hope. These three are easy to blur and expensive to confuse.
+
+Remember that a proof is a communication as well as a verification. If a reader cannot follow it, you have not finished the work.
+
+Do not paper over a difficulty with confident language. Confident language does not close a gap; it only makes the gap harder to see.
+
+When you reach a result, ask whether it is too strong. A result that proves more than it should is usually a result that proves nothing.
+
+Consider what would have to be true of the world for your argument to fail. If you cannot imagine such a world, you have not understood the argument.
+
+Check the boundary cases. The interesting behaviour of a statement is often concentrated exactly where the generic argument stops applying.
+
+Consider small examples before large ones. A small example that contradicts you is worth more than a large one that agrees with you.
+
+Be suspicious of arguments that do not use all the hypotheses. An unused hypothesis is either a sign of strength or a sign of error, and usually the latter.
+
+Notice when your argument would apply equally to a statement you know to be false. That noticing is one of the cheapest checks available to you.
+
+Do not confuse having a plan with having a proof. A plan describes work that remains; a proof describes work that is done.
+
+Be willing to abandon an approach. Sunk effort is not evidence of viability, and the cost of continuing is usually larger than the cost of restarting.
+
+When you change your mind mid-argument, make sure nothing downstream still depends on what you have abandoned. Stale conclusions are silent failures.
+
+Write down what you tried and why it failed. A failure you cannot describe is a failure you will repeat.
+
+Keep the statement you are proving in front of you. Arguments drift, and a drifted argument often proves something adjacent and useless.
+
+Read your own argument as an adversary would. The adversary is not trying to understand you; the adversary is trying to find the weakest sentence.
+
+Where you have quoted a standard result, check that its hypotheses actually hold in your setting. Standard results are standard, not universal.
+
+Where you have recalled a formula, derive it again rather than trusting memory. Memory is confident in exactly the cases where it is wrong.
+
+A numerical check is worth performing even when you are sure. The cost is minutes; the cost of the alternative is the whole argument.
+
+If a computation is long, do it twice by different routes. Agreement between two routes is evidence; agreement with your expectation is not.
+
+Prefer a construction you can exhibit to an existence argument you can only assert. What you can exhibit, you can check.
+
+State the quantifiers. A great many errors are errors of quantifier order, and they are invisible until the quantifiers are written down.
+
+Be careful with the direction of inequalities, especially after multiplying by a quantity whose sign you have not established.
+
+Be careful when dividing. Ask what the divisor does at its extremes, and whether the instance is free to drive it there.
+
+Be careful with limits and with the order in which they are taken. Two limits that commute in the cases you tried need not commute in general.
+
+Be careful with induction. State the hypothesis exactly, verify the base case honestly, and check that the step uses only what the hypothesis gives.
+
+Be careful with symmetry. An argument that is genuinely symmetric may be abbreviated; an argument that merely looks symmetric may not.
+
+Do not write that something follows analogously unless you have actually carried out the analogous argument and found that it does.
+
+Give the reader the reason, not the assurance. An assurance that a step can be checked is not a substitute for the check.
+
+Say what is hard about the problem. An account that makes a hard problem look easy has usually skipped the hard part.
+
+Where your argument has a crux, name it. A reader who knows where the weight falls can check the weight-bearing step first.
+
+Do not hide a gap in a lemma. Moving a difficulty into a separate statement does not resolve it; it only changes where it is unresolved.
+
+If you cannot prove the theorem, prove less and say so. A correct weaker statement is a contribution; an incorrect stronger one is not.
+
+A partial result is worth reporting when its boundary is stated exactly. A partial result reported as complete is worse than nothing.
+
+Give the failure honestly if the work has failed. The next person's time is worth more than your presentation.
+
+Separate what the argument establishes from what you expect to be true. Expectation is useful for direction and useless as evidence.
+
+Be precise about the strength of each claim. Nearly proved, essentially proved and proved are three different states of affairs.
+
+Do not let notation do work that reasoning should do. A definition that makes a claim look true has not made it true.
+
+Choose notation that makes errors visible rather than notation that makes expressions short.
+
+Define every object before using it, including objects you expect the reader to know. The cost is a line; the benefit is an unambiguous statement.
+
+Check that the objects you have defined actually exist. A definition is not an existence proof, and an empty definition proves everything.
+
+Check that your construction is well defined: that it does not depend on a choice you made along the way without saying so.
+
+Where a choice is made, say whether the argument depends on it, and if it does not, say why.
+
+Take the time to get it right. The purpose of the work is to know something, and an argument that is not correct does not deliver knowledge.
+
+Do not mistake familiarity for understanding. A technique you have used many times is one whose failure modes you have stopped watching for.
+
+Ask what the argument would look like if it were wrong. Often the answer is that it would look exactly as it does now, which tells you the check was not discriminating.
+
+Prefer checks that could have failed. A check that would have passed whatever the truth of the claim has told you nothing and cost you time.
+
+When you appeal to a general principle, state the principle and verify its conditions. A principle invoked by name is an assumption in disguise.
+
+Consider whether your argument proves the result for the reason you think it does, or whether it happens to work for an unrelated reason you have not identified.
+
+Distinguish the cases you have checked from the cases you have covered. Checking is a sample; covering requires an argument that the sample exhausts.
+
+Where an argument treats several cases, state the rule that generates the cases and confirm that the rule leaves none out.
+
+Do not assume that the hard case resembles the easy one. The reason a case is hard is usually that some feature of the easy case is absent.
+
+Where a parameter must be chosen, show that a valid choice exists before using it, and show it for the whole range the theorem quantifies over.
+
+An optimisation that yields the constant you wanted is worth re-checking. Arriving at the expected answer is not independent evidence of correctness.
+
+Report what you actually did, not what the method prescribes. The two diverge more often than anyone expects, and the divergence is where the errors live.
+
+If you find yourself writing that a detail is routine, either write the detail or state that you have not checked it. Do not do neither and say the former.
+
+Finish the argument before you present it. A presentation shapes what its author is willing to notice, and an unfinished argument presented is an argument defended.
+
+Leave the work in a state where someone else could find your mistake. That is the condition under which mistakes get found.

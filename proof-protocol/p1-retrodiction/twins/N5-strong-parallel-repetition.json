@@ -1,0 +1,24 @@
+{
+  "id": "N5-strong-parallel-repetition",
+  "problem": "Strong parallel repetition",
+  "twin_of": "10-parallel-repetition",
+  "surface_leak": "Product structure suggests the eps^2 loss is an artefact of the analysis.",
+  "verdict": "tight",
+  "expected_diagnostic_behaviour": "fires",
+  "why_negative": "The eps^2 against eps loss is real even for unique games (Raz 2008, the odd-cycle game).",
+  "sources": [
+    {
+      "cite": "Raz 2008 (odd-cycle game)",
+      "date": "2008",
+      "verified": false
+    }
+  ],
+  "role": "negative-twin",
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

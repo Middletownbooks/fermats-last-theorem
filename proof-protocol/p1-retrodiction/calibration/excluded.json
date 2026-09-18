@@ -1,0 +1,23 @@
+{
+  "note": "These three generated the P3 taxonomy. They are calibration items and are NEVER scored. Any scoring run that includes them is invalid.",
+  "never_score": true,
+  "items": [
+    {
+      "id": "banaszczyk",
+      "problem": "Banaszczyk's theorem",
+      "role_in_taxonomy": "generated the taxonomy; also the seed's counterexample to E5(b), since its move is itself an existence lemma"
+    },
+    {
+      "id": "bansal-jiang",
+      "problem": "Bansal-Jiang",
+      "role_in_taxonomy": "generated the taxonomy"
+    },
+    {
+      "id": "guo-fang-lu",
+      "problem": "Guo-Fang-Lu",
+      "role_in_taxonomy": "generated the taxonomy"
+    }
+  ],
+  "content_present": false,
+  "content_note": "The seed names these three but does not encode their boards. They are listed so that a scoring harness can exclude them by id; encoding their boards is not required and would not make them scoreable."
+}

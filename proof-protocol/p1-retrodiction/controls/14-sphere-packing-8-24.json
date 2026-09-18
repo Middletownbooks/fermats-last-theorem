@@ -1,0 +1,39 @@
+{
+  "id": "14-sphere-packing-8-24",
+  "problem": "Sphere packing in dimensions 8 and 24",
+  "role": "control",
+  "control_kind": "no-board-change",
+  "expected_diagnostic_behaviour": "must-not-fire",
+  "board": {
+    "name": "Cohn-Elkies 2003",
+    "S": "An auxiliary function f with f <= 0 for |x| >= r, f-hat >= 0, f(0) = f-hat(0).",
+    "T": "A density bound."
+  },
+  "what_happened": "Viazovska supplied the terminal certificate on that board, and numerics had already shown it was tight. The actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies.",
+  "tests_for": "False board-change alarms, where the board is right and only the certificate is hard.",
+  "reclassification": {
+    "from_": "board-change case",
+    "to": "same-board control",
+    "rationale": "The seed reclassified this [R, K]. Listed in DEBTS.md as an open adjudication.",
+    "adjudicated": false
+  },
+  "sources": [
+    {
+      "cite": "Cohn, Elkies 2003",
+      "date": "2003",
+      "verified": false
+    },
+    {
+      "cite": "Viazovska 2016",
+      "date": "2016",
+      "verified": false
+    },
+    {
+      "cite": "Kabatiansky, Levenshtein 1978",
+      "date": "1978",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated"
+}

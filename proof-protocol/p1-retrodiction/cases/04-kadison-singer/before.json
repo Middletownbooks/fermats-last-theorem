@@ -1,0 +1,39 @@
+{
+  "id": "04-kadison-singer",
+  "problem": "Kadison-Singer (Weaver KS_2)",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Marcus-Spielman-Srivastava",
+    "ref": "arXiv:1306.3969",
+    "date": "2013-06-01"
+  },
+  "before_board": {
+    "S": "Vectors with sum of v v^T = I and ||v||^2 <= delta.",
+    "M": "Random partition.",
+    "I": "Matrix Chernoff on E||Sigma_S||.",
+    "C": null,
+    "T": "Both parts <= 1/2 + eps."
+  },
+  "bound_then": "Needs delta <~ 1/log n.",
+  "leak": "The factor n in tr exp gives log n. It is tight on direct sums of independent blocks (the maximum of n independent quantities).",
+  "sources_before": [
+    {
+      "cite": "Weaver 2004 (KS_2 formulation)",
+      "date": "2004",
+      "verified": false
+    },
+    {
+      "cite": "Matrix Chernoff bounds (Ahlswede-Winter / Tropp)",
+      "date": "2002-2012",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

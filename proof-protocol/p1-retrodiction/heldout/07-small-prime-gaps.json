@@ -1,0 +1,15 @@
+{
+  "id": "07-small-prime-gaps",
+  "problem": "Small prime gaps",
+  "after_board": "Two distinct answers; the rubric must accept either. (7a) Multidimensional weights lambda_{d_1...d_k}, where the ratio grows like log k. (7b) Breaking theta = 1/2 for smooth moduli.",
+  "multi_answer": true,
+  "transformation": "none",
+  "transformation_note": "Seed P3: 7a fits none of the five - it enlarges the dimension of the move space, de-collectivizing, the reverse of #4. Scoring must accept 7a or 7b.",
+  "source": "Maynard arXiv:1311.4600 (7a); Zhang 2013 (7b)",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

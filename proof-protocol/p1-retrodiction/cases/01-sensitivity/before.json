@@ -1,0 +1,40 @@
+{
+  "id": "01-sensitivity",
+  "problem": "Sensitivity conjecture",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Huang",
+    "ref": "arXiv:1907.00847",
+    "date": "2019-07-01"
+  },
+  "before_board": {
+    "S": "Induced subgraph H of the hypercube Q_n with 2^{n-1}+1 vertices (the Gotsman-Linial 1992 reduction).",
+    "M": "Subcube refinement.",
+    "I": "Edge-isoperimetric and degree-sum counts.",
+    "C": null,
+    "T": "Maximum degree Delta(H) >= f(n)."
+  },
+  "bound_then": "Delta >= (1/2 - o(1)) log n (Chung-Fueredi-Graham-Seymour 1988); sqrt(n) conjectured.",
+  "leak": "Counting controls the mean degree, not the maximum. The unsigned spectrum of Q_n is n-2k, additive under Cartesian product, so the median eigenvalue is about 0 and interlacing is empty.",
+  "sources_before": [
+    {
+      "cite": "Chung, Fueredi, Graham, Seymour 1988",
+      "date": "1988",
+      "verified": false,
+      "debt": "pre-Huang constant (1/2 - o(1)) log n recalled, not fetched"
+    },
+    {
+      "cite": "Gotsman, Linial 1992",
+      "date": "1992",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

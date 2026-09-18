@@ -1,0 +1,29 @@
+{
+  "id": "N6-discrepancy-arithmetic-progressions",
+  "problem": "Discrepancy of arithmetic progressions",
+  "twin_of": null,
+  "surface_leak": "A counting/union-bound argument that looks improvable.",
+  "verdict": "tight",
+  "expected_diagnostic_behaviour": "fires",
+  "why_negative": "The answer is n^{1/4} and it is tight (Roth 1964; Matousek-Spencer 1996). No board change can beat it.",
+  "sources": [
+    {
+      "cite": "Roth 1964",
+      "date": "1964",
+      "verified": false
+    },
+    {
+      "cite": "Matousek, Spencer 1996",
+      "date": "1996",
+      "verified": false
+    }
+  ],
+  "role": "negative-twin",
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

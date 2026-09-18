@@ -1,0 +1,15 @@
+{
+  "id": "08-spencer-discrepancy",
+  "problem": "Spencer set discrepancy (six standard deviations)",
+  "after_board": "Entropy / partial colouring, giving 6*sqrt(n).",
+  "multi_answer": false,
+  "transformation": "collectivize-a-union-bound",
+  "transformation_note": null,
+  "source": "Spencer 1985",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

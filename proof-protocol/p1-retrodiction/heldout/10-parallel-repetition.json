@@ -1,0 +1,15 @@
+{
+  "id": "10-parallel-repetition",
+  "problem": "Parallel repetition",
+  "after_board": "Information-theoretic embedding: conditioning on winning a subset, with per-coordinate relative entropy.",
+  "multi_answer": false,
+  "transformation": "unlabelled",
+  "transformation_note": "The seed's preliminary P3 assigns no transformation to this case.",
+  "source": "Raz 1995; Holenstein 2007",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

@@ -1,0 +1,15 @@
+{
+  "id": "05-finite-field-kakeya",
+  "problem": "Finite-field Kakeya",
+  "after_board": "A nonzero polynomial of degree < q vanishes on K if K is small. It vanishes on whole lines, hence at infinity in all directions, hence is zero. This gives |K| >= q^n/n!.",
+  "multi_answer": false,
+  "transformation": "auxiliary-witness-lift",
+  "transformation_note": null,
+  "source": "Dvir arXiv:0803.2336",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}

@@ -1,0 +1,34 @@
+{
+  "id": "12-geometrization",
+  "problem": "Geometrization / Ricci flow",
+  "role": "positive",
+  "flag": null,
+  "supersede": {
+    "paper": "Perelman",
+    "ref": "arXiv:math/0211159",
+    "date": "2002-11-01"
+  },
+  "before_board": {
+    "S": "A metric under Ricci flow (Hamilton).",
+    "M": null,
+    "I": "Curvature pinching via the maximum principle.",
+    "C": null,
+    "T": "A round or decomposed limit."
+  },
+  "bound_then": "The programme was blocked at singularities.",
+  "leak": "There is no control on collapsing at singular times, so the cigar soliton cannot be excluded. This is qualitative.",
+  "sources_before": [
+    {
+      "cite": "Hamilton, Ricci flow programme",
+      "date": "1982-1999",
+      "verified": false
+    }
+  ],
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

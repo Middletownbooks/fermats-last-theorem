@@ -1,0 +1,24 @@
+{
+  "id": "N8-discrepancy-many-sets",
+  "problem": "Set discrepancy with m >> n sets",
+  "twin_of": "08-spencer-discrepancy",
+  "surface_leak": "A union bound over m sets contributes sqrt(log m).",
+  "verdict": "partially-tight",
+  "expected_diagnostic_behaviour": "fires",
+  "why_negative": "sqrt(n log(m/n)) is tight, so the log is only partially removable. A diagnostic that fires the same way as on case 8 overshoots.",
+  "sources": [
+    {
+      "cite": "Spencer 1985 and successors",
+      "date": "1985",
+      "verified": false
+    }
+  ],
+  "role": "negative-twin",
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "N2-epsilon-nets",
+  "problem": "epsilon-nets",
+  "twin_of": "08-spencer-discrepancy",
+  "surface_leak": "A union bound over ranges gives a net of size (d/eps) log(1/eps).",
+  "verdict": "mixed-within-problem",
+  "expected_diagnostic_behaviour": "fires",
+  "why_negative": "A matched pair inside one problem. The log is NOT removable in general (Komlos-Pach-Woeginger 1992) nor for halfspaces in R^4 (Pach-Tardos 2013); it IS removable for halfspaces in R^3 and for discs (Matousek-Seidel-Welzl). Any diagnostic that fires on the surface leak alone cannot separate these.",
+  "sub_instances": [
+    {
+      "instance": "general range spaces",
+      "verdict": "tight",
+      "cite": "Komlos, Pach, Woeginger 1992"
+    },
+    {
+      "instance": "halfspaces in R^4",
+      "verdict": "tight",
+      "cite": "Pach, Tardos 2013"
+    },
+    {
+      "instance": "halfspaces in R^3, discs",
+      "verdict": "removable",
+      "cite": "Matousek, Seidel, Welzl"
+    }
+  ],
+  "sources": [
+    {
+      "cite": "Komlos, Pach, Woeginger 1992",
+      "date": "1992",
+      "verified": false
+    },
+    {
+      "cite": "Pach, Tardos 2013",
+      "date": "2013",
+      "verified": false
+    },
+    {
+      "cite": "Matousek, Seidel, Welzl",
+      "date": "1990",
+      "verified": false
+    }
+  ],
+  "role": "negative-twin",
+  "encoder": "seed-chat-instance-2026-09-18",
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

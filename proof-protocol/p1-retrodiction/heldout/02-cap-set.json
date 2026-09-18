@@ -1,0 +1,15 @@
+{
+  "id": "02-cap-set",
+  "problem": "Cap set problem",
+  "after_board": "One-shot slice-rank / polynomial bound with no iteration: the diagonal tensor has rank |A| <= 3 * #{monomials of degree <= 2n/3}, about 2.756^n.",
+  "multi_answer": false,
+  "transformation": "t3",
+  "transformation_note": "Seed P3: fits transformation #3 only weakly - it abolishes the iteration entirely. #3 is referenced by number in the seed; its name is not in the seed material.",
+  "source": "Croot-Lev-Pach arXiv:1605.01506; Ellenberg-Gijswijt arXiv:1605.09223; Tao's slice-rank formulation",
+  "labelled_by": [
+    "seed-chat-instance-2026-09-18"
+  ],
+  "label_pass": "v0-single-encoder-contaminated",
+  "second_blind_label": null,
+  "label_kappa": null
+}
