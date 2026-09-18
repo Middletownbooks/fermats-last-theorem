@@ -27,11 +27,32 @@ this model; they are compared directly, as predictions (c), (d) and (e) specify.
 
 ## 3. Aliasing — the rule that must not be broken after unblinding
 
-The design is a 2^(6−2) fractional factorial with E = ABC and F = BCD, resolution IV.
+The design is a 2^(6−2) fractional factorial with E = ABC and F = BCD. Its defining relation is
+
+~~~
+I = ABCE = BCDF = ADEF
+~~~
+
+verified computationally by `tests/test_aliasing.py`, which also confirms that no word of length 1,
+2 or 3 is defining — that is what makes the resolution **IV** rather than III — and that each block
+is present in exactly 8 of the 16 arms.
 
 - Main effects are clean of two-way interactions.
-- **Two-way interactions are aliased with each other.** They will not be fitted, and no
-  interaction term may be interpreted. `analyze.py` refuses to fit them.
+- **Two-way interactions are aliased with each other**, in these groups:
+
+  | | aliased pair or triple |
+  |---|---|
+  | 1 | AB = CE |
+  | 2 | AC = BE |
+  | 3 | AD = EF |
+  | 4 | **AE = BC = DF** |
+  | 5 | AF = DE |
+  | 6 | BD = CF |
+  | 7 | BF = CD |
+
+  They will not be fitted, and **no interaction term may be interpreted**. `analyze.py` refuses to
+  fit them. Note group 4 in particular: an apparent "substrate × stance" interaction is
+  indistinguishable from "decomposition × tags" and from "principles × audit".
 
 Adding an interaction after seeing the data is the most likely way this study produces a false
 finding. If an interaction becomes interesting, that is a hypothesis for a new design, not a
@@ -40,6 +61,9 @@ result of this one.
 ## 4. Power
 
 Computed from the design actually run, not recalled: `analysis/analyze.py power --csv runs.csv`.
+The inherited rule of thumb is roughly a 30-point shift at ~40 runs per factor level; the tool
+recomputes this from the realised design and the observed base rate, inflated by the design effect
+from clustering by problem.
 It reports runs per factor level, the design effect from clustering by problem, and the smallest
 difference detectable at 80% power and α = .05.
 
