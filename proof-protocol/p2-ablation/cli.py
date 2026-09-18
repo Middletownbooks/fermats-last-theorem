@@ -41,7 +41,8 @@ def save_state(st: dict) -> None:
 
 def resolve(st: dict) -> tuple[Config, list[dict], list[dict]]:
     cfg = Config(**st["cfg"])
-    all_items = battery_mod.load(st.get("extra_battery"))
+    retire = set(st.get("retired") or ())
+    all_items = battery_mod.load(st.get("extra_battery"), retire=retire)
     use = st.get("use")
     items = [p for p in all_items if use is None or p["id"] in use]
     return cfg, all_items, items
@@ -120,6 +121,33 @@ def cmd_select(a, st):
     st["use"] = keep
     save_state(st)
     print(f"keeping {len(keep)} of {len(all_items)} problems: {', '.join(keep)}")
+
+
+def cmd_battery(a, st):
+    if a.swap_in_corpus:
+        if st.get("prereg"):
+            print("battery is locked by the pre-registration; unfreeze first")
+            return 1
+        st["extra_battery"] = str(HERE / battery_mod.CORPUS_PATH)
+        st["retired"] = sorted(battery_mod.RETIRE_FOR_CORPUS)
+        st["use"] = None
+        save_state(st)
+        print("repo corpus swapped in. Retired, with the reason each was expected to ceiling:")
+        for k, why in sorted(battery_mod.RETIRE_FOR_CORPUS.items()):
+            print(f"  {k}: {why}")
+        print("\nThis retirement list is a PREDICTION. Run the pilot and re-choose from the "
+              "measured per-item failure rates.")
+    _, all_items, items = resolve(st)
+    print(f"\n{'id':4} {'type':6} {'source':34} statement")
+    for p in items:
+        src = p.get("provenance", "")[:33]
+        print(f"{p['id']:4} {p['type']:6} {src:34} {p['statement'][:64]}")
+    n = {t: sum(1 for p in items if p["type"] == t) for t in ("true", "false", "open")}
+    repo = sum(1 for p in items if p["id"].startswith("R"))
+    print(f"\n{len(items)} items: {n['false']} false, {n['true']} true, {n['open']} open; "
+          f"{repo} from the repo corpus, {len(items) - repo} textbook.")
+    if repo:
+        print("Corpus ground truths are machine-verified: tools/verify_corpus.py")
 
 
 def cmd_freeze(a, st):
@@ -258,6 +286,8 @@ def main() -> int:
     p.add_argument("--seed", type=int, default=None); p.set_defaults(fn=cmd_pilot)
     sub.add_parser("pilot-table").set_defaults(fn=cmd_pilot_table)
     sub.add_parser("select").set_defaults(fn=cmd_select)
+    p = sub.add_parser("battery"); p.add_argument("--swap-in-corpus", action="store_true")
+    p.set_defaults(fn=cmd_battery)
     sub.add_parser("freeze").set_defaults(fn=cmd_freeze)
     sub.add_parser("unfreeze").set_defaults(fn=cmd_unfreeze)
     p = sub.add_parser("run"); p.add_argument("--batch", type=int, default=60)

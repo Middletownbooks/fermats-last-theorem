@@ -28,6 +28,23 @@ CASES = [
     ("F4", None, C.NO_CHECKER, "analytic"),
     ("F1", None, C.MISSING, "no witness offered"),
     ("F1", "the number one hundred and seventy-one", C.UNPARSEABLE, "no assignment to parse"),
+    # repo corpus (ground truths verified by tools/verify_corpus.py)
+    ("R1", "A=7", C.CONFIRMED, "divisors of 49 are all 1 mod 3; -7 is 2 mod 3"),
+    ("R1", "A=13", C.CONFIRMED, "also 1 mod 3 with all prime factors 1 mod 3"),
+    ("R1", "A=6", C.REFUTED, "6 is 0 mod 3, so d=3 works"),
+    ("R1", "A=2", C.REFUTED, "2 is 2 mod 3, so d=1 works"),
+    ("R2", "p=13", C.REFUTED, "M = 52 = 1 mod 3"),
+    ("R2", "p=9", C.REFUTED, "9 is not prime"),
+    ("R2", "p=7", C.REFUTED, "7 is 3 mod 4"),
+    ("R3", "q=5", C.REFUTED, "the equivalence holds at q=5"),
+    ("R3", "q=1", C.REFUTED, "likewise"),
+    ("R4", "q=6", C.REFUTED, "p4 represents 6 with x=3"),
+    ("R4", "q=66", C.REFUTED, "p3 represents 66"),
+    ("R4", "q=7", C.REFUTED, "not a multiple of 6"),
+    ("R5", "V=2", C.CONFIRMED, "hypothesis holds, conclusion fails"),
+    ("R5", "V=25", C.REFUTED, "satisfies the conclusion"),
+    ("R5", "V=1", C.REFUTED, "does not satisfy the hypothesis"),
+    ("R6", "G=15", C.NO_CHECKER, "takes an S-family, not a number"),
 ]
 
 
@@ -51,6 +68,18 @@ def main() -> int:
         bad.append("apply() altered a non-(b) return")
     else:
         print("ok   apply() leaves non-(b) returns alone")
+
+    # an inconclusive bounded search must never be promoted to a valid counterexample
+    j = C.apply({"id": "R4"}, {"return_class": "b", "valid": True,
+                               "claimed_witness": "q=6"})
+    if j["valid"] is not False:
+        bad.append("apply() accepted a q that p4 demonstrably represents")
+    else:
+        print("ok   apply() refuted an R4 witness that p4 represents")
+    if C.INCONCLUSIVE in (C.REFUTED, C.CONFIRMED):
+        bad.append("INCONCLUSIVE collides with a decisive status; apply() would act on it")
+    else:
+        print("ok   INCONCLUSIVE is distinct, so apply() leaves the judge's verdict standing")
 
     if bad:
         print("\n" + "\n".join(f"  {b}" for b in bad))

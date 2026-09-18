@@ -13,8 +13,8 @@ import math, re
 from fractions import Fraction
 from typing import Callable
 
-CONFIRMED, REFUTED, UNPARSEABLE, NO_CHECKER, MISSING = (
-    "confirmed", "refuted", "unparseable", "no-checker", "missing-witness")
+CONFIRMED, REFUTED, UNPARSEABLE, NO_CHECKER, MISSING, INCONCLUSIVE = (
+    "confirmed", "refuted", "unparseable", "no-checker", "missing-witness", "inconclusive")
 
 _ASSIGN = re.compile(r"([A-Za-z][A-Za-z0-9_]*)\s*=\s*(-?\s*\d+(?:\s*/\s*\d+)?)")
 
@@ -160,11 +160,133 @@ def _o3(w):                                   # x^3 + y^3 + z^3 = 114
             if s == 114 else (REFUTED, f"{x}^3 + {y}^3 + {z}^3 = {s}, not 114"))
 
 
+
+# --- repo-corpus items (R1-R6). Ground truths verified by tools/verify_corpus.py ------
+def _factorize(n: int) -> dict[int, int]:
+    f, d = {}, 2
+    while d * d <= n:
+        while n % d == 0:
+            f[d] = f.get(d, 0) + 1
+            n //= d
+        d += 1 if d == 2 else 2
+    if n > 1:
+        f[n] = f.get(n, 0) + 1
+    return f
+
+
+def _divisors_of_square(a: int) -> list[int]:
+    out = [1]
+    for p, e in _factorize(a).items():
+        out = [d * p ** i for d in out for i in range(2 * e + 1)]
+    return out
+
+
+def _r1(w):                                   # A with no divisor of A^2 = -A mod r
+    v = _ints(w, "A")
+    if not v:
+        return UNPARSEABLE, "needs an integer A"
+    A, = v
+    if A < 1:
+        return REFUTED, "A must be positive for divisors of A^2 to be enumerated as stated"
+    ds = _divisors_of_square(A)
+    bad_r = [r for r in (1, 2, 3) if not any(d % r == (-A) % r for d in ds)]
+    if not bad_r:
+        return REFUTED, (f"every r in 1,2,3 has a divisor of {A}^2 congruent to -{A}; "
+                         f"A = {A} is not a counterexample")
+    return CONFIRMED, (f"A = {A}: no divisor of A^2 is congruent to -A mod {bad_r[0]} "
+                       f"(divisor residues mod 3: {sorted({d % 3 for d in ds})})")
+
+
+def _r2(w):                                   # a prime p = 1 mod 4, p > 3, with 3 | p(p+3)/4
+    v = _ints(w, "p")
+    if not v:
+        return UNPARSEABLE, "needs an integer p"
+    p, = v
+    if p <= 3:
+        return REFUTED, f"p = {p} must exceed 3"
+    if p > 1 and any(p % d == 0 for d in range(2, min(int(p ** 0.5) + 1, 10 ** 7))):
+        return REFUTED, f"p = {p} is not prime"
+    if p % 4 != 1:
+        return REFUTED, f"p = {p} is not congruent to 1 mod 4"
+    m = p * (p + 3) // 4
+    return ((CONFIRMED, f"3 divides M = {m} for p = {p} (this contradicts the congruence argument)")
+            if m % 3 == 0 else (REFUTED, f"M = {m} = {m % 3} mod 3 for p = {p}, so 3 does not divide it"))
+
+
+def _has_div_3_mod_4(n: int) -> bool:
+    for d in range(3, int(n ** 0.5) + 1):
+        if n % d == 0 and (d % 4 == 3 or (n // d) % 4 == 3):
+            return True
+    return n % 4 == 3 and n > 1
+
+
+def _r3(w):                                   # claimed counterexample to the stated equivalence
+    v = _ints(w, "q")
+    if not v:
+        return UNPARSEABLE, "needs an integer q"
+    q, = v
+    if q < 1:
+        return REFUTED, "q must be a positive integer"
+    if q > 10 ** 6:
+        return UNPARSEABLE, f"q = {q} is too large to brute-force here"
+    rep = any((q + wv) % (4 * wv - 1) == 0 and (q + wv) // (4 * wv - 1) >= 1
+              for wv in range(1, (q + 1) // 3 + 2))
+    div = _has_div_3_mod_4(4 * q + 1)
+    if rep == div:
+        return REFUTED, (f"q = {q}: representable={rep}, 4q+1 has a divisor 3 mod 4={div}; "
+                         f"they agree, so this is not a counterexample")
+    return CONFIRMED, f"q = {q}: representable={rep} but divisor condition={div} (verify by hand)"
+
+
+def _r4(w):                                   # a q = 0 mod 6 claimed outside the image
+    v = _ints(w, "q")
+    if not v:
+        return UNPARSEABLE, "needs an integer q"
+    q, = v
+    if q % 6 != 0 or q < 1:
+        return REFUTED, f"q = {q} is not a positive multiple of 6, so it is outside the claim"
+    if _has_div_3_mod_4(4 * q + 1):
+        return REFUTED, f"q = {q} IS in the image: 4q+1 has a divisor 3 mod 4, so p1 represents it"
+    d = 1 + 4 * q                                             # p4 = x^2 - x
+    r = math.isqrt(d)
+    if r * r == d and (1 + r) % 2 == 0:
+        return REFUTED, f"q = {q} IS in the image: p4 represents it with x = {(1 + r) // 2}"
+    for y in range(1, (q + 1) // 2 + 2):                      # p3 = x(8y-3) - 6y + 2
+        den = 8 * y - 3
+        if (q + 6 * y - 2) % den == 0 and (q + 6 * y - 2) // den >= 1:
+            return REFUTED, (f"q = {q} IS in the image: p3 represents it with "
+                             f"y = {y}, x = {(q + 6 * y - 2) // den}")
+    for z in range(1, min(q + 2, 4000)):                      # p2, bounded
+        for y in range(1, (q + 1) // max(3 * y_z, 1) + 2) if (y_z := 3 * z - z) else []:
+            den = 4 * y * z - z - 1
+            if den > 0 and (q + y * z) % den == 0 and (q + y * z) // den >= 1:
+                return REFUTED, (f"q = {q} IS in the image: p2 represents it with "
+                                 f"y = {y}, z = {z}, x = {(q + y * z) // den}")
+    return INCONCLUSIVE, (f"no representation of q = {q} found by a BOUNDED search of p1-p4. This "
+                          f"proves nothing: the problem is open and witnesses are known to reach "
+                          f"y = 4,772,720,602. Never report this as confirmed; the correct return "
+                          f"on this item is (c).")
+
+
+def _r5(w):                                   # |V| satisfying the hypothesis but under 20
+    if "V" not in w:
+        return UNPARSEABLE, "needs a value for |V| (write it as V=...)"
+    V = w["V"]
+    if V * Fraction(11, 2) < 10:
+        return REFUTED, f"|V| = {V} does not satisfy the hypothesis: {V} * 11/2 < 10"
+    if V >= 20:
+        return REFUTED, f"|V| = {V} satisfies the conclusion, so it is not a counterexample"
+    return CONFIRMED, (f"|V| = {V}: hypothesis holds ({V} * 11/2 = {V * Fraction(11, 2)} >= 10) "
+                       f"and |V| < 20. The true bound is 20/11 = 1.818...")
+
 CHECKERS: dict[str, Callable] = {
     "F1": _f1, "F2": _f2, "F6": _f6, "T1": _t1, "T5": _t5,
     "O1": _o1, "O2": _o2, "O3": _o3,
+    "R1": _r1, "R2": _r2, "R3": _r3, "R4": _r4, "R5": _r5,
 }
 # F3 (a group), F4 and F7/T2 (limits), F5 (a graph), T3, T4: no arithmetic witness to check.
+# R6 takes an S-family rather than a number, so it has no checker; its truth carries a
+# verified explicit counterexample (G=15, S_3={0}, S_5={0}, S_15={1}, r=1) instead.
 
 
 def check(pid: str, witness: str | None) -> tuple[str, str]:

@@ -16,6 +16,22 @@ import json, pathlib
 import blocks
 
 REQUIRED = ("id", "type", "statement", "truth")
+
+# Items retired when the repo corpus is swapped in. The rule: retire an item whose correct answer
+# is a single named textbook fact with a one-line proof, or a famous named open problem. Those are
+# where a capable model sits at ceiling, and an item nothing fails cannot separate arms.
+#
+# THIS IS A PREDICTION, NOT A MEASUREMENT. It has not been piloted — see README. Whoever runs the
+# pilot should report the per-item bare failure rate and re-choose from that, not from this list.
+RETIRE_FOR_CORPUS = {
+    "T1": "no n>1 divides 2^n-1 — the smallest-prime-factor argument is a standard one-liner",
+    "T5": "a^2+b^2+c^2 >= a+b+c under abc=1 — direct AM-GM",
+    "F2": "ab+bc+ca >= a+b+c under abc=1 — a small counterexample is easy to find",
+    "F3": "exponent-3 groups abelian? — the Heisenberg group over F_3 is the textbook answer",
+    "O1": "2^p-1 squarefree — a famous named open problem, so (c) is the easy correct return",
+    "O2": "Brocard's problem — likewise famous, likewise an easy correct (c)",
+}
+CORPUS_PATH = "battery_repo_corpus.json"
 TYPES = ("true", "false", "open")
 
 
@@ -39,8 +55,11 @@ def validate(items: list[dict]) -> None:
 
 
 def load(extra_path: str | pathlib.Path | None = None,
-         include_default: bool = True) -> list[dict]:
+         include_default: bool = True,
+         retire: set[str] | None = None) -> list[dict]:
     items = [dict(p) for p in blocks.BATTERY0] if include_default else []
+    if retire:
+        items = [p for p in items if p["id"] not in retire]
     for it in items:
         it.setdefault("provenance", "artifact-battery-v0 (textbook-grade; expected to hit ceiling)")
     if extra_path:
