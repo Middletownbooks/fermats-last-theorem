@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "purpose": "The schema handed to a blind encoder. v1 produced 1-of-5 agreement on `state`, and FOUR of those five divergences were the two encoders reading the SLOT differently rather than disagreeing about mathematics. Every slot now carries a worked example and an explicit not-this. Without them, slot-reading variance dominates any kappa computed from the result.",
+  "changes_from_v1": [
+    "Worked example and a NOT-THIS for every slot (fix 2).",
+    "`bound` holds MULTIPLE REGIMES, and `leaks` are indexed by regime (fix 3). v1's single-regime `bound` forced a single leak on case 5, where there are two and they leak differently.",
+    "The cutoff is dated from the arXiv POSTING, never the journal year (fix 4). v1 set case 9's cutoff at 2011-12-31 intending 'before Wooley', but Wooley is arXiv:1101.0574, posted 2011-01-03 — eleven months inside the cutoff. That voided the case.",
+    "`move` carries the formula-vs-existence-theorem distinction as its own field, because v1 asked for it in prose and it was then not comparable.",
+    "Every slot may be `null` with a reason, so an empty slot is distinguishable from an unconsidered one. v1 had 6 of 25 slot-pairs with nothing on one side and no way to tell which kind of nothing it was."
+  ],
+  "cutoff_rule": {
+    "rule": "The encoder may use nothing POSTED after the cutoff date. Date every work from its arXiv posting (v1 of the preprint), never from the journal year, which can lag by one to two years.",
+    "worked_example": "Wooley's efficient congruencing appeared in J. Amer. Math. Soc. in 2012 but is arXiv:1101.0574, posted 2011-01-03. A cutoff of 2011-12-31 does NOT exclude it. A cutoff intending 'before Wooley' must be 2011-01-02 or earlier.",
+    "why": "This exact error voided case 9 in L2."
+  },
+  "fields": {
+    "case": {"type": "string", "description": "short name"},
+    "cutoff": {"type": "ISO date", "description": "the encoder may use nothing POSTED after this date"},
+    "target": {"type": "string", "description": "the statement being attacked, in one sentence"},
+    "board": {
+      "state": {
+        "description": "What an IN-PROGRESS ATTEMPT carries — the data a partial proof holds in its hands at a given step.",
+        "worked_example": "Case 2, cap set: 'a subset A of F_3^n together with its current density delta and the ambient dimension remaining'. That is what a half-finished density-increment argument is holding.",
+        "not_this": "NOT the problem's object as stated in the theorem. 'A subset A of F_3^n with no 3AP' is the TARGET, not the state. This confusion caused four of the five `state` divergences in L2: one encoder wrote the theorem's object, the other wrote what an attempt carries.",
+        "test": "Ask: if I paused the proof mid-argument, what would be written on the page? That is the state."
+      },
+      "move": {
+        "description": "The legal step that advances an attempt.",
+        "worked_example": "Case 2: 'locate a large Fourier coefficient and restrict to the corresponding hyperplane'.",
+        "not_this": "NOT the overall strategy, and NOT the invariant the step preserves.",
+        "subfields": {
+          "statement": "the step itself",
+          "kind": "one of: FORMULA (the step is computed outright) | EXISTENCE-THEOREM (the step needs an existence statement to be available at all)",
+          "kind_worked_example": "Case 2's move is EXISTENCE-THEOREM: you need a large Fourier coefficient to exist before you can restrict to it. Case 8's one-shot random colouring is FORMULA: you write it down. v1 asked for this in prose and it came back non-comparable, so it is now its own field."
+        }
+      },
+      "invariant": {
+        "description": "What the move preserves, or the quantity it monotonically improves.",
+        "worked_example": "Case 2: 'the density increment delta -> delta + c*delta^2'.",
+        "not_this": "NOT the bound. The invariant is what the argument tracks; the bound is what it concludes."
+      },
+      "composition": {
+        "description": "Why steps chain, and what the chaining costs.",
+        "worked_example": "Case 2: 'about 1/delta iterations, each costing one dimension, so the dimension budget is what runs out'.",
+        "not_this": "NOT the number of steps alone. The cost per step is the load-bearing part.",
+        "may_be_null": "Some boards genuinely have no composition — a one-shot argument. Write null with reason 'one-shot: the move is applied once'. Do not leave it blank."
+      },
+      "terminal": {
+        "description": "What a finished state certifies.",
+        "worked_example": "Case 2: 'dimensions exhausted, so the iteration cannot continue and the density bound follows'.",
+        "may_be_null": "Write null with a reason rather than leaving it blank."
+      }
+    },
+    "bound": {
+      "type": "array of regimes",
+      "description": "The best results of this shape at the cutoff. MULTIPLE ENTRIES ARE EXPECTED where no single formula dominates for all parameter values.",
+      "worked_example": "Case 5, finite-field Kakeya at a 2008 cutoff, has TWO regimes: q^{(n+2)/2} (best known for small n) and a high-dimensional arithmetic improvement. (n+2)/2 > 4n/7 exactly when n < 14, so neither dominates. v1's single `bound` field forced one leak where there are two, and the two regimes leak differently.",
+      "regime_fields": {
+        "regime": "a short label",
+        "bound": "the formula",
+        "valid_range": "the parameter range where this regime is the best known",
+        "sources": "pre-cutoff citations only, each with its arXiv posting date"
+      }
+    },
+    "leaks": {
+      "type": "array",
+      "description": "INDEXED BY REGIME. One or more per regime.",
+      "fields": {
+        "regime": "which bound regime this leak belongs to",
+        "factor": "e.g. sqrt(log n), or 'exponent capped near n/2'",
+        "mechanism": "one of: union bound over m items | multiplicative invariant | terminal certificate | feasibility theorem | iteration count | other",
+        "evidence": "the step where it enters",
+        "ranking": "leading | secondary | speculative"
+      },
+      "ranking_warning": "L2 measured that the RANKING does not reproduce: 2 of 5 leading mechanisms agreed while 6 of 7 mechanisms were named SOMEWHERE. Encoders draw from the same pool and order it differently. Report the ranking, but no diagnostic may depend on it. See ../../p3-taxonomy/DIAGNOSTIC.md."
+    },
+    "product_structure": {
+      "description": "Added in v2 because this is what the rebuilt diagnostics read, and unlike the leak table these fields reproduced.",
+      "fields": {
+        "operation": "the product operation on instances, or null if there is none",
+        "size_additive": "is the size parameter additive under it?",
+        "target_law": "one of: multiplicative | additive | l2 | max | none — read off THE EXTREMAL CONSTRUCTION, by taking the product of the extremal family and measuring",
+        "target_evidence": "the construction you read it from",
+        "bound_law": "the same vocabulary, read off THE FORMULA",
+        "bound_evidence": "the step that fixes the law"
+      },
+      "worked_example": "Case 1: operation 'Cartesian product of hypercubes, n additive'; target_law 'l2' because CFGS construct an induced subgraph with max degree ceil(sqrt n), so squares add; bound_law 'additive' because the unsigned spectrum of Q_n is n-2k, additive under the product, and the bound is log n."
+    },
+    "sources": {"description": "pre-cutoff citations only, each with the arXiv posting date used to check it"}
+  },
+  "heldout": "heldout/<n>.json carries the after-board in the same slots plus the transformation label and the superseding citation. It is read by nobody who is scored. tools/pack.py cannot open it."
+}
