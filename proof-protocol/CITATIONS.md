@@ -12,12 +12,12 @@
 
 | status | rows |
 |---|---|
-| VERIFIED | 20 |
-| UNVERIFIED | 10 |
+| VERIFIED | 23 |
+| UNVERIFIED | 7 |
+| PARTIAL | 2 |
 | CORRECTED | 1 |
 | DISPUTED | 1 |
-| PARTIAL | 1 |
-| **total** | **33** |
+| **total** | **34** |
 
 ## Rows that changed a claim
 
@@ -77,15 +77,16 @@ These are the ones downstream work must read instead of P1's original.
 | `C14` | control 14 | **VERIFIED** | the board is Cohn-Elkies 2003; the actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies | Cohn-Elkies 2003 gave the first improvement in each dimension since Kabatyanskii-Levenshtein 1978, were the best bounds known for dimensions 4 through 36, and THE AUTHORS THEMSELVES CONJECTURED their approach would settle dimensions 8 and 24. |
 | `C15` | control 15 | **VERIFIED** | Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N) | Kelley-Meka: a 3AP-free A in [N] has \|A\| <= exp(-c (log N)^{1/12}) N. |
 | `O3` | battery item O3 | **VERIFIED AS OF 2026-09-18** | x^3 + y^3 + z^3 = 114 is still open | 114 is described as the lowest unsolved case; all n < 100 have known representations after Booker-Sutherland settled 33, 42 and 3, and 114 and 390 remain unsolved with searches ongoing. |
-| `C4` | case 4 | **UNVERIFIED** | Weaver KS_2 needs delta <~ 1/log n; MSS interlacing families | Not checked this session. |
+| `C4` | case 4 | **PARTIAL** | Weaver KS_2 needs delta <~ 1/log n; MSS interlacing families | The AFTER-board is verified: Marcus-Spielman-Srivastava, 'Interlacing Families II: Mixed Characteristic Polynomials and the Kadison-Singer Problem', arXiv:1306.3969, Annals 182(1) 2015, proves Weaver's KS_2 by bounding the largest root of expected mixed characteristic polynomials. The BEFORE-board detail (that the matrix-Chernoff route needs delta <~ 1/log n) was NOT confirmed by any source reached this session. |
 | `C7` | case 7 | **UNVERIFIED** | GPY needs theta > 1/2; Bombieri-Vinogradov gives exactly 1/2; Zhang and Maynard after-boards | Not checked this session. |
 | `C9` | case 9 | **UNVERIFIED** | s >~ c k^2 log k classical; Wooley efficient congruencing | Not checked this session. The case is void for L2 purposes anyway, through the cutoff design error. The arXiv id 1101.0574 and its 2011-01-03 posting date are taken from the task list and were not independently confirmed here. |
 | `C10` | case 10 | **UNVERIFIED** | Fortnow/Feige counterexamples; Raz 1995 and Holenstein 2007 after-boards | Not checked this session. Raz 2008 (N5) was checked and is a different paper. |
-| `C11` | case 11 | **UNVERIFIED** | chi <= n-2k+2 (Kneser 1955); Lovasz 1978 neighbourhood complex with Borsuk-Ulam | Not checked this session. |
+| `C11` | case 11 | **VERIFIED** | chi <= n-2k+2 (Kneser 1955); Lovasz 1978 neighbourhood complex with Borsuk-Ulam | Lovasz 1978 proves chi(KG(n,k)) = n-2k+2 via the neighbourhood complex: N(KG(n,k)) is (n-2k-1)-connected, and Borsuk-Ulam turns that connectivity into an obstruction to colouring. Both the Kneser 1955 upper bound and the Lovasz after-board are as P1 states them. |
 | `C12` | case 12 | **UNVERIFIED** | Perelman W-entropy and reduced volume give kappa-noncollapsing | Not checked this session. |
-| `C13` | case 13 | **UNVERIFIED** | Dinur 2007 graph powering plus alphabet reduction, constant-factor blow-up | Not checked this session. |
+| `C13` | case 13 | **VERIFIED** | Dinur 2007 graph powering plus alphabet reduction, constant-factor blow-up | Dinur 2007 amplifies the unsatisfiability factor by a factor of 2 per round while blowing up instance size by at most a CONSTANT factor, using a zig-zag-inspired preprocessing into a constant-degree expander, graph powering, and alphabet reduction. Exactly the P1 after-board. |
 | `N3` | twin N3 | **UNVERIFIED** | Behrend excludes power savings; slice rank gives nothing in [N] | Not checked this session. N3 is load-bearing for the rebuilt diagnostic (it is the discriminator against case 2), but the diagnostic's use of it rests on the ABSENCE of a product structure on [N], which is structural and does not depend on Behrend. |
 | `C1-gotsman` | case 1 state slot | **UNVERIFIED** | the Gotsman-Linial 1992 reduction | Not checked this session. |
+| `TWINS-batch2` | p1-retrodiction/twins/ | **VERIFIED** | Eight twins carried their tightness claim as STANDARD rather than fetched. | Six upgraded to verified this session: N11 (max of n Gaussians, asymptotically tight), N12 (Raab-Steger 1998, tight upper AND lower bounds), N13 (E[T] = n*H_n, verified by exact computation rather than citation), N17 (Alon-Boppana, attained by Lubotzky-Phillips-Sarnak and Margulis Ramanujan families), N18 (Szemeredi-Trotter, Elekes construction; except for the constant it cannot be improved), N19 (Sauer-Shelah, attained exactly by downward-closed systems). |
 
 ## Refinements worth carrying
 
@@ -94,6 +95,7 @@ These are the ones downstream work must read instead of P1's original.
 - **C2-after** — COMPUTED here: the exact constant is 2.7551046..., so 2.756 is correct as an upper bound but is not the constant itself. P1's 'approximately 2.756^n' is sound as written.
 - **N2-tight** — Kupavskii-Mustafa-Pach later generalised the Pach-Tardos construction to halfspaces in R^d for every d >= 4.
 - **C15** — NEW SINCE THE SEED: Bloom-Sisask improved the exponent from 1/12 to 1/9 a few months later (arXiv:2309.02353). The control's status is unaffected — both stayed on the same board — but the figure in P1 is no longer the record.
+- **TWINS-batch2** — N16 (matrix-multiplication exponent) and N20 (Kovari-Sos-Turan) remain STANDARD and are declared so. Every twin now carries a recheck_by date, per D21 — twin candidates decay, as the rejected Erdos-R^3 candidate showed.
 
 ## Adjudications
 
@@ -116,12 +118,9 @@ This is a definitional argument, not a citation, so it is adjudicated rather tha
 Declaring what could not be checked is part of the deliverable.
 
 - **C3-shannon** (`case 3 bound_then`) — sqrt 5 <= Theta <= 5/2 (Shannon 1956)
-- **C4** (`case 4`) — Weaver KS_2 needs delta <~ 1/log n; MSS interlacing families
 - **C7** (`case 7`) — GPY needs theta > 1/2; Bombieri-Vinogradov gives exactly 1/2; Zhang and Maynard after-boards
 - **C9** (`case 9`) — s >~ c k^2 log k classical; Wooley efficient congruencing
 - **C10** (`case 10`) — Fortnow/Feige counterexamples; Raz 1995 and Holenstein 2007 after-boards
-- **C11** (`case 11`) — chi <= n-2k+2 (Kneser 1955); Lovasz 1978 neighbourhood complex with Borsuk-Ulam
 - **C12** (`case 12`) — Perelman W-entropy and reduced volume give kappa-noncollapsing
-- **C13** (`case 13`) — Dinur 2007 graph powering plus alphabet reduction, constant-factor blow-up
 - **N3** (`twin N3`) — Behrend excludes power savings; slice rank gives nothing in [N]
 - **C1-gotsman** (`case 1 state slot`) — the Gotsman-Linial 1992 reduction

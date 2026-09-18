@@ -8,12 +8,12 @@
   "why_negative": "The maximum load is (1+o(1)) log n / log log n with high probability — matching upper AND lower bounds. The union bound is not lossy here.",
   "sources": [
     {
-      "cite": "Gonnet 1981; Raab-Steger 1998",
-      "date": "1981-1998",
-      "verified": false
+      "cite": "Raab, Steger, 'Balls into Bins - A Simple and Tight Analysis' (1998): max load = (1+o(1)) log n / log log n with TIGHT upper and lower bounds",
+      "date": "1998",
+      "verified": true
     }
   ],
-  "verification": "STANDARD — not separately fetched this session",
+  "verification": "VERIFIED by search",
   "role": "negative-twin",
   "expected_diagnostic_behaviour": "fires",
   "encoder": "opus-5-session-2026-09-18",
@@ -22,5 +22,6 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "recheck_by": "2027-09-18"
 }

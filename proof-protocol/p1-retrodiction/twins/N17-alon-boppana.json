@@ -8,12 +8,12 @@
   "why_negative": "Ramanujan graphs achieve the Alon-Boppana bound, so 2 sqrt(d-1) is attained and no auxiliary object improves it. The matched positive is case 1, where a signed adjacency matrix DID.",
   "sources": [
     {
-      "cite": "Alon-Boppana; Lubotzky-Phillips-Sarnak and Margulis constructions",
+      "cite": "Alon-Boppana: lambda_2 >= 2 sqrt(d-1) - O(1/log^2 n). Lubotzky-Phillips-Sarnak and independently Margulis construct Ramanujan families attaining lambda <= 2 sqrt(d-1), so the bound is essentially tight.",
       "date": "1986-1988",
-      "verified": false
+      "verified": true
     }
   ],
-  "verification": "STANDARD — not separately fetched this session",
+  "verification": "VERIFIED by search",
   "role": "negative-twin",
   "expected_diagnostic_behaviour": "fires",
   "encoder": "opus-5-session-2026-09-18",
@@ -22,5 +22,6 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "recheck_by": "2027-09-18"
 }

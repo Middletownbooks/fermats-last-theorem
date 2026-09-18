@@ -166,10 +166,10 @@
     {
       "id": "D19",
       "kind": "citation",
-      "status": "unverified",
+      "status": "partly-closed",
       "where": "CITATIONS.md",
       "claim": "Ten citation rows remain unverified: cases 4, 7, 9, 10, 11, 12, 13, twin N3, the Gotsman-Linial reduction, and Shannon's 5/2 upper bound.",
-      "action": "Needs an environment where arxiv.org is reachable. Declared rather than assumed — none is presented as checked."
+      "action": "Egress re-tested this session and ALL routes are blocked, including non-arXiv hosts (jstor, springer, ams, crossref, doi.org). Web search remains the only door and was used: C11 (Kneser/Lovasz) and C13 (Dinur) are now VERIFIED, and C4 is PARTIAL (after-board verified, before-board bound not). Seven rows remain unverified: C7, C9, C10, C12, N3, C1-gotsman, C3-shannon. Ask the user to paste abstracts for those seven — it is one message, not seven, and it converts standing debts into verified rows."
     },
     {
       "id": "D20",
@@ -183,10 +183,10 @@
     {
       "id": "D21",
       "kind": "coverage",
-      "status": "partial",
+      "status": "mostly-closed",
       "where": "p1-retrodiction/twins/",
       "claim": "Twenty negatives against a target of ~25, and 8 of the 20 are STANDARD rather than fetched.",
-      "action": "Three further candidates were dropped because their tightness could not be verified here. One candidate was REJECTED outright and recorded (twins/REJECTED.json): Erdos distinct distances in R^3 is no longer open. Twin candidates decay, so every twin needs a re-check date."
+      "action": "Six of the eight STANDARD twins upgraded to verified (N11, N12, N13, N17, N18, N19); N13 was settled by exact computation rather than citation. Only N16 and N20 remain STANDARD and are declared so. Every twin now carries a recheck_by date. The count is still 20 of a target 25 — but per the task list, verifying the existing eight mattered more than adding five, because a twin whose tightness is merely recalled cannot distinguish a false positive from a wrong twin. N8 proved that: it was the one twin that fired, and adjudicating it needed the mathematics, not a citation."
     },
     {
       "id": "D22",

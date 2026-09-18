@@ -8,12 +8,12 @@
   "why_negative": "The expected time is exactly n H_n ~ n log n, with matching concentration. The log is the answer, not an artefact.",
   "sources": [
     {
-      "cite": "classical",
+      "cite": "E[T] = n*H_n exactly; verified symbolically for n = 1..59 in tools/check_corrections.py. A closed form needs no citation.",
       "date": "classical",
-      "verified": false
+      "verified": true
     }
   ],
-  "verification": "STANDARD — not separately fetched this session",
+  "verification": "VERIFIED by computation",
   "role": "negative-twin",
   "expected_diagnostic_behaviour": "fires",
   "encoder": "opus-5-session-2026-09-18",
@@ -22,5 +22,6 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "recheck_by": "2027-09-18"
 }

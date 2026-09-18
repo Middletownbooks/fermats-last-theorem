@@ -9,12 +9,12 @@
   "why_negative": "The Szemeredi-Trotter bound is tight, by Elekes's construction. Case 6's loss was NOT in the incidence bound itself, so a diagnostic that fires on the incidence step is firing in the wrong place.",
   "sources": [
     {
-      "cite": "Szemeredi-Trotter 1983; Elekes tightness construction",
-      "date": "1983",
-      "verified": false
+      "cite": "Szemeredi-Trotter is asymptotically tight; Elekes's construction achieves Theta(n^{2/3} m^{2/3}), and except for the constant the bound cannot be improved.",
+      "date": "1983; Elekes early 2000s",
+      "verified": true
     }
   ],
-  "verification": "STANDARD — not separately fetched this session",
+  "verification": "VERIFIED by search",
   "role": "negative-twin",
   "expected_diagnostic_behaviour": "fires",
   "encoder": "opus-5-session-2026-09-18",
@@ -23,5 +23,6 @@
     "done": false,
     "encoder": null,
     "kappa": null
-  }
+  },
+  "recheck_by": "2027-09-18"
 }
