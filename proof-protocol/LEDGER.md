@@ -10,17 +10,17 @@ Every prediction this programme has made, and how it turned out. MEASUREMENTS.md
 |---|---|
 | correct | 4 |
 | partly | 6 |
-| wrong | 8 |
+| wrong | 9 |
 | unscored | 2 |
 | open | 1 |
-| **total** | **21** |
+| **total** | **22** |
 
-**18 of 21 predictions are settled.** Of those, **4 correct, 6 partly, 8 wrong.**
+**19 of 22 predictions are settled.** Of those, **4 correct, 6 partly, 9 wrong.**
 
 By author:
 
 - **seed** — 10 predictions, 9 settled, 2 wrong
-- **this session** — 9 predictions, 7 settled, 5 wrong
+- **this session** — 10 predictions, 8 settled, 6 wrong
 - **L2** — 1 predictions, 1 settled, 1 wrong
 - **this session (pre-registered before the audit)** — 1 predictions, 1 settled, 0 wrong
 
@@ -49,6 +49,7 @@ By author:
 | `P-19` | this session | D9 could be scored mechanically once schema v2 made formula-vs-existence its own field. | half right. The original criterion became scoreable; the replacement did not, and the corpus turned out to contain no failures to score either against. | **partly** |
 | `P-20` | this session | N9 is 'the single result most worth trying to break' -- the strongest claim in the rebuild. | WRONG, and backwards. It was the most CONFOUNDED example: over-determined by a simpler bound-strength test, resting on a target law that cannot be read because the feasible set is not closed under the product, and carrying a label that is split-dependent with a maximum signal of a factor sqrt(2). Withdrawn. | **wrong** |
 | `P-21` | this session (pre-registered before the audit) | Attack point 1 moves (substitution/vacuity); point 2 survives with a rounding caveat and possible doubt about all n; point 3 moves. | 2 of 3 directions right. Point 1: right, and the audit found two stronger arguments I missed -- non-closure of the feasible set, and split-dependence of the label. Point 2: direction right but BOTH my caveats were unnecessary -- integrality closes the rounding for all n and monotonicity makes the perfect-squares construction sufficient. Point 3: right, and the audit supplied the exponent range [2,4]. | **partly** |
+| `P-22` | this session | Implicitly, that product-law matching was worth rebuilding and testing at all. | WRONG. A one-line bound-strength test beats it (+0.750 vs +0.607) with zero false positives, differs from it only where it is wrong, and needs none of its machinery. The rule is surplus. | **wrong** |
 
 ## What it cost
 
@@ -71,6 +72,7 @@ By author:
 - **P-19** — none — the attempt is what surfaced D26
 - **P-20** — the flagship specificity test and one positive both leave the domain; J falls 0.675 -> 0.607
 - **P-21** — none -- pre-registering it is what made the comparison possible, and it shows independent audit found what self-audit did not
+- **P-22** — none in hindsight — the rebuild is what produced D20's field kappa, D23, D27 and D28, all of which are worth more than the rule. The cost was in believing the 2x2 before it had a baseline.
 
 ## Lessons
 
@@ -80,3 +82,4 @@ By author:
 4. No prediction in this programme has yet been settled by a retrospective 2x2. They were settled by a dating check, an arithmetic check, a unanimous rater disagreement, and a baseline.
 5. Twice now a criterion has been dropped for the same reason: no computable diagnostic (auxiliary-witness lift, and the E5(b) replacement). Both were phrased as insights rather than as procedures. A criterion that cannot say what it reads off the page is not a criterion, and the catalogue has shrunk from five transformations plus two proposals to two tested rules.
 6. Pre-registering my own answer before the audit was worth more than the audit alone. It showed that self-analysis reached the right VERDICT on all three points but missed the two strongest ARGUMENTS on the decisive one. The pattern across this session is consistent: self-scoring finds bugs, external checks find substantive errors.
+7. The rebuild produced four findings and no working rule. Every finding came from something BREAKING: a unanimous rater disagreement (N8), an adversarial audit (N9), a baseline (D25), and a simpler rival (D28). Nothing came from the rule working. Build the rival and the baseline FIRST next time — they are cheaper than the rule and they are what produces the findings.

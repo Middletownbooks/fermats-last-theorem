@@ -239,10 +239,10 @@
     {
       "id": "D28",
       "kind": "confound",
-      "status": "open",
+      "status": "closed-diagnostic-is-surplus",
       "where": "p3-taxonomy/d20/N9-audit-result.md",
       "claim": "The rule 'does the best known lower bound match the upper bound to within a constant factor?' reproduces product-law matching's verdicts on the hypercube boards exactly, needs no product-law machinery, and is immune to the rater dispute over the counting board's label. Verified: the l2-vs-max distinction can carry at most a factor sqrt(2), and it was being used to flag a polynomial (log n vs sqrt n) gap.",
-      "action": "Score the simple bound-strength rule against product-law matching on ALL in-domain items. If it matches or beats the diagnostic, the product-law machinery is surplus. This is a cheap, decisive comparison and it should be run before any further work on the diagnostic."
+      "action": "RUN. d28_bound_strength.json + BASELINE.md. The one-line test 'is the bound tight to within a constant factor?' scores J = +0.750 against product-law matching's +0.607, with ZERO false positives where the diagnostic takes one, and differs on exactly one item — N8, where the diagnostic is wrong. The product-law machinery is SURPLUS: more complicated, worse-performing, and needing two post-hoc domain patches the one-line test does not need. Both lose to the rule-less rater (+1.000). What survives of the rebuild is D20's field kappa and the falsifications themselves, not the rule."
     }
   ],
   "failure_register": [

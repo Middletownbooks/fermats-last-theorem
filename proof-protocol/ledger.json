@@ -170,6 +170,14 @@
       "outcome": "2 of 3 directions right. Point 1: right, and the audit found two stronger arguments I missed -- non-closure of the feasible set, and split-dependence of the label. Point 2: direction right but BOTH my caveats were unnecessary -- integrality closes the rounding for all n and monotonicity makes the perfect-squares construction sufficient. Point 3: right, and the audit supplied the exponent range [2,4].",
       "status": "partly",
       "cost": "none -- pre-registering it is what made the comparison possible, and it shows independent audit found what self-audit did not"
+    },
+    {
+      "id": "P-22",
+      "by": "this session",
+      "predicted": "Implicitly, that product-law matching was worth rebuilding and testing at all.",
+      "outcome": "WRONG. A one-line bound-strength test beats it (+0.750 vs +0.607) with zero false positives, differs from it only where it is wrong, and needs none of its machinery. The rule is surplus.",
+      "status": "wrong",
+      "cost": "none in hindsight — the rebuild is what produced D20's field kappa, D23, D27 and D28, all of which are worth more than the rule. The cost was in believing the 2x2 before it had a baseline."
     }
   ],
   "lessons": [
@@ -178,6 +186,7 @@
     "The predictions that held up best were the seed's about CONTAMINATION. The ones that failed worst were everyone's about DIAGNOSTIC VALUE. That asymmetry is the programme's central result so far: it is much easier to establish that a measurement is confounded than to establish that a procedure helps.",
     "No prediction in this programme has yet been settled by a retrospective 2x2. They were settled by a dating check, an arithmetic check, a unanimous rater disagreement, and a baseline.",
     "Twice now a criterion has been dropped for the same reason: no computable diagnostic (auxiliary-witness lift, and the E5(b) replacement). Both were phrased as insights rather than as procedures. A criterion that cannot say what it reads off the page is not a criterion, and the catalogue has shrunk from five transformations plus two proposals to two tested rules.",
-    "Pre-registering my own answer before the audit was worth more than the audit alone. It showed that self-analysis reached the right VERDICT on all three points but missed the two strongest ARGUMENTS on the decisive one. The pattern across this session is consistent: self-scoring finds bugs, external checks find substantive errors."
+    "Pre-registering my own answer before the audit was worth more than the audit alone. It showed that self-analysis reached the right VERDICT on all three points but missed the two strongest ARGUMENTS on the decisive one. The pattern across this session is consistent: self-scoring finds bugs, external checks find substantive errors.",
+    "The rebuild produced four findings and no working rule. Every finding came from something BREAKING: a unanimous rater disagreement (N8), an adversarial audit (N9), a baseline (D25), and a simpler rival (D28). Nothing came from the rule working. Build the rival and the baseline FIRST next time — they are cheaper than the rule and they are what produces the findings."
   ]
 }

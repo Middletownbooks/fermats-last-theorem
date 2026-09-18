@@ -1,0 +1,63 @@
+{
+  "rule": "fire iff the best known bound is NOT tight to within a constant factor",
+  "assignments": {
+    "02-cap-set": {
+      "tight_to_constant": false,
+      "reason": "3^n/n^{1+eps} against a truth of ~2.755^n: the ratio is EXPONENTIAL in n, so not within any constant factor"
+    },
+    "03-shannon-capacity-c5": {
+      "tight_to_constant": true,
+      "reason": "alpha* = 5/2 = 2.500 against Theta = sqrt5 = 2.236: ratio 1.118, so it IS within a constant factor"
+    },
+    "04-kadison-singer": {
+      "tight_to_constant": false,
+      "reason": "the argument needs delta <~ 1/log n against a dimension-free truth: the gap is an unbounded log factor"
+    },
+    "10-parallel-repetition": {
+      "tight_to_constant": false,
+      "reason": "the conjectured invariant is FALSE (Fortnow/Feige), so the bound does not hold at all"
+    },
+    "N1-johnson-lindenstrauss": {
+      "tight_to_constant": true,
+      "reason": "Larsen-Nelson matches the union-bound dimension up to constants"
+    },
+    "N2-epsilon-nets": {
+      "tight_to_constant": true,
+      "reason": "Pach-Tardos match (d/eps)log(1/eps) up to constants in general"
+    },
+    "N4-shannon-capacity-c7": {
+      "tight_to_constant": true,
+      "reason": "theta(C7) = 3.3177 against a lower bound of 3.2579: ratio 1.018"
+    },
+    "N5-strong-parallel-repetition": {
+      "tight_to_constant": true,
+      "reason": "eps^3 against eps^2 in the exponent: a constant-factor loss in the rate"
+    },
+    "N8-discrepancy-many-sets": {
+      "tight_to_constant": true,
+      "reason": "sqrt(n log(m/n)) is matched by known systems up to constants"
+    },
+    "N16-matrix-multiplication-omega": {
+      "tight_to_constant": true,
+      "reason": "omega <= 2.3715 against a truth in [2, 2.3715]: ratio at most 1.186"
+    },
+    "N19-sauer-shelah": {
+      "tight_to_constant": true,
+      "reason": "attained exactly by downward-closed systems: ratio 1"
+    }
+  },
+  "result": {
+    "tp": 3,
+    "fn": 1,
+    "fp": 0,
+    "tn": 7,
+    "sensitivity": 0.75,
+    "specificity": 1.0,
+    "youden_J": 0.75
+  },
+  "comparison": {
+    "product_law_J": 0.607,
+    "rule_less_rater_J": 1.0
+  },
+  "verdict": "The one-line test beats product-law matching with zero false positives. The product-law machinery is surplus. Both lose to the rule-less rater."
+}

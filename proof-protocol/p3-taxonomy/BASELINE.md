@@ -90,3 +90,50 @@ the diagnostic can also just remember the answer.
 3. **n = 1 rater on 13 items.** This is a single observation, not a rate. But the direction is
    stark, the recognition probe explains it, and it agrees with two prior measurements. It would take
    a strong result to overturn it, not a noisy one.
+
+---
+
+## D28: a one-line test beats the diagnostic
+
+The N9 audit noticed that product-law matching's verdicts on the hypercube boards were reproduced by
+a far simpler rule, and recommended scoring that rule everywhere before any further work on the
+diagnostic. Done — `d28_bound_strength.json` carries the per-item assignments and the ratio for each,
+so they can be checked.
+
+> **The rule:** fire iff the best known bound is **not tight to within a constant factor**.
+> No product operation, no law vocabulary, no domain condition.
+
+On the same 11 in-domain items:
+
+| | TP | FN | FP | TN | sens | spec | **J** |
+|---|---|---|---|---|---|---|---|
+| rule-less rater (no rule at all) | 4 | 0 | 0 | 7 | 1.000 | 1.000 | **+1.000** |
+| **one-line bound-strength test** | 3 | 1 | **0** | 7 | 0.750 | **1.000** | **+0.750** |
+| product-law matching | 3 | 1 | **1** | 6 | 0.750 | 0.857 | **+0.607** |
+
+**The one-line test beats the diagnostic, with zero false positives where the diagnostic takes one.**
+The two differ on exactly one item — **N8**, which is precisely where product-law matching is wrong.
+
+So the product-law machinery is **surplus**: more complicated, worse-performing, and it required two
+post-hoc domain patches (D23, D27) that the one-line test does not need at all.
+
+Both rules share the same false negative, **case 3** (Shannon C5): α\* is within a constant factor of
+√5 *and* its product law is already correct, so neither test can see that board change. That is a
+property of the case, not of either rule — and it is the one place where the rebuilt diagnostic's
+"principled false negative" story still holds up.
+
+### The ordering, and what is left of the rebuild
+
+~~~
+no rule at all        J = +1.000     (but 11/11 recognition: this is recall, not inference)
+one line              J = +0.750
+product-law matching  J = +0.607
+~~~
+
+The rebuild's defensible residue is **not** the rule. It is two things:
+
+1. **D20's field κ.** That `target_law` and `bound_law` reproduce at +0.811 and +0.755 against the
+   transformation label's 0.048 is a real result about *encoding reproducibility*, and recall does not
+   inflate it.
+2. **The falsifications.** N8 and N9 broke the rule, and breaking it produced D23, D27 and D28 — three
+   findings worth more than the rule was. The twins did their job; it was the rule that did not.
