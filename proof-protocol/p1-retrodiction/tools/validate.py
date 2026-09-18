@@ -121,7 +121,9 @@ def main() -> int:
             warnings.append(f"{d.name}: no second blind label, so label kappa is not computable")
 
     # --- twins and controls --------------------------------------------
-    twins = sorted((ROOT / "twins").glob("*.json"))
+    # REJECTED.json is a ledger of candidates that failed vetting, not a twin.
+    twins = sorted(p for p in (ROOT / "twins").glob("*.json")
+                   if p.stem != "REJECTED")
     controls = sorted((ROOT / "controls").glob("*.json"))
     for p in twins:
         t = load(p)

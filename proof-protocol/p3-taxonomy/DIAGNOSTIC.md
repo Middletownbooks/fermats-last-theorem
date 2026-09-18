@@ -61,19 +61,35 @@ instruction is that the catalogue shrinks before it grows. Dropped rather than r
 Run `python3 score_diagnostics.py`. The rules are applied mechanically from the structural fields;
 the recorded expectation is only a cross-check, and a disagreement is reported as an error.
 
-**Product-law matching**, 10 in-domain items:
+**Product-law matching**, 13 in-domain items:
 
 | | board changed | tight / no change |
 |---|---|---|
 | **fires** | 4 | **0** |
-| does not fire | 1 | 5 |
+| does not fire | 1 | 8 |
 
 Fires on 1 (sensitivity), 2 (cap set), 4 (Kadison–Singer), 10 (parallel repetition). **Zero false
-positives on five negative twins.**
+positives on eight negatives.**
 
-**Collectivize a union bound**, 5 in-domain items: 2/2 sensitivity, 3/3 specificity. The refinement
-survives exactly the cases that killed the original — it fires on 4 and 8, and correctly declines on
-N1, N2 and N8, which is the specificity the seed said was missing.
+**Collectivize a union bound**, 8 in-domain items: **2/2 sensitivity, 6/6 specificity**. The
+refinement survives exactly the cases that killed the original — it fires on 4 and 8, and declines
+on N1, N2, N8 and the three new independence twins.
+
+The three new union-bound negatives (N11 maximum of n Gaussians, N12 balls into bins, N13 coupon
+collector) are the cleanest possible true negatives: independence is exact, the target is a maximum,
+so the union bound is not lossy at all and the refined rule has no excuse to fire. It doesn't.
+
+### The strongest single test: the same problem on both sides of a board change
+
+**N9 is case 1 after Huang.** Before the signing, the target's law is ℓ² (CFGS's own ⌈√n⌉
+construction) and the bound's law is additive (log n from counting) — the laws differ and the
+diagnostic fires. After the signing, `A² = nI` makes the bound's law ℓ² too, the laws agree, and
+**the diagnostic stops firing** — correctly, because CFGS's construction attains ⌈√n⌉ and nothing
+further comes off.
+
+The same problem, the same diagnostic, opposite verdicts, driven entirely by a change in the
+invariant's product law. That is a specificity test no cross-problem pair can give, and it is the
+single result here most worth trying to break.
 
 ### The two findings that matter more than the counts
 

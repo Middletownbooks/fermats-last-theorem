@@ -1,0 +1,31 @@
+{
+  "id": "N14-set-cover-greedy",
+  "problem": "Greedy set cover approximation ratio",
+  "twin_of": null,
+  "surface_leak": "The ln n ratio comes from a union-bound-flavoured counting analysis.",
+  "verdict": "tight-unless-P-equals-NP",
+  "wrongly_fires": "collectivize-a-union-bound",
+  "why_negative": "Feige 1998 proved ln n is a threshold for approximating set cover, and Dinur-Steurer 2014 gave the tight NP-hardness. The log is not removable by any argument, let alone a better collectivization.",
+  "sources": [
+    {
+      "cite": "Feige, A threshold of ln n for approximating set cover, JACM 1998",
+      "date": "1998",
+      "verified": true
+    },
+    {
+      "cite": "Dinur, Steurer, Analytical approach to parallel repetition, STOC 2014",
+      "date": "2014",
+      "verified": true
+    }
+  ],
+  "verification": "VERIFIED by search",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

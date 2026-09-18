@@ -1,0 +1,12 @@
+{
+  "note": "Twin candidates considered and rejected. Kept so the same candidate is not proposed twice.",
+  "rejected": [
+    {
+      "id": "erdos-distinct-distances-R3",
+      "proposed_as": "a within-problem twin of case 6: the Guth-Katz method was believed not to transfer to R^3, which would have made R^3 a clean negative.",
+      "rejected_because": "A search this session found a recent paper (arXiv:2608.14454) claiming the Erdos distinct distances problem in R^3 up to a subpolynomial factor, proving N^{2/3-o(1)}. Prior to it the best was Solymosi-Vu bootstrapping to N^{3/5}/log^{2/5} N. The landscape moved, so 'still open in R^3' is no longer true and the item is not a negative.",
+      "lesson": "Twin candidates decay. Every twin needs a re-check date, not just a citation.",
+      "checked": "2026-09-18"
+    }
+  ]
+}

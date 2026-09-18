@@ -1,0 +1,26 @@
+{
+  "id": "N12-balls-into-bins",
+  "problem": "Maximum load, n balls into n bins",
+  "twin_of": null,
+  "surface_leak": "A union bound over n bins contributes a log factor.",
+  "verdict": "tight",
+  "wrongly_fires": "collectivize-a-union-bound",
+  "why_negative": "The maximum load is (1+o(1)) log n / log log n with high probability — matching upper AND lower bounds. The union bound is not lossy here.",
+  "sources": [
+    {
+      "cite": "Gonnet 1981; Raab-Steger 1998",
+      "date": "1981-1998",
+      "verified": false
+    }
+  ],
+  "verification": "STANDARD — not separately fetched this session",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

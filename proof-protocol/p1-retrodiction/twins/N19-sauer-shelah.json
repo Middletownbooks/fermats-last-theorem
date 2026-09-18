@@ -1,0 +1,28 @@
+{
+  "id": "N19-sauer-shelah",
+  "problem": "Sauer-Shelah lemma",
+  "twin_of": null,
+  "surface_leak": "A counting bound on shattered sets, in the same family as the eps-net union bound.",
+  "verdict": "tight",
+  "wrongly_fires": "collectivize-a-union-bound",
+  "why_negative": "The Sauer-Shelah bound is attained exactly by downward-closed set systems, so the count is not lossy.",
+  "sources": [
+    {
+      "cite": "Sauer 1972; Shelah 1972",
+      "date": "1972",
+      "verified": false
+    }
+  ],
+  "verification": "STANDARD — not separately fetched this session",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  },
+  "related_twin": "N2-epsilon-nets",
+  "note": "Related to twin N2 rather than to a positive case: both are counting bounds in the VC-dimension family. Recorded as related_twin because twin_of points at cases only."
+}

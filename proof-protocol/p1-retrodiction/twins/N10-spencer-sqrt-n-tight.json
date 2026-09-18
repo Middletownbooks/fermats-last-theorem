@@ -1,0 +1,27 @@
+{
+  "id": "N10-spencer-sqrt-n-tight",
+  "problem": "Set discrepancy: is sqrt(n) removable after the log is?",
+  "twin_of": "08-spencer-discrepancy",
+  "within_problem_pair": true,
+  "surface_leak": "A sqrt(n) concentration factor survives in Spencer's 6 sqrt n, in the same shape as the log that came off.",
+  "verdict": "tight",
+  "wrongly_fires": "collectivize-a-union-bound",
+  "why_negative": "The columns of an n x n Hadamard matrix satisfy |<x, a_i>| >= sqrt(n) for EVERY sign vector x, so sqrt(n) is sharp; only the constant is in question. This is the matched negative for case 8: the log is removable, the sqrt(n) is not.",
+  "sources": [
+    {
+      "cite": "Hadamard-matrix lower bound, standard; recent constant work reaches 8 sqrt n for matrix Spencer",
+      "date": "1985-2026",
+      "verified": true
+    }
+  ],
+  "verification": "VERIFIED by search",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

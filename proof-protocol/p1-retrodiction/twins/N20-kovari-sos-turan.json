@@ -1,0 +1,26 @@
+{
+  "id": "N20-kovari-sos-turan",
+  "problem": "Kovari-Sos-Turan bound for K_{t,t}-free graphs",
+  "twin_of": null,
+  "surface_leak": "A double-counting bound n^{2-1/t} that looks improvable by a better invariant.",
+  "verdict": "tight for small t",
+  "wrongly_fires": "collectivize-a-union-bound, product-law-matching",
+  "why_negative": "Norm graphs (Kollar-Ronyai-Szabo; Alon-Ronyai-Szabo) match the bound for t <= s, so the counting argument is sharp where it can be checked.",
+  "sources": [
+    {
+      "cite": "Kollar-Ronyai-Szabo 1996; Alon-Ronyai-Szabo 1999",
+      "date": "1996-1999",
+      "verified": false
+    }
+  ],
+  "verification": "STANDARD — not separately fetched this session",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

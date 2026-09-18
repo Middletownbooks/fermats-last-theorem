@@ -1,0 +1,26 @@
+{
+  "id": "N17-alon-boppana",
+  "problem": "Alon-Boppana spectral bound for d-regular graphs",
+  "twin_of": null,
+  "surface_leak": "A spectral/interlacing bound of 2 sqrt(d-1) looks like the kind of eigenvalue loss case 1 removed.",
+  "verdict": "tight",
+  "wrongly_fires": "product-law-matching, auxiliary-witness-lift",
+  "why_negative": "Ramanujan graphs achieve the Alon-Boppana bound, so 2 sqrt(d-1) is attained and no auxiliary object improves it. The matched positive is case 1, where a signed adjacency matrix DID.",
+  "sources": [
+    {
+      "cite": "Alon-Boppana; Lubotzky-Phillips-Sarnak and Margulis constructions",
+      "date": "1986-1988",
+      "verified": false
+    }
+  ],
+  "verification": "STANDARD — not separately fetched this session",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

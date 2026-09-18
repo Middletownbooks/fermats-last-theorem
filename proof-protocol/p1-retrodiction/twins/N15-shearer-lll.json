@@ -1,0 +1,27 @@
+{
+  "id": "N15-shearer-lll",
+  "problem": "Lovasz Local Lemma: is the e*p*d boundary improvable?",
+  "twin_of": null,
+  "surface_leak": "The LLL already replaces a union bound; the surviving constant e invites further collectivization.",
+  "verdict": "tight",
+  "wrongly_fires": "collectivize-a-union-bound",
+  "why_negative": "Shearer 1985 gives the exact criterion under which the abstract LLL holds — it is the boundary, not an estimate. This is the case where the collectivization has ALREADY been done and cannot be done again.",
+  "nuance": "Shearer's bound is tight for the abstract and quantum LLL but is NOT tight for the variable version, so the twin is stated for the abstract form.",
+  "sources": [
+    {
+      "cite": "Shearer, On a problem of Spencer, Combinatorica 5(3) 241-245, 1985",
+      "date": "1985",
+      "verified": true
+    }
+  ],
+  "verification": "VERIFIED by search, with the variable-version nuance recorded",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

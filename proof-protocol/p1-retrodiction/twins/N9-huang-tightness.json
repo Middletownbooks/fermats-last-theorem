@@ -1,0 +1,27 @@
+{
+  "id": "N9-huang-tightness",
+  "problem": "Sensitivity: is sqrt(n) itself removable?",
+  "twin_of": "01-sensitivity",
+  "within_problem_pair": true,
+  "surface_leak": "After Huang, the bound is sqrt(n) while the cube carries n dimensions, which invites a further board change.",
+  "verdict": "tight",
+  "wrongly_fires": "product-law-matching",
+  "why_negative": "Chung-Fueredi-Graham-Seymour's own construction gives a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n), so sqrt(n) is achieved and nothing further comes off. The matched positive is case 1, where the log DID come off.",
+  "sources": [
+    {
+      "cite": "Chung, Fueredi, Graham, Seymour 1988, JCTA 49(1) 180-187",
+      "date": "1988",
+      "verified": true
+    }
+  ],
+  "verification": "VERIFIED — see CITATIONS.md row C1-bound",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

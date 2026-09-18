@@ -1,0 +1,26 @@
+{
+  "id": "N16-matrix-multiplication-omega",
+  "problem": "Matrix multiplication exponent omega",
+  "twin_of": null,
+  "surface_leak": "The whole problem is about tensors under product, which is the surface signature of a product-law failure.",
+  "verdict": "open, but the law already matches",
+  "wrongly_fires": "product-law-matching",
+  "why_negative": "Border rank is already submultiplicative under tensor product and omega is DEFINED through a limit of products, so the invariant's product law matches the target's. This is a specificity test: product-law matching is in its domain here and must not fire. It does not.",
+  "sources": [
+    {
+      "cite": "Strassen; Coppersmith-Winograd and successors",
+      "date": "1969-",
+      "verified": false
+    }
+  ],
+  "verification": "STANDARD — not separately fetched this session",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

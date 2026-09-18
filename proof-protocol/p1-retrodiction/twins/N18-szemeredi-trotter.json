@@ -1,0 +1,27 @@
+{
+  "id": "N18-szemeredi-trotter",
+  "problem": "Szemeredi-Trotter incidence bound",
+  "twin_of": "06-erdos-distinct-distances",
+  "within_problem_pair": true,
+  "surface_leak": "An incidence-counting bound of the exact shape case 6's before-board relied on.",
+  "verdict": "tight",
+  "wrongly_fires": "product-law-matching, collectivize-a-union-bound",
+  "why_negative": "The Szemeredi-Trotter bound is tight, by Elekes's construction. Case 6's loss was NOT in the incidence bound itself, so a diagnostic that fires on the incidence step is firing in the wrong place.",
+  "sources": [
+    {
+      "cite": "Szemeredi-Trotter 1983; Elekes tightness construction",
+      "date": "1983",
+      "verified": false
+    }
+  ],
+  "verification": "STANDARD — not separately fetched this session",
+  "role": "negative-twin",
+  "expected_diagnostic_behaviour": "fires",
+  "encoder": "opus-5-session-2026-09-18",
+  "encoding_pass": "twin-expansion-v1",
+  "blind_reencoding": {
+    "done": false,
+    "encoder": null,
+    "kappa": null
+  }
+}

@@ -228,6 +228,104 @@
         "expected": "not-applicable",
         "truth": "no board change",
         "class": "negative"
+      },
+      "N9-huang-tightness": {
+        "applicable": true,
+        "operation": "Cartesian product of hypercubes",
+        "target_law": "l2",
+        "target_evidence": "CFGS's construction attains ceil(sqrt n), so the target is sqrt(n) and squares add.",
+        "bound_law": "l2",
+        "bound_evidence": "Huang's signed adjacency has A^2 = nI, so the bound is also sqrt(n) and its squares add. The laws now MATCH.",
+        "expected": "no-fire",
+        "truth": "tight",
+        "class": "negative",
+        "note": "Within-problem pair with case 1. Before Huang the laws differed and the diagnostic fires; after Huang they agree and it correctly stops. The same item on both sides of a board change is the strongest specificity test available."
+      },
+      "N16-matrix-multiplication-omega": {
+        "applicable": true,
+        "operation": "tensor product of matrix-multiplication tensors",
+        "target_law": "multiplicative",
+        "target_evidence": "omega is DEFINED through a limit of tensor powers.",
+        "bound_law": "multiplicative",
+        "bound_evidence": "Border rank is already submultiplicative under tensor product, so the invariant's law matches.",
+        "expected": "no-fire",
+        "truth": "open, law already matches",
+        "class": "negative",
+        "note": "The problem's whole surface is tensors under product, which is the signature the original de-tensorize entry keyed on. The refined rule is in domain here and correctly declines."
+      },
+      "N19-sauer-shelah": {
+        "applicable": true,
+        "operation": "product of set systems; VC dimension additive",
+        "target_law": "additive",
+        "target_evidence": "The Sauer-Shelah bound is attained by downward-closed systems and VC dimension adds under products.",
+        "bound_law": "additive",
+        "bound_evidence": "The counting bound has the same additive dependence.",
+        "expected": "no-fire",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N17-alon-boppana": {
+        "applicable": false,
+        "operation": "none: the 2 sqrt(d-1) spectral bound is not a statement about a product of graphs",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N18-szemeredi-trotter": {
+        "applicable": false,
+        "operation": "none preserving the incidence count",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N20-kovari-sos-turan": {
+        "applicable": false,
+        "operation": "none",
+        "expected": "not-applicable",
+        "truth": "tight for small t",
+        "class": "negative"
+      },
+      "N10-spencer-sqrt-n-tight": {
+        "applicable": false,
+        "operation": "disjoint union exists, but the surviving sqrt(n) is a concentration scale, not a product-law artefact",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N11-max-of-gaussians": {
+        "applicable": false,
+        "operation": "none relevant",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N12-balls-into-bins": {
+        "applicable": false,
+        "operation": "none relevant",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N13-coupon-collector": {
+        "applicable": false,
+        "operation": "none relevant",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative"
+      },
+      "N14-set-cover-greedy": {
+        "applicable": false,
+        "operation": "none relevant",
+        "expected": "not-applicable",
+        "truth": "tight unless P=NP",
+        "class": "negative"
+      },
+      "N15-shearer-lll": {
+        "applicable": false,
+        "operation": "none relevant",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative"
       }
     },
     "positive_class": "the board changed, so a correct diagnostic fires"
@@ -290,6 +388,62 @@
         "target_evidence": "one colouring must serve all m sets.",
         "expected": "no-fire",
         "truth": "tight (sqrt(n log(m/n)))",
+        "class": "negative"
+      },
+      "N11-max-of-gaussians": {
+        "applicable": true,
+        "m": "n independent tail events",
+        "independence_realisable": true,
+        "independence_evidence": "the events ARE independent by construction.",
+        "target_requires_simultaneous_control": true,
+        "target_evidence": "the target is the maximum, so all n must be controlled at once.",
+        "expected": "no-fire",
+        "truth": "tight: E max = (1+o(1)) sqrt(2 log n)",
+        "class": "negative",
+        "note": "The cleanest possible true negative: independence is exact and the target is a maximum, so the union bound is not lossy at all."
+      },
+      "N12-balls-into-bins": {
+        "applicable": true,
+        "m": "n bins",
+        "independence_realisable": true,
+        "independence_evidence": "bin loads are near-independent.",
+        "target_requires_simultaneous_control": true,
+        "target_evidence": "the target is the maximum load.",
+        "expected": "no-fire",
+        "truth": "tight: (1+o(1)) log n / log log n",
+        "class": "negative"
+      },
+      "N13-coupon-collector": {
+        "applicable": true,
+        "m": "n coupons",
+        "independence_realisable": true,
+        "independence_evidence": "the per-coupon waiting events are independent enough.",
+        "target_requires_simultaneous_control": true,
+        "target_evidence": "every coupon must be collected, so all n events matter at once.",
+        "expected": "no-fire",
+        "truth": "tight: n H_n ~ n log n",
+        "class": "negative"
+      },
+      "N10-spencer-sqrt-n-tight": {
+        "applicable": false,
+        "m": "not a union-bound factor: the surviving sqrt(n) is the concentration scale",
+        "expected": "not-applicable",
+        "truth": "tight",
+        "class": "negative",
+        "note": "DOMAIN judgement, stated as such. The first conjunct of the rule is false, so the refined diagnostic declines here for a structural reason rather than via the independence test. A careless application to 'the surviving factor' would fire, which is why the item earns its place."
+      },
+      "N14-set-cover-greedy": {
+        "applicable": false,
+        "m": "the ln n is a harmonic sum from the greedy analysis, not a union bound",
+        "expected": "not-applicable",
+        "truth": "tight unless P=NP",
+        "class": "negative"
+      },
+      "N15-shearer-lll": {
+        "applicable": false,
+        "m": "the collectivization has already been performed — the factor comes from the LLL, not a union bound",
+        "expected": "not-applicable",
+        "truth": "tight",
         "class": "negative"
       }
     },
