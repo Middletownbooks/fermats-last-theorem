@@ -169,7 +169,7 @@
       "status": "partly-closed",
       "where": "CITATIONS.md",
       "claim": "Ten citation rows remain unverified: cases 4, 7, 9, 10, 11, 12, 13, twin N3, the Gotsman-Linial reduction, and Shannon's 5/2 upper bound.",
-      "action": "Egress re-tested this session and ALL routes are blocked, including non-arXiv hosts (jstor, springer, ams, crossref, doi.org). Web search remains the only door and was used: C11 (Kneser/Lovasz) and C13 (Dinur) are now VERIFIED, and C4 is PARTIAL (after-board verified, before-board bound not). Seven rows remain unverified: C7, C9, C10, C12, N3, C1-gotsman, C3-shannon. Ask the user to paste abstracts for those seven — it is one message, not seven, and it converts standing debts into verified rows."
+      "action": "Egress re-tested this session and ALL routes are blocked, including non-arXiv hosts (jstor, springer, ams, crossref, doi.org). Web search remains the only door and was used: C11 (Kneser/Lovasz) and C13 (Dinur) are now VERIFIED, and C4 is PARTIAL (after-board verified, before-board bound not). Seven rows remain unverified: C7, C9, C10, C12, N3, C1-gotsman, C3-shannon. Ask the user to paste abstracts for those seven — it is one message, not seven, and it converts standing debts into verified rows. The single request is written out as CITATIONS-NEEDED.md, naming the exact seven rows and what is needed from each. N3 is the highest priority: it is the discriminator for the only within-family separation the diagnostic makes."
     },
     {
       "id": "D20",
