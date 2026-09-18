@@ -7,16 +7,27 @@ for hosting only: it is not part of the Lean development, is not built by `lake`
 
 ## Status in one line
 
-**Nothing has been measured yet.** This tree converts the seed prose into data, schemas and runnable
-code so that it *can* be. Every claim inherited from the seed carries its provenance and its
-confidence; nothing was upgraded from "argued" to "measured" in the act of encoding it.
+**Two things have been measured, and both were negative.** Read `MEASUREMENTS.md` first. Everything
+else here is an instrument, not a result.
+
+| | measured | result |
+|---|---|---|
+| **Step D** | label κ over the five transformations | **κ = 0.048.** The vocabulary is not operational. Settled. |
+| **L2** | blind re-encoding, 5 cases | **2 of 5** leading leak mechanisms agree, but **6 of 7** are named somewhere. The leak field does not reproduce; `bound` does (3 of 4). |
 
 | Part | What it is | State |
 |---|---|---|
-| **P1** | Retrodiction benchmark: 13 scored cases, 8 negative twins, 2 controls, 3 calibration exclusions | Encoded as data. **Single-encoder, contaminated.** Blind re-encoding (L2) not done. |
-| **P2** | Template-ablation study: 20 arms over six clause blocks, planted-truth battery, two judges | Ported to a runnable Python harness. **Never run against a live model.** |
-| **P3** | Transformation taxonomy and its scoring | Encoded. Scored once by a contaminated rater. Two of five transformations have **no name in the seed material**. |
-| **P4** | The v3 prescription | **Deliberately unwritten.** See "Do not do" below. |
+| **P1** | Retrodiction benchmark: 13 cases, **20 negative twins**, 2 controls, 3 calibration exclusions | Encoded as data. Cases 2, 5, 8, 9 **corrected**. 20 of 33 citations verified. **Still single-encoder**; L2 found real errors but its own κ was never measured. |
+| **P2** | Template-ablation study: 20 arms, planted-truth battery, two judges | Ported, fidelity-tested against the artifact's own JavaScript, and **one defect in the published instrument found and fixed** (`p2-ablation/DEFECTS.md`). Repo corpus R1–R6 swapped in with machine-verified ground truths. **Never run against a live model — no API key here.** |
+| **P3** | The diagnostic | The five-transformation catalogue is **dead** (κ = 0.048). Rebuilt on the fields that reproduce: `p3-taxonomy/DIAGNOSTIC.md`. Zero false positives over 14 negatives, and one principled false negative that splits the catalogue. |
+| **P4** | The v3 prescription | **Still deliberately unwritten.** |
+
+### The one test that would settle the rebuild
+
+The rebuilt diagnostic's only judgement calls are two closed-vocabulary fields, `target_law` and
+`bound_law`. Have raters who have not seen the rules assign them blind and compute κ against the
+measured **0.048** baseline. That is debt **D20**, and it is a smaller experiment than a full
+re-encoding.
 
 ## What each directory is
 
@@ -46,38 +57,42 @@ python3 proof-protocol/p1-retrodiction/tools/validate.py
 python3 proof-protocol/p1-retrodiction/tools/pack.py --id 01-sensitivity
 ~~~
 
-## Priority order (from the handoff, unchanged)
+## Task status
 
-1. **Replace the battery's weakest items with real agent failures.** Blocked here: see
-   "What this repository does not contain" below.
-2. **Blind re-encoding of P1 (L2).** The tree is ready for it; `tools/kappa.py` scores the diff.
-   This is the cheapest thing that makes any P3 number mean anything.
-3. **Port the harness to a script with a real API key.** Done — `p2-ablation/`. Four of the
-   artifact's limits are lifted, one is not (see that README: temperature no longer exists on
-   current models).
-4. **Pre-register the analysis, not just the predictions.** Done —
-   `p2-ablation/analysis/preregistration.md`. Commit it before unblinding.
-5. **Verification debts.** Encoded in `debts.json`, all still `unverified`.
-6. **Claims the originating instance should attack.** Encoded in `debts.json` as
-   `kind: "contested-claim"`.
-7. **Do not do.** No v3 before P2 data. No sixth transformation — the catalogue should shrink
-   before it grows. No harness results reported with judge κ below ~0.6 without reading
-   transcripts first.
+| # | Task | State |
+|---|---|---|
+| 1 | Verify the citation layer | **Done as far as the network allows.** `CITATIONS.md`: 20 verified, 1 corrected, 1 disputed, 1 partial, **10 declared unverified**. Two errors found. Both reclassifications adjudicated. |
+| 2 | Fix and port the harness | **Done.** DEFECT-1 fixed and recorded; fidelity test runs the artifact's own JavaScript; non-repeating placebos; two judge families; exact arithmetic in code. |
+| 3 | Replace the battery's weakest items | **Corpus in, ground truths machine-verified. Pilot not run** — no API key here, so the retirement list is a labelled prediction. |
+| 4 | Rebuild the diagnostic on fields that reproduce | **Done.** `p3-taxonomy/DIAGNOSTIC.md`. |
+| 5 | Grow the negative twins | **8 → 20** against a target of ~25; the shortfall is stated, not padded. One candidate rejected and recorded. |
+| 6 | Pre-register the analysis | **Done**, with the defining relation `I = ABCE = BCDF = ADEF` verified computationally and the alias groups listed. |
+| 7 | Start the prospective arm | **Done.** Five sealed predictions; blinding is structural (arXiv unreachable, ids post-date the cutoff). |
+| 8 | Re-run L2 properly | **Instrument built** — all four design fixes. Not run: it needs fresh encoders on fresh cases. |
 
-## What this repository does not contain
+## Do not do
 
-Handoff task 1 says to replace the weakest battery items with the repository's own corpus of real
-agent failures — the false impossibility theorem with a published counterexample (E7), the
-unsupported "this forces that" steps behind two negative verdicts (E8), the variance-1 Monte Carlo
-check (E9). **Those artifacts are not in this repository.** This is the Lean Fermat's Last Theorem
-development; a search for them returns nothing. They live wherever the commission's own materials
-live.
+1. No v3 before P2 data exists.
+2. **No sixth transformation, and no rescue of the five.** κ = 0.048 was measured on the catalogue
+   that exists; its problem is not that it is too small.
+3. No harness results with judge κ below ~0.6 without reading transcripts first.
+4. Never score the three calibration items.
+5. **Never interpret a two-way interaction** in the P2 factorial. The aliases are verified and listed.
+6. No unregistered collapse to rescue a failed prediction.
+7. Do not reuse L2's original five blind encodings; they would contaminate new raters.
+8. Do not log a prospective prediction after glancing at a method section.
 
-The slot is built and waiting: `p2-ablation/battery.json` is loaded through
-`battery.load(extra_path=...)`, and any file matching `schema/battery-item` is merged in. Until
-those three items arrive the battery is 15 textbook-grade statements, which the seed itself expects
-to hit ceiling in the pilot. Treat a pilot on the current battery as a dry run of the machinery,
-not as a measurement.
+## The repo corpus (previously blocked, now closed)
+
+The six real-failure battery items **arrived** and are in `p2-ablation/battery_repo_corpus.json`.
+Every checkable number in their ground truths was verified by exact computation before anything was
+wired to them (`p2-ablation/tools/verify_corpus.py`): 48 counterexamples below 400, 8,977 primes
+with M ≡ 1 mod 3 throughout, zero mismatches over q = 1..800, and an explicit verified counterexample
+for the sieve item. All six check out as supplied.
+
+`python3 cli.py battery --swap-in-corpus` swaps them in and retires six textbook items by a stated
+rule. **That retirement list is a prediction, not a measurement** — the pilot needs an API key this
+container does not have.
 
 ## Provenance and confidence tags
 

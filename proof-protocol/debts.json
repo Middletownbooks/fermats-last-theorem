@@ -1,110 +1,273 @@
 {
   "note": "Every claim this project inherited that has not been verified. DEBTS.md is generated from this file by tools/render_debts.py; edit this, not that.",
-  "as_of": "2026-09-18",
+  "as_of": "2026-09-18 (second pass: step D, L2, tasks 1-8)",
   "global": [
-    "All P1 citations were RECALLED by the seed instance, not fetched. Every sources_before entry in p1-retrodiction/ carries verified: false. Treat the whole citation layer as unverified, not just the rows singled out below.",
+    "Step D measured label kappa = 0.048 and L2 measured 2-of-5 leak agreement. Both are FINISHED. See MEASUREMENTS.md before reading anything else here.",
+    "Of P1's citation layer, 20 rows are now VERIFIED and 10 remain UNVERIFIED. See CITATIONS.md; arxiv.org, Crossref and Semantic Scholar are egress-blocked from this container, so web search was the only route and no PDF was fetched.",
     "arXiv:2609.11189 post-dates the seed instance's knowledge and was taken on trust; commission items E3 and E4 were taken as given."
   ],
   "debts": [
-    {"id": "D1", "kind": "citation", "status": "unverified", "confidence": "medium",
-     "where": "p1-retrodiction/cases/09-vinogradov-mean-value/",
-     "claim": "The pre-Wooley bound is s >~ c*k^2*log k, and the leak is that each congruencing iteration recovers a fixed fraction of the defect so about log k rounds are needed.",
-     "action": "Fetch Wooley 2012 and a pre-2012 statement of the classical bound. The seed flagged both the bound and the leak as medium confidence."},
-    {"id": "D2", "kind": "citation", "status": "unverified", "confidence": "low",
-     "where": "p1-retrodiction/cases/05-finite-field-kakeya/",
-     "claim": "The best pre-Dvir exponent was about q^{4n/7}.",
-     "action": "Fetch the pre-2008 record. The seed wrote this with low confidence."},
-    {"id": "D3", "kind": "citation", "status": "unverified", "confidence": "medium",
-     "where": "p1-retrodiction/cases/01-sensitivity/",
-     "claim": "Chung-Fueredi-Graham-Seymour 1988 gives Delta >= (1/2 - o(1)) log n.",
-     "action": "Fetch the 1988 paper and confirm the constant."},
-    {"id": "D4", "kind": "citation", "status": "unverified", "confidence": "medium",
-     "where": "p1-retrodiction/twins/N4-shannon-capacity-c7.json",
-     "claim": "Polak-Schrijver 2019 give a lower bound of about 3.258 for Theta(C7), against theta(C7) about 3.318.",
-     "action": "Fetch Polak-Schrijver 2019 and confirm both numbers."},
-    {"id": "D5", "kind": "dated-fact", "status": "unverified", "confidence": "medium",
-     "where": "p2-ablation/blocks.json (battery item O3)",
-     "claim": "x^3 + y^3 + z^3 = 114 has no known integer solution and the problem is open.",
-     "action": "RE-CHECK ON THE DAY OF FREEZING. This is a moving target: 33 and 42 both fell recently. If it has been solved, the item's type changes from open to true and its ground truth is wrong.",
-     "blocking": "p2-ablation freeze"},
-    {"id": "D6", "kind": "reclassification", "status": "unadjudicated",
-     "where": "p1-retrodiction/controls/14-sphere-packing-8-24.json",
-     "claim": "Sphere packing in dimensions 8 and 24 is NOT a board change. The board is Cohn-Elkies 2003; Viazovska supplied the terminal certificate on that board, and numerics had already shown it was tight. The actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies.",
-     "action": "Adjudicate. If this is wrong, the control set loses half its members and the 'false board-change alarm' arm of the rubric is untestable.",
-     "consequence_if_wrong": "The base rate '2 of 15 headline results were better play on an unchanged board' loses one of its two members."},
-    {"id": "D7", "kind": "reclassification", "status": "unadjudicated",
-     "where": "p1-retrodiction/cases/13-pcp-weak/",
-     "claim": "PCP is demoted to fit-testing only, because its 'before' was a successful proof rather than a failing bound.",
-     "action": "Adjudicate. The case is flagged fit-testing-only in the data and must not be scored as a prediction until this is settled."},
-    {"id": "D8", "kind": "contested-claim", "status": "unvalidated",
-     "where": "p3-taxonomy/taxonomy.json -> candidate_replacements",
-     "claim": "'Product-law matching' should replace 'de-tensorize': compute how the target behaves on the product construction of the extremal family, and require the invariant to obey the same law.",
-     "action": "Needs cases chosen by someone who has NOT seen the hypothesis. The seed derived it from the same cases it then scored it on. Until then it is a guess, and the seed said so.",
-     "attack_requested_of": "the originating instance"},
-    {"id": "D9", "kind": "contested-claim", "status": "unvalidated",
-     "where": "SOURCE-RESPONSE.md, P3 item 7",
-     "claim": "Against E5(b): the better discriminator is whether the existence guarantee is strictly cheaper than the target, not formula versus existence. Banaszczyk's move, Marcus-Spielman-Srivastava and Dvir all rest on existence statements and all succeed.",
-     "action": "n = 3, and it has the same flaw as the criterion it replaces: derived from the cases that motivated it.",
-     "attack_requested_of": "the originating instance"},
-    {"id": "D10", "kind": "contested-claim", "status": "unvalidated",
-     "where": "p1-retrodiction/README.md -> contamination control",
-     "claim": "Forced-choice discrimination fails as a contamination control, because it is still solved by recognition; the four-layer alternative (score the procedure, negative twins, telegraph baseline, recognition probe, prospective arm) is better.",
-     "action": "Argued, not validated. The seed states that the prospective arm is the only fully clean estimate. Nothing has been measured.",
-     "attack_requested_of": "the commission"},
-    {"id": "D11", "kind": "contested-claim", "status": "open",
-     "where": "p1-retrodiction/README.md -> base rate",
-     "claim": "2 of 15 headline results (Viazovska, Kelley-Meka) were better play on an unchanged board, so the programme's core hypothesis should carry that denominator.",
-     "action": "Depends on D6. Small count, but the base rate is not zero."},
-    {"id": "D12", "kind": "gap", "status": "open",
-     "where": "p3-taxonomy/taxonomy.json",
-     "claim": "Transformations #3 and #5 have NO NAME anywhere in the seed material; they are referenced only by number. #3 is fitted weakly by one case and #5 by none.",
-     "action": "Recover the names from the commission's catalogue, or drop both entries. DO NOT INVENT NAMES. Handoff task 7 says the catalogue should shrink before it grows."},
-    {"id": "D13", "kind": "method-limit", "status": "acknowledged",
-     "where": "p2-ablation/analysis/preregistration.md §5",
-     "claim": "Judges cannot be blinded to arm: the protocol's own tags and the numbered return fields leak the condition into the graded text.",
-     "action": "Record it as a limitation in the write-up. Do not describe the judges as blind. Not fixable within this design."},
-    {"id": "D14", "kind": "method-limit", "status": "acknowledged",
-     "where": "p2-ablation/config.py",
-     "claim": "Temperature cannot be controlled: sampling parameters were removed from the current Claude models and sending one returns a 400.",
-     "action": "Report `effort` instead, which is recorded per run. Do not report temperature as held constant. This is a change in the world since the handoff was written, not an omission."},
-    {"id": "D15", "kind": "missing-input", "status": "blocked",
-     "where": "p2-ablation/battery.py",
-     "claim": "Handoff task 1 - replace the weakest battery items with the repository's own real agent failures (E7 the false impossibility theorem with a published counterexample, E8 the two unsupported 'this forces that' steps, E9 the variance-1 Monte Carlo check).",
-     "action": "Those artifacts are NOT in this repository, which is the Lean Fermat's Last Theorem development. Supply them as a JSON file and load with battery.load(extra_path=...). Until then the battery is textbook-grade and is expected to hit ceiling.",
-     "blocking": "the whole point of P2's battery"},
-    {"id": "D16", "kind": "method-limit", "status": "acknowledged",
-     "where": "p1-retrodiction/",
-     "claim": "P1 v0 is single-encoder and contaminated: one model encoded all 23 items while knowing every answer.",
-     "action": "Handoff task 2, the blind re-encoding, is the cheapest thing that makes any P3 number mean anything. The tree and tools are ready for it; it has not been run."}
+    {
+      "id": "D1",
+      "kind": "citation",
+      "status": "unverified",
+      "confidence": "medium",
+      "where": "p1-retrodiction/cases/09-vinogradov-mean-value/",
+      "claim": "The pre-Wooley bound is s >~ c*k^2*log k, and the leak is that each congruencing iteration recovers a fixed fraction of the defect so about log k rounds are needed.",
+      "action": "Still not fetched. Note the case is VOID for L2 purposes through the cutoff design error, so this debt no longer blocks anything downstream."
+    },
+    {
+      "id": "D2",
+      "kind": "citation",
+      "status": "resolved-as-error",
+      "confidence": "high",
+      "where": "p1-retrodiction/cases/05-finite-field-kakeya/",
+      "claim": "The best pre-Dvir exponent was about q^{4n/7}.",
+      "action": "CLOSED by finding the error. CITATIONS.md row C5-4n7: 4n/7 + 3/7 is Katz-Tao's EUCLIDEAN Minkowski-dimension bound; no source states it for |K| in F_q^n. The seed's low confidence was warranted. The two-regime structure survives; the exponent does not."
+    },
+    {
+      "id": "D3",
+      "kind": "citation",
+      "status": "verified",
+      "confidence": "medium",
+      "where": "p1-retrodiction/cases/01-sensitivity/",
+      "claim": "Chung-Fueredi-Graham-Seymour 1988 gives Delta >= (1/2 - o(1)) log n.",
+      "action": "CLOSED. CFGS 1988 give (1/2 - o(1)) log_2 n — note base 2, which P1 left unstated — and themselves construct the matching ceil(sqrt n) example."
+    },
+    {
+      "id": "D4",
+      "kind": "citation",
+      "status": "verified",
+      "confidence": "medium",
+      "where": "p1-retrodiction/twins/N4-shannon-capacity-c7.json",
+      "claim": "Polak-Schrijver 2019 give a lower bound of about 3.258 for Theta(C7), against theta(C7) about 3.318.",
+      "action": "CLOSED. Polak-Schrijver: 367^(1/5) > 3.2578 (IPL 143, 2019). theta(C7) = 3.3176672 computed here. Both figures confirmed."
+    },
+    {
+      "id": "D5",
+      "kind": "dated-fact",
+      "status": "verified-but-dated",
+      "confidence": "medium",
+      "where": "p2-ablation/blocks.json (battery item O3)",
+      "claim": "x^3 + y^3 + z^3 = 114 has no known integer solution and the problem is open.",
+      "action": "Verified today: 114 is described as the lowest unsolved case. STILL A DATED FACT — re-check on the day of freezing.",
+      "blocking": "p2-ablation freeze"
+    },
+    {
+      "id": "D6",
+      "kind": "reclassification",
+      "status": "adjudicated-upheld",
+      "where": "p1-retrodiction/controls/14-sphere-packing-8-24.json",
+      "claim": "Sphere packing in dimensions 8 and 24 is NOT a board change. The board is Cohn-Elkies 2003; Viazovska supplied the terminal certificate on that board, and numerics had already shown it was tight. The actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies.",
+      "action": "CLOSED. CITATIONS.md ADJ-14. Cohn-Elkies 2003 was itself the first improvement since Kabatyanskii-Levenshtein 1978, and Cohn and Elkies themselves conjectured their board would settle dimensions 8 and 24. Supported by sources now, not argument.",
+      "consequence_if_wrong": "The base rate '2 of 15 headline results were better play on an unchanged board' loses one of its two members."
+    },
+    {
+      "id": "D7",
+      "kind": "reclassification",
+      "status": "adjudicated-upheld",
+      "where": "p1-retrodiction/cases/13-pcp-weak/",
+      "claim": "PCP is demoted to fit-testing only, because its 'before' was a successful proof rather than a failing bound.",
+      "action": "CLOSED. CITATIONS.md ADJ-13. Noted that the rebuilt diagnostic WOULD fire on it, which is evidence the item is well-formed, not that it should be scored."
+    },
+    {
+      "id": "D8",
+      "kind": "contested-claim",
+      "status": "addressed-in-part",
+      "where": "p3-taxonomy/taxonomy.json -> candidate_replacements",
+      "claim": "'Product-law matching' should replace 'de-tensorize': compute how the target behaves on the product construction of the extremal family, and require the invariant to obey the same law.",
+      "action": "Restated leak-free in p3-taxonomy/DIAGNOSTIC.md and tested against 13 in-domain items with zero false positives. Circularity is REDUCED, not removed: the rules are mechanical but the assignment of laws is still mine. The remaining test is D20.",
+      "attack_requested_of": "the originating instance"
+    },
+    {
+      "id": "D9",
+      "kind": "contested-claim",
+      "status": "unvalidated",
+      "where": "SOURCE-RESPONSE.md, P3 item 7",
+      "claim": "Against E5(b): the better discriminator is whether the existence guarantee is strictly cheaper than the target, not formula versus existence. Banaszczyk's move, Marcus-Spielman-Srivastava and Dvir all rest on existence statements and all succeed.",
+      "action": "n = 3, and it has the same flaw as the criterion it replaces: derived from the cases that motivated it.",
+      "attack_requested_of": "the originating instance"
+    },
+    {
+      "id": "D10",
+      "kind": "contested-claim",
+      "status": "measured",
+      "where": "p1-retrodiction/README.md -> contamination control",
+      "claim": "Forced-choice discrimination fails as a contamination control, because it is still solved by recognition; the four-layer alternative (score the procedure, negative twins, telegraph baseline, recognition probe, prospective arm) is better.",
+      "action": "CLOSED as a question. Step D measured 100% recognition and L2 measured 5 of 5, on encoders that were trying to comply. The seed's concern was correct and cutoff discipline does not fix it. The prospective arm (p1-retrodiction/prospective/) is the only remaining route.",
+      "attack_requested_of": "the commission"
+    },
+    {
+      "id": "D11",
+      "kind": "contested-claim",
+      "status": "upheld",
+      "where": "p1-retrodiction/README.md -> base rate",
+      "claim": "2 of 15 headline results (Viazovska, Kelley-Meka) were better play on an unchanged board, so the programme's core hypothesis should carry that denominator.",
+      "action": "D6 adjudicated in favour, so the denominator stands: 2 of 15 headline results were better play on an unchanged board."
+    },
+    {
+      "id": "D12",
+      "kind": "gap",
+      "status": "superseded",
+      "where": "p3-taxonomy/taxonomy.json",
+      "claim": "Transformations #3 and #5 have NO NAME anywhere in the seed material; they are referenced only by number. #3 is fitted weakly by one case and #5 by none.",
+      "action": "Moot. Step D measured kappa = 0.048 on the five-entry catalogue, so the vocabulary is not operational and the entries' names no longer matter. auxiliary-witness-lift has been DROPPED; the rebuild in DIAGNOSTIC.md replaces the rest. Do not recover the names; do not add a sixth."
+    },
+    {
+      "id": "D13",
+      "kind": "method-limit",
+      "status": "acknowledged",
+      "where": "p2-ablation/analysis/preregistration.md §5",
+      "claim": "Judges cannot be blinded to arm: the protocol's own tags and the numbered return fields leak the condition into the graded text.",
+      "action": "Record it as a limitation in the write-up. Do not describe the judges as blind. Not fixable within this design."
+    },
+    {
+      "id": "D14",
+      "kind": "method-limit",
+      "status": "acknowledged",
+      "where": "p2-ablation/config.py",
+      "claim": "Temperature cannot be controlled: sampling parameters were removed from the current Claude models and sending one returns a 400.",
+      "action": "Report `effort` instead, which is recorded per run. Do not report temperature as held constant. This is a change in the world since the handoff was written, not an omission."
+    },
+    {
+      "id": "D15",
+      "kind": "missing-input",
+      "status": "closed",
+      "where": "p2-ablation/battery.py",
+      "claim": "Handoff task 1 - replace the weakest battery items with the repository's own real agent failures (E7 the false impossibility theorem with a published counterexample, E8 the two unsupported 'this forces that' steps, E9 the variance-1 Monte Carlo check).",
+      "action": "CLOSED. The corpus was supplied as R1-R6 and every checkable number in its ground truths was verified by exact computation (p2-ablation/tools/verify_corpus.py): 48 counterexamples below 400, 8,977 primes, zero mismatches over q = 1..800. Swapped in via `cli.py battery --swap-in-corpus`.",
+      "blocking": "the whole point of P2's battery"
+    },
+    {
+      "id": "D16",
+      "kind": "method-limit",
+      "status": "addressed-in-part",
+      "where": "p1-retrodiction/",
+      "claim": "P1 v0 is single-encoder and contaminated: one model encoded all 23 items while knowing every answer.",
+      "action": "L2 ran on five cases and found real errors, but its own pre-registered kappa was never measured (D22) and case 9 was void. The re-run instrument with all four design fixes is built: p1-retrodiction/L2-RERUN.md."
+    },
+    {
+      "id": "D17",
+      "kind": "instrument-defect",
+      "status": "fixed-and-recorded",
+      "where": "p2-ablation/DEFECTS.md",
+      "claim": "DEFECT-1: the published harness's exportData calls outcome(r, r.j2), and outcome() opens `j = j || r.j1`, so judge 2's exported column is scored from judge 1 on every row where the second judge did not run.",
+      "action": "Fixed at the call site (the frozen rule is untouched) and pinned by tests/test_export_defect.py. Recorded as a PRE-FREEZE defect: it changes what the published instrument would have reported, and belongs in the write-up as such."
+    },
+    {
+      "id": "D18",
+      "kind": "not-run",
+      "status": "blocked",
+      "where": "p2-ablation",
+      "claim": "The pilot has not been run, so no per-item failure rate exists.",
+      "action": "No ANTHROPIC_API_KEY and no `ant` CLI in this container. The retirement list in battery.py is a PREDICTION and is labelled one. Run `cli.py pilot` with a key and re-choose the retired items from the measured rates.",
+      "blocking": "tasks 3 and 6 both need pilot data"
+    },
+    {
+      "id": "D19",
+      "kind": "citation",
+      "status": "unverified",
+      "where": "CITATIONS.md",
+      "claim": "Ten citation rows remain unverified: cases 4, 7, 9, 10, 11, 12, 13, twin N3, the Gotsman-Linial reduction, and Shannon's 5/2 upper bound.",
+      "action": "Needs an environment where arxiv.org is reachable. Declared rather than assumed — none is presented as checked."
+    },
+    {
+      "id": "D20",
+      "kind": "the-test-that-settles-it",
+      "status": "open",
+      "where": "p3-taxonomy/DIAGNOSTIC.md",
+      "claim": "The rebuilt diagnostic's only judgement calls are two closed-vocabulary fields, target_law and bound_law.",
+      "action": "Have raters who have NOT seen the rules assign those two fields blind, from the bound and the extremal construction alone, and compute kappa against the measured 0.048 baseline. kappa >= 0.6 means the judgement was moved onto a field that reproduces; below it, this is one more unreproducible ranking and must be reported as such. This is a smaller experiment than a full re-encoding and it tests the thing that matters.",
+      "blocking": "any claim that the rebuild succeeded"
+    },
+    {
+      "id": "D21",
+      "kind": "coverage",
+      "status": "partial",
+      "where": "p1-retrodiction/twins/",
+      "claim": "Twenty negatives against a target of ~25, and 8 of the 20 are STANDARD rather than fetched.",
+      "action": "Three further candidates were dropped because their tightness could not be verified here. One candidate was REJECTED outright and recorded (twins/REJECTED.json): Erdos distinct distances in R^3 is no longer open. Twin candidates decay, so every twin needs a re-check date."
+    },
+    {
+      "id": "D22",
+      "kind": "unmeasured",
+      "status": "open",
+      "where": "MEASUREMENTS.md",
+      "claim": "L2's pre-registered kappa was never measured; the substitute 0.286 [0.000, 0.667] at n = 5 is unmeasured, not a bound.",
+      "action": "The instrument is built (tools/make_rating_sheet.py, schema v2). Use fresh cases and fresh encoders; do NOT reuse the original five blind encodings."
+    }
   ],
   "failure_register": [
-    {"tried": "Forced-choice discrimination as the contamination control",
-     "outcome": "Rejected on argument; not tested", "cost": "reasoning only"},
-    {"tried": "Sphere packing as a board-change case",
-     "outcome": "Reclassified as a same-board control", "cost": "reasoning only"},
-    {"tried": "PCP as a scoreable case", "outcome": "Demoted to fit-testing only",
-     "cost": "reasoning only"},
-    {"tried": "Running P2 in chat",
-     "outcome": "Impossible (no agent substrate); a browser harness was built instead",
-     "cost": "one artifact"},
-    {"tried": "Raw-API harness with token counts (in the browser)",
-     "outcome": "Blocked by the published-page runtime; fell back to a sampling capability",
-     "cost": "lost O5 precision — now recovered by the Python port"},
-    {"tried": "Live integration test of the harness",
-     "outcome": "Not done; logic tested against mocks only (600 simulated runs)",
-     "cost": "—"},
-    {"tried": "Controlling temperature in the Python port",
-     "outcome": "Not possible: the parameter was removed from the current models",
-     "cost": "one design assumption; `effort` recorded instead"},
-    {"tried": "Sourcing the real-failure battery items from this repository",
-     "outcome": "Not present here; the slot is built and empty",
-     "cost": "P2's first priority remains blocked"}
+    {
+      "tried": "Forced-choice discrimination as the contamination control",
+      "outcome": "Rejected on argument; not tested",
+      "cost": "reasoning only"
+    },
+    {
+      "tried": "Sphere packing as a board-change case",
+      "outcome": "Reclassified as a same-board control",
+      "cost": "reasoning only"
+    },
+    {
+      "tried": "PCP as a scoreable case",
+      "outcome": "Demoted to fit-testing only",
+      "cost": "reasoning only"
+    },
+    {
+      "tried": "Running P2 in chat",
+      "outcome": "Impossible (no agent substrate); a browser harness was built instead",
+      "cost": "one artifact"
+    },
+    {
+      "tried": "Raw-API harness with token counts (in the browser)",
+      "outcome": "Blocked by the published-page runtime; fell back to a sampling capability",
+      "cost": "lost O5 precision — now recovered by the Python port"
+    },
+    {
+      "tried": "Live integration test of the harness",
+      "outcome": "Not done; logic tested against mocks only (600 simulated runs)",
+      "cost": "—"
+    },
+    {
+      "tried": "Controlling temperature in the Python port",
+      "outcome": "Not possible: the parameter was removed from the current models",
+      "cost": "one design assumption; `effort` recorded instead"
+    },
+    {
+      "tried": "Sourcing the real-failure battery items from this repository",
+      "outcome": "Not present here; the slot is built and empty",
+      "cost": "P2's first priority remains blocked"
+    },
+    {
+      "tried": "Erdos distinct distances in R^3 as a negative twin",
+      "outcome": "REJECTED — a recent paper claims N^{2/3-o(1)}, so it is not open",
+      "cost": "one search; the candidate is recorded so it is not proposed again"
+    },
+    {
+      "tried": "Reading arXiv directly to verify citations",
+      "outcome": "Egress-blocked; web search was the only route and no PDF was fetched",
+      "cost": "10 of 33 citation rows remain unverified"
+    },
+    {
+      "tried": "Running the P2 pilot",
+      "outcome": "No API key in the container; the battery retirement list stays a prediction",
+      "cost": "tasks 3 and 6 still lack pilot data"
+    },
+    {
+      "tried": "Scoring both rebuilt diagnostics against one positive-class vocabulary",
+      "outcome": "Wrong table — cases 4 and 8 came out as false positives when 'the log is removable' IS the positive class. Each item now carries an explicit class field",
+      "cost": "one wrong table, caught and corrected before it was written up"
+    }
   ],
   "do_not_do": [
-    "Do not write v3 before P2 data exists. The v3 hypotheses are already encoded as arms: if (c) and (d) hold, v3 is a return form with about six computed-content fields and the named-failure-principles block becomes a footnote.",
-    "Do not add a sixth transformation. #3 and #5 fit almost nothing; the catalogue should shrink before it grows.",
+    "Do not write template v3 before P2 data exists. The v3 hypotheses are already encoded as arms.",
+    "Do not add a sixth transformation, and do not try to rescue the five. Step D measured kappa = 0.048 on the catalogue that exists; its problem is not that it is too small.",
     "Do not report harness results with judge kappa below about 0.6 without reading transcripts first.",
-    "Do not score the three calibration items (Banaszczyk, Bansal-Jiang, Guo-Fang-Lu). They generated the taxonomy.",
-    "Do not interpret two-way interactions in the P2 factorial: resolution IV aliases them with each other."
+    "Do not score the three calibration items (Banaszczyk, Bansal-Jiang, Guo-Fang-Lu).",
+    "Do not interpret two-way interactions in the P2 factorial. The aliases are verified and listed in analysis/preregistration.md: AB=CE, AC=BE, AD=EF, AE=BC=DF, AF=DE, BD=CF, BF=CD.",
+    "Do not rescue a failed prediction with an unregistered collapse. L2's prediction L2-1 failed on both halves and survives only if PARTIAL is counted with AGREE; it was scored as failed. Keep that standard.",
+    "Do not treat P1's numbers as verified beyond the 20 rows CITATIONS.md marks VERIFIED.",
+    "Do not reuse L2's five original blind encodings in a re-run; they would contaminate new raters.",
+    "Do not log a prospective prediction after glancing at a method section. One unsealed prediction and that arm is worth no more than the retrospective cases."
   ]
 }
