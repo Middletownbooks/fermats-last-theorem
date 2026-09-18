@@ -15,18 +15,18 @@
     "C": "About 1/delta iterations, each costing one dimension.",
     "T": "Dimensions exhausted."
   },
-  "bound_then": "3^n/n (Meshulam 1995); n^{1+eps} (Bateman-Katz 2012).",
+  "bound_then": "3^n/n (Meshulam 1995); 3^n/n^{1+eps} (Bateman-Katz, arXiv:1101.5851, posted 2011-01)",
   "leak": "The per-step gain delta^2 against the additive cost of one dimension per step forces delta >~ 1/n. The invariant composes additively while the target (maximum cap size) is supermultiplicative under products, so the truth has the form c^n.",
   "sources_before": [
     {
       "cite": "Meshulam 1995",
       "date": "1995",
-      "verified": false
+      "verified": true
     },
     {
-      "cite": "Bateman, Katz 2012",
-      "date": "2012",
-      "verified": false
+      "cite": "Bateman, Katz (arXiv:1101.5851, posted 2011-01; JAMS 2012)",
+      "date": "2011",
+      "verified": true
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",
@@ -40,11 +40,11 @@
   "bound_regimes": [
     {
       "regime": "sole",
-      "bound": "3^n/n (Meshulam 1995); n^{1+eps} (Bateman-Katz 2012).",
-      "valid_range": "all n in scope",
+      "bound": "C * 3^n / n^{1+eps}",
+      "valid_range": "all n",
       "sources": [
         "Meshulam 1995",
-        "Bateman, Katz 2012"
+        "Bateman-Katz 2011"
       ]
     }
   ],
@@ -56,5 +56,12 @@
       "evidence": "The per-step gain delta^2 against the additive cost of one dimension per step forces delta >~ 1/n. The invariant composes additively while the target (maximum cap size) is supermultiplicative under products, so the truth has the form c^n.",
       "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
     }
-  ]
+  ],
+  "correction": {
+    "status": "CORRECTED",
+    "source": "CITATIONS.md row C2-batemankatz",
+    "was": "n^{1+eps} (Bateman-Katz 2012)",
+    "why": "P1 dropped the 3^n. Beside a neighbouring entry reading '3^n/n', the shorthand reads as a bound OF SIZE n^{1+eps}. Also redated 2012 -> 2011 under the arXiv-dating rule.",
+    "verified_by": "web search; JAMS 25(2) 2012, arXiv:1101.5851"
+  }
 }

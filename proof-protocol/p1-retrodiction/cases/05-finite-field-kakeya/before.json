@@ -15,7 +15,7 @@
     "C": null,
     "T": null
   },
-  "bound_then": "TWO REGIMES, neither dominating: |K| >~ q^{(n+2)/2} (best known for n < 14) and |K| >~ q^{4n/7} (better only for n >= 15). See bound_regimes.",
+  "bound_then": "TWO REGIMES, neither dominating: |K| >~ q^{(n+2)/2} (verified; best known for small n) and a high-dimensional arithmetic improvement whose exponent P1 gives as 4n/7 (DISPUTED — see correction). See bound_regimes.",
   "leak": "Cauchy-Schwarz sees pairwise line interactions only, which caps the exponent near n/2.",
   "sources_before": [
     {
@@ -45,7 +45,8 @@
       "valid_range": "best known for n < 14",
       "sources": [
         "Wolff 1999 (hairbrush/bush)"
-      ]
+      ],
+      "verified": true
     },
     {
       "regime": "high-dimensional",
@@ -53,7 +54,10 @@
       "valid_range": "exceeds Wolff only for n >= 15; the two are equal at n = 14",
       "sources": [
         "Bourgain-Katz-Tao sum-product"
-      ]
+      ],
+      "verified": false,
+      "status": "DISPUTED",
+      "dispute": "Katz-Tao's 4n/7 + 3/7 is a lower bound on the MINKOWSKI DIMENSION of Kakeya sets in R^n — the Euclidean problem. No source reached this session states an exponent 4n/7 for |K| in F_q^n. Finite-field improvements over (n+2)/2 do exist in dimensions >= 5 (Katz-Tao; Mockenhaupt-Tao 2004), so the two-regime STRUCTURE survives, but this exponent is not verified for the finite field."
     }
   ],
   "leaks": [
@@ -77,6 +81,12 @@
     "source": "L2 blind re-encoding + arithmetic",
     "was": "|K| >~ q^{(n+2)/2}, later about q^{4n/7} — ordered as though 4n/7 superseded Wolff",
     "why": "(n+2)/2 > 4n/7 exactly when n < 14; they meet at n = 14. No single exponent dominated uniformly at the 2008 cutoff. The two regimes leak differently, so a single-regime bound field forced a single leak where there are two.",
-    "verified_by": "tools/check_corrections.py"
+    "verified_by": "tools/check_corrections.py",
+    "second_error": {
+      "status": "DISPUTED",
+      "source": "CITATIONS.md row C5-4n7",
+      "what": "Beyond the ordering error L2 found, the high-dimensional exponent itself appears to import a Euclidean Minkowski-dimension bound into a finite-field cardinality bound.",
+      "consequence": "The n < 14 crossover in tools/check_corrections.py is correct AS ARITHMETIC on the two exponents as P1 writes them, but if 4n/7 is not the finite-field exponent then the crossover POINT is an artefact. The two-regime finding that motivated the schema change does not depend on the crossover point."
+    }
   }
 }
