@@ -9,19 +9,20 @@ Every prediction this programme has made, and how it turned out. MEASUREMENTS.md
 | status | n |
 |---|---|
 | correct | 4 |
-| partly | 5 |
-| wrong | 7 |
+| partly | 6 |
+| wrong | 8 |
 | unscored | 2 |
 | open | 1 |
-| **total** | **19** |
+| **total** | **21** |
 
-**16 of 19 predictions are settled.** Of those, **4 correct, 5 partly, 7 wrong.**
+**18 of 21 predictions are settled.** Of those, **4 correct, 6 partly, 8 wrong.**
 
 By author:
 
 - **seed** — 10 predictions, 9 settled, 2 wrong
-- **this session** — 8 predictions, 6 settled, 4 wrong
+- **this session** — 9 predictions, 7 settled, 5 wrong
 - **L2** — 1 predictions, 1 settled, 1 wrong
+- **this session (pre-registered before the audit)** — 1 predictions, 1 settled, 0 wrong
 
 ## The predictions
 
@@ -46,6 +47,8 @@ By author:
 | `P-17` | this session | The P2 study's budget would be the binding constraint on its power. | wrong. The full study is ~$109 and the configured design already detects 19.4 points against a 30-point target. The binding constraint is the DESIGN EFFECT from having few problems, which more runs cannot fix. | **wrong** |
 | `P-18` | this session | Five sealed prospective predictions: 2607.21517 no-fire, 2609.15025 fire, 2608.14454 not-applicable, 2608.30273 no-fire, 2606.12181 fire. | open. All five await resolution. | **open** |
 | `P-19` | this session | D9 could be scored mechanically once schema v2 made formula-vs-existence its own field. | half right. The original criterion became scoreable; the replacement did not, and the corpus turned out to contain no failures to score either against. | **partly** |
+| `P-20` | this session | N9 is 'the single result most worth trying to break' -- the strongest claim in the rebuild. | WRONG, and backwards. It was the most CONFOUNDED example: over-determined by a simpler bound-strength test, resting on a target law that cannot be read because the feasible set is not closed under the product, and carrying a label that is split-dependent with a maximum signal of a factor sqrt(2). Withdrawn. | **wrong** |
+| `P-21` | this session (pre-registered before the audit) | Attack point 1 moves (substitution/vacuity); point 2 survives with a rounding caveat and possible doubt about all n; point 3 moves. | 2 of 3 directions right. Point 1: right, and the audit found two stronger arguments I missed -- non-closure of the feasible set, and split-dependence of the label. Point 2: direction right but BOTH my caveats were unnecessary -- integrality closes the rounding for all n and monotonicity makes the perfect-squares construction sufficient. Point 3: right, and the audit supplied the exponent range [2,4]. | **partly** |
 
 ## What it cost
 
@@ -59,13 +62,15 @@ By author:
 - **P-10** — a schema change (multi-regime bound) that turned out to be needed anyway
 - **P-11** — none — scoring it honestly is what makes the rest of L2 readable
 - **P-12** — one retracted headline; it exposed D23, which is worth more than the claim was
-- **P-13** — none — and the field/rule gap is itself a finding
+- **P-13** — none — and the field/rule gap is itself a finding; and the flagship within-problem test was later withdrawn entirely as a confounded example
 - **P-14** — every retrospective 2x2 in the tree is downgraded to self-consistency; this is the largest single correction the programme has made
 - **P-15** — none; it is a free pre-registered forecast
 - **P-16** — none — caught at vetting; recorded in twins/REJECTED.json so it is not re-proposed
 - **P-17** — none — it redirects the fix from buying runs to enlarging the battery
 - **P-18** — none yet; this is the only uncontaminated instrument in the programme
 - **P-19** — none — the attempt is what surfaced D26
+- **P-20** — the flagship specificity test and one positive both leave the domain; J falls 0.675 -> 0.607
+- **P-21** — none -- pre-registering it is what made the comparison possible, and it shows independent audit found what self-audit did not
 
 ## Lessons
 
@@ -74,3 +79,4 @@ By author:
 3. The predictions that held up best were the seed's about CONTAMINATION. The ones that failed worst were everyone's about DIAGNOSTIC VALUE. That asymmetry is the programme's central result so far: it is much easier to establish that a measurement is confounded than to establish that a procedure helps.
 4. No prediction in this programme has yet been settled by a retrospective 2x2. They were settled by a dating check, an arithmetic check, a unanimous rater disagreement, and a baseline.
 5. Twice now a criterion has been dropped for the same reason: no computable diagnostic (auxiliary-witness lift, and the E5(b) replacement). Both were phrased as insights rather than as procedures. A criterion that cannot say what it reads off the page is not a criterion, and the catalogue has shrunk from five transformations plus two proposals to two tested rules.
+6. Pre-registering my own answer before the audit was worth more than the audit alone. It showed that self-analysis reached the right VERDICT on all three points but missed the two strongest ARGUMENTS on the decisive one. The pattern across this session is consistent: self-scoring finds bugs, external checks find substantive errors.

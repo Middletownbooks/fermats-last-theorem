@@ -33,6 +33,16 @@ B0 and B1 both score J = 0 by construction, whatever the class balance.
   B2  rule-less rater         TP 5  FN 0  FP 0  TN 8   J = +1.000
 ~~~
 
+**Recomputed after the N9 audit removed the two hypercube items from the domain** (11 items,
+4 positive, 7 negative):
+
+~~~
+  product-law matching        TP 3  FN 1  FP 1  TN 6   J = +0.607
+  B2  rule-less rater         TP 4  FN 0  FP 0  TN 7   J = +1.000   (recognition 11/11)
+
+  LIFT: -0.393
+~~~
+
 - **Against the floors:** the diagnostic clears them, and only 0.97% of coin flips reach J ≥ 0.675
   on 13 items. Necessary, and not impressive — clearing a constant rule is the minimum.
 - **Against B2: the lift is −0.325.** The rule-less rater scored **perfectly**: 5 of 5 positives,

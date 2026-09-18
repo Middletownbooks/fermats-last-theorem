@@ -84,15 +84,22 @@ the recorded expectation is only a cross-check, and a disagreement is reported a
 > lift over a baseline, never raw accuracy. That baseline has not been run. Do not quote these
 > numbers as results until it has.
 
-**Product-law matching**, 13 in-domain items, **after the D20 correction**:
+**Product-law matching**, **11** in-domain items, after the D20 correction *and* the N9 audit
+removed the two hypercube items from the domain:
 
 | | board changed | tight / no change |
 |---|---|---|
-| **fires** | 4 | **1** |
-| does not fire | 1 | 7 |
+| **fires** | 3 | **1** |
+| does not fire | 1 | 6 |
 
-Fires on 1 (sensitivity), 2 (cap set), 4 (Kadison–Singer), 10 (parallel repetition), and — wrongly —
-on N8. Specificity **7/8, not 8/8**.
+Fires on 2 (cap set), 4 (Kadison–Singer), 10 (parallel repetition), and — wrongly — on N8.
+Sensitivity 3/4, specificity 6/7. Youden's **J = 0.607**, against the rule-less baseline's **1.000**:
+lift **−0.393**.
+
+**The domain condition has been patched twice, post hoc, each time by the item that broke it** — for
+two-parameter families (D23, from N8) and for closure under the product (D27, from N9). Neither patch
+is adopted. Two patches from two items is the signature of a rule being *fitted*, not tested; a third
+should be read as a refutation rather than a repair.
 
 **Collectivize a union bound**, 8 in-domain items: **2/2 sensitivity, 6/6 specificity**. The
 refinement survives exactly the cases that killed the original — it fires on 4 and 8, and declines
@@ -102,7 +109,18 @@ The three new union-bound negatives (N11 maximum of n Gaussians, N12 balls into 
 collector) are the cleanest possible true negatives: independence is exact, the target is a maximum,
 so the union bound is not lossy at all and the refined rule has no excuse to fire. It doesn't.
 
-### The strongest single test: the same problem on both sides of a board change
+### WITHDRAWN: the "strongest single test" was a confounded example
+
+*Everything in this subsection is withdrawn. See `d20/N9-audit-result.md`.* An adversarial audit,
+every computation of which was then verified independently, found that **the feasible set is not
+closed under the Cartesian product**: the constraint is a density threshold, density is
+multiplicative, and the product of two extremal examples occupies a *quarter* of Q_{n₁+n₂} rather
+than half. So the target label was never read off the examples — there are no examples to read — and
+both case 1 and N9 have been removed from the diagnostic's domain. Worse, the verdict flip is fully
+reproduced by the simpler test *"does the lower bound match the upper bound to within a constant
+factor?"*, which needs no product-law machinery at all. The original text follows, struck.
+
+### ~~The strongest single test: the same problem on both sides of a board change~~
 
 **N9 is case 1 after Huang.** Before the signing, the target's law is ℓ² (CFGS's own ⌈√n⌉
 construction) and the bound's law is additive (log n from counting) — the laws differ and the

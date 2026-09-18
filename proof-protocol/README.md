@@ -15,7 +15,8 @@ else here is an instrument, not a result.
 | **Step D** | label κ over the five transformations | **κ = 0.048.** The vocabulary is not operational. Settled. |
 | **L2** | blind re-encoding, 5 cases | **2 of 5** leading leak mechanisms agree, but **6 of 7** are named somewhere. The leak field does not reproduce; `bound` does (3 of 4). |
 | **D20** | two-field κ, 3 blind raters | fields reproduce (**+0.811**, **+0.755**); the **rule** built on them does not, at +0.618 [+0.220, +0.904]; the zero-false-positive claim **failed**. |
-| **Baseline** | rule-less rater vs the diagnostic | the rater scores **J = 1.000** against the diagnostic's **0.675** — lift **−0.325** — with **13/13 recognition**. |
+| **Baseline** | rule-less rater vs the diagnostic | the rater scores **J = 1.000** against the diagnostic's **0.607** — lift **−0.393** — with **11/11 recognition**. |
+| **N9 audit** | adversarial attack on the flagship claim | **broken.** The feasible set is not closed under the product, the label is split-dependent, and the verdicts are reproduced by a simpler bound-strength test. Case 1 and N9 leave the domain. |
 
 > ### The result that reframes everything else
 >

@@ -227,6 +227,22 @@
       "where": "p3-taxonomy/D9-ADJUDICATION.md",
       "claim": "The benchmark cannot evaluate any criterion about success versus failure, because all 13 P1 cases are successes. The negative twins are negatives about the TIGHTNESS of a bound, not about moves that failed.",
       "action": "Needs a corpus of FAILED board changes — attempts that changed the board and did not work. The seed flagged survivorship selection as blocking PPV estimates; this is the second distinct thing it blocks. Collecting failed attempts is harder than collecting famous successes and is the main thing that would make the benchmark able to test a criterion rather than merely fit one."
+    },
+    {
+      "id": "D27",
+      "kind": "diagnostic-defect",
+      "status": "open",
+      "where": "p3-taxonomy/d20/N9-audit-result.md",
+      "claim": "Product-law matching is UNDEFINED where the feasible set is not closed under the product operation. For the hypercube problem the constraint is a density threshold and density is multiplicative, so the product of two extremal examples is a quarter of the cube, not half: there is no product of extremal examples to read a target law off. Case 1 and N9 are removed from the domain.",
+      "action": "The obvious patch -- require closure -- is NOT adopted, because it was derived from the item it excludes. Note this is the SECOND such patch (D23 was the first, from N8). Two post-hoc patches from two items is the signature of a rule being fitted rather than tested; a third should be read as a refutation, not a repair."
+    },
+    {
+      "id": "D28",
+      "kind": "confound",
+      "status": "open",
+      "where": "p3-taxonomy/d20/N9-audit-result.md",
+      "claim": "The rule 'does the best known lower bound match the upper bound to within a constant factor?' reproduces product-law matching's verdicts on the hypercube boards exactly, needs no product-law machinery, and is immune to the rater dispute over the counting board's label. Verified: the l2-vs-max distinction can carry at most a factor sqrt(2), and it was being used to flag a polynomial (log n vs sqrt n) gap.",
+      "action": "Score the simple bound-strength rule against product-law matching on ALL in-domain items. If it matches or beats the diagnostic, the product-law machinery is surplus. This is a cheap, decisive comparison and it should be run before any further work on the diagnostic."
     }
   ],
   "failure_register": [

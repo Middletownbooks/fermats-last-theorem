@@ -105,7 +105,7 @@
       "predicted": "Moving the judgement onto two closed-vocabulary fields will make it reproduce where the free-text leak did not.",
       "outcome": "correct on the fields: Fleiss kappa +0.811 and +0.755 against the measured 0.048 baseline. NOT correct on the rule built from them: +0.618 with CI [+0.220, +0.904].",
       "status": "partly",
-      "cost": "none — and the field/rule gap is itself a finding"
+      "cost": "none — and the field/rule gap is itself a finding; and the flagship within-problem test was later withdrawn entirely as a confounded example"
     },
     {
       "id": "P-14",
@@ -154,6 +154,22 @@
       "outcome": "half right. The original criterion became scoreable; the replacement did not, and the corpus turned out to contain no failures to score either against.",
       "status": "partly",
       "cost": "none — the attempt is what surfaced D26"
+    },
+    {
+      "id": "P-20",
+      "by": "this session",
+      "predicted": "N9 is 'the single result most worth trying to break' -- the strongest claim in the rebuild.",
+      "outcome": "WRONG, and backwards. It was the most CONFOUNDED example: over-determined by a simpler bound-strength test, resting on a target law that cannot be read because the feasible set is not closed under the product, and carrying a label that is split-dependent with a maximum signal of a factor sqrt(2). Withdrawn.",
+      "status": "wrong",
+      "cost": "the flagship specificity test and one positive both leave the domain; J falls 0.675 -> 0.607"
+    },
+    {
+      "id": "P-21",
+      "by": "this session (pre-registered before the audit)",
+      "predicted": "Attack point 1 moves (substitution/vacuity); point 2 survives with a rounding caveat and possible doubt about all n; point 3 moves.",
+      "outcome": "2 of 3 directions right. Point 1: right, and the audit found two stronger arguments I missed -- non-closure of the feasible set, and split-dependence of the label. Point 2: direction right but BOTH my caveats were unnecessary -- integrality closes the rounding for all n and monotonicity makes the perfect-squares construction sufficient. Point 3: right, and the audit supplied the exponent range [2,4].",
+      "status": "partly",
+      "cost": "none -- pre-registering it is what made the comparison possible, and it shows independent audit found what self-audit did not"
     }
   ],
   "lessons": [
@@ -161,6 +177,7 @@
     "Three of the four wrong predictions made this session were mine, and two were caught only by an external check — three blind raters on N8, and a rule-less rater on the baseline. Self-scoring found the vocabulary bug; it did not find either of the substantive errors.",
     "The predictions that held up best were the seed's about CONTAMINATION. The ones that failed worst were everyone's about DIAGNOSTIC VALUE. That asymmetry is the programme's central result so far: it is much easier to establish that a measurement is confounded than to establish that a procedure helps.",
     "No prediction in this programme has yet been settled by a retrospective 2x2. They were settled by a dating check, an arithmetic check, a unanimous rater disagreement, and a baseline.",
-    "Twice now a criterion has been dropped for the same reason: no computable diagnostic (auxiliary-witness lift, and the E5(b) replacement). Both were phrased as insights rather than as procedures. A criterion that cannot say what it reads off the page is not a criterion, and the catalogue has shrunk from five transformations plus two proposals to two tested rules."
+    "Twice now a criterion has been dropped for the same reason: no computable diagnostic (auxiliary-witness lift, and the E5(b) replacement). Both were phrased as insights rather than as procedures. A criterion that cannot say what it reads off the page is not a criterion, and the catalogue has shrunk from five transformations plus two proposals to two tested rules.",
+    "Pre-registering my own answer before the audit was worth more than the audit alone. It showed that self-analysis reached the right VERDICT on all three points but missed the two strongest ARGUMENTS on the decisive one. The pattern across this session is consistent: self-scoring finds bugs, external checks find substantive errors."
   ]
 }

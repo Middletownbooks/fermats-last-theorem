@@ -21,16 +21,17 @@
     "claimed_domain": "items where a product operation on instances exists and the size parameter is additive under it",
     "items": {
       "01-sensitivity": {
-        "applicable": true,
-        "operation": "Cartesian product of hypercubes: Q_{n1} x Q_{n2} = Q_{n1+n2}, n additive",
-        "target_law": "l2",
-        "target_evidence": "Chung-Fueredi-Graham-Seymour themselves construct a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n), so T(n) ~ sqrt(n) and squares add under the product.",
-        "bound_law": "additive",
-        "bound_evidence": "The bound is (1/2-o(1)) log_2 n, produced by degree-sum and edge-isoperimetric counting; the unsigned spectrum of Q_n is n-2k, which is ADDITIVE under Cartesian product.",
-        "expected": "fire",
+        "applicable": false,
+        "operation": "Cartesian product of hypercubes, BUT the feasible set is not closed under it -- see out_of_domain_reason",
+        "expected": "not-applicable",
         "truth": "board changed",
         "class": "positive",
-        "neutral": {
+        "out_of_domain_reason": "The feasible set is NOT CLOSED under the Cartesian product. The constraint is a density threshold (more than half the cube) and density is multiplicative, so the product of two extremal examples occupies a quarter of Q_{n1+n2}, not half: it is not a feasible instance. 'Take the product of the extremal family and measure' therefore has no value here, and the l2 target label was read off the closed form ceil(sqrt n) by SUBSTITUTION, not off the examples. The honest product law is additive (Cartesian degrees add). Verified in p1-retrodiction/tools/check_n9_audit.py. See d20/N9-audit-result.md.",
+        "withdrawn_target_law": "l2",
+        "withdrawn_bound_law": "additive",
+        "withdrawn_target_evidence": "Chung-Fueredi-Graham-Seymour themselves construct a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n), so T(n) ~ sqrt(n) and squares add under the product.",
+        "withdrawn_bound_evidence": "The bound is (1/2-o(1)) log_2 n, produced by degree-sum and edge-isoperimetric counting; the unsigned spectrum of Q_n is n-2k, which is ADDITIVE under Cartesian product.",
+        "withdrawn_neutral": {
           "bound_formula": "Delta >= (1/2 - o(1)) log_2 n",
           "bound_mechanism": "degree-sum and edge-isoperimetric counting on Q_n, whose unsigned spectrum is n-2k",
           "extremal_construction": "Chung-Fueredi-Graham-Seymour exhibit an induced subgraph of Q_n on 2^{n-1}+1 vertices whose maximum degree is ceil(n^{1/2}). This is the best construction known and is believed extremal.",
@@ -303,17 +304,18 @@
         "class": "negative"
       },
       "N9-huang-tightness": {
-        "applicable": true,
-        "operation": "Cartesian product of hypercubes",
-        "target_law": "l2",
-        "target_evidence": "CFGS's construction attains ceil(sqrt n), so the target is sqrt(n) and squares add.",
-        "bound_law": "l2",
-        "bound_evidence": "Huang's signed adjacency has A^2 = nI, so the bound is also sqrt(n) and its squares add. The laws now MATCH.",
-        "expected": "no-fire",
+        "applicable": false,
+        "operation": "Cartesian product of hypercubes, BUT the feasible set is not closed under it -- see out_of_domain_reason",
+        "expected": "not-applicable",
         "truth": "tight",
         "class": "negative",
         "note": "Within-problem pair with case 1. Before Huang the laws differed and the diagnostic fires; after Huang they agree and it correctly stops. The same item on both sides of a board change is the strongest specificity test available.",
-        "neutral": {
+        "out_of_domain_reason": "The feasible set is NOT CLOSED under the Cartesian product. The constraint is a density threshold (more than half the cube) and density is multiplicative, so the product of two extremal examples occupies a quarter of Q_{n1+n2}, not half: it is not a feasible instance. 'Take the product of the extremal family and measure' therefore has no value here, and the l2 target label was read off the closed form ceil(sqrt n) by SUBSTITUTION, not off the examples. The honest product law is additive (Cartesian degrees add). Verified in p1-retrodiction/tools/check_n9_audit.py. See d20/N9-audit-result.md.",
+        "withdrawn_target_law": "l2",
+        "withdrawn_bound_law": "l2",
+        "withdrawn_target_evidence": "CFGS's construction attains ceil(sqrt n), so the target is sqrt(n) and squares add.",
+        "withdrawn_bound_evidence": "Huang's signed adjacency has A^2 = nI, so the bound is also sqrt(n) and its squares add. The laws now MATCH.",
+        "withdrawn_neutral": {
           "bound_formula": "Delta >= n^{1/2}",
           "bound_mechanism": "a signed adjacency matrix A with A^2 = nI, Cauchy interlacing, and lambda_1 <= Delta",
           "extremal_construction": "Chung-Fueredi-Graham-Seymour exhibit an induced subgraph of Q_n on 2^{n-1}+1 vertices with maximum degree ceil(n^{1/2}). Q_{n1} x Q_{n2} = Q_{n1+n2}.",
@@ -419,7 +421,24 @@
         "class": "negative"
       }
     },
-    "positive_class": "the board changed, so a correct diagnostic fires"
+    "positive_class": "the board changed, so a correct diagnostic fires",
+    "domain_patches": [
+      {
+        "id": "D23",
+        "from_item": "N8-discrepancy-many-sets",
+        "patch": "require the operation to preserve the family's full parameter vector",
+        "adopted": false
+      },
+      {
+        "id": "D27",
+        "from_item": "N9 / case 1 (hypercube)",
+        "patch": "require the feasible set to be CLOSED under the product operation",
+        "adopted": false
+      },
+      {
+        "note": "TWO post-hoc patches, each derived from the item that broke the rule. That is the signature of a rule being FITTED rather than tested, which is why neither is adopted. A third such patch should be read as a refutation of the rule, not a repair of it."
+      }
+    ]
   },
   "union_bound": {
     "rule": "FIRE iff a union bound over m events produces the factor AND NOT (independence_realisable AND target_requires_simultaneous_control).",

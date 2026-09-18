@@ -24,5 +24,13 @@
     "encoder": null,
     "kappa": null
   },
-  "recheck_by": "2027-09-18"
+  "recheck_by": "2027-09-18",
+  "tightness_scoped": {
+    "what_is_tight": "f(n), the minimum maximum-degree, equals ceil(sqrt n) for EVERY n. Integrality closes the rounding (Delta is an integer, so Delta >= sqrt n <=> Delta >= ceil(sqrt n)), and monotonicity (f(n) <= f(n+1), by splitting Q_{n+1}) makes CFGS's construction at perfect squares sufficient everywhere. Nothing further comes off THIS FUNCTIONAL.",
+    "what_is_NOT_closed": "The sensitivity conjecture. Gotsman-Linial gives deg <= s^2 and IS tight; Nisan-Szegedy sharpened by Tal gives bs <= deg^2 and is NOT known tight (best separation bs = Omega(deg^1.63), Kushilevitz). Composite: bs <= s^4 against a best separation of (2/3)s^2 - s/3 (Ambainis-Sun), so the exponent is open in [2, 4], conjectured 2. The loss lives in the deg->bs step, which has nothing to do with the cube.",
+    "also_not_closed": "The METHOD. The signing/interlacing argument has been generalised (Clifford-algebra reformulations, analogues for other regular and Cayley graphs, lambda_1 statements).",
+    "correction": "An earlier version said 'nothing further comes off', conflating the extremal value with the sensitivity question. Scoped after the N9 audit.",
+    "source": "p3-taxonomy/d20/N9-audit-result.md; arithmetic verified in tools/check_n9_audit.py"
+  },
+  "diagnostic_status": "OUT OF DOMAIN for product-law matching: the feasible set is not closed under the Cartesian product. The twin remains a valid NEGATIVE (the bound is tight), but it can no longer serve as a specificity test for this diagnostic."
 }

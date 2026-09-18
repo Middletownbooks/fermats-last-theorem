@@ -134,6 +134,41 @@ among several but the only one.
 
 ---
 
+## The N9 audit — the flagship result withdrawn
+
+Full write-up: `p3-taxonomy/d20/N9-audit-result.md`. Every load-bearing computation independently
+verified in `p1-retrodiction/tools/check_n9_audit.py` (26 checks).
+
+`DIAGNOSTIC.md` called N9 — case 1 on both sides of Huang's board change — *"the single result most
+worth trying to break"*. An adversarial audit by an agent that did not build it broke all three of
+its load-bearing points:
+
+1. **The feasible set is not closed under the product.** The constraint is a density threshold and
+   density is multiplicative, so the product of two extremal examples occupies a **quarter** of
+   Q_{n₁+n₂}, not half. There is no product of extremal examples to read a target law off; the `l2`
+   label came from substituting into `⌈√n⌉`. The honest product law is **additive** — Cartesian
+   degrees add. **Case 1 and N9 both leave the diagnostic's domain.**
+2. **The label is split-dependent and the signal is tiny.** At a 99:1 split, `l2`, `max` and
+   `additive` agree to within 10%. `√(n₁+n₂) ≤ √2·√max` always, so the distinction carries **at most
+   a factor √2** — and it was being used to flag a polynomial (`log n` vs `√n`) gap.
+3. **The example is confounded.** *"Does the lower bound match the upper bound to within a constant
+   factor?"* reproduces both verdicts, needs no product-law machinery, and is immune to the rater
+   dispute over the counting board's label (debt **D28**).
+
+What survived, and strengthened: the tightness claim. **Integrality** closes the rounding for every
+`n` (Δ is an integer, so `Δ ≥ √n ⟺ Δ ≥ ⌈√n⌉`), and **monotonicity** makes CFGS's construction at
+perfect squares sufficient everywhere. What was over-claimed: *"nothing further comes off"* conflated
+the extremal value with the sensitivity conjecture, whose exponent is open in **[2, 4]**.
+
+**Reduced-domain figures:** 11 items, J = **0.607** against the rule-less baseline's **1.000** —
+lift **−0.393**.
+
+**And the pattern that matters most:** the domain condition has now been patched twice, post hoc, each
+time by the item that broke it (D23 from N8, D27 from N9). Neither patch is adopted. Two patches from
+two items is the signature of a rule being **fitted rather than tested**.
+
+---
+
 ## Corrections to P1 that are established
 
 ### Case 5 (Kakeya) — the seed's flagged debt was real, and worse than flagged
