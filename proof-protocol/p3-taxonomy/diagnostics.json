@@ -29,7 +29,13 @@
         "bound_evidence": "The bound is (1/2-o(1)) log_2 n, produced by degree-sum and edge-isoperimetric counting; the unsigned spectrum of Q_n is n-2k, which is ADDITIVE under Cartesian product.",
         "expected": "fire",
         "truth": "board changed",
-        "class": "positive"
+        "class": "positive",
+        "neutral": {
+          "bound_formula": "Delta >= (1/2 - o(1)) log_2 n",
+          "bound_mechanism": "degree-sum and edge-isoperimetric counting on Q_n, whose unsigned spectrum is n-2k",
+          "extremal_construction": "Chung-Fueredi-Graham-Seymour exhibit an induced subgraph of Q_n on 2^{n-1}+1 vertices whose maximum degree is ceil(n^{1/2}). This is the best construction known and is believed extremal.",
+          "problem_name": "maximum degree of a large induced subgraph of the hypercube (counting board)"
+        }
       },
       "02-cap-set": {
         "applicable": true,
@@ -40,7 +46,13 @@
         "bound_evidence": "The bound 3^n/n is a density bound delta <~ 1/n; the density-increment invariant costs one dimension per step, so it composes ADDITIVELY in n.",
         "expected": "fire",
         "truth": "board changed",
-        "class": "positive"
+        "class": "positive",
+        "neutral": {
+          "bound_formula": "|A| <= C * 3^n / n^{1+eps}",
+          "bound_mechanism": "density increment: each step finds a large Fourier coefficient, restricts to a hyperplane, and costs one dimension",
+          "extremal_construction": "If A1 is a cap in F_3^{n1} and A2 a cap in F_3^{n2}, then A1 x A2 is a cap in F_3^{n1+n2}. Explicit caps exist in small dimensions, e.g. a cap of size 20 in F_3^4.",
+          "problem_name": "largest subset of F_3^n with no three-term arithmetic progression"
+        }
       },
       "03-shannon-capacity-c5": {
         "applicable": true,
@@ -52,7 +64,13 @@
         "expected": "no-fire",
         "truth": "board changed",
         "note": "FALSE NEGATIVE, and a principled one: the LP's product law was already correct. Its failure was tightness, not law. This is a different phenomenon from cases 1, 2, 4, 10 and should not be forced into the same entry.",
-        "class": "positive"
+        "class": "positive",
+        "neutral": {
+          "bound_formula": "Theta(C5) <= alpha*(C5) = 5/2",
+          "bound_mechanism": "fractional clique cover; alpha*(G box H) = alpha*(G) alpha*(H)",
+          "extremal_construction": "Theta(G) is defined as lim_k alpha(G^{box k})^{1/k}. For C5, alpha(C5)=2 and alpha(C5 box C5)=5.",
+          "problem_name": "zero-error capacity of the 5-cycle"
+        }
       },
       "04-kadison-singer": {
         "applicable": true,
@@ -63,7 +81,13 @@
         "bound_evidence": "The factor n inside tr exp contributes log n, which GROWS with the number of blocks.",
         "expected": "fire",
         "truth": "board changed",
-        "class": "positive"
+        "class": "positive",
+        "neutral": {
+          "bound_formula": "the argument needs delta <~ 1/log n",
+          "bound_mechanism": "matrix Chernoff on E||Sigma_S||; the factor n inside tr exp contributes log n, where n is the number of blocks",
+          "extremal_construction": "Take a direct sum of k independent blocks. The largest root of the direct sum is the largest root among the blocks.",
+          "problem_name": "partitioning an isotropic vector system into two well-conditioned halves"
+        }
       },
       "10-parallel-repetition": {
         "applicable": true,
@@ -74,7 +98,13 @@
         "bound_evidence": "The conjectured invariant IS val(G^k) = val(G)^k, i.e. exactly multiplicative.",
         "expected": "fire",
         "truth": "board changed",
-        "class": "positive"
+        "class": "positive",
+        "neutral": {
+          "bound_formula": "the conjectured invariant is val(G^k) = val(G)^k",
+          "bound_mechanism": "the conjecture asserts the value of the k-fold product is the k-th power of the value",
+          "extremal_construction": "Fortnow and Feige exhibit games where val(G^2) > val(G)^2: provers can correlate their answers across coordinates.",
+          "problem_name": "value of a two-prover game under k-fold product"
+        }
       },
       "05-finite-field-kakeya": {
         "applicable": false,
@@ -128,7 +158,13 @@
         "expected": "fire",
         "truth": "excluded",
         "excluded_reason": "flagged fit-testing-only: its before-board was a successful proof, not a failing bound",
-        "class": "excluded"
+        "class": "excluded",
+        "neutral": {
+          "bound_formula": "gap amplifies but instance size grows as n^k under k-fold repetition",
+          "bound_mechanism": "k-fold parallel repetition; size is raised to the k-th power",
+          "extremal_construction": "The theorem requires a sequence of amplification steps in which the instance size grows by a bounded factor at each step.",
+          "problem_name": "gap amplification for constraint satisfaction under repetition"
+        }
       },
       "09-vinogradov-mean-value": {
         "applicable": false,
@@ -147,7 +183,13 @@
         "bound_evidence": "The union bound over n^2 pairs also contributes log n, additively.",
         "expected": "no-fire",
         "truth": "tight",
-        "class": "negative"
+        "class": "negative",
+        "neutral": {
+          "bound_formula": "target dimension m = O(log n / eps^2) for n points",
+          "bound_mechanism": "union bound over the n^2 pairwise distance events",
+          "extremal_construction": "Larsen-Nelson exhibit n-point sets for which every embedding preserving all pairwise distances to 1+eps needs m = Omega(eps^{-2} log n). Merging two such sets of sizes n1 and n2 gives one of size n1+n2.",
+          "problem_name": "target dimension for near-isometric embedding of n points"
+        }
       },
       "N2-epsilon-nets": {
         "applicable": true,
@@ -158,7 +200,13 @@
         "bound_evidence": "The union bound over ranges contributes the same additive dependence.",
         "expected": "no-fire",
         "truth": "tight in general",
-        "class": "negative"
+        "class": "negative",
+        "neutral": {
+          "bound_formula": "net size O((d/eps) log(1/eps)) for a range space of VC dimension d",
+          "bound_mechanism": "union bound over the heavy ranges",
+          "extremal_construction": "Pach-Tardos exhibit halfspaces in R^4 needing nets of size at least (1/(9 eps)) log(1/eps). Under a product of range spaces the VC dimension d1+d2 arises from components of dimension d1 and d2.",
+          "problem_name": "size of an epsilon-net for a range space of VC dimension d"
+        }
       },
       "N3-3ap-free-integers": {
         "applicable": false,
@@ -177,7 +225,13 @@
         "bound_evidence": "same as case 3: the LP law is correct",
         "expected": "no-fire",
         "truth": "still open",
-        "class": "negative"
+        "class": "negative",
+        "neutral": {
+          "bound_formula": "Theta(C7) <= theta(C7) = 3.3177",
+          "bound_mechanism": "orthonormal representations; theta(G box H) = theta(G) theta(H)",
+          "extremal_construction": "Polak-Schrijver exhibit an independent set of size 367 in the fifth strong power of C7, giving Theta(C7) >= 367^{1/5} = 3.2579.",
+          "problem_name": "zero-error capacity of the 7-cycle"
+        }
       },
       "N5-strong-parallel-repetition": {
         "applicable": true,
@@ -188,7 +242,13 @@
         "bound_evidence": "Raz's bound is likewise exponential in k.",
         "expected": "no-fire",
         "truth": "tight",
-        "class": "negative"
+        "class": "negative",
+        "neutral": {
+          "bound_formula": "val(G^k) <= (1 - eps^3)^{Omega(k)} for a game of value 1-eps",
+          "bound_mechanism": "Raz's parallel repetition theorem, exponential in the number of repetitions",
+          "extremal_construction": "Raz's odd-cycle game has value 1-eps and its k-fold repetition has value at least (1-eps^2)^{O(k)}.",
+          "problem_name": "value decay rate of a unique game under k-fold product"
+        }
       },
       "N6-discrepancy-arithmetic-progressions": {
         "applicable": false,
@@ -213,7 +273,13 @@
         "bound_evidence": "The union bound over m sets gives the same additive dependence.",
         "expected": "no-fire",
         "truth": "tight",
-        "class": "negative"
+        "class": "negative",
+        "neutral": {
+          "bound_formula": "disc = O(sqrt(n log(m/n))) for m sets on n points",
+          "bound_mechanism": "union bound over the m sets",
+          "extremal_construction": "Set systems are known matching sqrt(n log(m/n)). Placing two disjoint systems side by side gives one with n1+n2 points and m1+m2 sets.",
+          "problem_name": "two-colouring discrepancy of m sets on n points"
+        }
       },
       "14-sphere-packing-8-24": {
         "applicable": false,
@@ -239,7 +305,13 @@
         "expected": "no-fire",
         "truth": "tight",
         "class": "negative",
-        "note": "Within-problem pair with case 1. Before Huang the laws differed and the diagnostic fires; after Huang they agree and it correctly stops. The same item on both sides of a board change is the strongest specificity test available."
+        "note": "Within-problem pair with case 1. Before Huang the laws differed and the diagnostic fires; after Huang they agree and it correctly stops. The same item on both sides of a board change is the strongest specificity test available.",
+        "neutral": {
+          "bound_formula": "Delta >= n^{1/2}",
+          "bound_mechanism": "a signed adjacency matrix A with A^2 = nI, Cauchy interlacing, and lambda_1 <= Delta",
+          "extremal_construction": "Chung-Fueredi-Graham-Seymour exhibit an induced subgraph of Q_n on 2^{n-1}+1 vertices with maximum degree ceil(n^{1/2}). Q_{n1} x Q_{n2} = Q_{n1+n2}.",
+          "problem_name": "maximum degree of a large induced subgraph of the hypercube (spectral board)"
+        }
       },
       "N16-matrix-multiplication-omega": {
         "applicable": true,
@@ -251,7 +323,13 @@
         "expected": "no-fire",
         "truth": "open, law already matches",
         "class": "negative",
-        "note": "The problem's whole surface is tensors under product, which is the signature the original de-tensorize entry keyed on. The refined rule is in domain here and correctly declines."
+        "note": "The problem's whole surface is tensors under product, which is the signature the original de-tensorize entry keyed on. The refined rule is in domain here and correctly declines.",
+        "neutral": {
+          "bound_formula": "omega <= 2.37...",
+          "bound_mechanism": "border rank of the matrix-multiplication tensor, which is submultiplicative under tensor product",
+          "extremal_construction": "omega is defined through a limit over tensor powers of the matrix-multiplication tensor; the tensor of a product of two instances is the tensor product of their tensors.",
+          "problem_name": "exponent of square matrix multiplication"
+        }
       },
       "N19-sauer-shelah": {
         "applicable": true,
@@ -262,7 +340,13 @@
         "bound_evidence": "The counting bound has the same additive dependence.",
         "expected": "no-fire",
         "truth": "tight",
-        "class": "negative"
+        "class": "negative",
+        "neutral": {
+          "bound_formula": "a set system of VC dimension d on n points has at most sum_{i<=d} C(n,i) sets",
+          "bound_mechanism": "a counting/shattering argument",
+          "extremal_construction": "Downward-closed systems attain the bound exactly. A product of two systems of VC dimensions d1 and d2 has VC dimension d1+d2.",
+          "problem_name": "number of sets in a system of bounded VC dimension"
+        }
       },
       "N17-alon-boppana": {
         "applicable": false,
