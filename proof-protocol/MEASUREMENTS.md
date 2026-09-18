@@ -1,8 +1,7 @@
 # What has been measured
 
-Two measurements have been completed since the seed handoff. They are **finished**, and they
-supersede parts of what this repository encoded from the seed. Nothing else in this project has
-been measured.
+**Three** measurements have been completed. They are **finished**, and they supersede parts of what
+this repository encoded from the seed. Nothing else in this project has been measured.
 
 Read this before starting any task: both results change what is worth doing.
 
@@ -74,6 +73,35 @@ the finding that drives the rebuild in `p3-taxonomy/DIAGNOSTIC.md`.
   formula-versus-existence-theorem; the seed's table has no such field.
 - **6 of 25 slot-pairs had nothing on one side.** The seed's P1 leaves `composition` empty in cases
   1, 5, 9 and `terminal` empty in 5, 8, 9.
+
+---
+
+## D20 — the two-field κ test: a split result
+
+Three raters, blinded to the rule and to which items were positives, assigned `target_law` and
+`bound_law` from the bound and the extremal construction alone. Inputs, filled sheets and verbatim
+output: `p3-taxonomy/d20/`. **Read `p3-taxonomy/d20/PROVENANCE.md` first** — partial results were
+seen before the full run was assembled, and the scorer's verdict logic was changed afterwards.
+
+| | κ (Fleiss, 3 raters) | 95% CI | 0.6 stop rule |
+|---|---|---|---|
+| transformation label (step D) | **0.048** | — | failed |
+| `target_law` | **+0.811** | [+0.570, +1.000] | pass |
+| `bound_law` | **+0.755** | [+0.494, +1.000] | pass |
+| **the firing decision the rule uses** | **+0.618** | **[+0.220, +0.904]** | pass, barely |
+
+**Passed:** moving the judgement onto two closed-vocabulary fields raised κ roughly sixteenfold over
+the transformation label. That was the rebuild's central bet.
+
+**Failed:** the zero-false-positive claim. **All three raters fire on N8**, unanimously against my
+reference; I checked the mathematics and they are right. `DIAGNOSTIC.md`'s "0 false positives over 8
+negatives" is **withdrawn** and the corrected specificity is 7/8.
+
+**The finding that outranks both:** the rule reproduces (0.618) markedly worse than its inputs
+(0.755–0.811), because it consumes the *difference* of two labels and disagreement concentrates
+where they are close. And N8 exposes a defect in the rule's **domain condition** — it admits
+operations that move both coordinates of a two-parameter family. Every case the diagnostic gets
+right is single-parameter; its false positive is the two-parameter one (debt **D23**).
 
 ---
 

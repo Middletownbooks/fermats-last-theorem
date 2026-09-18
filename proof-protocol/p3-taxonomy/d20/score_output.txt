@@ -1,0 +1,78 @@
+3 raters, 14 items, vocabulary of 5
+bootstrap: 4000 case-resamples, 95% percentile intervals
+
+==============================================================================
+1. FIELD AGREEMENT
+==============================================================================
+
+  target_law
+    raterA vs raterB      agreement 92.9%  Cohen kappa +0.902
+    raterA vs raterC      agreement 78.6%  Cohen kappa +0.725
+    raterB vs raterC      agreement 85.7%  Cohen kappa +0.816
+    Fleiss (all raters)      +0.811  95% CI [+0.570, +1.000]
+
+  bound_law
+    raterA vs raterB      agreement 78.6%  Cohen kappa +0.693
+    raterA vs raterC      agreement 85.7%  Cohen kappa +0.791
+    raterB vs raterC      agreement 85.7%  Cohen kappa +0.788
+    Fleiss (all raters)      +0.755  95% CI [+0.494, +1.000]
+
+==============================================================================
+2. THE RULE: implied firing decision (target_law != bound_law)
+==============================================================================
+
+  item                               reference    raterA   raterB   raterC
+  N8-discrepancy-many-sets           no-fire        fire     fire     fire   <-- differs
+  13-pcp-weak                        fire           fire     fire     fire
+  01-sensitivity                     fire           fire     fire     fire
+  02-cap-set                         fire           fire     fire     fire
+  N5-strong-parallel-repetition      no-fire     no-fire  no-fire  no-fire
+  10-parallel-repetition             fire           fire     fire     fire
+  N1-johnson-lindenstrauss           no-fire     no-fire  no-fire  no-fire
+  03-shannon-capacity-c5             no-fire     no-fire  no-fire     fire   <-- differs
+  04-kadison-singer                  fire           fire  no-fire     fire   <-- differs
+  N16-matrix-multiplication-omega    no-fire     no-fire  no-fire  no-fire
+  N9-huang-tightness                 no-fire     no-fire  no-fire  no-fire
+  N19-sauer-shelah                   no-fire     no-fire  no-fire  no-fire
+  N4-shannon-capacity-c7             no-fire     no-fire  no-fire     fire   <-- differs
+  N2-epsilon-nets                    no-fire        fire  no-fire  no-fire   <-- differs
+
+  all raters match the reference on 9/14 items
+  Fleiss kappa on the firing decision: +0.618  95% CI [+0.220, +0.904]
+
+==============================================================================
+3. THE CLAIM: false positives on negatives, per rater
+==============================================================================
+
+  DIAGNOSTIC.md claims zero false positives. That claim was computed from MY law
+  assignments. Here it is recomputed from each rater's.
+
+  rater        TP   FN   FP   TN   false positives on
+  raterA        4    1    2    6   N8-discrepancy-many-sets, N2-epsilon-nets
+  raterB        3    2    1    7   N8-discrepancy-many-sets
+  raterC        5    0    2    6   N8-discrepancy-many-sets, N4-shannon-capacity-c7
+
+==============================================================================
+VERDICT
+==============================================================================
+
+  baseline, transformation label (step D, measured):  kappa = 0.048
+  field agreement, worst of the two fields:           +0.755
+  the firing decision the diagnostic actually uses:   +0.618
+  negatives that fired for at least one rater:        N2-epsilon-nets, N4-shannon-capacity-c7, N8-discrepancy-many-sets
+
+  [PASS] fields reproduce at the 0.6 stop rule
+  [PASS] the rule built on them reproduces
+  [FAIL] the zero-false-positive claim survives independent assignment
+
+  The zero-false-positive claim in DIAGNOSTIC.md DOES NOT SURVIVE. Under at least
+  one independent assignment the diagnostic fires on 3 negative(s): N2-epsilon-nets, N4-shannon-capacity-c7, N8-discrepancy-many-sets.
+  That figure must not be quoted without this qualification.
+
+  LIMITS, stated rather than buried:
+   * 14 items, 5 categories, 3 raters. The intervals above are wide by construction.
+   * The raters share ONE fixed encoding of the inputs, written by the same instance
+     that wrote the rules. This measures rater agreement GIVEN that encoding, not
+     encoder-plus-rater agreement. Weaker than L2's design; stronger than no measurement.
+   * The reference column is my own assignment, so 'differs' means differs from me,
+     not necessarily wrong. Where all three raters agree against me, I am the outlier.

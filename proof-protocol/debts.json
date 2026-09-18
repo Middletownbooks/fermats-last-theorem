@@ -174,10 +174,10 @@
     {
       "id": "D20",
       "kind": "the-test-that-settles-it",
-      "status": "open",
+      "status": "closed-split-result",
       "where": "p3-taxonomy/DIAGNOSTIC.md",
       "claim": "The rebuilt diagnostic's only judgement calls are two closed-vocabulary fields, target_law and bound_law.",
-      "action": "Have raters who have NOT seen the rules assign those two fields blind, from the bound and the extremal construction alone, and compute kappa against the measured 0.048 baseline. kappa >= 0.6 means the judgement was moved onto a field that reproduces; below it, this is one more unreproducible ranking and must be reported as such. This is a smaller experiment than a full re-encoding and it tests the thing that matters.",
+      "action": "RUN. p3-taxonomy/d20/ holds the inputs, the three filled rater sheets and the verbatim scorer output. Fields reproduce (target_law Fleiss kappa +0.811 [+0.570,+1.000]; bound_law +0.755 [+0.494,+1.000]) against the measured 0.048 baseline — a real improvement. The RULE reproduces worse (+0.618 [+0.220,+0.904]), because it consumes the DIFFERENCE of two labels and disagreement concentrates where they are close. The zero-false-positive claim FAILED: all three raters fire on N8. See d20/PROVENANCE.md for the integrity account — partial results were seen before the full run and the scorer's verdict logic was changed afterwards, in the stricter direction.",
       "blocking": "any claim that the rebuild succeeded"
     },
     {
@@ -195,6 +195,22 @@
       "where": "MEASUREMENTS.md",
       "claim": "L2's pre-registered kappa was never measured; the substitute 0.286 [0.000, 0.667] at n = 5 is unmeasured, not a bound.",
       "action": "The instrument is built (tools/make_rating_sheet.py, schema v2). Use fresh cases and fresh encoders; do NOT reuse the original five blind encodings."
+    },
+    {
+      "id": "D23",
+      "kind": "diagnostic-defect",
+      "status": "open",
+      "where": "p3-taxonomy/d20/N8-adjudication.md",
+      "claim": "Product-law matching's domain condition is too weak. 'A product operation exists and the size parameter is additive' is satisfied literally by disjoint union, which moves BOTH coordinates of a two-parameter family, so target and bound can differ with no board change available. Every case the diagnostic gets right is a single-parameter family; its one false positive is the two-parameter one.",
+      "action": "A candidate repair (require the operation to preserve the family's full parameterisation) is stated and DELIBERATELY NOT ADOPTED, because it was derived from the item it would exclude. It needs items chosen by someone who has not seen the adjudication, including two-parameter families where the board DID change."
+    },
+    {
+      "id": "D24",
+      "kind": "vocabulary-gap",
+      "status": "open",
+      "where": "p3-taxonomy/d20/N8-adjudication.md",
+      "claim": "The five-category law vocabulary cannot express 'the right law, degraded by a log'. Rater B declined to fire on case 4 (Kadison-Singer) by reading the matrix-Chernoff penalty that way, which is arguably exactly what that board did.",
+      "action": "Do NOT add a category reflexively — the standing rule is that catalogues shrink before they grow. Decide first whether the gap explains other divergences; if it explains only case 4, it is a property of that case, not of the vocabulary."
     }
   ],
   "failure_register": [
@@ -268,6 +284,7 @@
     "Do not rescue a failed prediction with an unregistered collapse. L2's prediction L2-1 failed on both halves and survives only if PARTIAL is counted with AGREE; it was scored as failed. Keep that standard.",
     "Do not treat P1's numbers as verified beyond the 20 rows CITATIONS.md marks VERIFIED.",
     "Do not reuse L2's five original blind encodings in a re-run; they would contaminate new raters.",
-    "Do not log a prospective prediction after glancing at a method section. One unsealed prediction and that arm is worth no more than the retrospective cases."
+    "Do not log a prospective prediction after glancing at a method section. One unsealed prediction and that arm is worth no more than the retrospective cases.",
+    "Do not quote the product-law 2x2 or the union-bound 2x2 as results until a baseline exists. They are raw accuracies, and this programme's own rule is lift over a baseline, never raw accuracy. The telegraph arm has never been run."
   ]
 }

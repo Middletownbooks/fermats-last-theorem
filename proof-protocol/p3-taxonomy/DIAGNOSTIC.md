@@ -61,15 +61,27 @@ instruction is that the catalogue shrinks before it grows. Dropped rather than r
 Run `python3 score_diagnostics.py`. The rules are applied mechanically from the structural fields;
 the recorded expectation is only a cross-check, and a disagreement is reported as an error.
 
-**Product-law matching**, 13 in-domain items:
+> ## The zero-false-positive claim is WITHDRAWN
+>
+> An earlier version of this file reported **4 fires, 0 false positives over 8 negatives**. That
+> was computed from my own law assignments, and **D20 found one of them wrong in the direction that
+> flattered the diagnostic**. Three independent blind raters unanimously assigned N8
+> `target_law = max, bound_law = l2` where I had `additive / additive`; I checked the mathematics
+> and they are right. The corrected table is below. See `d20/N8-adjudication.md`.
+>
+> The figures below are also **raw accuracies**, and this programme's own rule is that scores are
+> lift over a baseline, never raw accuracy. That baseline has not been run. Do not quote these
+> numbers as results until it has.
+
+**Product-law matching**, 13 in-domain items, **after the D20 correction**:
 
 | | board changed | tight / no change |
 |---|---|---|
-| **fires** | 4 | **0** |
-| does not fire | 1 | 8 |
+| **fires** | 4 | **1** |
+| does not fire | 1 | 7 |
 
-Fires on 1 (sensitivity), 2 (cap set), 4 (Kadison–Singer), 10 (parallel repetition). **Zero false
-positives on eight negatives.**
+Fires on 1 (sensitivity), 2 (cap set), 4 (Kadison–Singer), 10 (parallel repetition), and — wrongly —
+on N8. Specificity **7/8, not 8/8**.
 
 **Collectivize a union bound**, 8 in-domain items: **2/2 sensitivity, 6/6 specificity**. The
 refinement survives exactly the cases that killed the original — it fires on 4 and 8, and declines
@@ -122,15 +134,48 @@ checkable reason.
   and 11 of 23 items fall outside it. Outside the domain it says nothing, which is the honest
   behaviour and the reason it takes no false positives.
 
-## The one test that settles it
+## D20: the test that settles it — RUN, and the result is split
 
-Have raters who have **not seen these rules** assign `target_law` and `bound_law` blind, from the
-bound and the extremal construction alone, and compute κ on those two fields.
+Three independent raters, blinded to the rule and to which items are positives, assigned
+`target_law` and `bound_law` from the bound and the extremal construction alone. Inputs, filled
+sheets and verbatim output are in `d20/`.
 
-- **κ ≥ 0.6** where the transformation label scored **0.048** ⟹ the rebuild did its job: the
-  judgement was moved onto a field that reproduces.
-- **κ < 0.6** ⟹ this is one more unreproducible ranking, and it should be reported as such rather
-  than defended.
+| | κ (Fleiss, 3 raters) | 95% CI | stop rule 0.6 |
+|---|---|---|---|
+| transformation label (step D baseline) | **0.048** | — | failed |
+| `target_law` | **+0.811** | [+0.570, +1.000] | pass |
+| `bound_law` | **+0.755** | [+0.494, +1.000] | pass |
+| **the firing decision the rule uses** | **+0.618** | **[+0.220, +0.904]** | pass, but barely |
 
-`../p1-retrodiction/tools/kappa.py` already implements the stop rule. It needs the two-field
-template, which is the next concrete piece of work here.
+**What passed.** Moving the judgement onto two closed-vocabulary fields was a real improvement —
+roughly a sixteenfold increase in κ over the transformation label, on the same kind of task. That
+was the rebuild's central bet and the bet paid.
+
+**What did not.** Two things, and both matter more than the headline.
+
+1. **The rule reproduces far worse than its inputs.** κ = 0.618 on the firing decision against
+   0.755–0.811 on the fields. That is structural, not noise: the rule consumes the *difference* of
+   two labels, and disagreement concentrates on exactly the items where the two labels are close.
+   The interval **[+0.220, +0.904]** straddles the stop rule badly. On 14 items the point estimate
+   clearing 0.6 is not evidence that the rule clears it.
+2. **The zero-false-positive claim did not survive.** Every rater fires on N8; one also fires on
+   N2, another on N4. Per-rater false positives were 2, 1 and 2 against my 0.
+
+**The most valuable single finding is not a κ.** It is *why* N8 fires. The domain condition —
+"a product operation exists and the size parameter is additive" — is satisfied literally by disjoint
+union, which moves **both** coordinates of a two-parameter family. Every case the diagnostic gets
+right is a **single-parameter** family; its false positive is the two-parameter one. A candidate
+repair is stated in `d20/N8-adjudication.md` and **deliberately not adopted**, because it was derived
+from the item it would exclude — the same circularity the seed flagged and L2 caught.
+
+**One rater's divergence is worth more than the counts.** Rater B declined to fire on case 4,
+reading the matrix-Chernoff `log` penalty as "the max law with a logarithmic loss" rather than as an
+additive law. The five-category vocabulary has **no way to express "the right law, degraded by a
+log"** — which is arguably exactly what Kadison–Singer's board did. That is a gap in the vocabulary,
+not a mistake by the rater.
+
+### What D20 does not settle
+
+The three raters share **one fixed encoding** of the inputs, written by the instance that wrote the
+rules. This measures rater agreement *given* that encoding, not encoder-plus-rater agreement. It is
+strictly weaker than L2's design and strictly stronger than no measurement.

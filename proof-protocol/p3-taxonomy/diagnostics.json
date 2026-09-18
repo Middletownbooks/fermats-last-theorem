@@ -267,11 +267,11 @@
       "N8-discrepancy-many-sets": {
         "applicable": true,
         "operation": "disjoint union of set systems; n and m both add",
-        "target_law": "additive",
-        "target_evidence": "sqrt(n log(m/n)) is tight, so the dependence is real.",
-        "bound_law": "additive",
-        "bound_evidence": "The union bound over m sets gives the same additive dependence.",
-        "expected": "no-fire",
+        "target_law": "max",
+        "target_evidence": "CORRECTED after D20. Ground sets are disjoint, so a colouring may be chosen independently on each and disc(S1 u S2) = max(disc S1, disc S2). Three independent raters assigned max unanimously; my original 'additive' was wrong.",
+        "bound_law": "l2",
+        "bound_evidence": "CORRECTED after D20. With m/n preserved, B(S1 u S2)^2 = (n1+n2) log(m/n) = B1^2 + B2^2, which is the l2 law, not additive.",
+        "expected": "fire",
         "truth": "tight",
         "class": "negative",
         "neutral": {
@@ -279,6 +279,13 @@
           "bound_mechanism": "union bound over the m sets",
           "extremal_construction": "Set systems are known matching sqrt(n log(m/n)). Placing two disjoint systems side by side gives one with n1+n2 points and m1+m2 sets.",
           "problem_name": "two-colouring discrepancy of m sets on n points"
+        },
+        "recorded_false_positive": {
+          "status": "GENUINE FALSE POSITIVE",
+          "why": "The laws differ under disjoint union, so the rule fires, but sqrt(n log(m/n)) is TIGHT. See d20/N8-adjudication.md.",
+          "exposes": "The domain condition is too weak. It requires only that a product operation exist and the size parameter be additive; disjoint union satisfies that literally while moving BOTH coordinates of a two-parameter family (n and m), so target and bound can differ with no board change available. Every case the diagnostic gets right is a SINGLE-parameter family; its false positive is the two-parameter one.",
+          "repair_not_adopted": "Strengthening the domain condition to require the operation to preserve the family's full parameterisation was derived FROM this item and is therefore not applied. It needs items chosen by someone who has not seen this adjudication.",
+          "source": "D20, three blind raters, unanimous"
         }
       },
       "14-sphere-packing-8-24": {

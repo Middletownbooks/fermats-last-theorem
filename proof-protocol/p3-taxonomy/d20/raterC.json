@@ -1,0 +1,16 @@
+{
+  "item_01": {"target_law": "max", "bound_law": "l2", "why_target": "Each set lies in one part, so parts colour independently and discrepancy is the larger.", "why_bound": "sqrt(n log(m/n)) squares to n log(m/n), which adds side by side."},
+  "item_02": {"target_law": "additive", "bound_law": "multiplicative", "why_target": "Size cost accumulates linearly in the number of amplification steps.", "why_bound": "k-fold repetition raises size to the k-th power."},
+  "item_03": {"target_law": "l2", "bound_law": "max", "why_target": "CFGS value is ceil(n^{1/2}) and n is additive, so squares add.", "why_bound": "log(n1+n2) equals max(log n1, log n2) up to an additive constant, so the bound refuses to accumulate."},
+  "item_04": {"target_law": "multiplicative", "bound_law": "none", "why_target": "Product of caps is a cap of size |A1|*|A2|.", "why_bound": "3^n times a polynomial saving that does not tensor."},
+  "item_05": {"target_law": "multiplicative", "bound_law": "multiplicative", "why_target": "(1-eps^2)^{O(k)} decays as a constant to the power k.", "why_bound": "(1-eps^3)^{Omega(k)} likewise; only the base differs."},
+  "item_06": {"target_law": "none", "bound_law": "multiplicative", "why_target": "val(G^2) > val(G)^2 because provers correlate.", "why_bound": "The conjectured invariant is exactly the multiplicative law."},
+  "item_07": {"target_law": "additive", "bound_law": "additive", "why_target": "Merging hard point sets forces dimensions to add; log n is additive.", "why_bound": "O(log n / eps^2) is linear in the additive quantity log n."},
+  "item_08": {"target_law": "none", "bound_law": "multiplicative", "why_target": "alpha(C5 box C5) = 5 strictly exceeds alpha(C5)^2 = 4, so the quantity beats multiplicativity; hence the limit definition.", "why_bound": "alpha* is exactly multiplicative."},
+  "item_09": {"target_law": "max", "bound_law": "additive", "why_target": "Largest root of a direct sum is the largest among blocks; flat in block count.", "why_bound": "tr exp sums every block's contribution, so the bound accumulates additively."},
+  "item_10": {"target_law": "multiplicative", "bound_law": "multiplicative", "why_target": "Tensor of a product instance is the tensor product.", "why_bound": "Border rank is submultiplicative under tensor product."},
+  "item_11": {"target_law": "l2", "bound_law": "l2", "why_target": "CFGS ceil(n^{1/2}) with n additive, so squares add.", "why_bound": "A1 (x) I + I (x) A2 squares to (n1+n2)I, so sqrt(n) obeys the l2 law."},
+  "item_12": {"target_law": "multiplicative", "bound_law": "multiplicative", "why_target": "Product of downward-closed extremal systems has |S1|*|S2| sets.", "why_bound": "Sauer-Shelah behaves like n^d with d additive."},
+  "item_13": {"target_law": "none", "bound_law": "multiplicative", "why_target": "367 in C7^{box 5} strictly beats alpha(C7)^5 = 243, so supermultiplicative, no law of these shapes.", "why_bound": "Lovasz theta is exactly multiplicative."},
+  "item_14": {"target_law": "additive", "bound_law": "additive", "why_target": "Combining hard range spaces of VC dim d1 and d2 gives one of dim d1+d2 whose requirement is the sum.", "why_bound": "O((d/eps)log(1/eps)) is linear in d, which is additive."}
+}
