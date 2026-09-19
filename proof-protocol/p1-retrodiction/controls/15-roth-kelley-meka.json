@@ -64,5 +64,10 @@
     "basis": "A control, and note the contrast with case 7a: better play that did NOT change the board, against a board change that kept its input.",
     "assigned_by": "this session, single-encoder and unvalidated",
     "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  },
+  "move_kind": {
+    "kind": "formula",
+    "reason": "Hoelder lifting, unbalancing, dependent random choice and almost-periodicity are all carried out; nothing is asserted to exist. The primary source's five steps are computations.",
+    "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer."
   }
 }

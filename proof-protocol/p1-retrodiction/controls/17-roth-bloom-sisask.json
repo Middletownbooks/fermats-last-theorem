@@ -43,5 +43,10 @@
     "basis": "A control, and the same-period half of the Roth 2023 control pair with 15.",
     "assigned_by": "this session, single-encoder and unvalidated",
     "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  },
+  "move_kind": {
+    "kind": "formula",
+    "reason": "the same board as control 15, re-presented with classical Bohr set machinery; still computed, not asserted.",
+    "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer."
   }
 }

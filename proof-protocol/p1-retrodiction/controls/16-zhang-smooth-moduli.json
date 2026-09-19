@@ -52,5 +52,10 @@
     "basis": "THE ITEM THIS AXIS EXISTS FOR. Its level_flag already said this in prose; the axis now says it in a field, so a scorer can read it without reading the paragraph.",
     "assigned_by": "this session, single-encoder and unvalidated",
     "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  },
+  "move_kind": {
+    "kind": "formula",
+    "reason": "Selberg's lambda(d) = mu(d)G(log d / log R) is written down explicitly -- the same move as case 7's before-board, which is the point of this control.",
+    "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer."
   }
 }

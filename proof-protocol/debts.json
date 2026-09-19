@@ -345,6 +345,27 @@
         ]
       },
       "state": "closed"
+    },
+    {
+      "id": "D34",
+      "kind": "finding",
+      "state": "open",
+      "status": "screen-built-untested",
+      "confidence": "the taxonomy is a post-hoc fit and says so; the underlying leak quotes are verbatim",
+      "where": "Claim-2 board-finder/ (FINDER.md, leaks.json, screen.py); p1-retrodiction/tools/finder.py",
+      "claim": "A LEAK TAXONOMY READ OFF THE BEFORE-BOARD does what the five-transformation catalogue cannot, because a finder never has the after-board. Every case's `leak` field, read verbatim, falls into ACCUMULATION (5: the loss is rounds x per-step cost), SATURATION (2: the invariant caps regardless of the parameter) or WRONG_STATISTIC (6: it measures the wrong quantity). Only the first two prescribe anything; the third is satisfied by almost any board change and predicts nothing, so the usable yield is 7 of 13, not 13 of 13.",
+      "why_it_matters": "The parent project's REPORT_AB measured that four independent models converge on the SAME board, so board-finding is the abundant step and the scarce object is a functional the move conserves. The trio's own encodings show it: K1 and K3 share a state and a move, and differ only in whether the invariant degrades -- O(sqrt log n) against O(1).",
+      "action": "THE FIT IS 13/13 AND THAT IS THE PROBLEM: I assigned every kind knowing every after-board. Run the D20 instrument -- three raters, before-boards only, Fleiss kappa against the measured 0.048 baseline -- before quoting the taxonomy as anything but a hypothesis. Second, the earlier mechanical screen (existence-type move AND bound not tight) was NOT APPLICABLE to 15 of 17 items for want of a filled field, at precision 2/2 on the two it could read: coverage, not the criterion, is the bottleneck. Third, recorded against the newest case: D28's ratio test goes BLIND where the bound and the truth are both O(1) and only the constant is open (Guo-Fang-Lu, 7.52 against 2.414)."
+    },
+    {
+      "id": "D35",
+      "kind": "single-rater-field",
+      "state": "open",
+      "status": "open",
+      "confidence": "certain -- one rater, and it is load-bearing",
+      "where": "p1-retrodiction/cases/*/before.json move_kind; controls/*.json move_kind",
+      "claim": "`move_kind` is the binding conjunct of the transformable-board screen -- it is what makes the screen selective, since extending the tightness field cannot create a fire without it -- and it was assigned by one instance, for debt D9, with no second reading.",
+      "action": "A one-field blind rating sheet, the cheapest test this tree has left: is the move a formula that is carried out, or an existence theorem that asserts a good object exists? Two categories, 17 items, and the D20 instrument already built. If move_kind does not reproduce, the screen has no selectivity and FINDER.md's precision figure is noise."
     }
   ],
   "failure_register": [

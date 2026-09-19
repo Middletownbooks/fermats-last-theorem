@@ -18,6 +18,13 @@
       "role_in_taxonomy": "generated the taxonomy"
     }
   ],
-  "content_present": false,
-  "content_note": "The seed names these three but does not encode their boards. They are listed so that a scoring harness can exclude them by id; encoding their boards is not required and would not make them scoreable."
+  "content_present": "not here, but YES upstream",
+  "content_note": "CORRECTED 2026-09-19. This field said the seed 'does not encode their boards', which is true of the seed and false of the parent project: Middletownbooks/Claim-2, branch claude/theorem-discovery-lab-jpbph1, leanboard/ae/task2/cases.json encodes all three as K1, K2, K3 -- board descriptions rather than before/after contrasts, a mismatch its own FLAW_calibration_items.md records. They remain NEVER SCOREABLE here. What they are good for is what board-finder/FINDER.md uses them for: K1 and K3 differ in exactly one slot, so the trio is the cleanest available statement of what a transformation actually changed.",
+  "upstream": {
+    "K1_banaszczyk": "state = symmetric convex body; move = replace by a convex subset of the union of its two translates; invariant = Gaussian measure stays >= 1/2 (DEGRADES per move); terminal = a body of measure >= 1/2 contains the origin",
+    "K2_bansal_jiang": "a fractional colouring evolving as a diffusion; a decoupling theorem bounds how many rows can be simultaneously near violation, which permits moving orthogonally to them. Existence of a legal move at each instant is ITSELF A THEOREM",
+    "K3_guo_fang_lu": "state = convex body PLUS a density on it; move = THE SAME body transform as K1; invariant = the density's directional total variation <= a fixed constant, and this constant SURVIVES THE MOVE UNCHANGED",
+    "why_it_matters": "K1 and K3 share a state and a move and differ only in whether the invariant degrades. K1 gives O(sqrt log n); K3 gives O(1). That is the transformation, stated without reference to the five-label vocabulary that scored kappa = 0.048 and drew three different labels for K3 from three readers.",
+    "label_disagreement": "originating instance: DE-TENSORIZE. Rater A: WORK MOVED. Rater B: AUXILIARY-WITNESS LIFT. Three readings, three labels, on the founding case."
+  }
 }

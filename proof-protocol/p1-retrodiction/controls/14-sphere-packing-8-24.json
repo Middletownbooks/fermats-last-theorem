@@ -54,5 +54,10 @@
     "basis": "A control: the axis reads none because no board changed at any level.",
     "assigned_by": "this session, single-encoder and unvalidated",
     "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  },
+  "move_kind": {
+    "kind": "n/a",
+    "reason": "P1 records S and T only for this control -- the Cohn-Elkies board is an auxiliary-function certificate, with no move slot to classify. Recorded as n/a rather than guessed.",
+    "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer."
   }
 }
