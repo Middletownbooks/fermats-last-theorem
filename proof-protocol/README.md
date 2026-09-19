@@ -83,7 +83,7 @@ python3 proof-protocol/p1-retrodiction/tools/pack.py --id 01-sensitivity
 
 | # | Task | State |
 |---|---|---|
-| 1 | Verify the citation layer | **Three passes done; counts are generated, not typed** — see the *Current state* table in `CITATIONS.md` (from `tools/citation_status.py`). Two errors found and one claim dropped as unsourced; both reclassifications adjudicated; **one row is still UNVERIFIED** (`C1-gotsman`). Every egress route is blocked for the whole session, so every primary-tier closure came from a pasted transcript: C3, C7, C9, N3, C15. |
+| 1 | Verify the citation layer | **Three passes done; counts are generated, not typed** — see the *Current state* table in `CITATIONS.md` (from `tools/citation_status.py`). Two errors found and one claim dropped as unsourced; both reclassifications adjudicated; **zero rows are UNVERIFIED** — the last one, `C1-gotsman`, closed from the Huang transcript, and three rows now sit below primary tier rather than outside it. Every egress route is blocked for the whole session, so every primary-tier closure came from a pasted transcript: C1, C3, C7, C9, N3, C15. |
 | 2 | Fix and port the harness | **Done.** DEFECT-1 fixed and recorded; fidelity test runs the artifact's own JavaScript; non-repeating placebos; two judge families; exact arithmetic in code. |
 | 3 | Replace the battery's weakest items | **Corpus in, ground truths machine-verified. Pilot not run** — no API key here, so the retirement list is a labelled prediction. |
 | 4 | Rebuild the diagnostic on fields that reproduce | **Done.** `p3-taxonomy/DIAGNOSTIC.md`. |

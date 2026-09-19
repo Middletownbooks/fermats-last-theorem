@@ -202,6 +202,14 @@
       "outcome": "CORRECT, and it over-delivered. The transcript closes C15 at PRIMARY tier (Step 5 is titled 'Density increment'), and also: supersedes P1's exponent twice over (1/9 clean, 5/41 optimised, 1/7 believed limit), supplies a PRIMARY statement of the half of N3 the diagnostic leans on ('there is no known analogue of the polynomial method for the integer problem'), corroborates the Bateman-Katz and Ellenberg-Gijswijt publication data, adds Elkin and Green-Wolf as small improvements to Behrend, and states a ceiling on the board itself (D32). Five rows from one document.",
       "status": "correct",
       "cost": "none, but score it honestly: this was the LOW-RISK kind of prediction -- that the source of a claim states the claim. It is not evidence of calibration about whether anything WORKS, which is where this ledger's wrong answers all are. Compare P-23, which was the same shape of bet on a SURVEY covering a paper it did not cover, and lost."
+    },
+    {
+      "id": "P-26",
+      "by": "this session (in CITATIONS-NEEDED.md and the reply that named it)",
+      "predicted": "That the FIRST TWO PAGES of arXiv:1907.00847 would close C1-gotsman and upgrade C1-after to primary tier in the same paste, because Huang's introduction has to state the Gotsman-Linial reduction to explain why his theorem settles the conjecture.",
+      "outcome": "CORRECT on the mechanism and it over-delivered: the equivalence is Theorem 1.3, stated in the introduction as predicted, and the transcript also confirmed CFGS's bound WITH its base-2 logarithm and its matching ceil(sqrt n) construction (C1-bound to primary), the two different tightness claims (C1-tightness), and the Tal/Nisan-Szegedy chain to bs <= s^4 (C1-chain). Four rows, not two. BUT MY STATEMENT OF WHAT WAS NEEDED WAS IMPRECISE, and the source is what showed it: I wrote the equivalence as being about Delta(H) on subgraphs of MORE THAN half the cube, whereas Gotsman-Linial state it with Gamma(H) = max{Delta(H), Delta(Q_n - H)} under |V(H)| != 2^{n-1} for a general monotone h. The 'more than half' step is Huang's bridge, not the equivalence. Recorded as a correction on the row.",
+      "status": "correct",
+      "cost": "none, and score it the same way as P-25: this is the low-risk kind of bet, that a paper states the thing it must state. The informative part is the SECOND-ORDER error -- I specified the target claim imprecisely while predicting correctly where to find it, which is the third time this session that checking someone else's work surfaced an inaccuracy of mine."
     }
   ],
   "lessons": [

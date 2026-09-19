@@ -30,10 +30,10 @@
     {
       "cite": "Gotsman, Linial 1992",
       "date": "1992",
-      "verified": false,
+      "verified": true,
       "citation_row": "C1-gotsman",
-      "tier": "NONE",
-      "basis": "Row C1-gotsman is UNVERIFIED and no pass has ever checked it -- the one row in the tree in that position (D19)."
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "CLOSED from the Huang transcript, which states the Gotsman-Linial equivalence as its Theorem 1.3 and gives the publication data (JCTA 61(1) 1992, 142-146). It was the last UNVERIFIED row in the tree and the only one no pass had ever checked; D19 closed with it. Note the source's form: the equivalence is about Gamma(H) = max{Delta(H), Delta(Q_n - H)} under |V(H)| != 2^{n-1}, for a general monotone h -- the 'more than half' step is Huang's bridge to h = sqrt(n), not part of the equivalence."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

@@ -13,8 +13,8 @@
       "date": "1988",
       "verified": true,
       "citation_row": "C1-bound",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C1-bound verifies CFGS 1988, including their own matching ceil(sqrt n) construction -- which is the extremal input this twin is about. NOTE: the N9 audit broke this twin's ROLE, not its citation."
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Row C1-bound is now primary-tier: the Huang transcript states CFGS's (1/2 - o(1)) log_2 n AND their matching (2^{n-1}+1)-vertex construction of maximum degree ceil(sqrt n), which is the extremal input this twin is about. Row C1-tightness adds what the paper actually claims -- Delta tight at PERFECT SQUARES, lambda_1 best possible for ALL n -- and records that the audit's all-n strengthening is ours, not the paper's. The N9 audit broke this twin's ROLE, not its citation."
     }
   ],
   "verification": "VERIFIED — see CITATIONS.md row C1-bound",

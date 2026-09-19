@@ -8,14 +8,14 @@ Every prediction this programme has made, and how it turned out. MEASUREMENTS.md
 
 | status | n |
 |---|---|
-| correct | 5 |
+| correct | 6 |
 | partly | 6 |
 | wrong | 11 |
 | unscored | 2 |
 | open | 1 |
-| **total** | **25** |
+| **total** | **26** |
 
-**22 of 25 predictions are settled.** Of those, **5 correct, 6 partly, 11 wrong.**
+**23 of 26 predictions are settled.** Of those, **6 correct, 6 partly, 11 wrong.**
 
 By author:
 
@@ -25,6 +25,7 @@ By author:
 - **this session (pre-registered before the audit)** — 1 predictions, 1 settled, 0 wrong
 - **citations responder** — 1 predictions, 1 settled, 1 wrong
 - **this session (in CITATIONS-NEEDED.md and D29)** — 1 predictions, 1 settled, 0 wrong
+- **this session (in CITATIONS-NEEDED.md and the reply that named it)** — 1 predictions, 1 settled, 0 wrong
 
 ## The predictions
 
@@ -55,6 +56,7 @@ By author:
 | `P-23` | citations responder | The Peluse survey would also cover Kelley-Meka, giving three rows from one document. | WRONG, and self-reported. The survey is Bourbaki June 2022 on Bloom-Sisask 2020; its table of records ends at Schoen 2021 and Kelley-Meka appears nowhere. Two rows, not three. Control 15 remains unsourced (D29). | **wrong** |
 | `P-24` | this session | The citations response's four derivations would need checking and might contain errors. | WRONG in the direction that matters: all four verify (23 checks). The two failures my test reported were MY bugs -- a hand-arithmetic error on the Behrend coefficient (I claimed 2.3542 against the document's correct 2.3548) and a too-tight tolerance plus a coding slip on the C9 ratio. | **wrong** |
 | `P-25` | this session (in CITATIONS-NEEDED.md and D29) | 'Control 15 is the one to ask for ... a single transcript of arXiv:2302.07211 closes it.' Named one document, in advance, as sufficient to close the highest-stakes open row. | CORRECT, and it over-delivered. The transcript closes C15 at PRIMARY tier (Step 5 is titled 'Density increment'), and also: supersedes P1's exponent twice over (1/9 clean, 5/41 optimised, 1/7 believed limit), supplies a PRIMARY statement of the half of N3 the diagnostic leans on ('there is no known analogue of the polynomial method for the integer problem'), corroborates the Bateman-Katz and Ellenberg-Gijswijt publication data, adds Elkin and Green-Wolf as small improvements to Behrend, and states a ceiling on the board itself (D32). Five rows from one document. | **correct** |
+| `P-26` | this session (in CITATIONS-NEEDED.md and the reply that named it) | That the FIRST TWO PAGES of arXiv:1907.00847 would close C1-gotsman and upgrade C1-after to primary tier in the same paste, because Huang's introduction has to state the Gotsman-Linial reduction to explain why his theorem settles the conjecture. | CORRECT on the mechanism and it over-delivered: the equivalence is Theorem 1.3, stated in the introduction as predicted, and the transcript also confirmed CFGS's bound WITH its base-2 logarithm and its matching ceil(sqrt n) construction (C1-bound to primary), the two different tightness claims (C1-tightness), and the Tal/Nisan-Szegedy chain to bs <= s^4 (C1-chain). Four rows, not two. BUT MY STATEMENT OF WHAT WAS NEEDED WAS IMPRECISE, and the source is what showed it: I wrote the equivalence as being about Delta(H) on subgraphs of MORE THAN half the cube, whereas Gotsman-Linial state it with Gamma(H) = max{Delta(H), Delta(Q_n - H)} under \|V(H)\| != 2^{n-1} for a general monotone h. The 'more than half' step is Huang's bridge, not the equivalence. Recorded as a correction on the row. | **correct** |
 
 ## What it cost
 
@@ -81,6 +83,7 @@ By author:
 - **P-23** — one control still unsourced; the error was recorded by its author, which is the standard this project asks for
 - **P-24** — none, but it is the second time this session that checking someone else's work surfaced an error of mine rather than theirs
 - **P-25** — none, but score it honestly: this was the LOW-RISK kind of prediction -- that the source of a claim states the claim. It is not evidence of calibration about whether anything WORKS, which is where this ledger's wrong answers all are. Compare P-23, which was the same shape of bet on a SURVEY covering a paper it did not cover, and lost.
+- **P-26** — none, and score it the same way as P-25: this is the low-risk kind of bet, that a paper states the thing it must state. The informative part is the SECOND-ORDER error -- I specified the target claim imprecisely while predicting correctly where to find it, which is the third time this session that checking someone else's work surfaced an inaccuracy of mine.
 
 ## Lessons
 

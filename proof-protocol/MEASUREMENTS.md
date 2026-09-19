@@ -415,6 +415,52 @@ fails — because the rule consumes a *difference of names* where what matters i
 
 ---
 
+## The last unverified row closes, and the source corrects my own statement of it
+
+`C1-gotsman` — the Gotsman–Linial reduction in case 1's *state* slot — was the only row no pass had
+ever looked at, and the last UNVERIFIED row in the tree. One pasted transcript of **arXiv:1907.00847v2**
+(Huang, *Induced subgraphs of hypercubes and a proof of the Sensitivity Conjecture*) closed it, exactly
+where the prediction said it would be: the introduction has to state the reduction to explain why the
+theorem settles the conjecture. **Debt D19 closes with zero UNVERIFIED rows**, having opened on ten.
+
+**The source corrected my statement of what was needed, which is the more useful half.** I asked for
+the equivalence as *"deg(f) ≤ poly(s(f)) iff every induced subgraph on more than 2^(n−1) vertices has
+maximum degree n^Ω(1)"*. Gotsman–Linial's Theorem 1.3, as Huang states it, is an equivalence for any
+**monotone h** between *Γ(H) ≥ h(n)* for induced subgraphs with **|V(H)| ≠ 2^(n−1)** — where **Γ(H) =
+max{Δ(H), Δ(Q_n − H)}**, not Δ(H) alone — and *s(f) ≥ h(deg(f))*. The "more than half" step is Huang's
+*bridge* to h = √n (one of H and Q_n − H must have at least 2^(n−1)+1 vertices, and Δ is monotone), not
+part of the equivalence. The row is closed on the source's form. Ledger **P-26**: right about where to
+look, imprecise about what to look for.
+
+**Four rows from two pages, and the mathematics checked by construction rather than read.**
+`p1-retrodiction/tools/check_huang.py` builds Huang's matrices by his own recursion and confirms
+`A_n² = nI` exactly for n = 1…7 with trace 0 and entries in {−1,0,1}, the spectrum flat at ±√n with
+multiplicity 2^(n−1), and that flipping the signs recovers the adjacency matrix of Q_n — which is what
+lets his Lemma 2.3 apply. It then reproduces Theorem 1.1 **exhaustively** at n = 3 and n = 4: all 56
+and all 11,440 induced subgraphs on 2^(n−1)+1 vertices have Δ ≥ √n.
+
+- `C1-bound` upgrades to primary tier, with CFGS's logarithm explicitly **base 2** (which P1 left
+  unstated) and their matching (2^(n−1)+1)-vertex construction of maximum degree ⌈√n⌉.
+- `C1-tightness` is new, and it separates two claims the paper keeps apart: Δ ≥ √n is tight **when n is
+  a perfect square**, while the Remark's stronger λ₁(H) ≥ √n is **best possible for all n**, witnessed
+  by all even vertices plus one odd vertex — a star K_{1,n} plus isolated vertices, λ₁ = √n exactly
+  (verified for n = 2…7). **The N9 audit claimed tightness for all n**, from integrality plus
+  monotonicity: Δ is an integer, so Δ ≥ √n forces Δ ≥ ⌈√n⌉, which CFGS attain. That step is sound and
+  checked to n = 200 — but it is **ours, not the paper's**, and the row now says so.
+- `C1-chain` is new: s(f) ≥ √deg(f) confirms a conjecture of Gotsman and Linial, and with Tal's
+  bs(f) ≤ deg(f)² (improving Nisan–Szegedy's 2·deg²) gives bs(f) ≤ s(f)⁴, against a prior best upper
+  bound that was **exponential** in s(f) (Kenyon–Kutin).
+
+**One near-miss for the ceiling register, rejected.** Huang notes that the quartic is still short of the
+quadratic best-known separation and suggests closing it by applying the spectral method to boolean
+functions rather than to hypercubes. Numbers on both sides, a pre-resolution statement by the author —
+but a *suggested route*, not a claim that the board cannot get there, so under the register's own
+disqualifiers it is not an entry. It did expose that the register's check assumes larger-is-stronger,
+while this quantity is smaller-is-stronger; the `direction` field that would fix it is **not added**,
+because no accepted instance needs it.
+
+---
+
 ## Corrections to P1 that are established
 
 ### Case 5 (Kakeya) — the seed's flagged debt was real, and worse than flagged

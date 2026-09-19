@@ -125,6 +125,26 @@ standing rule in this project is that catalogues shrink before they grow, and a 
 is exactly the speculative growth that rule is for. Add the tier when the instance arrives, with its
 source.
 
+## A rejected candidate, recorded because it sits on the boundary
+
+The Huang transcript supplied one near-miss, and it **fails the test** — which is worth recording,
+because a register whose tiers never exclude anything is not a register.
+
+Huang's concluding remarks note that his Theorem 1.5 gives only `bs(f) ≤ s(f)⁴`, while the best known
+separation is quadratic (Ambainis–Sun: `bs = (2/3)s² − (1/3)s`), and suggest closing the gap by
+applying the spectral method to boolean functions rather than to the hypercubes. Numbers on both sides
+— exponent 4 against exponent 2 — and a pre-resolution statement by the author.
+
+But it is a **suggested route, not a stated ceiling**: he does not claim the present board *cannot*
+reach the quadratic. Under the disqualifiers above that is "a cap on this argument's parameters rather
+than on the board", so it is not an entry.
+
+It did expose one thing about the instrument. This quantity is **smaller-is-stronger** — a smaller
+exponent in `bs ≤ s^C` is a better theorem — whereas both registered entries are larger-is-stronger,
+so `ceilings.py`'s `cap_value < truth_num` check would have rejected it on the wrong grounds. A
+`direction` field would be needed, and it is **deliberately not added**, for the same reason as the
+`PROVED` tier: no accepted instance requires it yet, and catalogues shrink before they grow.
+
 ## The first amendment, recorded because the log is append-only
 
 The first thing that happened to this register was that one of my own figures inside a sealed record

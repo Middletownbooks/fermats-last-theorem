@@ -9,8 +9,8 @@
       "claim": "Delta >= (1/2 - o(1)) log n (Chung-Fueredi-Graham-Seymour 1988)",
       "found": "CFGS 1988 prove that an induced subgraph of Q^n on more than 2^{n-1} vertices has max degree at least (1/2 - o(1)) log_2 n. J. Combin. Theory Ser. A 49(1), 180-187.",
       "status": "VERIFIED",
-      "refinement": "The logarithm is base 2, which P1 leaves unstated. CFGS ALSO construct a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n) — so the sqrt(n) target came from their own matching construction, which is exactly the extremal-construction input the rebuilt diagnostic reads.",
-      "source": "sciencedirect 0097316588900349; annals.math.princeton.edu v190-n3-p06"
+      "refinement": "The logarithm is base 2, which P1 leaves unstated. CFGS ALSO construct a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n) — so the sqrt(n) target came from their own matching construction, which is exactly the extremal-construction input the rebuilt diagnostic reads. CONFIRMED FROM PRIMARY: Huang's introduction states CFGS's bound as '(1/2 - o(1)) log_2 n' with the base explicit, for induced subgraphs of MORE THAN 2^{n-1} vertices, and states their matching construction as a (2^{n-1}+1)-vertex induced subgraph of maximum degree ceil(sqrt n). Both halves of this row are now primary-tier, including the base-2 reading that P1 left unstated.",
+      "source": "sciencedirect 0097316588900349; annals.math.princeton.edu v190-n3-p06; CONFIRMED FROM PRIMARY: arXiv:1907.00847v2 introduction"
     },
     {
       "id": "C1-after",
@@ -18,7 +18,8 @@
       "claim": "Huang: signed adjacency with A^2 = nI, interlacing, lambda_1 <= Delta, giving sqrt(n)",
       "found": "Huang 2019 proves every (2^{n-1}+1)-vertex induced subgraph of Q^n has max degree at least sqrt(n), resolving the Sensitivity Conjecture.",
       "status": "VERIFIED",
-      "source": "arXiv:1907.00847; Annals of Mathematics 190 (2019) 949-955"
+      "source": "arXiv:1907.00847; Annals of Mathematics 190 (2019) 949-955 (PRIMARY, pasted transcript)",
+      "refinement": "VERIFIED BY CONSTRUCTION, not only by citation: tools/check_huang.py builds A_n by Huang's recursion for n = 1..7 and confirms A_n^2 = nI exactly, trace 0, entries in {-1,0,1}, spectrum flat at +-sqrt(n) with multiplicity 2^{n-1} each, and that flipping the signs recovers the adjacency matrix of Q_n (which is what lets Lemma 2.3 apply). It then reproduces Theorem 1.1 exhaustively at n = 3 and n = 4: all 56 and all 11,440 (2^{n-1}+1)-vertex induced subgraphs have Delta >= sqrt(n)."
     },
     {
       "id": "C2-meshulam",
@@ -281,7 +282,7 @@
       "id": "C1-gotsman",
       "where": "case 1 state slot",
       "claim": "the Gotsman-Linial 1992 reduction",
-      "status": "UNVERIFIED",
+      "status": "VERIFIED",
       "note": "Not checked this session.",
       "what_would_close_it": {
         "the_claim_that_needs_a_source": "That the Sensitivity Conjecture REDUCES to the induced-subgraph maximum-degree problem on Q_n: deg(f) bounded by a polynomial in s(f) is equivalent to every induced subgraph of Q_n on more than 2^{n-1} vertices having maximum degree n^{Omega(1)}. That equivalence is the entire reason Huang's theorem resolves the conjecture, and it is what case 1's STATE slot asserts.",
@@ -293,7 +294,13 @@
         ],
         "what_would_NOT_close_it": "A source that merely CITES Gotsman-Linial, or that states Huang's theorem without the equivalence. The row is about the reduction, not about the max-degree bound -- row C1-bound and row C1-after already cover those.",
         "stakes": "Low for scoring: it sits in case 1's state slot, not in a bound, and case 1 has already left the diagnostic's domain via the N9 audit. It is the last row no pass has ever looked at, which is the only reason it is still named."
-      }
+      },
+      "found": "CLOSED FROM PRIMARY. Huang arXiv:1907.00847v2 states it as Theorem 1.3, attributed to Gotsman and Linial [9] and proved by them 'using Fourier analysis': for any MONOTONE h: N -> R, the following are equivalent -- (a) for any induced subgraph H of Q_n with |V(H)| != 2^{n-1}, Gamma(H) >= h(n), where Gamma(H) = max{Delta(H), Delta(Q_n - H)}; (b) for any boolean function f, s(f) >= h(deg(f)). Huang then takes h(n) = sqrt(n), 'since one of H and Q_n - H must contain at least 2^{n-1} + 1 vertices, and the maximum degree Delta is monotone'. Publication data from the same reference list: J. Combin. Theory Ser. A 61(1) (1992), 142-146.",
+      "previously": "Not checked this session. (Nor in any earlier pass -- it was the last row in that state.)",
+      "correction": "MY OWN PARAPHRASE WAS IMPRECISE, and the primary source is the reason to say so. Asking for this row I wrote that what was needed was 'deg(f) <= poly(s(f)) iff every induced subgraph of Q_n on MORE THAN 2^{n-1} vertices has maximum degree n^{Omega(1)}'. The actual equivalence is stated (i) with Gamma(H) = max{Delta(H), Delta(Q_n - H)}, not with Delta(H) alone, (ii) under |V(H)| != 2^{n-1} rather than 'more than half', and (iii) for a general monotone h rather than for the polynomial relation. The 'more than half' step is Huang's BRIDGE from Theorem 1.3 to h = sqrt(n), not part of Gotsman-Linial's statement. The row is closed on the source's form, not on mine.",
+      "status_note": "This was the last UNVERIFIED row in the tree, and the one no pass had ever looked at. Debt D19 closes with it.",
+      "source": "arXiv:1907.00847v2 (PRIMARY, pasted transcript), Theorem 1.3 and its reference [9]",
+      "tier_upgrade": "was UNVERIFIED with no source; now PRIMARY"
     },
     {
       "id": "TWINS-batch2",
@@ -374,6 +381,24 @@
       "status": "VERIFIED",
       "refinement": "The claim N3 needs -- Behrend's shape excludes power savings, and is still essentially best-known -- is untouched: Elkin and Green-Wolf improve the lower-order factor, not the (log N)^{1/2}. But 'since 1946' needed the qualifier, and it was my phrasing that needed it, not the source's.",
       "source": "arXiv:2302.07211v3 (PRIMARY), reference list and opening"
+    },
+    {
+      "id": "C1-tightness",
+      "where": "twin N9 (Huang tightness) and controls on the N9 audit",
+      "claim": "NEW ROW. In what sense Huang's sqrt(n) is tight.",
+      "found": "The paper claims two DIFFERENT tightness statements, and they differ in scope. Theorem 1.1: 'Moreover this inequality is tight when n is a perfect square' -- the degree bound meets CFGS's ceil(sqrt n) construction exactly at n = k^2. The Remark: lambda_1(H) >= sqrt(n) strengthens Theorem 1.1, and THAT inequality 'is best possible for all n', witnessed by taking all even vertices of Q_n plus one odd vertex, which induces a star K_{1,n} plus isolated vertices with lambda_1 exactly sqrt(n). Verified by construction for n = 2..7 in tools/check_huang.py.",
+      "status": "VERIFIED",
+      "refinement": "THE N9 AUDIT DERIVED MORE THAN THE PAPER STATES, and the derivation is sound. The audit concluded tightness for ALL n from integrality plus monotonicity: Delta is an integer, so Delta >= sqrt(n) forces Delta >= ceil(sqrt(n)), and CFGS attain ceil(sqrt(n)). The paper only claims the perfect-square case for Delta. So the audit's step is a strengthening of the published statement rather than a reading of it, and it should be cited as ours -- checked for n = 1..200.",
+      "source": "arXiv:1907.00847v2 (PRIMARY), Theorem 1.1 and the Remark in section 2"
+    },
+    {
+      "id": "C1-chain",
+      "where": "case 1, the route from the cube bound to the Sensitivity Conjecture",
+      "claim": "NEW ROW. What Huang's theorem has to be combined with to settle the conjecture.",
+      "found": "Theorem 1.4: s(f) >= sqrt(deg(f)), which 'confirms a conjecture of Gotsman and Linial' and is tight for the AND-of-ORs function. Then bs(f) <= deg(f)^2 -- Nisan-Szegedy's bs <= 2 deg(f)^2 improved by Tal -- gives Theorem 1.5, bs(f) <= s(f)^4. Before Huang the best upper bound was EXPONENTIAL in s(f): Kenyon-Kutin's bs(f) = O(e^{s(f)} sqrt(s(f))).",
+      "status": "VERIFIED",
+      "refinement": "The quartic is still short of the truth: the best known separation is quadratic, bs(f) = (2/3)s(f)^2 - (1/3)s(f) (Ambainis-Sun). Huang's concluding remark suggests closing the gap 'by directly applying the spectral method to boolean functions instead of to the hypercubes'. That is a SUGGESTED ROUTE, not a stated ceiling, and CEILINGS.md records it as a rejected candidate with that reason.",
+      "source": "arXiv:1907.00847v2 (PRIMARY), Theorems 1.4 and 1.5 with references [11], [13], [15], [1]"
     }
   ],
   "adjudications": [

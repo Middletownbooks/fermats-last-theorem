@@ -12,29 +12,28 @@
 
 | status | rows |
 |---|---|
-| VERIFIED | 33 |
-| UNVERIFIED | 3 |
+| VERIFIED | 36 |
 | CORRECTED | 2 |
 | PARTIAL | 2 |
+| UNVERIFIED | 2 |
 | DISPUTED | 1 |
 | SEARCH | 1 |
-| **total** | **42** |
+| **total** | **44** |
 
 ## Current state (last row per id)
 
-The table above counts **every row ever written**, including superseded ones: 42 rows cover 39 distinct claims, because 3 ids recur (`C10`, `C12`, `C15`) where a later pass superseded an earlier row instead of rewriting it. Counting the latest row per id:
+The table above counts **every row ever written**, including superseded ones: 44 rows cover 41 distinct claims, because 3 ids recur (`C10`, `C12`, `C15`) where a later pass superseded an earlier row instead of rewriting it. Counting the latest row per id:
 
 | status | claims |
 |---|---|
-| VERIFIED | 32 |
+| VERIFIED | 35 |
 | CORRECTED | 2 |
 | PARTIAL | 2 |
 | DISPUTED | 1 |
 | SEARCH | 1 |
-| UNVERIFIED | 1 |
-| **distinct claims** | **39** |
+| **distinct claims** | **41** |
 
-**Still UNVERIFIED:** `C1-gotsman`. **Below fetched-primary tier:** `C10`, `C12`, `N2-removable`. Two VERIFIED twin rows, `N16` and `N20`, rest on STANDARD-tier claims and say so.
+**Still UNVERIFIED:** none. **Below fetched-primary tier:** `C10`, `C12`, `N2-removable`. Two VERIFIED twin rows, `N16` and `N20`, rest on STANDARD-tier claims and say so.
 
 ## Rows that changed a claim
 
@@ -114,7 +113,7 @@ These are the ones downstream work must read instead of P1's original.
 | `C12` | case 12 | **UNVERIFIED** | Perelman W-entropy and reduced volume give kappa-noncollapsing | Not checked this session. |
 | `C13` | case 13 | **VERIFIED** | Dinur 2007 graph powering plus alphabet reduction, constant-factor blow-up | Dinur 2007 amplifies the unsatisfiability factor by a factor of 2 per round while blowing up instance size by at most a CONSTANT factor, using a zig-zag-inspired preprocessing into a constant-degree expander, graph powering, and alphabet reduction. Exactly the P1 after-board. |
 | `N3` | twin N3 | **VERIFIED** | Behrend excludes power savings; slice rank gives nothing in [N] | Peluse, arXiv:2206.10037: SALEM-SPENCER (1942) constructed 3AP-free subsets of [N] of density exp(-log N/log log N), 'showing that the true order of magnitude of r_3(N) is larger than N^{1-eps} for any fixed eps > 0'. Behrend (1946) gives the stronger, still essentially best-known Omega(N/exp(C sqrt(log N))). |
-| `C1-gotsman` | case 1 state slot | **UNVERIFIED** | the Gotsman-Linial 1992 reduction | Not checked this session. |
+| `C1-gotsman` | case 1 state slot | **VERIFIED** | the Gotsman-Linial 1992 reduction | CLOSED FROM PRIMARY. Huang arXiv:1907.00847v2 states it as Theorem 1.3, attributed to Gotsman and Linial [9] and proved by them 'using Fourier analysis': for any MONOTONE h: N -> R, the following are equivalent -- (a) for any induced subgraph H of Q_n with \|V(H)\| != 2^{n-1}, Gamma(H) >= h(n), where Gamma(H) = max{Delta(H), Delta(Q_n - H)}; (b) for any boolean function f, s(f) >= h(deg(f)). Huang then takes h(n) = sqrt(n), 'since one of H and Q_n - H must contain at least 2^{n-1} + 1 vertices, and the maximum degree Delta is monotone'. Publication data from the same reference list: J. Combin. Theory Ser. A 61(1) (1992), 142-146. |
 | `TWINS-batch2` | p1-retrodiction/twins/ | **VERIFIED** | Eight twins carried their tightness claim as STANDARD rather than fetched. | Six upgraded to verified this session: N11 (max of n Gaussians, asymptotically tight), N12 (Raab-Steger 1998, tight upper AND lower bounds), N13 (E[T] = n*H_n, verified by exact computation rather than citation), N17 (Alon-Boppana, attained by Lubotzky-Phillips-Sarnak and Margulis Ramanujan families), N18 (Szemeredi-Trotter, Elekes construction; except for the constant it cannot be improved), N19 (Sauer-Shelah, attained exactly by downward-closed systems). |
 | `C10` | case 10 | **SEARCH** | Fortnow then Feige counterexamples; Raz 1995 / Holenstein 2007 after-boards | Search reaches it in substance, including the Fortnow-then-Feige ordering the row asserts (Feige-Verbitsky 2002 the simpler example), Raz's sub-exponential decay and Holenstein's simplification. The primaries are largely pre-arXiv, so a transcript is unlikely to improve it. |
 | `C12` | case 12 | **PARTIAL** | Perelman W-entropy and reduced volume give kappa-noncollapsing | Bibliographic record confirmed (math/0211159, 11 Nov 2002); the cigar-soliton obstruction and the entropy-plus-reduced-distance remedy corroborated from a secondary source. |
@@ -124,10 +123,13 @@ These are the ones downstream work must read instead of P1's original.
 | `C15-ceiling` | controls/15-roth-kelley-meka.json board_ceiling | **VERIFIED** | NEW ROW. The density-increment board has a stated ceiling below the known truth. | Bloom-Sisask: 'an exponent of 1/3 (or perhaps even 1/4) seems to be the limit of any argument that uses any sort of "density increment" argument with Bohr sets (whether using Kelley-Meka ideas or a more traditional Fourier analytic approach)', against Behrend's 1/2. The interval (1/3, 1/2] in the exponent is, on the practitioners' own account, unreachable from this board. |
 | `N3-polynomial-method` | twin N3, the load-bearing half | **VERIFIED** | N3's discriminator against case 2 is the ABSENCE of a slice-rank/polynomial-method route in [N]. Previously carried as structural reasoning, not as a sourced statement. | Bloom-Sisask state it outright: 'Unfortunately, however, there is no known analogue of the polynomial method for the integer problem, so achieving strong bounds for the integer problem via this method is out of reach.' They also give the contrast N3 needs: in F_q^n the polynomial method gives \|A\| <= q^{n-cn} (Ellenberg-Gijswijt), stronger than Kelley-Meka's q^{n-cn^{1/9}}, while over the integers the Kelley-Meka route is the one that generalises. |
 | `N3-behrend-improvements` | twin N3 refinement | **VERIFIED** | The N3 refinement recorded arXiv:2406.12290 as 'the first quasipolynomial improvement to Behrend since 1946', which reads as though nothing happened in between. | Bloom-Sisask: Behrend [2] (PNAS 32 (1946), 331-332) gives exp(-c (log N)^{1/2}) N, and 'small improvements have also been established by Elkin [9] (Israel J. Math. 184 (2011), 93-128) and Green and Wolf [13] (Additive number theory, 141-144, Springer 2010)'. |
+| `C1-tightness` | twin N9 (Huang tightness) and controls on the N9 audit | **VERIFIED** | NEW ROW. In what sense Huang's sqrt(n) is tight. | The paper claims two DIFFERENT tightness statements, and they differ in scope. Theorem 1.1: 'Moreover this inequality is tight when n is a perfect square' -- the degree bound meets CFGS's ceil(sqrt n) construction exactly at n = k^2. The Remark: lambda_1(H) >= sqrt(n) strengthens Theorem 1.1, and THAT inequality 'is best possible for all n', witnessed by taking all even vertices of Q_n plus one odd vertex, which induces a star K_{1,n} plus isolated vertices with lambda_1 exactly sqrt(n). Verified by construction for n = 2..7 in tools/check_huang.py. |
+| `C1-chain` | case 1, the route from the cube bound to the Sensitivity Conjecture | **VERIFIED** | NEW ROW. What Huang's theorem has to be combined with to settle the conjecture. | Theorem 1.4: s(f) >= sqrt(deg(f)), which 'confirms a conjecture of Gotsman and Linial' and is tight for the AND-of-ORs function. Then bs(f) <= deg(f)^2 -- Nisan-Szegedy's bs <= 2 deg(f)^2 improved by Tal -- gives Theorem 1.5, bs(f) <= s(f)^4. Before Huang the best upper bound was EXPONENTIAL in s(f): Kenyon-Kutin's bs(f) = O(e^{s(f)} sqrt(s(f))). |
 
 ## Refinements worth carrying
 
-- **C1-bound** — The logarithm is base 2, which P1 leaves unstated. CFGS ALSO construct a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n) — so the sqrt(n) target came from their own matching construction, which is exactly the extremal-construction input the rebuilt diagnostic reads.
+- **C1-bound** — The logarithm is base 2, which P1 leaves unstated. CFGS ALSO construct a (2^{n-1}+1)-vertex induced subgraph with max degree ceil(sqrt n) — so the sqrt(n) target came from their own matching construction, which is exactly the extremal-construction input the rebuilt diagnostic reads. CONFIRMED FROM PRIMARY: Huang's introduction states CFGS's bound as '(1/2 - o(1)) log_2 n' with the base explicit, for induced subgraphs of MORE THAN 2^{n-1} vertices, and states their matching construction as a (2^{n-1}+1)-vertex induced subgraph of maximum degree ceil(sqrt n). Both halves of this row are now primary-tier, including the base-2 reading that P1 left unstated.
+- **C1-after** — VERIFIED BY CONSTRUCTION, not only by citation: tools/check_huang.py builds A_n by Huang's recursion for n = 1..7 and confirms A_n^2 = nI exactly, trace 0, entries in {-1,0,1}, spectrum flat at +-sqrt(n) with multiplicity 2^{n-1} each, and that flipping the signs recovers the adjacency matrix of Q_n (which is what lets Lemma 2.3 apply). It then reproduces Theorem 1.1 exhaustively at n = 3 and n = 4: all 56 and all 11,440 (2^{n-1}+1)-vertex induced subgraphs have Delta >= sqrt(n).
 - **C2-batemankatz** — Dating: arXiv:1101.5851 was posted January 2011; JAMS published April 2012 (electronic November 2011). Under the arXiv-dating rule adopted after the case 9 error, this work dates to 2011, not 2012.
 - **C2-after** — COMPUTED here: the exact constant is 2.7551046..., so 2.756 is correct as an upper bound but is not the constant itself. P1's 'approximately 2.756^n' is sound as written.
 - **C3-shannon** — A search snippet relayed earlier said FIVE vertices; the transcript says six. Use six. Load-bearing and it holds: case 3 is the one principled false negative precisely because chi_f is multiplicative under the strong product and merely not tight -- and chi_f(C5) = 5/2 is COMPUTED here (vertex-transitive, n/alpha), ratio 1.118 to sqrt5, a constant factor.
@@ -143,6 +145,8 @@ These are the ones downstream work must read instead of P1's original.
 - **C15-ceiling** — This is the benchmark's own subject matter stated by the people on the board, contemporaneously, about a live problem -- not reconstructed by us after the fact. It does NOT reclassify control 15: a stated ceiling predicts the board will have to be left, and what happened in 2023 is that it was not. Debt D32.
 - **N3-polynomial-method** — This upgrades the part of N3 the rebuilt diagnostic actually leans on. The N3 row's own note said the diagnostic's use of N3 'rests on the ABSENCE of a product structure on [N], which is structural and does not depend on Behrend' -- that absence is now a quoted primary claim rather than our inference.
 - **N3-behrend-improvements** — The claim N3 needs -- Behrend's shape excludes power savings, and is still essentially best-known -- is untouched: Elkin and Green-Wolf improve the lower-order factor, not the (log N)^{1/2}. But 'since 1946' needed the qualifier, and it was my phrasing that needed it, not the source's.
+- **C1-tightness** — THE N9 AUDIT DERIVED MORE THAN THE PAPER STATES, and the derivation is sound. The audit concluded tightness for ALL n from integrality plus monotonicity: Delta is an integer, so Delta >= sqrt(n) forces Delta >= ceil(sqrt(n)), and CFGS attain ceil(sqrt(n)). The paper only claims the perfect-square case for Delta. So the audit's step is a strengthening of the published statement rather than a reading of it, and it should be cited as ours -- checked for n = 1..200.
+- **C1-chain** — The quartic is still short of the truth: the best known separation is quadratic, bs(f) = (2/3)s(f)^2 - (1/3)s(f) (Ambainis-Sun). Huang's concluding remark suggests closing the gap 'by directly applying the spectral method to boolean functions instead of to the hypercubes'. That is a SUGGESTED ROUTE, not a stated ceiling, and CEILINGS.md records it as a rejected candidate with that reason.
 
 ## Adjudications
 
@@ -166,4 +170,3 @@ Declaring what could not be checked is part of the deliverable.
 
 - **C10** (`case 10`) — Fortnow/Feige counterexamples; Raz 1995 and Holenstein 2007 after-boards
 - **C12** (`case 12`) — Perelman W-entropy and reduced volume give kappa-noncollapsing
-- **C1-gotsman** (`case 1 state slot`) — the Gotsman-Linial 1992 reduction

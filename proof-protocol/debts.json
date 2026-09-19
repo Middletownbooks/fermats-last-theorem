@@ -185,15 +185,13 @@
     {
       "id": "D19",
       "kind": "citation",
-      "status": "one-unverified-three-below-primary",
+      "status": "zero-unverified-three-below-primary",
       "where": "CITATIONS.md",
       "claim": "Ten citation rows remain unverified: cases 4, 7, 9, 10, 11, 12, 13, twin N3, the Gotsman-Linial reduction, and Shannon's 5/2 upper bound.",
-      "action": "Control 15 is CLOSED (D29). Current state, derived from citations.json rather than typed: ONE row is still UNVERIFIED -- C1-gotsman, the Gotsman-Linial 1992 reduction, never checked in any pass. THREE sit below fetched-primary tier: C10 (parallel repetition, SEARCH; the primaries are largely pre-arXiv and probably unimprovable by transcript), C12 (Perelman, PARTIAL; bibliographic record confirmed, the substantive claims not, and case 12 fits no transformation so it does the least work of any row), and N2-removable (PARTIAL). TWO VERIFIED twin rows rest on STANDARD-tier claims and say so: N16 (border rank) and N20 (Kovari-Sos-Turan). THIS ROW'S PROSE HAS NOW BEEN WRONG TWICE, IN OPPOSITE DIRECTIONS, AND BOTH ARE THE SAME MISTAKE. First it said 'FOUR (C10, C12, N16, N20), plus control 15' and omitted C1-gotsman, undercounting what was open. Then, closing control 15, I replaced that with 'THREE rows still UNVERIFIED -- C10, C12, C1-gotsman', which overcounted: later rows had already moved C10 to SEARCH and C12 to PARTIAL. Neither error survived contact with a derived count, and neither was caught by reading the sentence. The counts now come from tools/citation_status.py, the standing caveat is generated from it, and tools/check_consistency.py fails the tree if this row's lists drift from the data.",
+      "action": "CLOSED. Zero rows are UNVERIFIED. The last one, C1-gotsman, closed from the Huang transcript, which states the Gotsman-Linial equivalence as its own Theorem 1.3; it was also the only row no pass had ever looked at, which is why it outlived rows with far higher stakes. The debt opened on ten unverified rows and ends on none. WHAT REMAINS IS NOT THIS DEBT: three rows sit BELOW fetched-primary tier -- C10 (SEARCH; the primaries are largely pre-arXiv and probably unimprovable by transcript), C12 (PARTIAL; bibliographic record only, and case 12 fits no transformation so it does the least work of any row) and N2-removable (PARTIAL; the mathematical claim stands, the attribution to Matousek-Seidel-Welzl does not). Two VERIFIED twin rows rest on STANDARD-tier claims and say so, N16 and N20, which is tracked by D21 and not here. CITATIONS-NEEDED.md carries the routes. THIS ROW'S PROSE WAS WRONG TWICE BEFORE IT WAS RIGHT, in opposite directions -- it undercounted by omitting C1-gotsman, then overcounted by calling C10 and C12 UNVERIFIED after later rows had moved them. Both were caught by a derived count and neither by reading the sentence, and the third time was caught by the checker itself: closing C1-gotsman made this row's derived list stale and tools/check_consistency.py failed the tree until it was updated. That is the mechanism working as intended rather than a fourth error.",
       "derived": {
         "note": "These lists are ASSERTED against citations.json by tools/check_consistency.py, not typed.",
-        "unverified": [
-          "C1-gotsman"
-        ],
+        "unverified": [],
         "below_primary": [
           "C10",
           "C12",
@@ -204,7 +202,7 @@
           "N20"
         ]
       },
-      "state": "open"
+      "state": "closed"
     },
     {
       "id": "D20",
