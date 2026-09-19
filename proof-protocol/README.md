@@ -43,6 +43,7 @@ else here is an instrument, not a result.
 | **P2** | Template-ablation study: 20 arms, planted-truth battery, two judges | Ported, fidelity-tested against the artifact's own JavaScript, and **one defect in the published instrument found and fixed** (`p2-ablation/DEFECTS.md`). Repo corpus R1–R6 swapped in with machine-verified ground truths. **Never run against a live model — no API key here.** |
 | **P3** | The diagnostic, plus the **level axis** (`taxonomy.json` → `level_axis`: where in the stack a change happened — an axis, not a sixth transformation) | The five-transformation catalogue is **dead** (κ = 0.048), and the law vocabulary that replaced it **forces agreed mathematics apart** in three of six rater divergences (`D24-ADJUDICATION.md`) — which is an argument for the one-line magnitude test, not for more categories. Rebuilt on the fields that reproduce: `p3-taxonomy/DIAGNOSTIC.md`. Zero false positives over 14 negatives, and one principled false negative that splits the catalogue. |
 | **P4** | The v3 prescription | **Still deliberately unwritten.** |
+| *external* | `external/claim-2-termform3/` — work for the **parent project** (`Middletownbooks/claim-2`, branch `claude/theorem-discovery-lab-jpbph1`), which this session could read but not push to | Reports **Q** and **R** on that project's own open question: does discovered structure change the next search space? Mirrored here with a git bundle and landing instructions. |
 
 ### The one test that would settle the rebuild
 
