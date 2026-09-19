@@ -9,13 +9,13 @@ Every prediction this programme has made, and how it turned out. MEASUREMENTS.md
 | status | n |
 |---|---|
 | correct | 6 |
-| partly | 6 |
+| partly | 7 |
 | wrong | 11 |
 | unscored | 2 |
 | open | 1 |
-| **total** | **26** |
+| **total** | **27** |
 
-**23 of 26 predictions are settled.** Of those, **6 correct, 6 partly, 11 wrong.**
+**24 of 27 predictions are settled.** Of those, **6 correct, 7 partly, 11 wrong.**
 
 By author:
 
@@ -26,6 +26,7 @@ By author:
 - **citations responder** — 1 predictions, 1 settled, 1 wrong
 - **this session (in CITATIONS-NEEDED.md and D29)** — 1 predictions, 1 settled, 0 wrong
 - **this session (in CITATIONS-NEEDED.md and the reply that named it)** — 1 predictions, 1 settled, 0 wrong
+- **this session (Claim-2 board-finder/controls/PREREG_COVERAGE.md, committed before the rater was asked)** — 1 predictions, 1 settled, 0 wrong
 
 ## The predictions
 
@@ -57,6 +58,7 @@ By author:
 | `P-24` | this session | The citations response's four derivations would need checking and might contain errors. | WRONG in the direction that matters: all four verify (23 checks). The two failures my test reported were MY bugs -- a hand-arithmetic error on the Behrend coefficient (I claimed 2.3542 against the document's correct 2.3548) and a too-tight tolerance plus a coding slip on the C9 ratio. | **wrong** |
 | `P-25` | this session (in CITATIONS-NEEDED.md and D29) | 'Control 15 is the one to ask for ... a single transcript of arXiv:2302.07211 closes it.' Named one document, in advance, as sufficient to close the highest-stakes open row. | CORRECT, and it over-delivered. The transcript closes C15 at PRIMARY tier (Step 5 is titled 'Density increment'), and also: supersedes P1's exponent twice over (1/9 clean, 5/41 optimised, 1/7 believed limit), supplies a PRIMARY statement of the half of N3 the diagnostic leans on ('there is no known analogue of the polynomial method for the integer problem'), corroborates the Bateman-Katz and Ellenberg-Gijswijt publication data, adds Elkin and Green-Wolf as small improvements to Behrend, and states a ceiling on the board itself (D32). Five rows from one document. | **correct** |
 | `P-26` | this session (in CITATIONS-NEEDED.md and the reply that named it) | That the FIRST TWO PAGES of arXiv:1907.00847 would close C1-gotsman and upgrade C1-after to primary tier in the same paste, because Huang's introduction has to state the Gotsman-Linial reduction to explain why his theorem settles the conjecture. | CORRECT on the mechanism and it over-delivered: the equivalence is Theorem 1.3, stated in the introduction as predicted, and the transcript also confirmed CFGS's bound WITH its base-2 logarithm and its matching ceil(sqrt n) construction (C1-bound to primary), the two different tightness claims (C1-tightness), and the Tal/Nisan-Szegedy chain to bs <= s^4 (C1-chain). Four rows, not two. BUT MY STATEMENT OF WHAT WAS NEEDED WAS IMPRECISE, and the source is what showed it: I wrote the equivalence as being about Delta(H) on subgraphs of MORE THAN half the cube, whereas Gotsman-Linial state it with Gamma(H) = max{Delta(H), Delta(Q_n - H)} under \|V(H)\| != 2^{n-1} for a general monotone h. The 'more than half' step is Huang's bridge, not the equivalence. Recorded as a correction on the row. | **correct** |
+| `P-27` | this session (Claim-2 board-finder/controls/PREREG_COVERAGE.md, committed before the rater was asked) | B-1..B-5 for a blind second rater on T3's coverage column: that the rater would decline on exactly 02-cap-set, 09-vinogradov and 13-pcp; that it would name delta (the bound on \|\|v\|\|^2) as 04-kadison-singer's scale parameter, the discrepancy t as 08-spencer's and the cube side as K1-to-K3's, with 'wording may differ, the quantity may not'; that the likeliest single flip would be 09-vinogradov; and that declines would cite the absence of a scale rather than unfamiliarity. | PARTLY. The split was predicted exactly -- 6/6 agreement, the same three declining -- and both pre-registered failure conditions are retired, including the worse one (a DIFFERENT three declining, which would have made the dichotomy mine rather than the boards'). But one quantity prediction MISSED: on 04-kadison-singer the rater's scale is the constant C in the target's 1/2 + C sqrt(delta), not delta itself. The two readings solve the same inequality t >= sqrt(2 delta ln 2n) for different variables and both put Theta(sqrt log n) in the invariant, so the cap agreed while the quantity did not. The committed scorer passed it anyway, on the substring 'delta' inside 'sqrt(delta)' -- recorded rather than patched. | **partly** |
 
 ## What it cost
 
@@ -84,6 +86,7 @@ By author:
 - **P-24** — none, but it is the second time this session that checking someone else's work surfaced an error of mine rather than theirs
 - **P-25** — none, but score it honestly: this was the LOW-RISK kind of prediction -- that the source of a claim states the claim. It is not evidence of calibration about whether anything WORKS, which is where this ledger's wrong answers all are. Compare P-23, which was the same shape of bet on a SURVEY covering a paper it did not cover, and lost.
 - **P-26** — none, and score it the same way as P-25: this is the low-risk kind of bet, that a paper states the thing it must state. The informative part is the SECOND-ORDER error -- I specified the target claim imprecisely while predicting correctly where to find it, which is the third time this session that checking someone else's work surfaced an inaccuracy of mine.
+- **P-27** — none in work, but score the evidential value honestly and DOWNWARD: the prereg said in advance that 6/6 is consistency rather than truth, because two raters of similar training on six famous boards can agree for reasons unrelated to the boards. Unlike P-25 and P-26 this bet did have a stated way to lose, and it did not lose; unlike a real replication, the second rater is the same kind of thing as the first.
 
 ## Lessons
 
@@ -98,3 +101,4 @@ By author:
 9. The two citation predictions in this ledger point the same way. P-23 bet that a survey would cover a paper outside its scope and lost; P-25 bet that a paper would state its own theorem and won. What closes rows here is naming the RIGHT document, not trying harder with the wrong one -- and the right document is almost always the primary one.
 10. Rendering the markdown from JSON stops the prose drifting from the data, but it does not stop a hand-written field INSIDE the data from being wrong, and this one was wrong twice in a row in opposite directions. D19's action text listed four open citation rows and omitted a fifth that the data had always carried as UNVERIFIED (C1-gotsman); the replacement I wrote while closing control 15 then called three rows UNVERIFIED when later rows had already moved two of them to SEARCH and PARTIAL. Reading the sentence caught neither; a derived count caught both immediately. Counts that can be derived must be derived -- tools/citation_status.py now computes them, the standing caveat is generated from it, and tools/check_consistency.py fails the tree if the prose drifts again.
 11. The free-text reasons in a rating sheet were worth more than the coded fields, and they had been sitting in d20/ unread since the run. Scoring the codes gave 'raters disagree on 6 fields'; reading the WHY fields gave 'in three of those six they state the same mathematics and are forced apart by the vocabulary'. Those are different findings with different remedies, and only the second is true. Every rating sheet in this programme must keep collecting the reason, and the reasons must be read BEFORE anything is concluded from the codes.
+12. A cap computed from an invariant is a cap ON THE INVARIANT, not on the problem, and the instrument said otherwise for one commit. T3's first wording inferred 'no improvement to the move can reach O(1)' from a threshold that grows with n; a blind rater pointed out that on two of the six benchmark boards the incumbent move is itself lossy and the target is nonetheless TRUE (Marcus-Spielman-Srivastava for Kadison-Singer, Spencer for discrepancy), so the cap licenses 'replace the certificate', not 'the bound is unreachable'. The stronger reading is licensed only when the move is MONOTONE in the invariant -- of the three boards where the question parses, exactly one, Banaszczyk's measure board, where the move can only shrink measure. The general form of the mistake is reading a negative result about a proof technique as a negative result about the theorem, and it is the same error 6(b) of the same instrument was built to catch in someone else.
