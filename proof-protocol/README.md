@@ -25,6 +25,13 @@ else here is an instrument, not a result.
 > retrospective 2×2 in this tree measures whether a diagnostic *works* — only whether it is
 > self-consistent, against a baseline that beats it. `p1-retrodiction/prospective/` is now not one
 > instrument among several; it is the only one. See `p3-taxonomy/BASELINE.md`.
+>
+> **One partial answer, found while sourcing a control.** A *ceiling statement* — practitioners
+> saying in print, before the outcome exists, that their board cannot reach the known truth, with
+> a number on both sides — is the one retrospective structure whose label is not our own
+> hindsight. Two are registered in `p1-retrodiction/CEILINGS.md`, one of them still open. Two
+> items are an instrument, not a measurement, and the register is kept strictly separate from the
+> prospective arm's counts.
 
 | Part | What it is | State |
 |---|---|---|

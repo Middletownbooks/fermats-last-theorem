@@ -255,6 +255,23 @@ Elkin (2011) and Green–Wolf (2010) are small improvements, to the lower-order 
 exposition names *dependent random choice*; "higher energies" was dropped from the item, because the
 source uses the word "energy" nowhere but in a reference title.
 
+**What was built from the finding, and what the second instance did to it.** The ceiling register
+(`p1-retrodiction/CEILINGS.md`, sealed data in `ceilings/register.jsonl`, tool `tools/ceilings.py`)
+holds **two** entries, not the one anecdote D32 was opened on. The second — GPY's one-dimensional
+sieve, whose ρ_k(F) saturates at 4 for every *k*, so under Bombieri–Vinogradov the criterion caps at
+exactly the value it must exceed — was **already in this repository** and cost no new source. It then
+broke three of the register's assumptions at once: a cap can be an *unattained supremum* (the tool now
+allows `cap == truth` with `cap_attained: false` and a boundary note, rather than fudging 3.999); the
+truth a cap falls short of may be a *conjecture* rather than a theorem, which is a second axis; and a
+resolution must state the **level** at which a board changed, because Zhang beat the θ > 1/2
+requirement without touching the capped sieve (D30). Sharpest of all: **neither diagnostic reads both
+instances.** Product-law matching is *silent* on the Roth entry — no product structure in [N], which
+is twin N3's claim — while the D28 one-line test fires; and the D28 test has nothing to read on GPY,
+because that cap is on a criterion rather than on a bound against a construction. That is the third
+independent appearance of the surplus-machinery finding. Figures checked in
+`check_citations_response.py` §(f); the register's first amendment corrects one of my own figures
+inside a sealed record, by appending rather than editing.
+
 **A bookkeeping failure, recorded because this project records them.** Closing the row exposed that
 **D19's prose had been wrong twice in opposite directions**: first it listed four open citation rows
 and omitted a fifth the data had always carried (`C1-gotsman`), then my replacement called three rows

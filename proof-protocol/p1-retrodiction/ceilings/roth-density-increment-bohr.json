@@ -1,0 +1,42 @@
+{
+  "id": "roth-density-increment-bohr",
+  "problem": "Roth's theorem in [N]: how large can a 3AP-free subset of {1,...,N} be?",
+  "board": "Density increment with Bohr sets -- the board Kelley-Meka 2023 ran on, and the board Bloom-Sisask re-present with classical Bohr set machinery.",
+  "ceiling": {
+    "quantity": "the exponent e in |A| <= exp(-c (log N)^e) N; larger e is a stronger upper bound",
+    "cap": "1/3, or perhaps even 1/4",
+    "cap_value": 0.3333333333333333,
+    "cap_scope": "ANY argument that uses any sort of density-increment argument with Bohr sets, whether using Kelley-Meka ideas or a more traditional Fourier analytic approach -- the authors' own words, so the cap is on the BOARD, not on their argument"
+  },
+  "truth": {
+    "value": "1/2",
+    "value_num": 0.5,
+    "status": "THEOREM",
+    "what_establishes_it": "Behrend 1946 constructs 3AP-free subsets of [N] of size at least exp(-c (log N)^{1/2}) N, with small improvements by Elkin 2011 and Green-Wolf 2010. So no upper bound with exponent above 1/2 can exist, and the truth is at exponent 1/2 or below it."
+  },
+  "evidence_tier": "STATED-BY-AUTHORS",
+  "quote": "Of course, the Behrend exponent of 1/2 would be the final target, but this seems quite far out of reach still; indeed, an exponent of 1/3 (or perhaps even 1/4) seems to be the limit of any argument that uses any sort of 'density increment' argument with Bohr sets (whether using Kelley-Meka ideas or a more traditional Fourier analytic approach).",
+  "source": "arXiv:2302.07211v3 (Bloom, Sisask, 'The Kelley-Meka bounds for sets free of three-term arithmetic progressions'), 'Improvements' paragraph",
+  "source_as_of": "2025-05-13 (v3); the same paragraph also announces 1/9 and 5/41 as improvements on Theorem 1's 1/12",
+  "state_of_the_board_when_registered": {
+    "published_record": "1/12 (Kelley-Meka, Theorem 1)",
+    "announced_by_the_same_paper": "1/9 with a clean modification, 5/41 after technical optimisation",
+    "believed_natural_limit_of_the_method": "1/7",
+    "so_the_gap_to_the_cap": "even the believed natural limit 1/7 = 0.1429 is well short of the stated board cap 1/3 = 0.3333, which is itself short of the truth at 1/2"
+  },
+  "resolution_status": "open",
+  "resolution_criterion": "RESOLVES AS broken-on-the-same-board if an upper bound with exponent strictly above 1/3 is proved by a density-increment-with-Bohr-sets argument. RESOLVES AS held-and-board-left if an exponent above 1/3 is proved by an argument that is not of that kind, or if the authors' cap is superseded by a stated cap from the same board. Improvements at or below 1/3 that stay on the board (1/9, 5/41, 1/7, anything up to 1/3) resolve NOTHING: they are the cap being approached, which is what the statement predicts.",
+  "prediction": {
+    "claim": "The exponent will not pass 1/3 by a density-increment-with-Bohr-sets argument. If it passes 1/3 at all, it will be by leaving that board.",
+    "by": "this session, sealed before any resolution exists",
+    "confidence": "this is the AUTHORS' prediction, adopted rather than formed independently -- it is registered to test the REGISTER, not to display judgement of mine",
+    "horizon": "unknown and probably long. Stated plainly: an item that may not resolve for a decade cannot validate a benchmark on this project's timescale. The register's value is that the label is not hindsight, not that it is fast."
+  },
+  "diagnostic_reading": {
+    "product_law_matching": "NOT-APPLICABLE. [N] carries no product structure of the kind the rule reads -- that absence is twin N3's load-bearing claim, and the primary source states it ('there is no known analogue of the polynomial method for the integer problem'). So the rebuilt diagnostic declines to speak on the one item in this tree whose leak is sourced rather than reconstructed.",
+    "bound_strength_test_D28": "FIRES. The published bound (exponent 1/12, or 5/41 announced) is strictly weaker than the extremal construction (1/2), so the one-line test that beat the diagnostic in D28 reads this item correctly and without the machinery.",
+    "why_this_matters": "It is the third independent time the surplus finding has shown up: the machinery is not merely unnecessary here, it is silent, while the one-line test speaks."
+  },
+  "encoder": "this session",
+  "notes": "Registered from the pasted transcript, not from search. See MEASUREMENTS.md, 'Citation work, third pass', and debt D32."
+}

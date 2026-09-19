@@ -1,0 +1,38 @@
+{
+  "id": "gpy-one-dimensional-sieve",
+  "problem": "Bounded prime gaps: are there infinitely many n with p_{n+1} - p_n bounded?",
+  "board": "The GPY one-dimensional Selberg sieve -- weights lambda_d built from a single-variable F, with the criterion (1/2)*theta*rho_k(F) > 1, where theta is the level of distribution supplied from outside the sieve.",
+  "ceiling": {
+    "quantity": "rho_k(F) = [k/(k+2l+1)] * [2(2l+1)/(l+1)] for the one-variable F = (1-x)^l used in GPY, which the criterion needs to be large",
+    "cap": "4",
+    "cap_value": 4.0,
+    "cap_attained": false,
+    "boundary_note": "rho_k(F) increases in both factors but is bounded by 4 and NEVER REACHES IT, for any k: sup over one-variable F at k = 10^9 is 3.9990. The board can reach every value below 4 and no value at or above it. Granville's Proposition 6.3 needs rho(F) > 4h unconditionally (h = 1) and > 2h under Elliott-Halberstam, so under Bombieri-Vinogradov's theta = 1/2 the criterion's value caps at 2*theta = 1 while it must EXCEED 1. The board misses by an epsilon that no k closes, which is why the cap and the requirement are the same number.",
+    "cap_scope": "every one-variable F, every k -- the saturation is independent of k, which is the load-bearing clause",
+    "derivation": "p1-retrodiction/tools/check_citations_response.py section (d), which tabulates rho(k,l) against the citations response's own figures and computes the supremum"
+  },
+  "truth": {
+    "value": "rho > 4 (equivalently the criterion > 1, equivalently theta > 1/2)",
+    "value_num": 4.0,
+    "status": "CONJECTURE",
+    "what_establishes_it": "In 2005 bounded gaps was believed, not proved -- the twin prime conjecture and its relatives. So this cap is a cap relative to a CONJECTURED truth, and must be read as one. That is the register's second tier distinction and this instance is why it exists: unlike Behrend's construction in the Roth entry, nothing here proved the target was reachable."
+  },
+  "evidence_tier": "DERIVED-FROM-PRIMARY",
+  "quote": "Proposition 6.3 gives rho(F) > 4h unconditionally, > 2h under Elliott-Halberstam; and the before-board reads 'theta > 1/2 needed; BV gives exactly 1/2'. The REQUIREMENT is stated by the source; the CAP -- that no one-variable F reaches it for any k -- is derived here and checked in code, not quoted.",
+  "source": "Granville, 'Primes in intervals of bounded length', arXiv:1410.8400, sections 5 and 6 (Proposition 6.3), via the citations response transcript; cap computed in check_citations_response.py section (d)",
+  "source_as_of": "2014 exposition of the 2005 GPY board; the requirement theta > 1/2 was known to GPY themselves at the time",
+  "resolution_status": "held-and-board-left",
+  "resolution_criterion": "Resolved by history: did anyone get bounded gaps from a one-variable F under theta = 1/2?",
+  "what_happened": {
+    "outcome": "The cap held. The advance came TWICE, and both times by leaving a board -- which is the register's first confirmation that a stated-or-derived ceiling is worth encoding.",
+    "maynard_tao_2013": "Left the sieve board. A multidimensional sieve makes the ratio grow like log k rather than saturating: log k - 2 log log k - 1 is about 0.55 at k = 105 and about 7.6 at k = 10^6, against the one-variable cap of 4. This is case 7a, the positive.",
+    "zhang_2013": "Did NOT leave the sieve board. He raised theta past 1/2 for smooth moduli -- Theorem 3.2, Q = x^{1/2+eta}, delta = 1/1168 -- by changing the EQUIDISTRIBUTION board one level down. This is control 16, and it is why debt D30 exists: the level has to be stated or the control is mislabelled.",
+    "the_lesson_for_the_register": "A ceiling names WHICH board is capped, and an advance can come from leaving a DIFFERENT board than the one the cap is stated about. Zhang beat the theta > 1/2 requirement without touching the capped sieve. So a ceiling's resolution must record the LEVEL at which the board changed, not just whether one did."
+  },
+  "diagnostic_reading": {
+    "product_law_matching": "Fires on case 7a (the positive) and correctly does not fire on control 16 -- but note that this is scored in the retrospective arm, so D25 applies: a rater who recognises 'bounded prime gaps, 2013' needs no rule.",
+    "bound_strength_test_D28": "The cap here is on a CRITERION, not on a bound against a construction, so the one-line bound-strength test has nothing to read. The Roth entry is the reverse. Two instances, two different readings -- neither test covers both."
+  },
+  "encoder": "this session",
+  "notes": "Registered from material already in the repository, not from a new source: the requirement is in the case 7 citation rows and the cap is in check_citations_response.py section (d). Debt D32."
+}

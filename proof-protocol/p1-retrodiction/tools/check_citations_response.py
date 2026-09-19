@@ -106,3 +106,23 @@ if bad:
     print(f"{len(bad)} check(s) FAILED: {', '.join(bad)}")
     sys.exit(1)
 print("Control-15 exponent ladder verified.")
+
+print("\n=== (f) the ceiling register's numeric claims (CEILINGS.md, ceilings/register.jsonl) ===")
+_sup = max(rho(10**9, l) for l in range(1, 4000))
+ck("GPY cap: sup rho = 3.9995 at k = 10^9", abs(_sup - 3.9995) < 5e-5,
+   f"{_sup:.6f} < 4, so the board reaches every value BELOW the requirement and none at or above it. "
+   "This is why the register allows a cap equal to the truth when cap_attained is false.")
+_md = lambda k: math.log(k) - 2 * math.log(math.log(k)) - 1
+ck("Maynard-Tao ratio 0.5785 at k = 105", abs(_md(105) - 0.5785) < 5e-5, f"{_md(105):.4f}")
+ck("Maynard-Tao ratio 7.564 at k = 10^6", abs(_md(10**6) - 7.564) < 5e-4,
+   f"{_md(10**6):.4f}, against the one-variable cap of 4: the multidimensional sieve GROWS where the "
+   "one-variable board saturates")
+ck("Roth: the method's own believed limit is under half the board's stated cap",
+   (1 / 7) / (1 / 3) < 0.5, f"(1/7)/(1/3) = {(1/7)/(1/3):.4f}: 1/7 is the believed natural limit of "
+   "the method, 1/3 the stated cap of the board, 1/2 the truth")
+
+print()
+if bad:
+    print(f"{len(bad)} check(s) FAILED: {', '.join(bad)}")
+    sys.exit(1)
+print("Ceiling register figures verified.")
