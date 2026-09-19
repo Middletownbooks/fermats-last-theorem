@@ -283,6 +283,43 @@ reference to a debt that does not exist.
 
 ---
 
+## How many within-problem pairs would be enough (D31), and two counting corrections
+
+**The pair route now has a number attached.** Each contemporaneous within-problem pair is one binary
+decision at chance 1/2, so the test is an exact one-sided sign test (`p1-retrodiction/tools/pair_power.py`):
+**five pairs scored perfectly clear α = 0.05** (p = 0.0312) and **eight are needed to survive one
+miss** (p = 0.0352; at seven, one miss gives 0.0625 and fails). One discrimination pair is in hand —
+case 7a against control 16. `p1-retrodiction/PAIRS.md` ranks four candidates, each with the document
+that would settle it *and the way it might fail*, and rejects two (cap set 2016: both halves changed
+the board; sphere packing 2016: neither did, and they share an author).
+
+The arithmetic is stated rather than buried: **one pair in hand, four candidates, at most three of
+which survive their stated risks, against a floor of five.** This route does not reach the floor on
+current material. It is still the cheaper route to be wrong about — a failed candidate costs one
+transcript, a failed prospective prediction costs months of waiting.
+
+One pair is available **now** with no new source: Roth 2023, Kelley–Meka against Bloom–Sisask days
+later on the same board, both must-not-fire. It does not count toward the five — with no "which is
+which" there is nothing to score — but it measures *specificity inside one problem-period*, and the
+authors' own words make the encoding clean.
+
+**Two counting corrections, both the same class of error as D19's.**
+
+1. **The debt count in `DEBTS.md` was wrong, and wrong in the flattering direction.** It was inferred
+   from each debt's status *string*, so when a status stopped reading "open" while the work was still
+   live — D19, D31, D32 — the number silently fell. It read **6 open when 13 were live**. Every debt
+   now carries an explicit `state` of `open`, `closed` or `standing`, the count is rendered from that
+   field, and `tools/check_consistency.py` fails the tree if a debt lacks one. Current state: **13
+   open, 16 closed, 4 standing.**
+2. **`standing` is a new category, and it is not a dodge.** Four debts are limitations that cannot be
+   closed and must not be counted as work: judges that cannot be blinded to arm (D13), a sampling
+   parameter the current models no longer have (D14), a retrospective arm saturated by recall (D25),
+   and a corpus with no failed board changes (D26). Counting those as open work would make the
+   backlog look permanently worse; counting them as closed would make it look solved. They are
+   neither.
+
+---
+
 ## Corrections to P1 that are established
 
 ### Case 5 (Kakeya) — the seed's flagged debt was real, and worse than flagged

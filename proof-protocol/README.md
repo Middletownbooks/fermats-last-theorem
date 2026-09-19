@@ -32,6 +32,10 @@ else here is an instrument, not a result.
 > hindsight. Two are registered in `p1-retrodiction/CEILINGS.md`, one of them still open. Two
 > items are an instrument, not a measurement, and the register is kept strictly separate from the
 > prospective arm's counts.
+>
+> **And a number for the other route.** `p1-retrodiction/PAIRS.md`: five contemporaneous
+> within-problem pairs scored perfectly would clear α = 0.05, eight would survive one miss, and
+> one is in hand. Four candidates are ranked with what each needs and how each might fail.
 
 | Part | What it is | State |
 |---|---|---|

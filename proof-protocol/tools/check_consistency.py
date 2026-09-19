@@ -174,12 +174,31 @@ def check_item_sources() -> None:
                    f"covers a neighbouring claim -- each says which in `basis`")
 
 
+def check_debt_states() -> None:
+    """Every debt carries an explicit state, and the rendered count comes from that field.
+
+    The old count was inferred from the status STRING, so the moment a status stopped reading "open"
+    while the work was still live -- which is what happened to D19, D31, D32 -- the number in
+    DEBTS.md silently fell. It read 6 open when 13 were live.
+    """
+    debts = json.loads((ROOT / "debts.json").read_text(encoding="utf-8"))["debts"]
+    allowed = {"open", "closed", "standing"}
+    bad = [x["id"] for x in debts if x.get("state") not in allowed]
+    if bad:
+        fail.append(f"debts with a missing or invalid `state`: {', '.join(bad)}")
+        return
+    n = {k: sum(1 for x in debts if x["state"] == k) for k in sorted(allowed)}
+    did.append(f"all {len(debts)} debts carry a state ({n['open']} open, {n['closed']} closed, "
+               f"{n['standing']} standing), and DEBTS.md counts them from the field")
+
+
 def main() -> int:
     check_renders()
     check_derived_counts()
     check_debt_refs()
     check_citation_refs()
     check_item_sources()
+    check_debt_states()
     for d in did:
         print(f"  ok      {d}")
     for f in fail:

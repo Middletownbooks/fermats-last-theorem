@@ -22,13 +22,23 @@ L = ["# Verification debts and the failure register",
 
 L += ["## Standing caveats", ""]
 L += [f"- {g}" for g in d["global"]]
+from collections import Counter                            # noqa: E402
+states = Counter(x["state"] for x in d["debts"])
 L += ["", "## Debts", "",
-      "| id | kind | status | where | claim | what closing it takes |",
-      "|---|---|---|---|---|---|"]
+      f"**{states['open']} open, {states['closed']} closed, {states['standing']} standing.** "
+      "`state` is a field, not a reading of the status text: the count above used to be guessed from "
+      "status strings and went wrong the moment a status stopped saying \"open\" while the work was "
+      "still live. `standing` means a limitation that cannot be closed and must not be counted as "
+      "work — judges that cannot be blinded (D13), a sampling parameter the models no longer have "
+      "(D14), a retrospective arm saturated by recall (D25), a corpus with no failed board changes "
+      "(D26).", "",
+      "| id | state | kind | status | where | claim | what closing it takes |",
+      "|---|---|---|---|---|---|---|"]
 for x in d["debts"]:
     claim = x["claim"].replace("|", "\\|")
     action = x["action"].replace("|", "\\|")
-    L.append(f"| **{x['id']}** | {x['kind']} | `{x['status']}` | `{x['where']}` | {claim} | {action} |")
+    L.append(f"| **{x['id']}** | `{x['state']}` | {x['kind']} | `{x['status']}` | `{x['where']}` | "
+             f"{claim} | {action} |")
 
 blocking = [x for x in d["debts"] if x.get("blocking")]
 if blocking:
@@ -46,5 +56,5 @@ L += [f"{i}. {t}" for i, t in enumerate(d["do_not_do"], 1)]
 L += [""]
 
 (ROOT / "DEBTS.md").write_text("\n".join(L), encoding="utf-8")
-print(f"DEBTS.md: {len(d['debts'])} debts, "
-      f"{sum(1 for x in d['debts'] if x['status'] in ('unverified', 'unadjudicated', 'unvalidated', 'blocked', 'open'))} open")
+print(f"DEBTS.md: {len(d['debts'])} debts, {states['open']} open, {states['closed']} closed, "
+      f"{states['standing']} standing")

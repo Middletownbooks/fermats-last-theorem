@@ -1,0 +1,112 @@
+{
+  "note": "CANDIDATES ONLY. Nothing here is an item. Every claim about who changed what board is UNVERIFIED and recalled, not sourced -- egress is blocked and this project's standard is a source reached in-session. Each entry names the document that would settle it. Kept so the same candidate is not proposed twice, in the shape of twins/REJECTED.json.",
+  "what_a_discrimination_pair_must_be": [
+    "ONE problem, ONE period (works within about a year of each other).",
+    "TWO independent teams, so the comparison is not one group's follow-up to itself.",
+    "ONE of them changed the board and ONE did not, both aimed at the same bound.",
+    "Both halves must be describable from a before-board that names the problem, because the POINT is that naming the problem does not help: both halves are the same problem."
+  ],
+  "why_this_matters": "D25 measured that a rule-less rater ceilings the benchmark at J = 1.000 with 13/13 recognition, because it only has to name the problem. A contemporaneous within-problem pair is the one retrospective structure that denies recall its shortcut. tools/pair_power.py gives the target: 5 pairs scored perfectly clears alpha = 0.05 on an exact sign test, 8 are needed to survive one miss.",
+  "in_hand": [
+    {
+      "id": "bounded-gaps-2013",
+      "kind": "discrimination",
+      "status": "ENCODED",
+      "halves": "case 07a (Maynard-Tao, board changed) against control 16 (Zhang, level-n sieve board unchanged)",
+      "sourced": "PRIMARY, from the Granville transcript (rows C7); the level caveat is debt D30",
+      "note": "The only discrimination pair in hand. D31 records why it was not run at n = 1."
+    },
+    {
+      "id": "roth-2023",
+      "kind": "control pair (both must-not-fire)",
+      "status": "AVAILABLE NOW, no new source needed",
+      "halves": "Kelley-Meka (Feb 2023, new play on the density-increment board) against Bloom-Sisask (Feb 2023, days later: the same board re-presented with classical Bohr set machinery plus a better exponent)",
+      "sourced": "PRIMARY, arXiv:2302.07211v3 -- the authors state 'our sole contribution is at the technical level ... all of the main ideas are the same as in [14]'",
+      "does_not_count_toward_five": "Both halves are must-not-fire, so there is no 'which is which' to score. What it measures is SPECIFICITY inside one problem-period: a diagnostic that fires on either half is firing on better play. Worth encoding, different number."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "sunflower-2019",
+      "rank": 1,
+      "kind": "discrimination",
+      "problem": "The sunflower lemma: how large can a set system of k-sets be with no r-sunflower?",
+      "period": "2019, within about two months",
+      "claimed_halves": {
+        "board_changed": "Alweiss-Lovett-Wu-Zhang (arXiv:1908.08483) -- the spread/random-restriction route that broke Erdos-Rado's k^k towards (log k)^k",
+        "board_unchanged": "Rao (arXiv:1909.04774) -- a shorter proof with a better constant ON THE NEW BOARD, appearing weeks later"
+      },
+      "why_it_is_the_best_candidate": "The two halves are not a success against a failure: they are a board change and immediate better play ON THAT NEW BOARD, by different teams, in the same season, on the same bound. A rater cannot separate them by knowing the problem, and cannot separate them by which one 'won' -- both improved the record.",
+      "what_it_needs": "arXiv:1908.08483 and arXiv:1909.04774, or a survey covering both. Two transcripts.",
+      "risk": "Rao's proof may be better read as a DIFFERENT board (entropy/encoding argument) rather than better play on ALWZ's. If so the pair becomes two board changes and is not a contrast -- which is exactly how the cap set candidate below failed."
+    },
+    {
+      "id": "bounded-gaps-2013-triple",
+      "rank": 2,
+      "kind": "extension of a pair already in hand",
+      "problem": "Bounded prime gaps",
+      "period": "2013-2014",
+      "claimed_halves": {
+        "board_changed": "Maynard-Tao (case 07a)",
+        "level_down_change": "Zhang (control 16)",
+        "pure_better_play": "Polymath8a (arXiv:1402.0811) improving Zhang's equidistribution constant to delta = 7/300, and Polymath8b (arXiv:1407.4897) optimising Maynard's sieve -- both improving a board without changing it"
+      },
+      "why_it_helps": "It would make one problem carry all three categories the tree now distinguishes: board change, level-(n-1) board change, and better play. That is the sharpest available test of D30's level axis.",
+      "what_it_needs": "arXiv:1402.0811 and arXiv:1407.4897.",
+      "risk": "Polymath8a/8b are follow-ups BY AN OVERLAPPING COMMUNITY rather than independent teams, which weakens the two-teams condition. As a third member of an existing pair that is tolerable; as a standalone pair it is not."
+    },
+    {
+      "id": "matrix-multiplication-2021-2023",
+      "rank": 3,
+      "kind": "discrimination, and the hardest to adjudicate",
+      "problem": "The matrix multiplication exponent omega",
+      "period": "2021-2023",
+      "claimed_halves": {
+        "board_unchanged": "Alman-Vassilevska Williams, 'A Refined Laser Method' -- better play on the laser method",
+        "board_changed_maybe": "Duan-Wu-Zhou's asymmetric hashing, and Vassilevska Williams-Xu-Xu-Zhou after it -- arguably a new mechanism inside the same framework"
+      },
+      "why_it_is_worth_the_trouble": "It is the case where 'refinement' versus 'new mechanism' is genuinely contested rather than obvious in hindsight, which is where a diagnostic would have to earn its keep. It also pairs with the ceiling register: the laser method's limit on the Coppersmith-Winograd tensor is a PROVED barrier (Ambainis-Filmus-Le Gall), which would be the register's first PROVED-tier entry.",
+      "what_it_needs": "The three papers, or a survey. Note twin N16 already flags that border rank is only SUB-multiplicative, which is the relevant structural fact.",
+      "risk": "If the adjudication is contested among practitioners, the pair has no ground truth and cannot be scored. That would be worth recording as a finding, but it is not a pair."
+    },
+    {
+      "id": "spencer-constructive-2010-2014",
+      "rank": 4,
+      "kind": "several boards for one theorem -- a DIFFERENT structure, recorded so it is not mistaken for a pair",
+      "problem": "Making Spencer's 6 sqrt n discrepancy bound constructive",
+      "period": "2010-2014, too spread out to be contemporaneous",
+      "claimed_halves": {
+        "boards": "Bansal's SDP-based algorithm, Lovett-Meka's Gaussian random walk, Rothvoss's convex-geometry route -- three different boards reaching the same theorem"
+      },
+      "why_it_is_not_a_pair": "None of them is better play on another's board; they are parallel boards. That is a structure the catalogue has no entry for and should NOT acquire one reflexively (the standing rule is that catalogues shrink before they grow). Recorded as an observation.",
+      "what_it_needs": "Nothing yet. If a fourth route appears that is explicitly better play on one of the three, this becomes a candidate pair."
+    },
+    {
+      "id": "strong-parallel-repetition-2008",
+      "rank": 5,
+      "kind": "not a pair: a positive-and-negative pair about TRUTH, not about board change",
+      "problem": "Does strong parallel repetition hold?",
+      "period": "2008",
+      "claimed_halves": {
+        "positive_direction": "Rao: strong parallel repetition for projection games",
+        "negative_direction": "Raz: the odd-cycle counterexample showing it fails in general (already encoded as twin N5)"
+      },
+      "why_it_is_not_a_pair": "Both are correct results about different regimes. Neither is better play on the other's board, and a diagnostic reading 'will the board have to change' has nothing to fire on. It belongs to the twin structure, where it already is.",
+      "what_it_needs": "Nothing."
+    }
+  ],
+  "rejected_as_pairs": [
+    {
+      "id": "cap-set-2016",
+      "proposed_as": "Croot-Lev-Pach (Z/4Z)^n against Ellenberg-Gijswijt (F_3^n), May 2016, days apart, two teams.",
+      "rejected_because": "BOTH changed the board. Row C2-after-split records that CLP supplied the polynomial method and EG adapted it to the cap set theorem, so the pair is a method and its application, not a change against a non-change. There was no contemporaneous same-board effort: the Fourier-side record (Bateman-Katz) was from 2011.",
+      "checked": "2026-09-19"
+    },
+    {
+      "id": "sphere-packing-2016",
+      "proposed_as": "Viazovska (dimension 8) against Cohn-Kumar-Miller-Radchenko-Viazovska (dimension 24), March 2016, about a week apart.",
+      "rejected_because": "Neither changed the board -- per adjudication ADJ-14 the board change in this problem was Kabatyanskii-Levenshtein -> Cohn-Elkies in 2003, and both 2016 papers supplied terminal certificates on the Cohn-Elkies board. It is therefore a same-period CONTROL pair at best, and a weak one, because the two halves share an author.",
+      "checked": "2026-09-19"
+    }
+  ]
+}
