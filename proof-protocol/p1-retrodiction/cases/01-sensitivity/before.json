@@ -1,72 +1,79 @@
 {
-  "id": "01-sensitivity",
-  "problem": "Sensitivity conjecture",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Huang",
-    "ref": "arXiv:1907.00847",
-    "date": "2019-07-01"
+ "id": "01-sensitivity",
+ "problem": "Sensitivity conjecture",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Huang",
+  "ref": "arXiv:1907.00847",
+  "date": "2019-07-01"
+ },
+ "before_board": {
+  "S": "Induced subgraph H of the hypercube Q_n with 2^{n-1}+1 vertices (the Gotsman-Linial 1992 reduction).",
+  "M": "Subcube refinement.",
+  "I": "Edge-isoperimetric and degree-sum counts.",
+  "C": null,
+  "T": "Maximum degree Delta(H) >= f(n)."
+ },
+ "bound_then": "Delta >= (1/2 - o(1)) log n (Chung-Fueredi-Graham-Seymour 1988); sqrt(n) conjectured.",
+ "leak": "Counting controls the mean degree, not the maximum. The unsigned spectrum of Q_n is n-2k, additive under Cartesian product, so the median eigenvalue is about 0 and interlacing is empty.",
+ "sources_before": [
+  {
+   "cite": "Chung, Fueredi, Graham, Seymour 1988",
+   "date": "1988",
+   "verified": true,
+   "debt": "pre-Huang constant (1/2 - o(1)) log n recalled, not fetched",
+   "citation_row": "C1-bound",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Row C1-bound verifies the (1/2 - o(1)) log n bound and records that the logarithm is base 2, which P1 left unstated."
   },
-  "before_board": {
-    "S": "Induced subgraph H of the hypercube Q_n with 2^{n-1}+1 vertices (the Gotsman-Linial 1992 reduction).",
-    "M": "Subcube refinement.",
-    "I": "Edge-isoperimetric and degree-sum counts.",
-    "C": null,
-    "T": "Maximum degree Delta(H) >= f(n)."
-  },
-  "bound_then": "Delta >= (1/2 - o(1)) log n (Chung-Fueredi-Graham-Seymour 1988); sqrt(n) conjectured.",
-  "leak": "Counting controls the mean degree, not the maximum. The unsigned spectrum of Q_n is n-2k, additive under Cartesian product, so the median eigenvalue is about 0 and interlacing is empty.",
-  "sources_before": [
-    {
-      "cite": "Chung, Fueredi, Graham, Seymour 1988",
-      "date": "1988",
-      "verified": true,
-      "debt": "pre-Huang constant (1/2 - o(1)) log n recalled, not fetched",
-      "citation_row": "C1-bound",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C1-bound verifies the (1/2 - o(1)) log n bound and records that the logarithm is base 2, which P1 left unstated."
-    },
-    {
-      "cite": "Gotsman, Linial 1992",
-      "date": "1992",
-      "verified": true,
-      "citation_row": "C1-gotsman",
-      "tier": "PRIMARY (pasted transcript)",
-      "basis": "CLOSED from the Huang transcript, which states the Gotsman-Linial equivalence as its Theorem 1.3 and gives the publication data (JCTA 61(1) 1992, 142-146). It was the last UNVERIFIED row in the tree and the only one no pass had ever checked; D19 closed with it. Note the source's form: the equivalence is about Gamma(H) = max{Delta(H), Delta(Q_n - H)} under |V(H)| != 2^{n-1}, for a general monotone h -- the 'more than half' step is Huang's bridge to h = sqrt(n), not part of the equivalence."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "Delta >= (1/2 - o(1)) log n (Chung-Fueredi-Graham-Seymour 1988); sqrt(n) conjectured.",
-      "valid_range": "all n in scope",
-      "sources": [
-        "Chung, Fueredi, Graham, Seymour 1988",
-        "Gotsman, Linial 1992"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "Counting controls the mean degree, not the maximum. The unsigned spectrum of Q_n is n-2k, additive under Cartesian product, so the median eigenvalue is about 0 and interlacing is empty.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_kind": {
-    "kind": "formula",
-    "reason": "subcube refinement is carried out, not asserted to exist",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  {
+   "cite": "Gotsman, Linial 1992",
+   "date": "1992",
+   "verified": true,
+   "citation_row": "C1-gotsman",
+   "tier": "PRIMARY (pasted transcript)",
+   "basis": "CLOSED from the Huang transcript, which states the Gotsman-Linial equivalence as its Theorem 1.3 and gives the publication data (JCTA 61(1) 1992, 142-146). It was the last UNVERIFIED row in the tree and the only one no pass had ever checked; D19 closed with it. Note the source's form: the equivalence is about Gamma(H) = max{Delta(H), Delta(Q_n - H)} under |V(H)| != 2^{n-1}, for a general monotone h -- the 'more than half' step is Huang's bridge to h = sqrt(n), not part of the equivalence."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "Delta >= (1/2 - o(1)) log n (Chung-Fueredi-Graham-Seymour 1988); sqrt(n) conjectured.",
+   "valid_range": "all n in scope",
+   "sources": [
+    "Chung, Fueredi, Graham, Seymour 1988",
+    "Gotsman, Linial 1992"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "Counting controls the mean degree, not the maximum. The unsigned spectrum of Q_n is n-2k, additive under Cartesian product, so the median eigenvalue is about 0 and interlacing is empty.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_kind": {
+  "kind": "formula",
+  "reason": "subcube refinement is carried out, not asserted to exist",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "existence-theorem",
+   "reason": "A good subcube must be shown to exist before refining to it.",
+   "agrees_with_first": false,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)"
+  }
+ }
 }

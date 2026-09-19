@@ -1,0 +1,25 @@
+{
+  "label": "D35_VERDICTS_rater2",
+  "provenance": "Blind rater, fresh context, tools forbidden, given SHEET.md's text only: 17 items in the recorded scramble, three permitted codes, reasons required. My codes, my reasons, the after-boards and the class counts all withheld.",
+  "transcription": "codes verbatim from the rater's final table; reasons as given there, with the per-item paragraph consulted for the confidence notes.",
+  "rater_stated_criterion": "FORMULA when the object is written down or the quantity computed directly (explicit weights, an explicit product construction, a double count); EXISTENCE-THEOREM when the move cannot legally proceed until some good object -- a large coefficient, a good partition/colouring, a good subspace/subcube/congruence class, almost-periods, a Bohr set -- has been shown to exist by pigeonhole, averaging or the probabilistic method. Where no move slot was recorded, answered NO MOVE RECORDED rather than inferring one from S/I/T.",
+  "items": [
+    {"item": 1, "code": "EXISTENCE-THEOREM", "reason": "DRC, almost-periodicity and Bohr sets each require a good object to exist first."},
+    {"item": 2, "code": "EXISTENCE-THEOREM", "reason": "Probabilistic method: a good partition is shown to exist, not exhibited."},
+    {"item": 3, "code": "EXISTENCE-THEOREM", "reason": "Needs a large Fourier coefficient to exist before the hyperplane restriction."},
+    {"item": 4, "code": "EXISTENCE-THEOREM", "reason": "Each iteration needs a good prime and a heavy congruence class shown to exist.", "rater_confidence": "lower -- one could read the iteration as a purely computed chain of mean-value inequalities"},
+    {"item": 5, "code": "EXISTENCE-THEOREM", "reason": "Random colouring; the claim is that a low-discrepancy colouring exists."},
+    {"item": 6, "code": "FORMULA", "reason": "The k-fold product game is written down directly."},
+    {"item": 7, "code": "NO MOVE RECORDED", "reason": "No move slot recorded.", "rater_note": "not scored: the S field's auxiliary function would itself be an existence/construction burden"},
+    {"item": 8, "code": "NO MOVE RECORDED", "reason": "No move slot recorded."},
+    {"item": 9, "code": "EXISTENCE-THEOREM", "reason": "A good subcube must be shown to exist before refining to it."},
+    {"item": 10, "code": "NO MOVE RECORDED", "reason": "No move slot recorded."},
+    {"item": 11, "code": "FORMULA", "reason": "Selberg's weights are given in closed form; text says explicit formula."},
+    {"item": 12, "code": "FORMULA", "reason": "Same explicit Selberg weights, reused unchanged."},
+    {"item": 13, "code": "NO MOVE RECORDED", "reason": "No move slot recorded."},
+    {"item": 14, "code": "FORMULA", "reason": "A double count of isosceles triangles/incidences is computed."},
+    {"item": 15, "code": "NO MOVE RECORDED", "reason": "No move slot recorded."},
+    {"item": 16, "code": "FORMULA", "reason": "Bush/hairbrush incidence counting is executed as a count.", "rater_confidence": "lower -- the heavy-point selection in the bush argument is a pigeonhole existence step"},
+    {"item": 17, "code": "FORMULA", "reason": "Induction/case analysis is carried out; no prior object needed (vague entry).", "rater_confidence": "lowest of the 17 -- the entry is generic enough that it could be read as no real move"}
+  ]
+}

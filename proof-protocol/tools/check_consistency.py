@@ -192,12 +192,55 @@ def check_debt_states() -> None:
                f"{n['standing']} standing), and DEBTS.md counts them from the field")
 
 
+def check_move_kind_second_reading() -> None:
+    """`move_kind` carries a second, blind reading on every item, and the disagreements survive.
+
+    move_kind is the binding conjunct of the transformable-board screen and was assigned by one
+    instance for D9. D35 measured it against a blind rater: kappa 0.430 on the 15 items whose text
+    does not state its own answer, with all six disagreements running one way (mine = formula).
+    This gate exists so the field cannot silently revert to looking single-rater, and so nobody
+    "fixes" the 6 disagreements by overwriting one column with the other -- that would delete the
+    only measurement of the field there is.
+    """
+    n = agree = 0
+    missing, resolved = [], []
+    for f in sorted(list((ROOT / "p1-retrodiction" / "cases").glob("*/before.json"))
+                    + list((ROOT / "p1-retrodiction" / "controls").glob("*.json"))):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        mk = d.get("move_kind")
+        if not mk:
+            continue
+        n += 1
+        sr = mk.get("second_reading")
+        if not sr:
+            missing.append(d["id"])
+            continue
+        if sr.get("agrees_with_first") != (sr.get("kind") == mk.get("kind")):
+            resolved.append(d["id"])
+        agree += bool(sr.get("agrees_with_first"))
+    if missing:
+        fail.append(f"move_kind with no second reading (see p1-retrodiction/d35): "
+                    f"{', '.join(missing)}")
+        return
+    if resolved:
+        fail.append(f"a second reading's `agrees_with_first` no longer matches its own codes, so a "
+                    f"column was edited after the fact: {', '.join(resolved)}")
+        return
+    if n and agree == n:
+        fail.append("every move_kind second reading now agrees with the first: the six D35 "
+                    "disagreements have been overwritten, which deletes the measurement")
+        return
+    did.append(f"all {n} move_kind fields carry a blind second reading, and {n - agree} "
+               f"disagreement(s) are preserved (D35: kappa 0.430 on the codable 15)")
+
+
 def main() -> int:
     check_renders()
     check_derived_counts()
     check_debt_refs()
     check_citation_refs()
     check_item_sources()
+    check_move_kind_second_reading()
     check_debt_states()
     for d in did:
         print(f"  ok      {d}")

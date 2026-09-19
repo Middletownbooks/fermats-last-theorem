@@ -1,62 +1,69 @@
 {
-  "id": "13-pcp-weak",
-  "problem": "PCP theorem (weak case)",
-  "role": "positive",
-  "flag": "fit-testing-only",
-  "supersede": {
-    "paper": "Dinur",
-    "ref": "Dinur 2007",
-    "date": "2007-01-01"
-  },
-  "before_board": {
-    "S": "A two-prover game / CSP.",
-    "M": "k-fold parallel repetition.",
-    "I": "Value decay.",
-    "C": null,
-    "T": null
-  },
-  "bound_then": "The gap amplifies but the instance size grows as n^k.",
-  "leak": "Size is multiplicative in the exponent under product.",
-  "sources_before": [
-    {
-      "cite": "Arora-Safra; Arora-Lund-Motwani-Sudan-Szegedy 1992",
-      "date": "1992",
-      "verified": false,
-      "citation_row": null,
-      "tier": "NONE",
-      "basis": "Row C13 verifies the AFTER board (Dinur 2007 graph powering with constant blow-up), not Arora-Safra or ALMSS. The before-board's own sources are unchecked."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "The gap amplifies but the instance size grows as n^k.",
-      "valid_range": "all n in scope",
-      "sources": [
-        "Arora-Safra; Arora-Lund-Motwani-Sudan-Szegedy 1992"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "Size is multiplicative in the exponent under product.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_kind": {
-    "kind": "formula",
-    "reason": "k-fold parallel repetition is applied",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+ "id": "13-pcp-weak",
+ "problem": "PCP theorem (weak case)",
+ "role": "positive",
+ "flag": "fit-testing-only",
+ "supersede": {
+  "paper": "Dinur",
+  "ref": "Dinur 2007",
+  "date": "2007-01-01"
+ },
+ "before_board": {
+  "S": "A two-prover game / CSP.",
+  "M": "k-fold parallel repetition.",
+  "I": "Value decay.",
+  "C": null,
+  "T": null
+ },
+ "bound_then": "The gap amplifies but the instance size grows as n^k.",
+ "leak": "Size is multiplicative in the exponent under product.",
+ "sources_before": [
+  {
+   "cite": "Arora-Safra; Arora-Lund-Motwani-Sudan-Szegedy 1992",
+   "date": "1992",
+   "verified": false,
+   "citation_row": null,
+   "tier": "NONE",
+   "basis": "Row C13 verifies the AFTER board (Dinur 2007 graph powering with constant blow-up), not Arora-Safra or ALMSS. The before-board's own sources are unchecked."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "The gap amplifies but the instance size grows as n^k.",
+   "valid_range": "all n in scope",
+   "sources": [
+    "Arora-Safra; Arora-Lund-Motwani-Sudan-Szegedy 1992"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "Size is multiplicative in the exponent under product.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_kind": {
+  "kind": "formula",
+  "reason": "k-fold parallel repetition is applied",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "formula",
+   "reason": "The k-fold product game is written down directly.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)"
+  }
+ }
 }

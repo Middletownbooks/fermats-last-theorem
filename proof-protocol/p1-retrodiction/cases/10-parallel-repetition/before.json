@@ -1,62 +1,70 @@
 {
-  "id": "10-parallel-repetition",
-  "problem": "Parallel repetition",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Raz; Holenstein",
-    "ref": "Raz 1995; Holenstein 2007",
-    "date": "1995-01-01"
-  },
-  "before_board": {
-    "S": "A two-prover game under k-fold product.",
-    "M": null,
-    "I": "Conjectured: val(G^k) = val(G)^k.",
-    "C": null,
-    "T": null
-  },
-  "bound_then": "The conjectured invariant is false (Fortnow / Feige counterexamples).",
-  "leak": "Game value is not multiplicative. Provers correlate across coordinates.",
-  "sources_before": [
-    {
-      "cite": "Fortnow; Feige counterexamples to multiplicativity",
-      "date": "1988-1991",
-      "verified": false,
-      "citation_row": "C10",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C10's latest status is SEARCH: search reaches the Fortnow-then-Feige ordering in substance, but the primaries are largely pre-arXiv and no source was fetched. Below fetched-primary tier, so the flag stays false."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "The conjectured invariant is false (Fortnow / Feige counterexamples).",
-      "valid_range": "all n in scope",
-      "sources": [
-        "Fortnow; Feige counterexamples to multiplicativity"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "Game value is not multiplicative. Provers correlate across coordinates.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_kind": {
-    "kind": "n/a",
-    "reason": "P1 records no move slot",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+ "id": "10-parallel-repetition",
+ "problem": "Parallel repetition",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Raz; Holenstein",
+  "ref": "Raz 1995; Holenstein 2007",
+  "date": "1995-01-01"
+ },
+ "before_board": {
+  "S": "A two-prover game under k-fold product.",
+  "M": null,
+  "I": "Conjectured: val(G^k) = val(G)^k.",
+  "C": null,
+  "T": null
+ },
+ "bound_then": "The conjectured invariant is false (Fortnow / Feige counterexamples).",
+ "leak": "Game value is not multiplicative. Provers correlate across coordinates.",
+ "sources_before": [
+  {
+   "cite": "Fortnow; Feige counterexamples to multiplicativity",
+   "date": "1988-1991",
+   "verified": false,
+   "citation_row": "C10",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Row C10's latest status is SEARCH: search reaches the Fortnow-then-Feige ordering in substance, but the primaries are largely pre-arXiv and no source was fetched. Below fetched-primary tier, so the flag stays false."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "The conjectured invariant is false (Fortnow / Feige counterexamples).",
+   "valid_range": "all n in scope",
+   "sources": [
+    "Fortnow; Feige counterexamples to multiplicativity"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "Game value is not multiplicative. Provers correlate across coordinates.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_kind": {
+  "kind": "n/a",
+  "reason": "P1 records no move slot",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "n/a",
+   "reason": "No move slot recorded.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)",
+   "caveat": "the record has NO move slot for this item; the rater was shown the rest of the board and declined, which is a coverage failure of the record where my column filled it"
+  }
+ }
 }

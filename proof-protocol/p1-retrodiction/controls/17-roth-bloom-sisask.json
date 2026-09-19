@@ -1,52 +1,59 @@
 {
-  "id": "17-roth-bloom-sisask",
-  "problem": "Roth's theorem in [N] (Bloom-Sisask 2023, the Kelley-Meka exposition and refinement)",
-  "role": "control",
-  "control_kind": "no-board-change",
-  "expected_diagnostic_behaviour": "must-not-fire",
-  "within_problem_pair": true,
-  "pair_of": "15-roth-kelley-meka",
-  "pair_kind": "control pair -- BOTH halves are must-not-fire, so nothing is being discriminated",
-  "board": {
-    "name": "density increment with Bohr sets -- THE SAME BOARD AS CONTROL 15",
-    "S": "A 3AP-free subset of [N].",
-    "M": "Hoelder lifting, unbalancing, dependent random choice, almost-periodicity -- Kelley-Meka's own five steps, with the ad hoc iteration over high-dimensional progressions replaced by classical Bohr set machinery.",
-    "I": "Density increment."
-  },
-  "what_happened": "Days after Kelley-Meka, the same board was re-presented so that the whole argument runs on classical Bohr set techniques, and two exponent improvements were announced on it: 1/12 -> 1/9 by modifying the almost-periodicity step, and 5/41 after a longer technical optimisation. The authors are explicit about the scope of the change: 'It must be made clear, however, that our sole contribution is at the technical level, allowing the Bohr set machinery to run a little more smoothly; all of the main ideas are the same as in [14].'",
-  "tests_for": "False board-change alarms on BETTER PLAY BY A SECOND TEAM IN THE SAME SEASON. Control 15 tests that a diagnostic does not fire on the headline advance; this tests that it does not fire on the refinement that followed it, on the same problem, on the same board, weeks later.",
-  "why_it_is_a_pair_and_what_the_pair_can_measure": {
-    "what_it_can": "SPECIFICITY INSIDE ONE PROBLEM-PERIOD. A rater or a rule that fires on either half is firing on better play, and cannot blame the confound that makes cross-problem comparisons useless (D25: a rater only has to name the problem -- here naming it separates nothing, because both halves are the same problem in the same season).",
-    "what_it_CANNOT": "DISCRIMINATION. There is no 'which is which' to score: both halves are must-not-fire, so a rater declining to fire twice scores 2/2 by doing nothing. It therefore does NOT count toward the five discrimination pairs that tools/pair_power.py says are needed. See PAIRS.md.",
-    "the_asymmetry_to_declare": "This half is a LOW-STAKES advance -- an exposition with announced improvements -- while every other item in P1 is a headline result. A rater could in principle separate the halves by prominence rather than by mechanism. That does not matter for a control pair, where no separation is asked, but it would matter if this item were ever reused inside a discrimination pair, and it is recorded here so that it cannot be reused without the caveat.",
-    "under_anonymisation": "Checked with tools/pack.py --set controls --anonymise: stripped of names, the two halves are nearly the same item -- both read 'a 3AP-free subset of [N]' with a '[name] increment' invariant, differing only in the move slot. For a control pair that is the right property, since both must not fire. It also gives a free noise reading: a rater who fires on one half and not the other, on items this close, is reporting noise rather than a distinction."
-  },
-  "not_added_to_the_scored_set": "This item is deliberately NOT added to p3-taxonomy/diagnostics.json's item list. Adding it would move a published 2x2, and D25 has already established that no retrospective 2x2 in this tree may be quoted as evidence that a diagnostic works -- so the change would perturb a number that carries no weight anyway. It is encoded as an ITEM, for raters and for the pair structure, not as a score.",
-  "sources": [
-    {
-      "cite": "Bloom, Sisask, 'The Kelley-Meka bounds for sets free of three-term arithmetic progressions', arXiv:2302.07211v3",
-      "date": "2023",
-      "verified": true,
-      "citation_row": "C15",
-      "tier": "PRIMARY (pasted transcript)",
-      "basis": "The transcript is the source for every claim in this item: the five steps and their names, the 'sole contribution is at the technical level' statement, and the announced 1/9 and 5/41 improvements. Rows C15, C15-ladder and C15-ceiling."
-    }
-  ],
-  "encoder": "this session",
-  "encoding_pass": "bloom-sisask-transcript-2026-09-19",
-  "notes": "The same transcript also supplies the ceiling register's open entry (CEILINGS.md) and closed debt D29.",
-  "level": {
-    "axis": "none",
-    "confidence": "high",
-    "object_changed": "Nothing. The same board re-presented with classical Bohr set machinery, plus announced exponent improvements.",
-    "what_stayed_fixed": "The board and the main ideas, by the authors' own statement: 'our sole contribution is at the technical level ... all of the main ideas are the same as in [14]'.",
-    "basis": "A control, and the same-period half of the Roth 2023 control pair with 15.",
-    "assigned_by": "this session, single-encoder and unvalidated",
-    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
-  },
-  "move_kind": {
-    "kind": "formula",
-    "reason": "the same board as control 15, re-presented with classical Bohr set machinery; still computed, not asserted.",
-    "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer."
+ "id": "17-roth-bloom-sisask",
+ "problem": "Roth's theorem in [N] (Bloom-Sisask 2023, the Kelley-Meka exposition and refinement)",
+ "role": "control",
+ "control_kind": "no-board-change",
+ "expected_diagnostic_behaviour": "must-not-fire",
+ "within_problem_pair": true,
+ "pair_of": "15-roth-kelley-meka",
+ "pair_kind": "control pair -- BOTH halves are must-not-fire, so nothing is being discriminated",
+ "board": {
+  "name": "density increment with Bohr sets -- THE SAME BOARD AS CONTROL 15",
+  "S": "A 3AP-free subset of [N].",
+  "M": "Hoelder lifting, unbalancing, dependent random choice, almost-periodicity -- Kelley-Meka's own five steps, with the ad hoc iteration over high-dimensional progressions replaced by classical Bohr set machinery.",
+  "I": "Density increment."
+ },
+ "what_happened": "Days after Kelley-Meka, the same board was re-presented so that the whole argument runs on classical Bohr set techniques, and two exponent improvements were announced on it: 1/12 -> 1/9 by modifying the almost-periodicity step, and 5/41 after a longer technical optimisation. The authors are explicit about the scope of the change: 'It must be made clear, however, that our sole contribution is at the technical level, allowing the Bohr set machinery to run a little more smoothly; all of the main ideas are the same as in [14].'",
+ "tests_for": "False board-change alarms on BETTER PLAY BY A SECOND TEAM IN THE SAME SEASON. Control 15 tests that a diagnostic does not fire on the headline advance; this tests that it does not fire on the refinement that followed it, on the same problem, on the same board, weeks later.",
+ "why_it_is_a_pair_and_what_the_pair_can_measure": {
+  "what_it_can": "SPECIFICITY INSIDE ONE PROBLEM-PERIOD. A rater or a rule that fires on either half is firing on better play, and cannot blame the confound that makes cross-problem comparisons useless (D25: a rater only has to name the problem -- here naming it separates nothing, because both halves are the same problem in the same season).",
+  "what_it_CANNOT": "DISCRIMINATION. There is no 'which is which' to score: both halves are must-not-fire, so a rater declining to fire twice scores 2/2 by doing nothing. It therefore does NOT count toward the five discrimination pairs that tools/pair_power.py says are needed. See PAIRS.md.",
+  "the_asymmetry_to_declare": "This half is a LOW-STAKES advance -- an exposition with announced improvements -- while every other item in P1 is a headline result. A rater could in principle separate the halves by prominence rather than by mechanism. That does not matter for a control pair, where no separation is asked, but it would matter if this item were ever reused inside a discrimination pair, and it is recorded here so that it cannot be reused without the caveat.",
+  "under_anonymisation": "Checked with tools/pack.py --set controls --anonymise: stripped of names, the two halves are nearly the same item -- both read 'a 3AP-free subset of [N]' with a '[name] increment' invariant, differing only in the move slot. For a control pair that is the right property, since both must not fire. It also gives a free noise reading: a rater who fires on one half and not the other, on items this close, is reporting noise rather than a distinction."
+ },
+ "not_added_to_the_scored_set": "This item is deliberately NOT added to p3-taxonomy/diagnostics.json's item list. Adding it would move a published 2x2, and D25 has already established that no retrospective 2x2 in this tree may be quoted as evidence that a diagnostic works -- so the change would perturb a number that carries no weight anyway. It is encoded as an ITEM, for raters and for the pair structure, not as a score.",
+ "sources": [
+  {
+   "cite": "Bloom, Sisask, 'The Kelley-Meka bounds for sets free of three-term arithmetic progressions', arXiv:2302.07211v3",
+   "date": "2023",
+   "verified": true,
+   "citation_row": "C15",
+   "tier": "PRIMARY (pasted transcript)",
+   "basis": "The transcript is the source for every claim in this item: the five steps and their names, the 'sole contribution is at the technical level' statement, and the announced 1/9 and 5/41 improvements. Rows C15, C15-ladder and C15-ceiling."
   }
+ ],
+ "encoder": "this session",
+ "encoding_pass": "bloom-sisask-transcript-2026-09-19",
+ "notes": "The same transcript also supplies the ceiling register's open entry (CEILINGS.md) and closed debt D29.",
+ "level": {
+  "axis": "none",
+  "confidence": "high",
+  "object_changed": "Nothing. The same board re-presented with classical Bohr set machinery, plus announced exponent improvements.",
+  "what_stayed_fixed": "The board and the main ideas, by the authors' own statement: 'our sole contribution is at the technical level ... all of the main ideas are the same as in [14]'.",
+  "basis": "A control, and the same-period half of the Roth 2023 control pair with 15.",
+  "assigned_by": "this session, single-encoder and unvalidated",
+  "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+ },
+ "move_kind": {
+  "kind": "formula",
+  "reason": "the same board as control 15, re-presented with classical Bohr set machinery; still computed, not asserted.",
+  "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "existence-theorem",
+   "reason": "DRC, almost-periodicity and Bohr sets each require a good object to exist first.",
+   "agrees_with_first": false,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)"
+  }
+ }
 }

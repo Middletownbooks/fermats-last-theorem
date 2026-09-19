@@ -1,77 +1,84 @@
 {
-  "id": "08-spencer-discrepancy",
-  "problem": "Spencer set discrepancy (six standard deviations)",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Spencer",
-    "ref": "Spencer 1985",
-    "date": "1985-01-01"
-  },
-  "before_board": {
-    "S": "A colouring of n points with n sets.",
-    "M": "Uniform random colouring.",
-    "I": "Per-set Chernoff bound.",
-    "C": "Union bound over the n sets.",
-    "T": null
-  },
-  "bound_then": "sqrt(n log n).",
-  "leak": "The sqrt(log n) comes from the union bound over sets.",
-  "sources_before": [
-    {
-      "cite": "Chernoff/union-bound folklore",
-      "date": "pre-1985",
-      "verified": true,
-      "citation_row": "C8-bound",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C8-bound verifies that a uniform random colouring achieves Theta(sqrt(n log n)), which is what the folklore cite asserts."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "sqrt(n log n).",
-      "valid_range": "all n in scope",
-      "sources": [
-        "Chernoff/union-bound folklore"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "The sqrt(log n) comes from the union bound over sets.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_contested": {
-    "status": "TWO DISTINCT BOARDS, both reaching sqrt(n log n)",
-    "encoding_a": {
-      "by": "seed",
-      "move": "uniform random colouring, one shot",
-      "composition": "union bound over the n sets"
-    },
-    "encoding_b": {
-      "by": "blind encoder (L2)",
-      "move": "colour one more point, taking the smaller Chernoff potential (the sequential Erdos-Selfridge derandomisation)",
-      "composition": "NONE — this board has no composition step"
-    },
-    "consequence": "These are not the same board. Any diagnostic computed here must say which board it is computed on. Expect this class of divergence on re-encoding.",
-    "source": "L2"
-  },
-  "move_kind": {
-    "kind": "formula",
-    "reason": "uniform random colouring; P1 states this explicitly",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+ "id": "08-spencer-discrepancy",
+ "problem": "Spencer set discrepancy (six standard deviations)",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Spencer",
+  "ref": "Spencer 1985",
+  "date": "1985-01-01"
+ },
+ "before_board": {
+  "S": "A colouring of n points with n sets.",
+  "M": "Uniform random colouring.",
+  "I": "Per-set Chernoff bound.",
+  "C": "Union bound over the n sets.",
+  "T": null
+ },
+ "bound_then": "sqrt(n log n).",
+ "leak": "The sqrt(log n) comes from the union bound over sets.",
+ "sources_before": [
+  {
+   "cite": "Chernoff/union-bound folklore",
+   "date": "pre-1985",
+   "verified": true,
+   "citation_row": "C8-bound",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Row C8-bound verifies that a uniform random colouring achieves Theta(sqrt(n log n)), which is what the folklore cite asserts."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "sqrt(n log n).",
+   "valid_range": "all n in scope",
+   "sources": [
+    "Chernoff/union-bound folklore"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "The sqrt(log n) comes from the union bound over sets.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_contested": {
+  "status": "TWO DISTINCT BOARDS, both reaching sqrt(n log n)",
+  "encoding_a": {
+   "by": "seed",
+   "move": "uniform random colouring, one shot",
+   "composition": "union bound over the n sets"
+  },
+  "encoding_b": {
+   "by": "blind encoder (L2)",
+   "move": "colour one more point, taking the smaller Chernoff potential (the sequential Erdos-Selfridge derandomisation)",
+   "composition": "NONE — this board has no composition step"
+  },
+  "consequence": "These are not the same board. Any diagnostic computed here must say which board it is computed on. Expect this class of divergence on re-encoding.",
+  "source": "L2"
+ },
+ "move_kind": {
+  "kind": "formula",
+  "reason": "uniform random colouring; P1 states this explicitly",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "existence-theorem",
+   "reason": "Random colouring; the claim is that a low-discrepancy colouring exists.",
+   "agrees_with_first": false,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)"
+  }
+ }
 }

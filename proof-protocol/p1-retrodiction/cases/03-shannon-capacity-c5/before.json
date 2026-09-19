@@ -1,62 +1,70 @@
 {
-  "id": "03-shannon-capacity-c5",
-  "problem": "Shannon capacity of C5",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Lovasz",
-    "ref": "Lovasz 1979, IEEE Trans. Inform. Theory",
-    "date": "1979-01-01"
-  },
-  "before_board": {
-    "S": "A graph under the strong product.",
-    "M": null,
-    "I": "Fractional clique cover alpha* (multiplicative).",
-    "C": null,
-    "T": "Theta <= alpha*."
-  },
-  "bound_then": "sqrt(5) <= Theta <= 5/2 (Shannon 1956).",
-  "leak": "The linear program sees only cliques - for C5, only edges - so it is loose on odd cycles. Its product law is correct; its value is wrong.",
-  "sources_before": [
-    {
-      "cite": "Shannon 1956",
-      "date": "1956",
-      "verified": true,
-      "citation_row": "C3-shannon",
-      "tier": "PRIMARY (pasted transcript)",
-      "basis": "Row C3-shannon closed from a pasted transcript: the 5/2 upper bound is Shannon's own, by what is now called the fractional clique cover."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "sqrt(5) <= Theta <= 5/2 (Shannon 1956).",
-      "valid_range": "all n in scope",
-      "sources": [
-        "Shannon 1956"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "The linear program sees only cliques - for C5, only edges - so it is loose on odd cycles. Its product law is correct; its value is wrong.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_kind": {
-    "kind": "n/a",
-    "reason": "P1 records no move slot for this case",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+ "id": "03-shannon-capacity-c5",
+ "problem": "Shannon capacity of C5",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Lovasz",
+  "ref": "Lovasz 1979, IEEE Trans. Inform. Theory",
+  "date": "1979-01-01"
+ },
+ "before_board": {
+  "S": "A graph under the strong product.",
+  "M": null,
+  "I": "Fractional clique cover alpha* (multiplicative).",
+  "C": null,
+  "T": "Theta <= alpha*."
+ },
+ "bound_then": "sqrt(5) <= Theta <= 5/2 (Shannon 1956).",
+ "leak": "The linear program sees only cliques - for C5, only edges - so it is loose on odd cycles. Its product law is correct; its value is wrong.",
+ "sources_before": [
+  {
+   "cite": "Shannon 1956",
+   "date": "1956",
+   "verified": true,
+   "citation_row": "C3-shannon",
+   "tier": "PRIMARY (pasted transcript)",
+   "basis": "Row C3-shannon closed from a pasted transcript: the 5/2 upper bound is Shannon's own, by what is now called the fractional clique cover."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "sqrt(5) <= Theta <= 5/2 (Shannon 1956).",
+   "valid_range": "all n in scope",
+   "sources": [
+    "Shannon 1956"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "The linear program sees only cliques - for C5, only edges - so it is loose on odd cycles. Its product law is correct; its value is wrong.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_kind": {
+  "kind": "n/a",
+  "reason": "P1 records no move slot for this case",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "n/a",
+   "reason": "No move slot recorded.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)",
+   "caveat": "the record has NO move slot for this item; the rater was shown the rest of the board and declined, which is a coverage failure of the record where my column filled it"
+  }
+ }
 }

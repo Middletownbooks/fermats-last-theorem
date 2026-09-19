@@ -1,78 +1,85 @@
 {
-  "id": "02-cap-set",
-  "problem": "Cap set problem",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Croot-Lev-Pach; Ellenberg-Gijswijt",
-    "ref": "arXiv:1605.01506; arXiv:1605.09223",
-    "date": "2016-05-01"
+ "id": "02-cap-set",
+ "problem": "Cap set problem",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Croot-Lev-Pach; Ellenberg-Gijswijt",
+  "ref": "arXiv:1605.01506; arXiv:1605.09223",
+  "date": "2016-05-01"
+ },
+ "before_board": {
+  "S": "A subset A of F_3^n of density delta with no three-term arithmetic progression.",
+  "M": "Large Fourier coefficient, then restrict to a hyperplane.",
+  "I": "Density increment delta -> delta + c*delta^2.",
+  "C": "About 1/delta iterations, each costing one dimension.",
+  "T": "Dimensions exhausted."
+ },
+ "bound_then": "3^n/n (Meshulam 1995); 3^n/n^{1+eps} (Bateman-Katz, arXiv:1101.5851, posted 2011-01)",
+ "leak": "The per-step gain delta^2 against the additive cost of one dimension per step forces delta >~ 1/n. The invariant composes additively while the target (maximum cap size) is supermultiplicative under products, so the truth has the form c^n.",
+ "sources_before": [
+  {
+   "cite": "Meshulam 1995",
+   "date": "1995",
+   "verified": true,
+   "citation_row": "C2-meshulam",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Row C2-meshulam verifies O(3^n/n), reached via the Bateman-Katz paper rather than Meshulam's own."
   },
-  "before_board": {
-    "S": "A subset A of F_3^n of density delta with no three-term arithmetic progression.",
-    "M": "Large Fourier coefficient, then restrict to a hyperplane.",
-    "I": "Density increment delta -> delta + c*delta^2.",
-    "C": "About 1/delta iterations, each costing one dimension.",
-    "T": "Dimensions exhausted."
-  },
-  "bound_then": "3^n/n (Meshulam 1995); 3^n/n^{1+eps} (Bateman-Katz, arXiv:1101.5851, posted 2011-01)",
-  "leak": "The per-step gain delta^2 against the additive cost of one dimension per step forces delta >~ 1/n. The invariant composes additively while the target (maximum cap size) is supermultiplicative under products, so the truth has the form c^n.",
-  "sources_before": [
-    {
-      "cite": "Meshulam 1995",
-      "date": "1995",
-      "verified": true,
-      "citation_row": "C2-meshulam",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C2-meshulam verifies O(3^n/n), reached via the Bateman-Katz paper rather than Meshulam's own."
-    },
-    {
-      "cite": "Bateman, Katz (arXiv:1101.5851, posted 2011-01; JAMS 2012)",
-      "date": "2011",
-      "verified": true,
-      "citation_row": "C2-batemankatz",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C2-batemankatz verifies the bound AND CORRECTS how P1 wrote it (3^n/n^{1+eps}, not n^{1+eps}); publication data later corroborated from the Bloom-Sisask reference list."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "C * 3^n / n^{1+eps}",
-      "valid_range": "all n",
-      "sources": [
-        "Meshulam 1995",
-        "Bateman-Katz 2011"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "The per-step gain delta^2 against the additive cost of one dimension per step forces delta >~ 1/n. The invariant composes additively while the target (maximum cap size) is supermultiplicative under products, so the truth has the form c^n.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "correction": {
-    "status": "CORRECTED",
-    "source": "CITATIONS.md row C2-batemankatz",
-    "was": "n^{1+eps} (Bateman-Katz 2012)",
-    "why": "P1 dropped the 3^n. Beside a neighbouring entry reading '3^n/n', the shorthand reads as a bound OF SIZE n^{1+eps}. Also redated 2012 -> 2011 under the arXiv-dating rule.",
-    "verified_by": "web search; JAMS 25(2) 2012, arXiv:1101.5851"
-  },
-  "move_kind": {
-    "kind": "existence-theorem",
-    "reason": "the move needs a large Fourier coefficient to EXIST before restricting",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  {
+   "cite": "Bateman, Katz (arXiv:1101.5851, posted 2011-01; JAMS 2012)",
+   "date": "2011",
+   "verified": true,
+   "citation_row": "C2-batemankatz",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Row C2-batemankatz verifies the bound AND CORRECTS how P1 wrote it (3^n/n^{1+eps}, not n^{1+eps}); publication data later corroborated from the Bloom-Sisask reference list."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "C * 3^n / n^{1+eps}",
+   "valid_range": "all n",
+   "sources": [
+    "Meshulam 1995",
+    "Bateman-Katz 2011"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "The per-step gain delta^2 against the additive cost of one dimension per step forces delta >~ 1/n. The invariant composes additively while the target (maximum cap size) is supermultiplicative under products, so the truth has the form c^n.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "correction": {
+  "status": "CORRECTED",
+  "source": "CITATIONS.md row C2-batemankatz",
+  "was": "n^{1+eps} (Bateman-Katz 2012)",
+  "why": "P1 dropped the 3^n. Beside a neighbouring entry reading '3^n/n', the shorthand reads as a bound OF SIZE n^{1+eps}. Also redated 2012 -> 2011 under the arXiv-dating rule.",
+  "verified_by": "web search; JAMS 25(2) 2012, arXiv:1101.5851"
+ },
+ "move_kind": {
+  "kind": "existence-theorem",
+  "reason": "the move needs a large Fourier coefficient to EXIST before restricting",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "existence-theorem",
+   "reason": "Needs a large Fourier coefficient to exist before the hyperplane restriction.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)"
+  }
+ }
 }

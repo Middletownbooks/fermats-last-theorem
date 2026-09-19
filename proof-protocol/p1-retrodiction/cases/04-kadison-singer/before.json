@@ -1,78 +1,85 @@
 {
-  "id": "04-kadison-singer",
-  "problem": "Kadison-Singer (Weaver KS_2)",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Marcus-Spielman-Srivastava",
-    "ref": "arXiv:1306.3969",
-    "date": "2013-06-01"
+ "id": "04-kadison-singer",
+ "problem": "Kadison-Singer (Weaver KS_2)",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Marcus-Spielman-Srivastava",
+  "ref": "arXiv:1306.3969",
+  "date": "2013-06-01"
+ },
+ "before_board": {
+  "S": "Vectors with sum of v v^T = I and ||v||^2 <= delta.",
+  "M": "Random partition.",
+  "I": "Matrix Chernoff on E||Sigma_S||.",
+  "C": null,
+  "T": "Both parts <= 1/2 + eps."
+ },
+ "bound_then": "The matrix-Chernoff / random-partition route loses a factor LOGARITHMIC IN THE DIMENSION; interlacing families remove it.",
+ "leak": "The factor n in tr exp gives log n. It is tight on direct sums of independent blocks (the maximum of n independent quantities).",
+ "sources_before": [
+  {
+   "cite": "Weaver 2004 (KS_2 formulation)",
+   "date": "2004",
+   "verified": false,
+   "citation_row": "C4",
+   "tier": "NONE",
+   "basis": "The KS_2 formulation is Weaver's, but row C4 is a NEGATIVE result: neither Weaver nor Marcus-Spielman-Srivastava states the threshold delta <~ 1/log n that the item attached to him, and the number was dropped."
   },
-  "before_board": {
-    "S": "Vectors with sum of v v^T = I and ||v||^2 <= delta.",
-    "M": "Random partition.",
-    "I": "Matrix Chernoff on E||Sigma_S||.",
-    "C": null,
-    "T": "Both parts <= 1/2 + eps."
-  },
-  "bound_then": "The matrix-Chernoff / random-partition route loses a factor LOGARITHMIC IN THE DIMENSION; interlacing families remove it.",
-  "leak": "The factor n in tr exp gives log n. It is tight on direct sums of independent blocks (the maximum of n independent quantities).",
-  "sources_before": [
-    {
-      "cite": "Weaver 2004 (KS_2 formulation)",
-      "date": "2004",
-      "verified": false,
-      "citation_row": "C4",
-      "tier": "NONE",
-      "basis": "The KS_2 formulation is Weaver's, but row C4 is a NEGATIVE result: neither Weaver nor Marcus-Spielman-Srivastava states the threshold delta <~ 1/log n that the item attached to him, and the number was dropped."
-    },
-    {
-      "cite": "Matrix Chernoff bounds (Ahlswede-Winter / Tropp)",
-      "date": "2002-2012",
-      "verified": false,
-      "citation_row": null,
-      "tier": "NONE",
-      "basis": "No citations.json row covers the matrix Chernoff attribution (Ahlswede-Winter / Tropp). Never checked."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "a loss logarithmic in the dimension",
-      "valid_range": "all n",
-      "sources": [
-        "Weaver math/0209078",
-        "Marcus-Spielman-Srivastava 1306.3969"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "The factor n in tr exp gives log n. It is tight on direct sums of independent blocks (the maximum of n independent quantities).",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_kind": {
-    "kind": "existence-theorem",
-    "reason": "random partition: the argument needs a good partition to exist",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
-  },
-  "correction": {
-    "status": "CORRECTED",
-    "source": "citations response, row C4",
-    "was": "Needs delta <~ 1/log n",
-    "why": "NEITHER Weaver (math/0209078) NOR Marcus-Spielman-Srivastava (1306.3969) states that threshold. Keeping a figure no source states is exactly the defect C2 and C5 already were, so the number is DROPPED and the sourced log-dimension loss written instead.",
-    "diagnostic_unaffected": "Case 4 fires because the target's law under direct sum is max while the bound's is additive. That reading needs the LOSS, which is sourced, not the THRESHOLD, which is not."
+  {
+   "cite": "Matrix Chernoff bounds (Ahlswede-Winter / Tropp)",
+   "date": "2002-2012",
+   "verified": false,
+   "citation_row": null,
+   "tier": "NONE",
+   "basis": "No citations.json row covers the matrix Chernoff attribution (Ahlswede-Winter / Tropp). Never checked."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "a loss logarithmic in the dimension",
+   "valid_range": "all n",
+   "sources": [
+    "Weaver math/0209078",
+    "Marcus-Spielman-Srivastava 1306.3969"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "The factor n in tr exp gives log n. It is tight on direct sums of independent blocks (the maximum of n independent quantities).",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_kind": {
+  "kind": "existence-theorem",
+  "reason": "random partition: the argument needs a good partition to exist",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "existence-theorem",
+   "reason": "Probabilistic method: a good partition is shown to exist, not exhibited.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)"
+  }
+ },
+ "correction": {
+  "status": "CORRECTED",
+  "source": "citations response, row C4",
+  "was": "Needs delta <~ 1/log n",
+  "why": "NEITHER Weaver (math/0209078) NOR Marcus-Spielman-Srivastava (1306.3969) states that threshold. Keeping a figure no source states is exactly the defect C2 and C5 already were, so the number is DROPPED and the sourced log-dimension loss written instead.",
+  "diagnostic_unaffected": "Case 4 fires because the target's law under direct sum is max while the bound's is additive. That reading needs the LOSS, which is sourced, not the THRESHOLD, which is not."
+ }
 }

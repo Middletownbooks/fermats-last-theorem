@@ -1,103 +1,111 @@
 {
-  "id": "05-finite-field-kakeya",
-  "problem": "Finite-field Kakeya",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Dvir",
-    "ref": "arXiv:0803.2336",
-    "date": "2008-03-01"
+ "id": "05-finite-field-kakeya",
+ "problem": "Finite-field Kakeya",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Dvir",
+  "ref": "arXiv:0803.2336",
+  "date": "2008-03-01"
+ },
+ "before_board": {
+  "S": "A Kakeya set K in F_q^n.",
+  "M": "Bush / hairbrush incidence counting.",
+  "I": "Cauchy-Schwarz incidence inequalities, plus sum-product.",
+  "C": null,
+  "T": null
+ },
+ "bound_then": "TWO REGIMES, neither dominating: |K| >~ q^{(n+2)/2} (verified; best known for small n) and a high-dimensional arithmetic improvement whose exponent P1 gives as 4n/7 (DISPUTED — see correction). See bound_regimes.",
+ "leak": "Cauchy-Schwarz sees pairwise line interactions only, which caps the exponent near n/2.",
+ "sources_before": [
+  {
+   "cite": "Wolff 1999 (hairbrush)",
+   "date": "1999",
+   "verified": true,
+   "citation_row": "C5-wolff",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Row C5-wolff verifies q^{(n+2)/2} as the finite-field benchmark for Besicovitch sets."
   },
-  "before_board": {
-    "S": "A Kakeya set K in F_q^n.",
-    "M": "Bush / hairbrush incidence counting.",
-    "I": "Cauchy-Schwarz incidence inequalities, plus sum-product.",
-    "C": null,
-    "T": null
-  },
-  "bound_then": "TWO REGIMES, neither dominating: |K| >~ q^{(n+2)/2} (verified; best known for small n) and a high-dimensional arithmetic improvement whose exponent P1 gives as 4n/7 (DISPUTED — see correction). See bound_regimes.",
-  "leak": "Cauchy-Schwarz sees pairwise line interactions only, which caps the exponent near n/2.",
-  "sources_before": [
-    {
-      "cite": "Wolff 1999 (hairbrush)",
-      "date": "1999",
-      "verified": true,
-      "citation_row": "C5-wolff",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C5-wolff verifies q^{(n+2)/2} as the finite-field benchmark for Besicovitch sets."
-    },
-    {
-      "cite": "best pre-Dvir exponent",
-      "date": "pre-2008",
-      "verified": false,
-      "debt": "the seed wrote about q^{4n/7} with low confidence; not fetched",
-      "citation_row": "C5-4n7",
-      "tier": "NONE",
-      "basis": "Row C5-4n7 is DISPUTED: 4n/7 + 3/7 is Katz-Tao's EUCLIDEAN Minkowski-dimension bound and no source reached here states it for |K| in F_q^n. The two-regime structure survives; the exponent does not."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "low-dimensional",
-      "bound": "|K| >~ q^{(n+2)/2}  (Wolff, bush argument)",
-      "valid_range": "best known for n < 14",
-      "sources": [
-        "Wolff 1999 (hairbrush/bush)"
-      ],
-      "verified": true
-    },
-    {
-      "regime": "high-dimensional",
-      "bound": "|K| >~ q^{4n/7}  (via sum-product)",
-      "valid_range": "exceeds Wolff only for n >= 15; the two are equal at n = 14",
-      "sources": [
-        "Bourgain-Katz-Tao sum-product"
-      ],
-      "verified": false,
-      "status": "DISPUTED",
-      "dispute": "Katz-Tao's 4n/7 + 3/7 is a lower bound on the MINKOWSKI DIMENSION of Kakeya sets in R^n — the Euclidean problem. No source reached this session states an exponent 4n/7 for |K| in F_q^n. Finite-field improvements over (n+2)/2 do exist in dimensions >= 5 (Katz-Tao; Mockenhaupt-Tao 2004), so the two-regime STRUCTURE survives, but this exponent is not verified for the finite field."
-    }
-  ],
-  "leaks": [
-    {
-      "factor": "exponent capped near n/2",
-      "mechanism": "union bound over m items",
-      "regime": "low-dimensional",
-      "evidence": "The bush argument double-counts incidences and uses no structure in the direction set; Cauchy-Schwarz sees pairwise line interactions only.",
-      "ranking": "leading for this regime (blind encoder, L2)"
-    },
-    {
-      "factor": "qualitative-only exponent",
-      "mechanism": "feasibility theorem",
-      "regime": "high-dimensional",
-      "evidence": "Bourgain-Katz-Tao supplies only a qualitative sum-product exponent, so the gain is not quantitative.",
-      "ranking": "leading for this regime (blind encoder, L2)"
-    }
-  ],
-  "correction": {
-    "status": "CORRECTED",
-    "source": "L2 blind re-encoding + arithmetic",
-    "was": "|K| >~ q^{(n+2)/2}, later about q^{4n/7} — ordered as though 4n/7 superseded Wolff",
-    "why": "(n+2)/2 > 4n/7 exactly when n < 14; they meet at n = 14. No single exponent dominated uniformly at the 2008 cutoff. The two regimes leak differently, so a single-regime bound field forced a single leak where there are two.",
-    "verified_by": "tools/check_corrections.py",
-    "second_error": {
-      "status": "DISPUTED",
-      "source": "CITATIONS.md row C5-4n7",
-      "what": "Beyond the ordering error L2 found, the high-dimensional exponent itself appears to import a Euclidean Minkowski-dimension bound into a finite-field cardinality bound.",
-      "consequence": "The n < 14 crossover in tools/check_corrections.py is correct AS ARITHMETIC on the two exponents as P1 writes them, but if 4n/7 is not the finite-field exponent then the crossover POINT is an artefact. The two-regime finding that motivated the schema change does not depend on the crossover point."
-    }
-  },
-  "move_kind": {
-    "kind": "formula",
-    "reason": "bush/hairbrush incidence counting is computed",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  {
+   "cite": "best pre-Dvir exponent",
+   "date": "pre-2008",
+   "verified": false,
+   "debt": "the seed wrote about q^{4n/7} with low confidence; not fetched",
+   "citation_row": "C5-4n7",
+   "tier": "NONE",
+   "basis": "Row C5-4n7 is DISPUTED: 4n/7 + 3/7 is Katz-Tao's EUCLIDEAN Minkowski-dimension bound and no source reached here states it for |K| in F_q^n. The two-regime structure survives; the exponent does not."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "low-dimensional",
+   "bound": "|K| >~ q^{(n+2)/2}  (Wolff, bush argument)",
+   "valid_range": "best known for n < 14",
+   "sources": [
+    "Wolff 1999 (hairbrush/bush)"
+   ],
+   "verified": true
+  },
+  {
+   "regime": "high-dimensional",
+   "bound": "|K| >~ q^{4n/7}  (via sum-product)",
+   "valid_range": "exceeds Wolff only for n >= 15; the two are equal at n = 14",
+   "sources": [
+    "Bourgain-Katz-Tao sum-product"
+   ],
+   "verified": false,
+   "status": "DISPUTED",
+   "dispute": "Katz-Tao's 4n/7 + 3/7 is a lower bound on the MINKOWSKI DIMENSION of Kakeya sets in R^n — the Euclidean problem. No source reached this session states an exponent 4n/7 for |K| in F_q^n. Finite-field improvements over (n+2)/2 do exist in dimensions >= 5 (Katz-Tao; Mockenhaupt-Tao 2004), so the two-regime STRUCTURE survives, but this exponent is not verified for the finite field."
+  }
+ ],
+ "leaks": [
+  {
+   "factor": "exponent capped near n/2",
+   "mechanism": "union bound over m items",
+   "regime": "low-dimensional",
+   "evidence": "The bush argument double-counts incidences and uses no structure in the direction set; Cauchy-Schwarz sees pairwise line interactions only.",
+   "ranking": "leading for this regime (blind encoder, L2)"
+  },
+  {
+   "factor": "qualitative-only exponent",
+   "mechanism": "feasibility theorem",
+   "regime": "high-dimensional",
+   "evidence": "Bourgain-Katz-Tao supplies only a qualitative sum-product exponent, so the gain is not quantitative.",
+   "ranking": "leading for this regime (blind encoder, L2)"
+  }
+ ],
+ "correction": {
+  "status": "CORRECTED",
+  "source": "L2 blind re-encoding + arithmetic",
+  "was": "|K| >~ q^{(n+2)/2}, later about q^{4n/7} — ordered as though 4n/7 superseded Wolff",
+  "why": "(n+2)/2 > 4n/7 exactly when n < 14; they meet at n = 14. No single exponent dominated uniformly at the 2008 cutoff. The two regimes leak differently, so a single-regime bound field forced a single leak where there are two.",
+  "verified_by": "tools/check_corrections.py",
+  "second_error": {
+   "status": "DISPUTED",
+   "source": "CITATIONS.md row C5-4n7",
+   "what": "Beyond the ordering error L2 found, the high-dimensional exponent itself appears to import a Euclidean Minkowski-dimension bound into a finite-field cardinality bound.",
+   "consequence": "The n < 14 crossover in tools/check_corrections.py is correct AS ARITHMETIC on the two exponents as P1 writes them, but if 4n/7 is not the finite-field exponent then the crossover POINT is an artefact. The two-regime finding that motivated the schema change does not depend on the crossover point."
+  }
+ },
+ "move_kind": {
+  "kind": "formula",
+  "reason": "bush/hairbrush incidence counting is computed",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "formula",
+   "reason": "Bush/hairbrush incidence counting is executed as a count.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)",
+   "rater_confidence": "lower -- the heavy-point selection in the bush argument is a pigeonhole existence step"
+  }
+ }
 }

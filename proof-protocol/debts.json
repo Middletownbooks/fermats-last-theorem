@@ -360,12 +360,12 @@
   {
    "id": "D35",
    "kind": "single-rater-field",
-   "state": "open",
-   "status": "open",
-   "confidence": "certain -- one rater, and it is load-bearing",
+   "state": "closed",
+   "status": "measured",
+   "confidence": "measured blind on all 17 items, and the result is negative: kappa 0.430 on the codable 15",
    "where": "p1-retrodiction/cases/*/before.json move_kind; controls/*.json move_kind",
-   "claim": "`move_kind` is the binding conjunct of the transformable-board screen -- it is what makes the screen selective, since extending the tightness field cannot create a fire without it -- and it was assigned by one instance, for debt D9, with no second reading.",
-   "action": "A one-field blind rating sheet, the cheapest test this tree has left: is the move a formula that is carried out, or an existence theorem that asserts a good object exists? Two categories, 17 items, and the D20 instrument already built. If move_kind does not reproduce, the screen has no selectivity and FINDER.md's precision figure is noise."
+   "claim": "`move_kind` is the binding conjunct of the transformable-board screen -- it is what makes the screen selective, since extending the tightness field cannot create a fire without it -- and it was assigned by one instance, for debt D9, with no second reading. MEASURED, AND IT DOES NOT REPRODUCE: Cohen's kappa = 0.430 on the 15 items whose recorded text does not state its own answer (0.463 on all 17, 0.286 on the two-class subset), against a pre-registered threshold of 0.6. All six disagreements run ONE WAY -- my column says formula where the blind rater says existence-theorem or no-move-recorded -- so it is a systematic criterion difference, not noise: I asked whether the record's prose reads like a computation, the rater asked whether the move can proceed before a good object is shown to exist by pigeonhole, averaging or the probabilistic method. The rater's criterion is the better one.",
+   "action": "DONE, and the consequence is not the one the prereg predicted. Run in p1-retrodiction/d35: sheet DERIVED from the case files by build_sheet.py, scored by score_d35.py against PREREG_D35.md, both committed before the answer existed; write-up in REPORT_D35.md. Two findings the prereg did not anticipate. (1) The screen's OUTPUT IS UNCHANGED under the rater's column -- it still fires on 02-cap-set and 04-kadison-singer alone -- because it is gated on the tightness field, which only 2 of 17 items have, so the unreliability is MASKED BY THE COVERAGE BOTTLENECK rather than absent (screen_under_rater2.py computes both columns). (2) Precision 2/2 was therefore never a measurement: all 13 cases are successes whose board changed, so every fire is a true positive by construction, and a figure that survives redefining a third of its input is arithmetic. FINDER.md now says so. Remedy applied: the instrument's T2 demands the NAMED OBJECT (which theorem and what it costs, or the formula written out) rather than the label, which is the same remedy the D20 run forced on the five-transformation vocabulary; and every move_kind field now carries the blind second reading beside my code, with a negative-tested gate in check_consistency.py that fails if a second reading is missing, if all 17 come to agree (the disagreements overwritten), or if agrees_with_first is flipped to hide one. My column was NOT overwritten: it is the only measurement of itself there is."
   },
   {
    "id": "D36",
@@ -410,6 +410,17 @@
    "claim": "T3's COVERAGE -- the claim that its question parses on exactly 3 of the 6 benchmark boards -- was assessed by one rater (this session) with hindsight of every after-board. The classification may be a property of the boards or a judgement of mine, and the file as written cannot tell the two apart.",
    "why_it_matters": "This tree's standing finding is that a verdict scored by whoever chose the items is not a measurement (D23, D27). A coverage column is weaker than a verdict -- it asks only whether a question is well-posed -- but it is doing load-bearing work: it is the reason PROMPT.md now permits T3 to be declined, and the reason T3 is claimed to be complementary to rather than redundant with the leak taxonomy.",
    "action": "DONE. Scored by Claim-2 board-finder/controls/score_coverage.py against PREREG_COVERAGE.md; verdicts in coverage_verdicts.json, write-up in REPORT_COVERAGE.md. Agreement 6/6 -- the same three boards decline -- so both pre-registered failure conditions are retired, the worse one (a DIFFERENT three) included. One quantity prediction missed (04-kadison-singer's scale is the constant in 1/2 + C sqrt(delta), not delta), and the committed scorer over-credited it on a substring; the rule was left as committed and the adjudication recorded beside it. Three corrections the rater forced: T3's inference sentence overstated what a cap licenses (now fixed, with a monotonicity check); only one of the three parsing boards is a LITERAL fit, the other two need one step of interpretation; and forcing a scale on 13-pcp yields a threshold pointing the WRONG way, which would have scored as a pass. Residual, and it is not closable here: the second rater is the same kind of rater as the first."
+  },
+  {
+   "id": "D40",
+   "kind": "masked-by-coverage",
+   "state": "open",
+   "status": "registered-prediction",
+   "confidence": "the masking is computed, not argued (screen_under_rater2.py); what happens when it lifts is a prediction",
+   "where": "p1-retrodiction/tools/finder.py; p3-taxonomy/d28_bound_strength.json; Claim-2 board-finder/FINDER.md sec. 5",
+   "claim": "THE SCREEN IS CURRENTLY INSENSITIVE TO ITS OWN UNRELIABLE INPUT, and only because of a second scarcity. move_kind does not reproduce between raters (D35, kappa 0.430), but the screen fires on move_kind AND a tightness assignment, and only 2 of 17 items have both. The four items the blind rater moved into the existence-theorem class have no tightness assignment, so they never reach the screen. Fill the tightness field and the screen's yield becomes column-dependent: 2 fires under my column against up to 6 under the rater's.",
+   "why_it_matters": "It is the wrong kind of stability. The screen looks robust -- identical output under a column that reclassifies a third of the corpus -- and the robustness is an artefact of reading almost nothing. Any work that improves coverage, which FINDER.md sec. 5 names as the priority, will convert this hidden disagreement into a visible one, and whoever does that work should know the number they are about to change.",
+   "action": "Before the tightness field is extended, fix the criterion the two columns differ on and record it as a rule that a third party can apply: name the object the move needs (a theorem, or the formula) rather than choosing a label. Then re-rate blind, both columns, and report the kappa with the coverage figure beside it. Prediction registered as P-28 so the outcome is scoreable either way."
   }
  ],
  "failure_register": [

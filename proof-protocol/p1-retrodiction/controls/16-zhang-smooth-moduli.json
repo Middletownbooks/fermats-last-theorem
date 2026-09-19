@@ -1,61 +1,69 @@
 {
-  "id": "16-zhang-smooth-moduli",
-  "problem": "Bounded prime gaps via smooth moduli (Zhang 2013)",
-  "role": "control",
-  "control_kind": "no-board-change-at-this-level",
-  "expected_diagnostic_behaviour": "must-not-fire",
-  "twin_of": "07-small-prime-gaps",
-  "within_problem_pair": true,
-  "board": {
-    "name": "the GPY sieve, UNCHANGED",
-    "S": "Selberg sieve weights lambda_d, one-variable F -- exactly GPY's",
-    "M": "Selberg's explicit formula, unchanged",
-    "I": "the same ratio criterion, still capped at 2*theta"
-  },
-  "what_happened": "Zhang works WITHIN GPY. He does not touch the sieve; he improves its INPUT, raising the effective level of distribution past 1/2 for smooth moduli: Theorem 3.2, y-smooth moduli, Q = x^{1/2+eta}, eta/2 = delta = 1/1168. Granville sec. 5 asks whether GPY survives Zhang's restrictions -- i.e. Zhang is measured against an unchanged GPY board.",
-  "tests_for": "False board-change alarms, and uniquely: it is CONTEMPORANEOUS with a real board change on the SAME problem at the same stakes (case 7a). Every other positive/control comparison in P1 is cross-problem and confounded by difficulty. This one is not.",
-  "level_flag": {
-    "warning": "ZHANG IS NOT SIMPLY BETTER PLAY, and calling him that would mislabel this control.",
-    "what_he_did": "He changed the EQUIDISTRIBUTION board one level down -- smooth moduli, factored modulus, Graham-Ringrose. So 7b is a LEVEL-(n-1) BOARD CHANGE feeding an UNCHANGED LEVEL-n board.",
-    "consequence": "This is a THIRD CATEGORY the five-transformation catalogue never had and the rebuilt diagnostic does not express. The control is valid only with the level stated: at level n (the sieve) the board did not change, which is what a diagnostic reading the sieve board must not fire on. At level n-1 it did.",
-    "recorded_as": "debt D30",
-    "superseded_for_machine_reading_by": "the `level` field, axis = input-level, added by tools/assign_levels.py. This paragraph stays as the argument; the field is what a scorer reads, and tools/validate.py now fails any control whose axis is missing or same-level. D30's action is satisfied by the field, not by this prose."
-  },
-  "sources": [
-    {
-      "cite": "Zhang 2013, Theorem 3.2 (y-smooth moduli, Q = x^{1/2+eta}, delta = 1/1168)",
-      "date": "2013",
-      "verified": true,
-      "citation_row": "C7",
-      "tier": "PRIMARY (pasted transcript)",
-      "basis": "Row C7 verifies Zhang's Theorem 3.2 (y-smooth moduli, Q = x^{1/2+eta}, delta = 1/1168) as one of the two after-boards, from the Granville transcript."
-    }
-  ],
-  "verification_sources": [
-    {
-      "cite": "Granville arXiv:1410.8400 sec. 5",
-      "date": "2014",
-      "verified": true,
-      "role": "fetched source for the split and the level reading",
-      "citation_row": "C7",
-      "tier": "PRIMARY (pasted transcript)",
-      "basis": "The transcript itself; section 5 is what supplies the level reading and the split."
-    }
-  ],
-  "encoder": "citations-response-2026-09-18",
-  "encoding_pass": "case-7-split",
-  "level": {
-    "axis": "input-level",
-    "confidence": "high",
-    "object_changed": "The equidistribution input one level down: y-smooth moduli, factored modulus, Graham-Ringrose, Q = x^{1/2+eta} with delta = 1/1168.",
-    "what_stayed_fixed": "The GPY sieve at level n -- the weights, Selberg's formula and the ratio criterion are untouched.",
-    "basis": "THE ITEM THIS AXIS EXISTS FOR. Its level_flag already said this in prose; the axis now says it in a field, so a scorer can read it without reading the paragraph.",
-    "assigned_by": "this session, single-encoder and unvalidated",
-    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
-  },
-  "move_kind": {
-    "kind": "formula",
-    "reason": "Selberg's lambda(d) = mu(d)G(log d / log R) is written down explicitly -- the same move as case 7's before-board, which is the point of this control.",
-    "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer."
+ "id": "16-zhang-smooth-moduli",
+ "problem": "Bounded prime gaps via smooth moduli (Zhang 2013)",
+ "role": "control",
+ "control_kind": "no-board-change-at-this-level",
+ "expected_diagnostic_behaviour": "must-not-fire",
+ "twin_of": "07-small-prime-gaps",
+ "within_problem_pair": true,
+ "board": {
+  "name": "the GPY sieve, UNCHANGED",
+  "S": "Selberg sieve weights lambda_d, one-variable F -- exactly GPY's",
+  "M": "Selberg's explicit formula, unchanged",
+  "I": "the same ratio criterion, still capped at 2*theta"
+ },
+ "what_happened": "Zhang works WITHIN GPY. He does not touch the sieve; he improves its INPUT, raising the effective level of distribution past 1/2 for smooth moduli: Theorem 3.2, y-smooth moduli, Q = x^{1/2+eta}, eta/2 = delta = 1/1168. Granville sec. 5 asks whether GPY survives Zhang's restrictions -- i.e. Zhang is measured against an unchanged GPY board.",
+ "tests_for": "False board-change alarms, and uniquely: it is CONTEMPORANEOUS with a real board change on the SAME problem at the same stakes (case 7a). Every other positive/control comparison in P1 is cross-problem and confounded by difficulty. This one is not.",
+ "level_flag": {
+  "warning": "ZHANG IS NOT SIMPLY BETTER PLAY, and calling him that would mislabel this control.",
+  "what_he_did": "He changed the EQUIDISTRIBUTION board one level down -- smooth moduli, factored modulus, Graham-Ringrose. So 7b is a LEVEL-(n-1) BOARD CHANGE feeding an UNCHANGED LEVEL-n board.",
+  "consequence": "This is a THIRD CATEGORY the five-transformation catalogue never had and the rebuilt diagnostic does not express. The control is valid only with the level stated: at level n (the sieve) the board did not change, which is what a diagnostic reading the sieve board must not fire on. At level n-1 it did.",
+  "recorded_as": "debt D30",
+  "superseded_for_machine_reading_by": "the `level` field, axis = input-level, added by tools/assign_levels.py. This paragraph stays as the argument; the field is what a scorer reads, and tools/validate.py now fails any control whose axis is missing or same-level. D30's action is satisfied by the field, not by this prose."
+ },
+ "sources": [
+  {
+   "cite": "Zhang 2013, Theorem 3.2 (y-smooth moduli, Q = x^{1/2+eta}, delta = 1/1168)",
+   "date": "2013",
+   "verified": true,
+   "citation_row": "C7",
+   "tier": "PRIMARY (pasted transcript)",
+   "basis": "Row C7 verifies Zhang's Theorem 3.2 (y-smooth moduli, Q = x^{1/2+eta}, delta = 1/1168) as one of the two after-boards, from the Granville transcript."
   }
+ ],
+ "verification_sources": [
+  {
+   "cite": "Granville arXiv:1410.8400 sec. 5",
+   "date": "2014",
+   "verified": true,
+   "role": "fetched source for the split and the level reading",
+   "citation_row": "C7",
+   "tier": "PRIMARY (pasted transcript)",
+   "basis": "The transcript itself; section 5 is what supplies the level reading and the split."
+  }
+ ],
+ "encoder": "citations-response-2026-09-18",
+ "encoding_pass": "case-7-split",
+ "level": {
+  "axis": "input-level",
+  "confidence": "high",
+  "object_changed": "The equidistribution input one level down: y-smooth moduli, factored modulus, Graham-Ringrose, Q = x^{1/2+eta} with delta = 1/1168.",
+  "what_stayed_fixed": "The GPY sieve at level n -- the weights, Selberg's formula and the ratio criterion are untouched.",
+  "basis": "THE ITEM THIS AXIS EXISTS FOR. Its level_flag already said this in prose; the axis now says it in a field, so a scorer can read it without reading the paragraph.",
+  "assigned_by": "this session, single-encoder and unvalidated",
+  "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+ },
+ "move_kind": {
+  "kind": "formula",
+  "reason": "Selberg's lambda(d) = mu(d)G(log d / log R) is written down explicitly -- the same move as case 7's before-board, which is the point of this control.",
+  "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "formula",
+   "reason": "Same explicit Selberg weights, reused unchanged.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)",
+   "caveat": "the shown text contains its own answer (explicit, formula), so agreement here is not evidence"
+  }
+ }
 }

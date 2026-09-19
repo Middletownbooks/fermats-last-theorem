@@ -1,71 +1,78 @@
 {
-  "id": "06-erdos-distinct-distances",
-  "problem": "Erdos distinct distances",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Guth-Katz",
-    "ref": "arXiv:1011.4105",
-    "date": "2010-11-01"
+ "id": "06-erdos-distinct-distances",
+ "problem": "Erdos distinct distances",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Guth-Katz",
+  "ref": "arXiv:1011.4105",
+  "date": "2010-11-01"
+ },
+ "before_board": {
+  "S": "N points in the plane.",
+  "M": "Count isosceles triangles, or circle incidences.",
+  "I": "Szemeredi-Trotter-type bounds.",
+  "C": null,
+  "T": null
+ },
+ "bound_then": "N^{0.864} (Katz-Tardos 2004).",
+ "leak": "Circle incidence bounds are weaker than line incidence bounds. The exponent stays stuck below 1.",
+ "sources_before": [
+  {
+   "cite": "Katz, Tardos 2004",
+   "date": "2004",
+   "verified": false,
+   "citation_row": null,
+   "tier": "NONE",
+   "basis": "No row covers the Katz-Tardos before-bound. Row C6-after verifies the AFTER board (Guth-Katz, Elekes-Sharir plus polynomial partitioning), which is a different claim."
   },
-  "before_board": {
-    "S": "N points in the plane.",
-    "M": "Count isosceles triangles, or circle incidences.",
-    "I": "Szemeredi-Trotter-type bounds.",
-    "C": null,
-    "T": null
-  },
-  "bound_then": "N^{0.864} (Katz-Tardos 2004).",
-  "leak": "Circle incidence bounds are weaker than line incidence bounds. The exponent stays stuck below 1.",
-  "sources_before": [
-    {
-      "cite": "Katz, Tardos 2004",
-      "date": "2004",
-      "verified": false,
-      "citation_row": null,
-      "tier": "NONE",
-      "basis": "No row covers the Katz-Tardos before-bound. Row C6-after verifies the AFTER board (Guth-Katz, Elekes-Sharir plus polynomial partitioning), which is a different claim."
-    },
-    {
-      "cite": "Szemeredi, Trotter 1983",
-      "date": "1983",
-      "verified": true,
-      "citation_row": "TWINS-batch2",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "The Szemeredi-Trotter theorem and its tightness are verified in row TWINS-batch2 (twin N18, with Elekes's construction). That covers the STATEMENT the item cites; no row addresses case 6's particular use of it."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "N^{0.864} (Katz-Tardos 2004).",
-      "valid_range": "all n in scope",
-      "sources": [
-        "Katz, Tardos 2004",
-        "Szemeredi, Trotter 1983"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "Circle incidence bounds are weaker than line incidence bounds. The exponent stays stuck below 1.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_kind": {
-    "kind": "formula",
-    "reason": "counting isosceles triangles / circle incidences",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+  {
+   "cite": "Szemeredi, Trotter 1983",
+   "date": "1983",
+   "verified": true,
+   "citation_row": "TWINS-batch2",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "The Szemeredi-Trotter theorem and its tightness are verified in row TWINS-batch2 (twin N18, with Elekes's construction). That covers the STATEMENT the item cites; no row addresses case 6's particular use of it."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "N^{0.864} (Katz-Tardos 2004).",
+   "valid_range": "all n in scope",
+   "sources": [
+    "Katz, Tardos 2004",
+    "Szemeredi, Trotter 1983"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "Circle incidence bounds are weaker than line incidence bounds. The exponent stays stuck below 1.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_kind": {
+  "kind": "formula",
+  "reason": "counting isosceles triangles / circle incidences",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "formula",
+   "reason": "A double count of isosceles triangles/incidences is computed.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)"
+  }
+ }
 }

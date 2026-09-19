@@ -1,62 +1,70 @@
 {
-  "id": "12-geometrization",
-  "problem": "Geometrization / Ricci flow",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Perelman",
-    "ref": "arXiv:math/0211159",
-    "date": "2002-11-01"
-  },
-  "before_board": {
-    "S": "A metric under Ricci flow (Hamilton).",
-    "M": null,
-    "I": "Curvature pinching via the maximum principle.",
-    "C": null,
-    "T": "A round or decomposed limit."
-  },
-  "bound_then": "The programme was blocked at singularities.",
-  "leak": "There is no control on collapsing at singular times, so the cigar soliton cannot be excluded. This is qualitative.",
-  "sources_before": [
-    {
-      "cite": "Hamilton, Ricci flow programme",
-      "date": "1982-1999",
-      "verified": false,
-      "citation_row": "C12",
-      "tier": "NONE",
-      "basis": "Row C12 is PARTIAL and about Perelman's entropy and reduced volume; nothing covers Hamilton's Ricci flow programme as the before-board."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "The programme was blocked at singularities.",
-      "valid_range": "all n in scope",
-      "sources": [
-        "Hamilton, Ricci flow programme"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "There is no control on collapsing at singular times, so the cigar soliton cannot be excluded. This is qualitative.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_kind": {
-    "kind": "formula",
-    "reason": "Ricci flow is a defined evolution",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+ "id": "12-geometrization",
+ "problem": "Geometrization / Ricci flow",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Perelman",
+  "ref": "arXiv:math/0211159",
+  "date": "2002-11-01"
+ },
+ "before_board": {
+  "S": "A metric under Ricci flow (Hamilton).",
+  "M": null,
+  "I": "Curvature pinching via the maximum principle.",
+  "C": null,
+  "T": "A round or decomposed limit."
+ },
+ "bound_then": "The programme was blocked at singularities.",
+ "leak": "There is no control on collapsing at singular times, so the cigar soliton cannot be excluded. This is qualitative.",
+ "sources_before": [
+  {
+   "cite": "Hamilton, Ricci flow programme",
+   "date": "1982-1999",
+   "verified": false,
+   "citation_row": "C12",
+   "tier": "NONE",
+   "basis": "Row C12 is PARTIAL and about Perelman's entropy and reduced volume; nothing covers Hamilton's Ricci flow programme as the before-board."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "The programme was blocked at singularities.",
+   "valid_range": "all n in scope",
+   "sources": [
+    "Hamilton, Ricci flow programme"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "There is no control on collapsing at singular times, so the cigar soliton cannot be excluded. This is qualitative.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_kind": {
+  "kind": "formula",
+  "reason": "Ricci flow is a defined evolution",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "n/a",
+   "reason": "No move slot recorded.",
+   "agrees_with_first": false,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)",
+   "caveat": "the record has NO move slot for this item; the rater was shown the rest of the board and declined, which is a coverage failure of the record where my column filled it"
+  }
+ }
 }

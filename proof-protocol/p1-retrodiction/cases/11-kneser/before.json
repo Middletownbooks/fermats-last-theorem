@@ -1,62 +1,70 @@
 {
-  "id": "11-kneser",
-  "problem": "Kneser conjecture",
-  "role": "positive",
-  "flag": null,
-  "supersede": {
-    "paper": "Lovasz",
-    "ref": "Lovasz 1978",
-    "date": "1978-01-01"
-  },
-  "before_board": {
-    "S": "A colouring of the k-subsets of [n].",
-    "M": "Combinatorial and inductive arguments.",
-    "I": null,
-    "C": null,
-    "T": null
-  },
-  "bound_then": "chi <= n - 2k + 2 known (Kneser 1955); no matching lower bound.",
-  "leak": "No factor. Counting cannot see the obstruction, which is qualitative.",
-  "sources_before": [
-    {
-      "cite": "Kneser 1955",
-      "date": "1955",
-      "verified": true,
-      "citation_row": "C11",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C11 verifies the Kneser 1955 upper bound chi <= n-2k+2 alongside the Lovasz after-board."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "blind_reencoding": {
-    "done": false,
-    "encoder": null,
-    "kappa": null
-  },
-  "schema_version": 2,
-  "bound_regimes": [
-    {
-      "regime": "sole",
-      "bound": "chi <= n - 2k + 2 known (Kneser 1955); no matching lower bound.",
-      "valid_range": "all n in scope",
-      "sources": [
-        "Kneser 1955"
-      ]
-    }
-  ],
-  "leaks": [
-    {
-      "factor": null,
-      "mechanism": "other",
-      "regime": "sole",
-      "evidence": "No factor. Counting cannot see the obstruction, which is qualitative.",
-      "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
-    }
-  ],
-  "move_kind": {
-    "kind": "formula",
-    "reason": "combinatorial and inductive arguments",
-    "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature."
+ "id": "11-kneser",
+ "problem": "Kneser conjecture",
+ "role": "positive",
+ "flag": null,
+ "supersede": {
+  "paper": "Lovasz",
+  "ref": "Lovasz 1978",
+  "date": "1978-01-01"
+ },
+ "before_board": {
+  "S": "A colouring of the k-subsets of [n].",
+  "M": "Combinatorial and inductive arguments.",
+  "I": null,
+  "C": null,
+  "T": null
+ },
+ "bound_then": "chi <= n - 2k + 2 known (Kneser 1955); no matching lower bound.",
+ "leak": "No factor. Counting cannot see the obstruction, which is qualitative.",
+ "sources_before": [
+  {
+   "cite": "Kneser 1955",
+   "date": "1955",
+   "verified": true,
+   "citation_row": "C11",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Row C11 verifies the Kneser 1955 upper bound chi <= n-2k+2 alongside the Lovasz after-board."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "blind_reencoding": {
+  "done": false,
+  "encoder": null,
+  "kappa": null
+ },
+ "schema_version": 2,
+ "bound_regimes": [
+  {
+   "regime": "sole",
+   "bound": "chi <= n - 2k + 2 known (Kneser 1955); no matching lower bound.",
+   "valid_range": "all n in scope",
+   "sources": [
+    "Kneser 1955"
+   ]
+  }
+ ],
+ "leaks": [
+  {
+   "factor": null,
+   "mechanism": "other",
+   "regime": "sole",
+   "evidence": "No factor. Counting cannot see the obstruction, which is qualitative.",
+   "ranking": "leading (single-encoder; the ranking is the field L2 found does not reproduce)"
+  }
+ ],
+ "move_kind": {
+  "kind": "formula",
+  "reason": "combinatorial and inductive arguments",
+  "note": "Added for D9. schema v2 makes this its own field; P1 asked for it in prose, which is why L2 found `move` non-comparable on its defining feature.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "formula",
+   "reason": "Induction/case analysis is carried out; no prior object needed (vague entry).",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)",
+   "rater_confidence": "lowest of the 17 -- the entry is generic enough that it could be read as no real move"
+  }
+ }
 }

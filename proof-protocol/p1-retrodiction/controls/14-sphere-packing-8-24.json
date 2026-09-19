@@ -1,63 +1,71 @@
 {
-  "id": "14-sphere-packing-8-24",
-  "problem": "Sphere packing in dimensions 8 and 24",
-  "role": "control",
-  "control_kind": "no-board-change",
-  "expected_diagnostic_behaviour": "must-not-fire",
-  "board": {
-    "name": "Cohn-Elkies 2003",
-    "S": "An auxiliary function f with f <= 0 for |x| >= r, f-hat >= 0, f(0) = f-hat(0).",
-    "T": "A density bound."
+ "id": "14-sphere-packing-8-24",
+ "problem": "Sphere packing in dimensions 8 and 24",
+ "role": "control",
+ "control_kind": "no-board-change",
+ "expected_diagnostic_behaviour": "must-not-fire",
+ "board": {
+  "name": "Cohn-Elkies 2003",
+  "S": "An auxiliary function f with f <= 0 for |x| >= r, f-hat >= 0, f(0) = f-hat(0).",
+  "T": "A density bound."
+ },
+ "what_happened": "Viazovska supplied the terminal certificate on that board, and numerics had already shown it was tight. The actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies.",
+ "tests_for": "False board-change alarms, where the board is right and only the certificate is hard.",
+ "reclassification": {
+  "from_": "board-change case",
+  "to": "same-board control",
+  "rationale": "The seed reclassified this [R, K]. Listed in DEBTS.md as an open adjudication.",
+  "adjudicated": false
+ },
+ "sources": [
+  {
+   "cite": "Cohn, Elkies 2003",
+   "date": "2003",
+   "verified": true,
+   "citation_row": "C14",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Row C14 and adjudication ADJ-14 verify that Cohn-Elkies 2003 was the first improvement in each dimension since Kabatyanskii-Levenshtein 1978, and that the authors THEMSELVES conjectured their board would settle dimensions 8 and 24 -- which is the documentary form of the claim that made this item a control rather than a board change."
   },
-  "what_happened": "Viazovska supplied the terminal certificate on that board, and numerics had already shown it was tight. The actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies.",
-  "tests_for": "False board-change alarms, where the board is right and only the certificate is hard.",
-  "reclassification": {
-    "from_": "board-change case",
-    "to": "same-board control",
-    "rationale": "The seed reclassified this [R, K]. Listed in DEBTS.md as an open adjudication.",
-    "adjudicated": false
+  {
+   "cite": "Viazovska 2016",
+   "date": "2016",
+   "verified": false,
+   "citation_row": null,
+   "tier": "NONE",
+   "basis": "NOT covered by any row. C14 verifies the BOARD claim, not Viazovska's certificate, which no pass has checked. The control does not depend on it: what makes this a control is that the board was already known to be tight."
   },
-  "sources": [
-    {
-      "cite": "Cohn, Elkies 2003",
-      "date": "2003",
-      "verified": true,
-      "citation_row": "C14",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Row C14 and adjudication ADJ-14 verify that Cohn-Elkies 2003 was the first improvement in each dimension since Kabatyanskii-Levenshtein 1978, and that the authors THEMSELVES conjectured their board would settle dimensions 8 and 24 -- which is the documentary form of the claim that made this item a control rather than a board change."
-    },
-    {
-      "cite": "Viazovska 2016",
-      "date": "2016",
-      "verified": false,
-      "citation_row": null,
-      "tier": "NONE",
-      "basis": "NOT covered by any row. C14 verifies the BOARD claim, not Viazovska's certificate, which no pass has checked. The control does not depend on it: what makes this a control is that the board was already known to be tight."
-    },
-    {
-      "cite": "Kabatiansky, Levenshtein 1978",
-      "date": "1978",
-      "verified": true,
-      "citation_row": "C14",
-      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
-      "basis": "Same row: KL 1978 is the board Cohn-Elkies replaced, so the board change in this problem is KL -> Cohn-Elkies, not Cohn-Elkies -> Viazovska."
-    }
-  ],
-  "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated",
-  "sourcing_pass": "flags reconciled with citations.json 2026-09-19: they had said verified: false for all three sources while row C14 stood VERIFIED, which is the same prose-versus-data drift recorded in D19.",
-  "level": {
-    "axis": "none",
-    "confidence": "high",
-    "object_changed": "Nothing. Viazovska supplied the terminal certificate on the Cohn-Elkies board.",
-    "what_stayed_fixed": "The whole board: per ADJ-14 the board change in this problem was Kabatyanskii-Levenshtein -> Cohn-Elkies in 2003.",
-    "basis": "A control: the axis reads none because no board changed at any level.",
-    "assigned_by": "this session, single-encoder and unvalidated",
-    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
-  },
-  "move_kind": {
-    "kind": "n/a",
-    "reason": "P1 records S and T only for this control -- the Cohn-Elkies board is an auxiliary-function certificate, with no move slot to classify. Recorded as n/a rather than guessed.",
-    "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer."
+  {
+   "cite": "Kabatiansky, Levenshtein 1978",
+   "date": "1978",
+   "verified": true,
+   "citation_row": "C14",
+   "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+   "basis": "Same row: KL 1978 is the board Cohn-Elkies replaced, so the board change in this problem is KL -> Cohn-Elkies, not Cohn-Elkies -> Viazovska."
   }
+ ],
+ "encoder": "seed-chat-instance-2026-09-18",
+ "encoding_pass": "v0-single-encoder-contaminated",
+ "sourcing_pass": "flags reconciled with citations.json 2026-09-19: they had said verified: false for all three sources while row C14 stood VERIFIED, which is the same prose-versus-data drift recorded in D19.",
+ "level": {
+  "axis": "none",
+  "confidence": "high",
+  "object_changed": "Nothing. Viazovska supplied the terminal certificate on the Cohn-Elkies board.",
+  "what_stayed_fixed": "The whole board: per ADJ-14 the board change in this problem was Kabatyanskii-Levenshtein -> Cohn-Elkies in 2003.",
+  "basis": "A control: the axis reads none because no board changed at any level.",
+  "assigned_by": "this session, single-encoder and unvalidated",
+  "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+ },
+ "move_kind": {
+  "kind": "n/a",
+  "reason": "P1 records S and T only for this control -- the Cohn-Elkies board is an auxiliary-function certificate, with no move slot to classify. Recorded as n/a rather than guessed.",
+  "why_added": "the finder screen (FINDER.md) reads move_kind, and its negatives can only come from the controls: the twins have no move slot, and all 13 cases are positives (D26). Before-side field, so it cannot leak an answer.",
+  "second_reading": {
+   "rater": "D35 rater 2, blind: sheet text only, tools forbidden",
+   "kind": "n/a",
+   "reason": "No move slot recorded.",
+   "agrees_with_first": true,
+   "run": "p1-retrodiction/d35 (PREREG_D35.md, verdicts.json, REPORT_D35.md)",
+   "caveat": "the record has NO move slot for this item; the rater was shown the rest of the board and declined, which is a coverage failure of the record where my column filled it"
+  }
+ }
 }
