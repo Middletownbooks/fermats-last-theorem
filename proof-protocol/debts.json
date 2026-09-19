@@ -377,6 +377,28 @@
       "claim": "THE SAME DISCRIMINATOR WAS DERIVED TWICE FROM UNRELATED ARGUMENTS. This tree's `move_kind` field -- is the move a formula that is carried out, or an existence theorem that asserts a good object exists -- was added for debt D9, from adjudicating a contested criterion. The line-by-line audit of Banaszczyk against Guo-Fang-Lu arrived at it from reading the papers: Odin's T_v is a formula, Bansal-Jiang needs SDP duality to guarantee a legal move at every step, and 'that gap is most of the complexity difference between the two papers'.",
       "why_it_matters": "Nothing else in this programme has two independent derivations. The five-label vocabulary has one and scored 0.048; product-law matching has one and was shown surplus by a one-line test. A field two arguments reach separately is the best candidate the tree has for something real -- which makes D35, its single-rater status, the cheapest high-value test left.",
       "action": "Nothing to close. Recorded so that D35's one-field blind rating is understood as testing the most-corroborated field in the tree rather than a housekeeping detail."
+    },
+    {
+      "id": "D37",
+      "kind": "post-hoc-patch",
+      "state": "open",
+      "status": "under-test",
+      "confidence": "the patch is real and the test is running; the pattern it fits is documented",
+      "where": "Claim-2 board-finder/PROMPT.md step 5 (T3); controls/REPORT_CONTROLS.md sec. 3",
+      "claim": "T3 -- evaluate the invariant's threshold on the TARGET state and ask whether it already caps the bound -- was ADDED AFTER the control runs, FROM one of them. Both respondents independently found that a board can pass T1 and T2 and still be capped: the invariant is exactly conserved along the steps, so the whole cost is paid at initialisation, and Banaszczyk's board is capped at Theta(sqrt log n) by that computation alone.",
+      "why_it_matters": "This is the D23/D27 pattern exactly -- a patch derived from the item that broke the rule -- and this tree's standing finding is that two such patches are the signature of fitting rather than testing. The difference this time is that the patch is being tested on a fresh item before it is quoted, which is what D23 and D27 never got.",
+      "action": "The test is the discriminating pair: same problem, same target, SAME MOVE, only the invariant changed -- Gaussian measure bounded below against a carried density with bounded directional total variation. T3 must answer differently across that pair while T1 and T2 do not. Pre-registered in Claim-2 board-finder/controls/PREREG_ARM3.md with the failure condition stated (A-5: if T3 reports a cap on both, it is re-detecting T1/T2 and does not discriminate). Do not quote T3 as a discriminator until that arm is scored."
+    },
+    {
+      "id": "D38",
+      "kind": "instrument-validated",
+      "state": "closed",
+      "status": "measured",
+      "confidence": "n = 2, and the two verdicts are backed by quotes checked verbatim",
+      "where": "Claim-2 board-finder/controls/ (PREREG_CONTROLS.md, both responses, score_controls.py)",
+      "claim": "The board-search instrument's checkability discriminator SEPARATES a real board from a restatement, measured rather than argued: the positive control returned T1 = yes ('a clean pass'), the negative returned 'No -- as recorded this is a RESTATEMENT'. Respondents were fresh contexts, tools forbidden, each given one board and no knowledge of the other.",
+      "why_it_matters": "It is the first instrument in this programme that was validated against a NEGATIVE CONTROL before being used. D25's problem was that every negative in the retrospective corpus is a famous problem, so recall suffices; this negative is a generic trap -- an invariant that cannot be checked until its class is named -- and both respondents recognised the underlying problem yet still had to compute to separate the two boards.",
+      "action": "Nothing to close. Three corrections the runs forced are recorded in REPORT_CONTROLS.md: Banaszczyk's move is an existence theorem and not a formula (my prediction was wrong); the negative control's input wrongly said 'symmetric' convex bodies, which the gluing lemma's bodies are not; and the reference corpus's 'if and only if' between the closure scheme and the conjecture is declined by the respondent -- closure implies the conjecture, the converse is not automatic -- so that iff is now the claim needing a check."
     }
   ],
   "failure_register": [

@@ -65,3 +65,21 @@ Three consequences for this tree:
   adjudicating D9; the audit got it from reading two papers. Nothing else here has that.
 * **D35 is therefore the cheapest high-value test left** — one field, two categories,
   17 items, on the most-corroborated field in the tree.
+
+## The instrument was validated against a negative control before being used
+
+`board-finder/controls/` holds two runs of the board-search prompt on a matched pair — a
+real board and a restatement — by fresh contexts with tools forbidden, each given one board
+and no sight of the other. The positive returned `T1 = yes`; the negative returned *"No —
+as recorded this is a RESTATEMENT."* **D38** records it as the first instrument here
+validated against a negative control rather than argued for, and the reason it matters for
+**D25**: this negative is a generic trap rather than a famous problem, so recall does not
+crack it — both respondents named the underlying conjecture and still had to compute to
+separate the two boards.
+
+The runs corrected three things of mine, all in `REPORT_CONTROLS.md`, and produced one
+finding neither respondent was asked for: a board can pass both discriminators and still be
+capped, because the invariant is exactly conserved along the steps and the whole cost is
+paid at initialisation. That produced a third test, **T3** — which was derived from the run
+that produced it, so **D37** holds it as an untested post-hoc patch, with its discriminating
+pair pre-registered and running.
