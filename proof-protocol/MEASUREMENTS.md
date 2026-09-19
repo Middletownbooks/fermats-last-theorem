@@ -373,6 +373,48 @@ medium confidence on the `same-level`/`reduction-level` boundary and are the fir
 
 ---
 
+## D24 answered: in half the divergences the raters agreed on the mathematics
+
+D24 asked whether the vocabulary gap — five law names with no way to say *"the right law, degraded by
+a log"* — explains anything beyond case 4, and set its own rule: **if it explains only case 4, it is a
+property of that case.** Answered from the three filled rater sheets in `d20/`, with every claim
+verified in `p3-taxonomy/tools/check_d24.py`, which also reproduces the published field κ of **+0.811**
+and **+0.755** as a control on the reading.
+
+Six field-level divergences, all classified: **three** are the gap as stated (cases 1, 2, 4), **two**
+are a second gap D24 never named, and **one** (N2) is a genuine disagreement about the mathematics.
+
+**The sharp part is why.** In cases 1 and 2 *all three raters state the same mathematics* and differ
+only on which word to force it into:
+
+- **Case 1.** A: *"log(n₁+n₂) … is none of the shapes."* B: *"= max(log n₁, log n₂) + O(1), so the
+  counting board obeys a max law."* Verified: the difference is **≤ 1 exactly**, and the ratio → 1.
+- **Case 2.** A: *"3ⁿ/n^{1+ε} is not of the form cⁿ."* C: *"3ⁿ times a polynomial saving that does not
+  tensor."* Verified: the multiplicativity defect is `n₁n₂/(n₁+n₂)` — 500 at n = 1000, against a main
+  term of ≈10⁹⁵⁴.
+
+**The second gap: the vocabulary cannot say *super*multiplicative.** One rater codes `none` on both
+Shannon-capacity items because the finite quantity strictly beats multiplicativity (verified:
+α(C₅⊠C₅) = 5 > 4, and 367 > 3⁵ = 243), while the others code the *limit* as multiplicative — one of
+them while writing *"α itself is only supermultiplicative."* **This is the exact distinction twin N16
+already carried** for border rank. It was in the tree, and nobody had connected it to the vocabulary.
+
+**The verdict is not to grow the vocabulary, and the reason is decisive.** Adding `max-degraded` does
+not decide the case it was invented for: case 4's firing splits A-fires / B-declines / C-fires, and
+the new code leaves exactly the same question — *is `max-degraded` equal to `max` for the purpose of
+firing?* **The decision is about magnitude, not about which law**, so a new category relocates the
+judgement instead of resolving it. The D28 one-line test reads magnitude directly and fires on case 4
+because *"the gap is an unbounded log factor"*, agreeing with two of the three raters and needing no
+category. Third independent appearance of the surplus-machinery finding.
+
+A post-hoc recode would lift the field κ to **+0.941** and **+0.930**. That is *fitting*: it recodes
+after seeing the disagreements, `check_d24.py` prints it labelled as an upper bound, and **it must not
+be quoted.** The published numbers stand at +0.811 and +0.755. What the analysis does change is the
+reading of D20's split: the fields agree even better than measured, while the rule built on them still
+fails — because the rule consumes a *difference of names* where what matters is a *size*.
+
+---
+
 ## Corrections to P1 that are established
 
 ### Case 5 (Kakeya) — the seed's flagged debt was real, and worse than flagged
