@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "Random partition plus matrix Chernoff replaced by interlacing families with a barrier argument.",
+    "what_stayed_fixed": "The object: vectors with sum v v^T = I and small norm, partitioned in two.",
+    "basis": "The dimension-free conclusion comes from the new invariant's behaviour on a direct sum, not from moving the problem.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

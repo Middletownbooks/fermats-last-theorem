@@ -34,5 +34,14 @@
   ],
   "encoder": "this session",
   "encoding_pass": "bloom-sisask-transcript-2026-09-19",
-  "notes": "The same transcript also supplies the ceiling register's open entry (CEILINGS.md) and closed debt D29."
+  "notes": "The same transcript also supplies the ceiling register's open entry (CEILINGS.md) and closed debt D29.",
+  "level": {
+    "axis": "none",
+    "confidence": "high",
+    "object_changed": "Nothing. The same board re-presented with classical Bohr set machinery, plus announced exponent improvements.",
+    "what_stayed_fixed": "The board and the main ideas, by the authors' own statement: 'our sole contribution is at the technical level ... all of the main ideas are the same as in [14]'.",
+    "basis": "A control, and the same-period half of the Roth 2023 control pair with 15.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

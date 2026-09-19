@@ -19,7 +19,7 @@ below drifts from it. One row is UNVERIFIED and three sit below fetched-primary 
 
 | row | tier now | what would close it | stakes |
 |---|---|---|---|
-| **C1-gotsman** Gotsman–Linial 1992 reduction | **UNVERIFIED** — never checked in any pass | the paper, or any source stating the equivalence it asserts | Low as scoring goes: it sits in case 1's *state* slot, not in a bound. But it is the one row in the tree that no pass has ever looked at, and it was missed by the prose twice (see D19). |
+| **C1-gotsman** Gotsman–Linial 1992 reduction | **UNVERIFIED** — never checked in any pass | **arXiv:1907.00847, first two pages** (see below) | Low as scoring goes: it sits in case 1's *state* slot, not in a bound, and case 1 has already left the diagnostic's domain. But it is the one row no pass has ever looked at, and the prose missed it twice (D19). |
 | **C10** parallel repetition | SEARCH | probably unimprovable by transcript — the primaries are largely pre-arXiv | Search reaches it in substance, including the Fortnow-then-Feige ordering. Case 10's `target_law = "none"` rests on these counterexamples. |
 | **C12** Perelman | PARTIAL — bibliographic record only | math/0211159 — one transcript | Low. Case 12 fits none of the five transformations, so it does the least work of any row. |
 | **N2-removable** ε-nets for halfspaces | PARTIAL | the half about removability, as opposed to the O(1/ε) net size that is confirmed | Low; the twin carries the qualifier. |
@@ -27,6 +27,27 @@ below drifts from it. One row is UNVERIFIED and three sit below fetched-primary 
 Two rows are VERIFIED but rest on **STANDARD-tier** claims and say so: **N16** (border rank — the
 sub- versus fully multiplicative distinction is live, arXiv:1801.04852) and **N20** (Kővári–Sós–Turán
 — tight only for t ≥ (s−1)!+1).
+
+## What C1-gotsman needs, precisely
+
+**The claim that needs a source:** that the Sensitivity Conjecture *reduces* to the induced-subgraph
+maximum-degree problem on Q_n — `deg(f) ≤ poly(s(f))` is equivalent to *every induced subgraph of Q_n
+on more than 2^{n−1} vertices has maximum degree n^{Ω(1)}*. That equivalence is the whole reason
+Huang's theorem settles the conjecture, and it is what case 1's **state** slot asserts.
+
+**Cheapest document: arXiv:1907.00847 (Huang), first two pages only.** The introduction has to state
+the Gotsman–Linial reduction in order to explain why the theorem resolves the conjecture. That paste
+closes `C1-gotsman` *and* upgrades `C1-after` from SEARCH to PRIMARY tier — two rows, two pages.
+
+Alternatives, in order: Hatami–Kulkarni–Pankratov, *Variations on the Sensitivity Conjecture* (Theory
+of Computing Library, Graduate Surveys 4, 2011), a survey whose subject is exactly this equivalence;
+O'Donnell's *Analysis of Boolean Functions*, the sensitivity/degree chapter and its notes; or the
+paper itself — Gotsman and Linial, *The equivalence of two problems on the hypercube*, Combinatorica
+12(1) (1992), 131–135, which is pre-arXiv and so the hardest to reach from here.
+
+**What would not close it:** a source that merely *cites* Gotsman–Linial, or that states Huang's
+theorem without the equivalence. Rows `C1-bound` and `C1-after` already cover the bound and the
+theorem; this row is about the reduction.
 
 ## If one more document can be pasted
 

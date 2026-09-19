@@ -320,6 +320,59 @@ authors' own words make the encoding clean.
 
 ---
 
+## The level axis (D30): encoded, and nearly constant on the positives
+
+`D30` said the catalogue has no axis for **what level** a change happened at, and that without one
+"the board did not change" and "a board one level down did change" are the same sentence — which
+would leave control 16 mislabelled. It also said: **do not add a sixth transformation.** The
+transformation vocabulary is untouched and still closed; this is a separate field answering a
+separate question.
+
+All **17** scoreable items now carry `level.axis` (`p1-retrodiction/tools/assign_levels.py`, audited
+by `tools/level_audit.py`, gated by `validate.py`, which now fails a missing or invalid axis and any
+control marked `same-level` — the gate was negative-tested):
+
+| axis | n | items |
+|---|---|---|
+| `same-level` | 10 | cases 1, 2, 3, 4, 5, 7, 8, 10, 12, 13 |
+| `none` | 3 | controls 14, 15, 17 |
+| `reduction-level` | 2 | cases 6 (Elekes–Sharir lift) and 11 (neighbourhood complex) |
+| `substrate` | 1 | case 9 — **contested by the practitioners, not by us** |
+| `input-level` | 1 | control 16 — the item the axis exists for |
+| `unclear` | 0 | deliberately unused, so a later encoder is not forced to choose |
+
+**Three things the full pass shows that control 16 alone does not.**
+
+1. **The axis is nearly constant on the positives — 10 of 13 — and the only `input-level` item in the
+   tree is a *control*.** So it cannot discriminate positives from controls on its own, and must not
+   be sold as if it could. What it does is stop one control from being mislabelled, which is what
+   D30 asked for and all it asked for.
+2. **Case 7a and control 16 are exact complements on the axis**, which is precisely why that pair
+   works: 7a changed the level-*n* board while consuming the same input (Granville: *"one can avoid
+   having to prove any difficult new results about primes in arithmetic progressions"*), and Zhang
+   changed the input while leaving the level-*n* board.
+3. **The corpus contains a two-level stack it never encoded.** Case 13's old board *consumed* case
+   10's object — PCP amplification by parallel repetition — and Dinur's change **removed** that
+   dependence rather than improving it. So one positive is a same-level change that *eliminated* a
+   level below. One instance is not a category, so no axis value was added for it; it lives in case
+   13's basis field.
+
+Case 9 is recorded as `substrate` rather than resolved: Pierce §8.5 argues efficient congruencing and
+ℓ² decoupling share rescaling, multilinear estimates, iteration and transversality, and quotes Wooley
+that they may be *"p-adic and Archimedean perspectives of one unified method."* If that reading is
+right, the item's two after-boards are **one board in two substrates**, and its `multi_answer` rubric
+is scoring a substrate choice rather than a board choice. The axis records the dispute instead of
+settling it.
+
+**The pass is single-encoder and unvalidated**, exactly like the v0 transformation labels that scored
+κ = 0.048. The one reason to expect better is D20's split result — closed-vocabulary *fields*
+reproduced at +0.811 and +0.755 where the *rule* built on them did not, and this is a field. That is a
+reason for optimism, not evidence. The test is the D20 instrument over these 17 items with raters who
+have not read `taxonomy.json`; it is one field, so it is cheaper than D20 was. Cases 6 and 11 sit at
+medium confidence on the `same-level`/`reduction-level` boundary and are the first two to ask about.
+
+---
+
 ## Corrections to P1 that are established
 
 ### Case 5 (Kakeya) — the seed's flagged debt was real, and worse than flagged

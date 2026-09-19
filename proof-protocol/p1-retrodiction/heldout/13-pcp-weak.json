@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "The amplification board: k-fold parallel repetition replaced by graph powering on expanders plus alphabet reduction.",
+    "what_stayed_fixed": "The object: a CSP and its gap.",
+    "basis": "CROSS-ITEM NOTE, and it cuts the other way from control 16: the OLD board consumed parallel repetition (case 10's object) and paid its blow-up; Dinur's board REMOVES that dependence, with constant-factor size blow-up. So a same-level change here ELIMINATED a level below rather than changing it. Recorded as a note rather than as a sixth axis value, because one instance is not a category.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

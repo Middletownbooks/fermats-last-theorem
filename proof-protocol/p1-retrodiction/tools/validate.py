@@ -16,7 +16,8 @@ import json, pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TAXONOMY = ROOT.parent / "p3-taxonomy" / "taxonomy.json"
 SHINGLE = 8                      # words; long enough that overlap is copying, not coincidence
-FORBIDDEN_IN_BEFORE = {"after_board", "transformation", "source", "label_kappa"}
+FORBIDDEN_IN_BEFORE = {"after_board", "transformation", "source", "label_kappa", "level"}
+LEVELS = {"same-level", "input-level", "reduction-level", "substrate", "none", "unclear"}
 
 errors: list[str] = []
 warnings: list[str] = []
@@ -119,6 +120,15 @@ def main() -> int:
                         f"{d.name}: source {src.get('cite')!r} shares its year ({latest}) with the "
                         f"superseding paper; check it pre-dates it")
 
+        # D30: the level axis is a hard requirement on an answer, because without it "the board did
+        # not change" and "a board one level down did change" are the same sentence (control 16).
+        lvl = held.get("level") or {}
+        if lvl.get("axis") not in LEVELS:
+            errors.append(f"{d.name}: held-out answer has no valid level.axis "
+                          f"(got {lvl.get('axis')!r}; see D30)")
+        elif lvl["axis"] == "unclear":
+            warnings.append(f"{d.name}: level.axis is 'unclear', which is allowed and declared")
+
         label = held.get("transformation", "")
         atoms = label.split(sep) if label else []
         for a in atoms:
@@ -142,6 +152,11 @@ def main() -> int:
         c = load(p)
         if c.get("expected_diagnostic_behaviour") != "must-not-fire":
             errors.append(f"{p.stem}: a control must be marked must-not-fire")
+        axis = (c.get("level") or {}).get("axis")
+        if axis not in LEVELS:
+            errors.append(f"{p.stem}: control has no valid level.axis (got {axis!r}; see D30)")
+        elif axis == "same-level":
+            errors.append(f"{p.stem}: a control cannot be same-level -- that is a board change")
 
     # --- calibration exclusions ----------------------------------------
     calib = load(ROOT / "calibration" / "excluded.json")

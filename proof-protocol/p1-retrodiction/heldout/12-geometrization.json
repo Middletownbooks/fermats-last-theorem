@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "The invariants only: W-entropy and reduced volume give kappa-noncollapsing.",
+    "what_stayed_fixed": "The move -- Ricci flow itself -- which the after-board says outright is unchanged.",
+    "basis": "The clearest same-level item in the corpus: the held-out answer begins 'Same move, new monotone invariants'.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

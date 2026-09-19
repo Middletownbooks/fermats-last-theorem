@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "reduction-level",
+    "confidence": "medium",
+    "object_changed": "The OBJECT: the neighbourhood complex turns a colouring question about k-subsets of [n] into a topological one, settled by Borsuk-Ulam.",
+    "what_stayed_fixed": "Nothing of the combinatorial and inductive board is kept.",
+    "basis": "MEDIUM CONFIDENCE, the second item at the weakest boundary, and for the same reason as case 6: the bound is proved about a constructed object in another category. A second encoder could call it same-level with a new invariant.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "The invariant: a conjectured exact multiplicativity replaced by an information-theoretic embedding with per-coordinate relative entropy.",
+    "what_stayed_fixed": "The object: val(G^k) for a two-prover game under the k-fold product.",
+    "basis": "CROSS-ITEM NOTE: this item's OBJECT is what case 13's before-board consumes as its move. So 10 sits one level below 13 in a stack that the corpus contains but never encoded.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

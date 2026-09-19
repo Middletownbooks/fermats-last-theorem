@@ -55,5 +55,14 @@
   ],
   "encoder": "seed-chat-instance-2026-09-18",
   "encoding_pass": "v0-single-encoder-contaminated",
-  "sourcing_pass": "bloom-sisask-transcript-2026-09-18"
+  "sourcing_pass": "bloom-sisask-transcript-2026-09-18",
+  "level": {
+    "axis": "none",
+    "confidence": "high",
+    "object_changed": "Nothing at board level. The play changed -- Hoelder lifting, unbalancing, dependent random choice, almost-periodicity -- on the density-increment board.",
+    "what_stayed_fixed": "The board: the primary source's own fifth step is titled 'Density increment'.",
+    "basis": "A control, and note the contrast with case 7a: better play that did NOT change the board, against a board change that kept its input.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

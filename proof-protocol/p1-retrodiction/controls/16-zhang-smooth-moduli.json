@@ -18,7 +18,8 @@
     "warning": "ZHANG IS NOT SIMPLY BETTER PLAY, and calling him that would mislabel this control.",
     "what_he_did": "He changed the EQUIDISTRIBUTION board one level down -- smooth moduli, factored modulus, Graham-Ringrose. So 7b is a LEVEL-(n-1) BOARD CHANGE feeding an UNCHANGED LEVEL-n board.",
     "consequence": "This is a THIRD CATEGORY the five-transformation catalogue never had and the rebuilt diagnostic does not express. The control is valid only with the level stated: at level n (the sieve) the board did not change, which is what a diagnostic reading the sieve board must not fire on. At level n-1 it did.",
-    "recorded_as": "debt D30"
+    "recorded_as": "debt D30",
+    "superseded_for_machine_reading_by": "the `level` field, axis = input-level, added by tools/assign_levels.py. This paragraph stays as the argument; the field is what a scorer reads, and tools/validate.py now fails any control whose axis is missing or same-level. D30's action is satisfied by the field, not by this prose."
   },
   "sources": [
     {
@@ -42,5 +43,14 @@
     }
   ],
   "encoder": "citations-response-2026-09-18",
-  "encoding_pass": "case-7-split"
+  "encoding_pass": "case-7-split",
+  "level": {
+    "axis": "input-level",
+    "confidence": "high",
+    "object_changed": "The equidistribution input one level down: y-smooth moduli, factored modulus, Graham-Ringrose, Q = x^{1/2+eta} with delta = 1/1168.",
+    "what_stayed_fixed": "The GPY sieve at level n -- the weights, Selberg's formula and the ratio criterion are untouched.",
+    "basis": "THE ITEM THIS AXIS EXISTS FOR. Its level_flag already said this in prose; the axis now says it in a field, so a scorer can read it without reading the paragraph.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

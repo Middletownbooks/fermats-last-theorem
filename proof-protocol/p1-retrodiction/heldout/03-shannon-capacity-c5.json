@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "The upper-bound invariant: fractional clique cover replaced by the theta function via orthonormal representations.",
+    "what_stayed_fixed": "The object: Theta of a fixed graph under the strong product.",
+    "basis": "Both boards bound the same quantity of the same graph; only the invariant changed.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

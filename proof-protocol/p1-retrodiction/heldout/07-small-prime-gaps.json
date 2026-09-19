@@ -17,5 +17,14 @@
     "was": "two accepted answers, 7a (Maynard-Tao) and 7b (Zhang), with a rubric accepting either",
     "now": "7a is the POSITIVE. 7b is promoted to a CONTROL, 16-zhang-smooth-moduli.",
     "why": "They are not two routes to one thing. Maynard-Tao CHANGE THE BOARD and keep the old input -- Granville sec. 6.5: 'By the Bombieri-Vinogradov Theorem we can take R = x^{1/4-o(1)}', unimproved, and 'one can avoid having to prove any difficult new results about primes in arithmetic progressions'. Zhang leaves the sieve alone and improves the INPUT. One problem, one period, two teams, one changing the board and one not, WITH THE COUNTERFACTUAL ACTUALLY RUN."
+  },
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "The sieve board itself: the move space is enlarged from a one-variable F to a k-variable F, so rho grows like log k instead of saturating at 4.",
+    "what_stayed_fixed": "The level of distribution theta, which is consumed unchanged -- Maynard-Tao needs no new input about primes in arithmetic progressions.",
+    "basis": "THIS IS HALF OF THE PAIR D30 EXISTS FOR. 7a changed the level-n board and kept the level-(n-1) input; control 16 did the exact opposite. Granville's line -- 'one can avoid having to prove any difficult new results about primes in arithmetic progressions' -- is the documentary form of what stayed fixed.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
   }
 }

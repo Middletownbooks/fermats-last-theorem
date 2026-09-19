@@ -282,7 +282,18 @@
       "where": "case 1 state slot",
       "claim": "the Gotsman-Linial 1992 reduction",
       "status": "UNVERIFIED",
-      "note": "Not checked this session."
+      "note": "Not checked this session.",
+      "what_would_close_it": {
+        "the_claim_that_needs_a_source": "That the Sensitivity Conjecture REDUCES to the induced-subgraph maximum-degree problem on Q_n: deg(f) bounded by a polynomial in s(f) is equivalent to every induced subgraph of Q_n on more than 2^{n-1} vertices having maximum degree n^{Omega(1)}. That equivalence is the entire reason Huang's theorem resolves the conjecture, and it is what case 1's STATE slot asserts.",
+        "cheapest_document": "arXiv:1907.00847 (Huang), FIRST TWO PAGES ONLY. Its introduction has to state the Gotsman-Linial reduction to explain why the theorem settles the conjecture. That paste would close C1-gotsman AND upgrade C1-after from SEARCH to PRIMARY tier in the same move -- two rows, two pages.",
+        "alternatives_in_order": [
+          "Hatami-Kulkarni-Pankratov, 'Variations on the Sensitivity Conjecture' (Theory of Computing Library, Graduate Surveys 4, 2011) -- a survey whose job is exactly this equivalence.",
+          "O'Donnell, 'Analysis of Boolean Functions', the sensitivity/degree chapter and its notes.",
+          "The paper itself: Gotsman and Linial, 'The equivalence of two problems on the hypercube', Combinatorica 12(1) (1992), 131-135. Pre-arXiv, so hardest to reach from here."
+        ],
+        "what_would_NOT_close_it": "A source that merely CITES Gotsman-Linial, or that states Huang's theorem without the equivalence. The row is about the reduction, not about the max-degree bound -- row C1-bound and row C1-after already cover those.",
+        "stakes": "Low for scoring: it sits in case 1's state slot, not in a bound, and case 1 has already left the diagnostic's domain via the N9 audit. It is the last row no pass has ever looked at, which is the only reason it is still named."
+      }
     },
     {
       "id": "TWINS-batch2",

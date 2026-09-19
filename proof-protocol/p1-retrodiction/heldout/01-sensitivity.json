@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "The board on the reduced object: counting and subcube refinement replaced by a signed adjacency matrix with A^2 = nI, Cauchy interlacing and lambda_1 <= Delta.",
+    "what_stayed_fixed": "The object itself -- an induced subgraph of Q_n on 2^{n-1}+1 vertices -- is what both boards bound.",
+    "basis": "THE STACK IS WORTH STATING: (sensitivity vs degree) <- (Gotsman-Linial 1992 reduction to induced-subgraph max degree) <- (the spectral tool Huang supplied). Huang changed the BOTTOM of that stack. The level crossing in this problem happened in 1992 and is baked into the item's state slot, which is why the 2019 change reads as same-level.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

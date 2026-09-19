@@ -23,5 +23,14 @@
     "Bateman-Katz": "O(3^n/n^{1+c})",
     "Edel (lower)": "Omega(2.217^n)",
     "Ellenberg-Gijswijt": "O(2.756^n)"
+  },
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "Density increment with a hyperplane restriction replaced by a one-shot slice-rank bound on the same subsets of F_3^n.",
+    "what_stayed_fixed": "The object: a progression-free subset of F_3^n.",
+    "basis": "SUBSTRATE TRANSFER ALONGSIDE IT: Croot-Lev-Pach proved the method in (Z/4Z)^n and Ellenberg-Gijswijt adapted it to F_3^n (row C2-after-split). That is a substrate move BETWEEN TEAMS, not a level move within the board, and it is recorded here because D30 asked for substrate as well as level.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
   }
 }

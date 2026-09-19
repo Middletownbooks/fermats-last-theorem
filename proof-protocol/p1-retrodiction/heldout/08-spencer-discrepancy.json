@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "Uniform random colouring with a per-set Chernoff bound and a union bound replaced by entropy and partial colouring.",
+    "what_stayed_fixed": "The object: a colouring of n points with n sets, and the discrepancy.",
+    "basis": "Same object, new move and new composition.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

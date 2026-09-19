@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "substrate",
+    "confidence": "high-that-it-is-CONTESTED",
+    "object_changed": "Two after-boards are recorded for one item: efficient congruencing (p-adic) and l^2 decoupling (Archimedean).",
+    "what_stayed_fixed": "The quantity J_{s,k} in the congruencing route; the decoupling route re-expresses the problem analytically.",
+    "basis": "CONTESTED BY THE PRACTITIONERS, NOT BY US. Pierce sec. 8.5 argues the two share rescaling, multilinear estimates, iteration and transversality, and quotes Wooley that they may be 'p-adic and Archimedean perspectives of one unified method'. If that reading is right the two after-boards are ONE board in two substrates, and this item's multi_answer rubric is scoring a substrate choice rather than a board choice. The axis records the dispute instead of resolving it -- which is the honest state, and is the second sign D30 was opened on.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

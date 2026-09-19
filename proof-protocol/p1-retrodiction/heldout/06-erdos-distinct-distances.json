@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "reduction-level",
+    "confidence": "medium",
+    "object_changed": "The OBJECT: the Elekes-Sharir lift sends distances to rigid motions and then to lines in R^3, and polynomial partitioning runs there.",
+    "what_stayed_fixed": "Nothing of the planar counting board is kept; it is retired, not consumed.",
+    "basis": "MEDIUM CONFIDENCE, and this is one of the two items at the axis's weakest boundary. Read as reduction-level because the bound is proved about a DIFFERENT object (line incidences in R^3) reached by an explicit reduction, rather than by a new invariant on N planar points. A second encoder could defensibly call it same-level with a new move, and should be asked.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

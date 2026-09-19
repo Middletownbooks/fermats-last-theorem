@@ -45,5 +45,14 @@
   ],
   "encoder": "seed-chat-instance-2026-09-18",
   "encoding_pass": "v0-single-encoder-contaminated",
-  "sourcing_pass": "flags reconciled with citations.json 2026-09-19: they had said verified: false for all three sources while row C14 stood VERIFIED, which is the same prose-versus-data drift recorded in D19."
+  "sourcing_pass": "flags reconciled with citations.json 2026-09-19: they had said verified: false for all three sources while row C14 stood VERIFIED, which is the same prose-versus-data drift recorded in D19.",
+  "level": {
+    "axis": "none",
+    "confidence": "high",
+    "object_changed": "Nothing. Viazovska supplied the terminal certificate on the Cohn-Elkies board.",
+    "what_stayed_fixed": "The whole board: per ADJ-14 the board change in this problem was Kabatyanskii-Levenshtein -> Cohn-Elkies in 2003.",
+    "basis": "A control: the axis reads none because no board changed at any level.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

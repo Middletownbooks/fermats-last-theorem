@@ -11,5 +11,14 @@
   ],
   "label_pass": "v0-single-encoder-contaminated",
   "second_blind_label": null,
-  "label_kappa": null
+  "label_kappa": null,
+  "level": {
+    "axis": "same-level",
+    "confidence": "high",
+    "object_changed": "Incidence counting (bush, hairbrush, Cauchy-Schwarz, sum-product) replaced by the polynomial method.",
+    "what_stayed_fixed": "The object: a Kakeya set K in F_q^n, and the quantity |K|.",
+    "basis": "The same set is bounded by a different certificate; nothing is reduced to another problem and nothing is supplied from below.",
+    "assigned_by": "this session, single-encoder and unvalidated",
+    "recorded_for": "debt D30; vocabulary in p3-taxonomy/taxonomy.json -> level_axis"
+  }
 }

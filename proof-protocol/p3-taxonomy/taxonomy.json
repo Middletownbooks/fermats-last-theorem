@@ -127,5 +127,20 @@
       "dropped": "no metric for 'cheaper' is stated, so it is not computable from the before-board. Same standard as auxiliary-witness lift. See D9-ADJUDICATION.md.",
       "where": "D9-ADJUDICATION.md"
     }
-  ]
+  ],
+  "level_axis": {
+    "what_this_is": "AN AXIS, NOT A TRANSFORMATION. Debt D30 asked for the level and substrate of a change to be encoded, and explicitly forbade adding a sixth transformation: the standing rule is that catalogues shrink before they grow. The transformation vocabulary is unchanged and stays closed; this is a separate field answering a separate question -- WHERE in the stack the change happened, not what kind of change it was.",
+    "why_it_exists": "Control 16 (Zhang) is only a valid control with the level stated. He left the GPY sieve untouched and improved what it consumes, raising the level of distribution past 1/2 for smooth moduli. Without the axis, 'the board did not change' and 'a board one level down did change' are the same sentence, and the control is mislabelled.",
+    "values": {
+      "same-level": "The bound stays on the same object and that object's own board changed -- its state, move, invariant or terminal certificate.",
+      "input-level": "The board whose bound is at issue is left INTACT, and something it CONSUMES changed. Zhang: the sieve is GPY's, the equidistribution input is not.",
+      "reduction-level": "The bound is moved onto a DIFFERENT OBJECT by a reduction, and the old board is retired rather than consumed. Elekes-Sharir sending distances to rigid motions to lines in R^3; the neighbourhood complex sending a colouring problem to topology.",
+      "substrate": "The same mechanism re-expressed in a different substrate, where whether it is one board or two is CONTESTED by the practitioners rather than by us.",
+      "none": "No board changed. The controls.",
+      "unclear": "DELIBERATELY UNUSED AT PRESENT. It exists so that a later encoder is not forced to choose, because a forced label is what produced kappa = 0.048 on the transformation vocabulary. Using it is not a failure; forcing a call would be."
+    },
+    "boundary_that_is_weakest": "same-level versus reduction-level. 'A new invariant on the same object' and 'a reduction to a new object' shade into each other -- cases 6 and 11 are assigned reduction-level at MEDIUM confidence and are the first two items a second encoder should be asked about.",
+    "status": "SINGLE-ENCODER AND UNVALIDATED, exactly like the v0 transformation labels. No second encoder has assigned these. The one reason to expect better than kappa = 0.048 is D20's split result: closed-vocabulary FIELDS reproduced at +0.811 and +0.755 while the RULE built on them did not, and this is a field. That is a reason for optimism, not evidence.",
+    "how_to_test_it": "The same instrument as D20: tools/make_rating_sheet.py over the 17 scoreable items, raters who have not seen this file, Fleiss kappa against the 0.048 baseline. It is a one-field sheet, so it is cheaper than D20 was."
+  }
 }
