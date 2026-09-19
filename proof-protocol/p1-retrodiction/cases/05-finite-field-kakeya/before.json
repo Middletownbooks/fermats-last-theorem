@@ -21,13 +21,19 @@
     {
       "cite": "Wolff 1999 (hairbrush)",
       "date": "1999",
-      "verified": false
+      "verified": true,
+      "citation_row": "C5-wolff",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C5-wolff verifies q^{(n+2)/2} as the finite-field benchmark for Besicovitch sets."
     },
     {
       "cite": "best pre-Dvir exponent",
       "date": "pre-2008",
       "verified": false,
-      "debt": "the seed wrote about q^{4n/7} with low confidence; not fetched"
+      "debt": "the seed wrote about q^{4n/7} with low confidence; not fetched",
+      "citation_row": "C5-4n7",
+      "tier": "NONE",
+      "basis": "Row C5-4n7 is DISPUTED: 4n/7 + 3/7 is Katz-Tao's EUCLIDEAN Minkowski-dimension bound and no source reached here states it for |K| in F_q^n. The two-regime structure survives; the exponent does not."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

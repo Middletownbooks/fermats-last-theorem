@@ -10,7 +10,10 @@
     {
       "cite": "Strassen; Coppersmith-Winograd and successors",
       "date": "1969-",
-      "verified": false
+      "verified": false,
+      "citation_row": "TWINS-batch2",
+      "tier": "STANDARD (declared, not fetched)",
+      "basis": "Row TWINS-batch2 declares N16 as STANDARD rather than fetched, and records the live distinction the twin now carries: border rank is SUB-multiplicative, not fully multiplicative (arXiv:1801.04852)."
     }
   ],
   "verification": "STANDARD — not separately fetched this session",

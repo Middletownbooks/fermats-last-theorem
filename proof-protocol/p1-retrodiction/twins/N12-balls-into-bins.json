@@ -10,7 +10,10 @@
     {
       "cite": "Raab, Steger, 'Balls into Bins - A Simple and Tight Analysis' (1998): max load = (1+o(1)) log n / log log n with TIGHT upper and lower bounds",
       "date": "1998",
-      "verified": true
+      "verified": true,
+      "citation_row": "TWINS-batch2",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row TWINS-batch2 upgraded N12 from Raab-Steger 1998, which gives tight upper AND lower bounds."
     }
   ],
   "verification": "VERIFIED by search",

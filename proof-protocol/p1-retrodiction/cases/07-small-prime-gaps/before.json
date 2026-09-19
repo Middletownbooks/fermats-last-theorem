@@ -21,12 +21,18 @@
     {
       "cite": "Goldston, Pintz, Yildirim 2005/2009",
       "date": "2005",
-      "verified": true
+      "verified": true,
+      "citation_row": "C7",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Row C7 verifies every field of the GPY board against Granville arXiv:1410.8400v1, verbatim or in substance."
     },
     {
       "cite": "Bombieri-Vinogradov",
       "date": "1965",
-      "verified": true
+      "verified": true,
+      "citation_row": "C7",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Same row: theta > 1/2 needed against Bombieri-Vinogradov's exactly 1/2. This is also the requirement half of the GPY ceiling entry (CEILINGS.md)."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",
@@ -97,7 +103,10 @@
       "cite": "Granville, Primes in intervals of bounded length, arXiv:1410.8400v1",
       "date": "2014",
       "verified": true,
-      "role": "fetched source for every C7 field"
+      "role": "fetched source for every C7 field",
+      "citation_row": "C7",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "The transcript itself; it is the fetched source for the row and for the case 7 split into 7a and control 16."
     }
   ]
 }

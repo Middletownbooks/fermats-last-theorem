@@ -21,7 +21,10 @@
     {
       "cite": "Shannon 1956",
       "date": "1956",
-      "verified": false
+      "verified": true,
+      "citation_row": "C3-shannon",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Row C3-shannon closed from a pasted transcript: the 5/2 upper bound is Shannon's own, by what is now called the fractional clique cover."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

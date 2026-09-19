@@ -36,6 +36,10 @@ def check_renders() -> None:
         shutil.copytree(ROOT / "tools", tmp / "tools")
         for f in DATA:
             shutil.copy(ROOT / f, tmp / f)
+        # The debts caveat is generated from the ITEM files as well as from citations.json, so the
+        # temporary tree needs them or the fresh render would differ for the wrong reason.
+        for d in ("cases", "twins", "controls"):
+            shutil.copytree(ROOT / "p1-retrodiction" / d, tmp / "p1-retrodiction" / d)
         for script, out in RENDERS.items():
             r = subprocess.run([sys.executable, str(tmp / "tools" / script)],
                                capture_output=True, text=True)
@@ -107,11 +111,75 @@ def check_citation_refs() -> None:
         did.append("every citation row cited by id in debts.json exists")
 
 
+def check_item_sources() -> None:
+    """Every source flag in an item file must name the row it stands on, or say it stands on none.
+
+    D33 was opened when control 14's three sources all said `verified: false` while row C14 stood
+    VERIFIED and had been adjudicated on them. The invariant is one-directional on purpose:
+    `verified: true` REQUIRES a linked row whose status begins VERIFIED or CORRECTED, while
+    `verified: false` beside a VERIFIED row is legitimate and common -- a row often covers a
+    NEIGHBOURING claim (case 13's row verifies Dinur, not Arora-Safra; C4 verifies that nobody states
+    the threshold). What is never allowed is a flag with no stated basis.
+    """
+    st = citation_status.load(ROOT)
+    latest = st["latest"]
+    ok_true = {"VERIFIED", "CORRECTED"}
+    n = 0
+    unrowed_true: list[str] = []
+    rowed_false: list[str] = []
+    for f in sorted((ROOT / "p1-retrodiction").glob("*/*.json")) + \
+             sorted((ROOT / "p1-retrodiction").glob("cases/*/before.json")):
+        if f.parent.name in ("heldout", "schema", "calibration", "prospective", "ceilings") \
+                or f.stem == "REJECTED":
+            continue                    # a schema DESCRIBES these keys; it does not carry a flag
+        try:
+            doc = json.loads(f.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        stack = [(doc, "")]
+        while stack:
+            cur, path = stack.pop()
+            if isinstance(cur, dict):
+                if "cite" in cur and "verified" in cur:
+                    n += 1
+                    where = f"{f.relative_to(ROOT)} {path or '.'}"
+                    if "basis" not in cur or not str(cur.get("basis", "")).strip():
+                        fail.append(f"{where}: source flag with no `basis`")
+                    if "citation_row" not in cur:
+                        fail.append(f"{where}: source flag with no `citation_row` (use null for none)")
+                        continue
+                    row = cur["citation_row"]
+                    if row is not None and row not in latest:
+                        fail.append(f"{where}: citation_row {row!r} is not in citations.json")
+                    elif cur["verified"] and row is None:
+                        unrowed_true.append(where)
+                    elif cur["verified"] and citation_status.tier(latest[row]["status"]) not in ok_true:
+                        fail.append(f"{where}: verified: true but row {row} is "
+                                    f"{latest[row]['status']}")
+                    elif (not cur["verified"]) and row is not None and \
+                            citation_status.tier(latest[row]["status"]) in ok_true:
+                        rowed_false.append(where)
+                for k, v in cur.items():
+                    stack.append((v, f"{path}.{k}" if path else k))
+            elif isinstance(cur, list):
+                for i, v in enumerate(cur):
+                    stack.append((v, f"{path}[{i}]"))
+    did.append(f"{n} item source flags all name a row or state that none covers them")
+    if unrowed_true:
+        did.append(f"{len(unrowed_true)} flag(s) are verified: true on a DECLARED basis with no row "
+                   f"({', '.join(sorted(x.split()[0].split('/')[-1] for x in unrowed_true))}) -- each "
+                   f"says so in `basis`; see D33")
+    if rowed_false:
+        did.append(f"{len(rowed_false)} flag(s) stay false beside a VERIFIED row, because the row "
+                   f"covers a neighbouring claim -- each says which in `basis`")
+
+
 def main() -> int:
     check_renders()
     check_derived_counts()
     check_debt_refs()
     check_citation_refs()
+    check_item_sources()
     for d in did:
         print(f"  ok      {d}")
     for f in fail:

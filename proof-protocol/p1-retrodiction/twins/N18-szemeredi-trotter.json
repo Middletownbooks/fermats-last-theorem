@@ -11,7 +11,10 @@
     {
       "cite": "Szemeredi-Trotter is asymptotically tight; Elekes's construction achieves Theta(n^{2/3} m^{2/3}), and except for the constant the bound cannot be improved.",
       "date": "1983; Elekes early 2000s",
-      "verified": true
+      "verified": true,
+      "citation_row": "TWINS-batch2",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row TWINS-batch2 upgraded N18: Elekes's construction attains it, and except for the constant it cannot be improved."
     }
   ],
   "verification": "VERIFIED by search",

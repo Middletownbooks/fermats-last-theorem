@@ -21,12 +21,18 @@
     {
       "cite": "Vinogradov-Linnik, polished by Karatsuba (1973) and Stechkin (1975)",
       "date": "1973-1975",
-      "verified": true
+      "verified": true,
+      "citation_row": "C9",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Row C9 closed from the Pierce transcript, including the constant's history 3 -> 2 -> 1 and the derivation of the log k as the contraction count."
     },
     {
       "cite": "Wooley 1992 thesis (the constant 1)",
       "date": "1992",
-      "verified": true
+      "verified": true,
+      "citation_row": "C9",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Same transcript; Wooley's posting date was independently confirmed, which is what voided the case's cutoff."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",
@@ -92,7 +98,10 @@
       "cite": "Pierce, Seminaire Bourbaki, arXiv:1707.00119",
       "date": "2017",
       "verified": true,
-      "role": "the fetched source this row was verified against. POST-DATES the cutoff by design: a verification source is not a source the encoder may use, and the validator correctly rejected it from sources_before."
+      "role": "the fetched source this row was verified against. POST-DATES the cutoff by design: a verification source is not a source the encoder may use, and the validator correctly rejected it from sources_before.",
+      "citation_row": "C9",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "The transcript itself."
     }
   ]
 }

@@ -10,8 +10,11 @@
     {
       "cite": "Polak, Schrijver 2019",
       "date": "2019",
-      "verified": false,
-      "debt": "the seed flags the Polak-Schrijver lower bound for Theta(C7) as recalled, not fetched"
+      "verified": true,
+      "debt": "the seed flags the Polak-Schrijver lower bound for Theta(C7) as recalled, not fetched",
+      "citation_row": "N4",
+      "tier": "COMPUTED (arithmetic reproduced in this repository)",
+      "basis": "Row N4 verifies 367^{1/5} > 3.2578 from the paper and computes theta(C7) = 3.3176672... here."
     }
   ],
   "role": "negative-twin",

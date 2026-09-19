@@ -21,7 +21,10 @@
     {
       "cite": "Chernoff/union-bound folklore",
       "date": "pre-1985",
-      "verified": false
+      "verified": true,
+      "citation_row": "C8-bound",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C8-bound verifies that a uniform random colouring achieves Theta(sqrt(n log n)), which is what the folklore cite asserts."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

@@ -10,7 +10,10 @@
     {
       "cite": "E[T] = n*H_n exactly; verified symbolically for n = 1..59 in tools/check_corrections.py. A closed form needs no citation.",
       "date": "classical",
-      "verified": true
+      "verified": true,
+      "citation_row": "TWINS-batch2",
+      "tier": "COMPUTED (arithmetic reproduced in this repository)",
+      "basis": "Row TWINS-batch2 upgraded N13 by exact computation rather than by citation, which is the stronger basis of the two."
     }
   ],
   "verification": "VERIFIED by computation",

@@ -21,7 +21,10 @@
     {
       "cite": "Hamilton, Ricci flow programme",
       "date": "1982-1999",
-      "verified": false
+      "verified": false,
+      "citation_row": "C12",
+      "tier": "NONE",
+      "basis": "Row C12 is PARTIAL and about Perelman's entropy and reduced volume; nothing covers Hamilton's Ricci flow programme as the before-board."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

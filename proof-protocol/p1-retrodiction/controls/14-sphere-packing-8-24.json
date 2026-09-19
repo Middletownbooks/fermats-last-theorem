@@ -22,19 +22,25 @@
       "cite": "Cohn, Elkies 2003",
       "date": "2003",
       "verified": true,
-      "tier": "SEARCH (citations.json row C14 and adjudication ADJ-14; no PDF was fetched)"
+      "citation_row": "C14",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C14 and adjudication ADJ-14 verify that Cohn-Elkies 2003 was the first improvement in each dimension since Kabatyanskii-Levenshtein 1978, and that the authors THEMSELVES conjectured their board would settle dimensions 8 and 24 -- which is the documentary form of the claim that made this item a control rather than a board change."
     },
     {
       "cite": "Viazovska 2016",
       "date": "2016",
       "verified": false,
-      "note": "NOT verified by any citations.json row. The row that carries this control (C14) verifies the BOARD claim -- Cohn-Elkies 2003 as the first improvement since Kabatyanskii-Levenshtein 1978, and the authors' own conjecture that their board would settle 8 and 24 -- not Viazovska's certificate, which no pass has checked."
+      "citation_row": null,
+      "tier": "NONE",
+      "basis": "NOT covered by any row. C14 verifies the BOARD claim, not Viazovska's certificate, which no pass has checked. The control does not depend on it: what makes this a control is that the board was already known to be tight."
     },
     {
       "cite": "Kabatiansky, Levenshtein 1978",
       "date": "1978",
       "verified": true,
-      "tier": "SEARCH (citations.json row C14 and adjudication ADJ-14; no PDF was fetched)"
+      "citation_row": "C14",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Same row: KL 1978 is the board Cohn-Elkies replaced, so the board change in this problem is KL -> Cohn-Elkies, not Cohn-Elkies -> Viazovska."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

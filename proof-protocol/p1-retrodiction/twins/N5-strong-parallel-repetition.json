@@ -10,7 +10,10 @@
     {
       "cite": "Raz 2008 (odd-cycle game)",
       "date": "2008",
-      "verified": false
+      "verified": true,
+      "citation_row": "N5",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row N5 verifies Raz's odd-cycle counterexample and that the game is simultaneously projection, unique and XOR."
     }
   ],
   "role": "negative-twin",

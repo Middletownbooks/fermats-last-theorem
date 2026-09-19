@@ -10,7 +10,10 @@
     {
       "cite": "Downward-closed ('shattering extremal') set systems attain the Sauer-Shelah bound exactly.",
       "date": "1972",
-      "verified": true
+      "verified": true,
+      "citation_row": "TWINS-batch2",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row TWINS-batch2 upgraded N19: downward-closed (shattering extremal) systems attain the bound exactly."
     }
   ],
   "verification": "VERIFIED by search",

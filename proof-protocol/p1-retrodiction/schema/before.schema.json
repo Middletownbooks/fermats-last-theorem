@@ -3,50 +3,189 @@
   "$id": "p1-retrodiction/before",
   "title": "Before-board (agent-visible half)",
   "type": "object",
-  "required": ["id", "problem", "role", "supersede", "before_board", "bound_then", "leak",
-               "sources_before", "encoder", "encoding_pass"],
+  "required": [
+    "id",
+    "problem",
+    "role",
+    "supersede",
+    "before_board",
+    "bound_then",
+    "leak",
+    "sources_before",
+    "encoder",
+    "encoding_pass"
+  ],
   "not": {
     "anyOf": [
-      {"required": ["after_board"]}, {"required": ["transformation"]}, {"required": ["source"]}
+      {
+        "required": [
+          "after_board"
+        ]
+      },
+      {
+        "required": [
+          "transformation"
+        ]
+      },
+      {
+        "required": [
+          "source"
+        ]
+      }
     ]
   },
   "properties": {
-    "id": {"type": "string", "pattern": "^[0-9]{2}-[a-z0-9-]+$"},
-    "problem": {"type": "string"},
-    "role": {"const": "positive"},
-    "flag": {"type": ["string", "null"],
-             "description": "fit-testing-only marks an item that must not be scored as a prediction"},
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{2}-[a-z0-9-]+$"
+    },
+    "problem": {
+      "type": "string"
+    },
+    "role": {
+      "const": "positive"
+    },
+    "flag": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "fit-testing-only marks an item that must not be scored as a prediction"
+    },
     "supersede": {
-      "type": "object", "required": ["paper", "date"],
-      "properties": {"paper": {"type": "string"}, "ref": {"type": "string"},
-                     "date": {"type": "string"}},
+      "type": "object",
+      "required": [
+        "paper",
+        "date"
+      ],
+      "properties": {
+        "paper": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      },
       "description": "The paper that changed the board. No source may be dated at or after this."
     },
     "before_board": {
       "type": "object",
       "properties": {
-        "S": {"type": ["string", "null"], "description": "state"},
-        "M": {"type": ["string", "null"], "description": "move"},
-        "I": {"type": ["string", "null"], "description": "invariant"},
-        "C": {"type": ["string", "null"], "description": "composition"},
-        "T": {"type": ["string", "null"], "description": "terminal certificate"}
+        "S": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "state"
+        },
+        "M": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "move"
+        },
+        "I": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "invariant"
+        },
+        "C": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "composition"
+        },
+        "T": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "terminal certificate"
+        }
       },
       "additionalProperties": false
     },
-    "bound_then": {"type": "string"},
-    "leak": {"type": "string", "description": "Where the board loses the truth."},
+    "bound_then": {
+      "type": "string"
+    },
+    "leak": {
+      "type": "string",
+      "description": "Where the board loses the truth."
+    },
     "sources_before": {
       "type": "array",
-      "items": {"type": "object", "required": ["cite", "date", "verified"],
-                "properties": {"cite": {"type": "string"}, "date": {"type": "string"},
-                               "verified": {"type": "boolean"}, "debt": {"type": "string"}}}
+      "items": {
+        "type": "object",
+        "required": [
+          "cite",
+          "date",
+          "verified",
+          "citation_row",
+          "basis"
+        ],
+        "properties": {
+          "cite": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "debt": {
+            "type": "string"
+          },
+          "citation_row": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The citations.json row this flag stands on, or null when no row covers this cite. Asserted by tools/check_consistency.py."
+          },
+          "tier": {
+            "type": "string",
+            "description": "How the row was reached: PRIMARY (pasted transcript), SEARCH, COMPUTED, STANDARD (declared, not fetched), or NONE."
+          },
+          "basis": {
+            "type": "string",
+            "description": "Why the flag reads as it does. Required: verified: true needs a row whose status is VERIFIED or CORRECTED, and verified: false beside a VERIFIED row must say which neighbouring claim the row covers instead. D33."
+          }
+        }
+      }
     },
-    "encoder": {"type": "string"},
-    "encoding_pass": {"type": "string"},
+    "encoder": {
+      "type": "string"
+    },
+    "encoding_pass": {
+      "type": "string"
+    },
     "blind_reencoding": {
       "type": "object",
-      "properties": {"done": {"type": "boolean"}, "encoder": {"type": ["string", "null"]},
-                     "kappa": {"type": ["number", "null"]}}
+      "properties": {
+        "done": {
+          "type": "boolean"
+        },
+        "encoder": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kappa": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
     }
   }
 }

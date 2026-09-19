@@ -11,13 +11,19 @@
       "cite": "Salem, Spencer 1942 -- the exclusion of power savings",
       "date": "1942",
       "verified": true,
-      "role": "states the consequence N3 asserts, outright"
+      "role": "states the consequence N3 asserts, outright",
+      "citation_row": "N3",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Row N3 RE-ATTRIBUTED the exclusion of power savings to Salem-Spencer 1942, from the Peluse transcript. This is the half the item leans on."
     },
     {
       "cite": "Behrend 1946 -- the best known lower bound",
       "date": "1946",
       "verified": true,
-      "role": "stronger bound; the exclusion does not need it"
+      "role": "stronger bound; the exclusion does not need it",
+      "citation_row": "N3-behrend-improvements",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Rows N3 and N3-behrend-improvements: Behrend 1946 is the stronger, still essentially best-known bound, with small improvements by Elkin 2011 and Green-Wolf 2010 from the Bloom-Sisask reference list."
     }
   ],
   "role": "negative-twin",
@@ -45,7 +51,10 @@
     {
       "cite": "Peluse, Seminaire Bourbaki, arXiv:2206.10037 -- the fetched source for both",
       "date": "2022",
-      "verified": true
+      "verified": true,
+      "citation_row": "N3",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "The transcript itself."
     }
   ]
 }

@@ -10,12 +10,18 @@
     {
       "cite": "Roth 1964",
       "date": "1964",
-      "verified": false
+      "verified": true,
+      "citation_row": "N6",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row N6 verifies Theta(n^{1/4}) with Roth 1964 supplying the lower bound."
     },
     {
       "cite": "Matousek, Spencer 1996",
       "date": "1996",
-      "verified": false
+      "verified": true,
+      "citation_row": "N6",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Same row: the matching upper bound by the entropy method."
     }
   ],
   "role": "negative-twin",

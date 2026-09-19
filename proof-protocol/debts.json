@@ -4,6 +4,7 @@
   "global": [
     "Step D measured label kappa = 0.048 and L2 measured 2-of-5 leak agreement. Both are FINISHED. See MEASUREMENTS.md before reading anything else here.",
     "{{GENERATED:citation_status}}",
+    "{{GENERATED:item_flags}}",
     "arXiv:2609.11189 post-dates the seed instance's knowledge and was taken on trust; commission items E3 and E4 were taken as given."
   ],
   "debts": [
@@ -297,12 +298,22 @@
     {
       "id": "D33",
       "kind": "prose-versus-data",
-      "status": "open",
+      "status": "closed-with-an-invariant",
       "confidence": "certain -- counted, not estimated",
       "where": "p1-retrodiction/cases/*/before.json, twins/*.json, controls/*.json",
       "claim": "The per-source `verified` flags inside the ITEM files are not linked to citations.json and have gone stale: 27 of 56 source entries across cases, twins and controls still say verified: false while the citation layer carries 32 VERIFIED claims. Found by reconciling control 14, whose three sources all said verified: false while row C14 stood VERIFIED and ADJ-14 had been adjudicated on them.",
       "why_it_matters": "The item file is what a scorer or a rater is handed; citations.json is what the verification pass wrote. A rater reading 'verified: false' on a source that has in fact been checked is being shown the wrong provenance, and the direction of this error is the flattering one for the verification pass and the unflattering one for the items.",
-      "action": "DO NOT sweep the 27 flags. Each needs its cite matched to the row that covers it, and the tier recorded with it -- most of this layer is SEARCH tier, not fetched, and a flag that says true without saying which tier repeats the mistake in the other direction. Add a `citation_row` field per source, then make tools/check_consistency.py fail on a mismatch the way it now does for D19's derived lists. Controls 14 and 15 are done and show the shape: 14 carries tier notes and leaves Viazovska 2016 false, because no row covers it."
+      "action": "DONE, and the sweep it warned against was avoided: every one of the 55 per-source flags now carries `citation_row` (or null), `tier` and `basis`, decided cite by cite against the row that does or does not cover it. 43 read verified, 12 do not. 13 flags moved false -> true, NONE moved the other way, so the drift was entirely in the direction that understated the verification pass. The invariant is ONE-DIRECTIONAL on purpose: verified: true requires a linked row whose status is VERIFIED or CORRECTED, while verified: false beside a VERIFIED row is legitimate and now must say which NEIGHBOURING claim the row covers instead -- three do, and they are the interesting ones (row C13 verifies Dinur 2007, not Arora-Safra; row C4 verifies that NOBODY states the threshold attached to Weaver; row C12 is about Perelman's entropy, not Hamilton's programme). WHAT THE SWEEP FOUND THAT WAS NOT THE ORIGINAL COMPLAINT: three twins (N10, N14, N15) read verified on a DECLARED basis with no citations.json row at all, and they were never among the eight STANDARD twins D21 tracked -- so how they came to be flagged verified is unrecorded. Left standing and labelled, not quietly downgraded; the generated caveat in DEBTS.md names them. Also: eight flags now read tier NONE, meaning no row covers them -- that list is the honest version of what was previously 27 undifferentiated falses. The before-board schema now requires citation_row and basis; twins and controls have no schema, so for them the checker is the only enforcement.",
+      "derived": {
+        "note": "Asserted against citations.json by tools/check_consistency.py, not typed.",
+        "flags": 55,
+        "verified": 43,
+        "unrowed_true": [
+          "N10-spencer-sqrt-n-tight",
+          "N14-set-cover-greedy",
+          "N15-shearer-lll"
+        ]
+      }
     }
   ],
   "failure_register": [

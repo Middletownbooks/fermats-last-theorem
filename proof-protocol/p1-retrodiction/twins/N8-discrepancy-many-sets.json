@@ -10,7 +10,10 @@
     {
       "cite": "Spencer 1985 and successors",
       "date": "1985",
-      "verified": false
+      "verified": true,
+      "citation_row": "N8",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row N8 verifies O(sqrt(n log(m/n + 2))). NOTE: this twin is the one all three D20 raters fired on, and the N8 adjudication found MY reading wrong, not the citation."
     }
   ],
   "role": "negative-twin",

@@ -21,12 +21,18 @@
     {
       "cite": "Weaver 2004 (KS_2 formulation)",
       "date": "2004",
-      "verified": false
+      "verified": false,
+      "citation_row": "C4",
+      "tier": "NONE",
+      "basis": "The KS_2 formulation is Weaver's, but row C4 is a NEGATIVE result: neither Weaver nor Marcus-Spielman-Srivastava states the threshold delta <~ 1/log n that the item attached to him, and the number was dropped."
     },
     {
       "cite": "Matrix Chernoff bounds (Ahlswede-Winter / Tropp)",
       "date": "2002-2012",
-      "verified": false
+      "verified": false,
+      "citation_row": null,
+      "tier": "NONE",
+      "basis": "No citations.json row covers the matrix Chernoff attribution (Ahlswede-Winter / Tropp). Never checked."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

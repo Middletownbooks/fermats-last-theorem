@@ -21,7 +21,10 @@
     {
       "cite": "Arora-Safra; Arora-Lund-Motwani-Sudan-Szegedy 1992",
       "date": "1992",
-      "verified": false
+      "verified": false,
+      "citation_row": null,
+      "tier": "NONE",
+      "basis": "Row C13 verifies the AFTER board (Dinur 2007 graph powering with constant blow-up), not Arora-Safra or ALMSS. The before-board's own sources are unchecked."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

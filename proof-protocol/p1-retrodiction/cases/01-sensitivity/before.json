@@ -21,13 +21,19 @@
     {
       "cite": "Chung, Fueredi, Graham, Seymour 1988",
       "date": "1988",
-      "verified": false,
-      "debt": "pre-Huang constant (1/2 - o(1)) log n recalled, not fetched"
+      "verified": true,
+      "debt": "pre-Huang constant (1/2 - o(1)) log n recalled, not fetched",
+      "citation_row": "C1-bound",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C1-bound verifies the (1/2 - o(1)) log n bound and records that the logarithm is base 2, which P1 left unstated."
     },
     {
       "cite": "Gotsman, Linial 1992",
       "date": "1992",
-      "verified": false
+      "verified": false,
+      "citation_row": "C1-gotsman",
+      "tier": "NONE",
+      "basis": "Row C1-gotsman is UNVERIFIED and no pass has ever checked it -- the one row in the tree in that position (D19)."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

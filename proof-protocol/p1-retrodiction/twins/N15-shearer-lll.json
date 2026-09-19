@@ -11,7 +11,10 @@
     {
       "cite": "Shearer, On a problem of Spencer, Combinatorica 5(3) 241-245, 1985",
       "date": "1985",
-      "verified": true
+      "verified": true,
+      "citation_row": null,
+      "tier": "STANDARD (declared, not fetched)",
+      "basis": "Declared in the twin file with no citations.json row; not among D21's eight. Same gap as N10."
     }
   ],
   "verification": "VERIFIED by search, with the variable-version nuance recorded",

@@ -36,7 +36,10 @@
     {
       "cite": "Kelley, Meka, 'Strong bounds for 3-progressions', arXiv:2302.05537, Theorem 1 (exponent 1/12) and Theorem 2 (F_q^n, exponent 1/9)",
       "date": "2023",
-      "verified": true
+      "verified": true,
+      "citation_row": "C15",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Row C15 closed from the Bloom-Sisask transcript, which states Kelley-Meka's Theorem 1 (exponent 1/12) and Theorem 2 (F_q^n, 1/9)."
     }
   ],
   "verification_sources": [
@@ -44,7 +47,10 @@
       "cite": "Bloom, Sisask, 'The Kelley-Meka bounds for sets free of three-term arithmetic progressions', arXiv:2302.07211v3",
       "date": "2023-2025",
       "verified": true,
-      "role": "fetched primary source (pasted transcript) for the five steps, the step-5 title 'Density increment', the exponent ladder, and the stated ceiling on the board. Closes debt D29."
+      "role": "fetched primary source (pasted transcript) for the five steps, the step-5 title 'Density increment', the exponent ladder, and the stated ceiling on the board. Closes debt D29.",
+      "citation_row": "C15",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "The transcript itself; also the source for rows C15-ladder and C15-ceiling and for the ceiling register's open entry."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

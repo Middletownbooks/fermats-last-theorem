@@ -21,7 +21,10 @@
     {
       "cite": "Fortnow; Feige counterexamples to multiplicativity",
       "date": "1988-1991",
-      "verified": false
+      "verified": false,
+      "citation_row": "C10",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C10's latest status is SEARCH: search reaches the Fortnow-then-Feige ordering in substance, but the primaries are largely pre-arXiv and no source was fetched. Below fetched-primary tier, so the flag stays false."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

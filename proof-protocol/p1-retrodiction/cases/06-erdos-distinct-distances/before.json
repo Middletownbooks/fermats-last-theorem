@@ -21,12 +21,18 @@
     {
       "cite": "Katz, Tardos 2004",
       "date": "2004",
-      "verified": false
+      "verified": false,
+      "citation_row": null,
+      "tier": "NONE",
+      "basis": "No row covers the Katz-Tardos before-bound. Row C6-after verifies the AFTER board (Guth-Katz, Elekes-Sharir plus polynomial partitioning), which is a different claim."
     },
     {
       "cite": "Szemeredi, Trotter 1983",
       "date": "1983",
-      "verified": false
+      "verified": true,
+      "citation_row": "TWINS-batch2",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "The Szemeredi-Trotter theorem and its tightness are verified in row TWINS-batch2 (twin N18, with Elekes's construction). That covers the STATEMENT the item cites; no row addresses case 6's particular use of it."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

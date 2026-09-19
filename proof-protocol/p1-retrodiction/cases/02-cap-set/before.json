@@ -21,12 +21,18 @@
     {
       "cite": "Meshulam 1995",
       "date": "1995",
-      "verified": true
+      "verified": true,
+      "citation_row": "C2-meshulam",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C2-meshulam verifies O(3^n/n), reached via the Bateman-Katz paper rather than Meshulam's own."
     },
     {
       "cite": "Bateman, Katz (arXiv:1101.5851, posted 2011-01; JAMS 2012)",
       "date": "2011",
-      "verified": true
+      "verified": true,
+      "citation_row": "C2-batemankatz",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C2-batemankatz verifies the bound AND CORRECTS how P1 wrote it (3^n/n^{1+eps}, not n^{1+eps}); publication data later corroborated from the Bloom-Sisask reference list."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

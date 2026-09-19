@@ -21,7 +21,10 @@
     {
       "cite": "Kneser 1955",
       "date": "1955",
-      "verified": false
+      "verified": true,
+      "citation_row": "C11",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C11 verifies the Kneser 1955 upper bound chi <= n-2k+2 alongside the Lovasz after-board."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",

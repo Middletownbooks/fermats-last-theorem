@@ -11,7 +11,10 @@
     {
       "cite": "Chung, Fueredi, Graham, Seymour 1988, JCTA 49(1) 180-187",
       "date": "1988",
-      "verified": true
+      "verified": true,
+      "citation_row": "C1-bound",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row C1-bound verifies CFGS 1988, including their own matching ceil(sqrt n) construction -- which is the extremal input this twin is about. NOTE: the N9 audit broke this twin's ROLE, not its citation."
     }
   ],
   "verification": "VERIFIED — see CITATIONS.md row C1-bound",

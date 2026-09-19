@@ -10,7 +10,10 @@
     {
       "cite": "Wang, Zahl 2025",
       "date": "2025",
-      "verified": false
+      "verified": true,
+      "citation_row": "N7",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row N7 verifies the 2025 R^3 resolution and that its route is multiscale rather than polynomial-method."
     }
   ],
   "role": "negative-twin",

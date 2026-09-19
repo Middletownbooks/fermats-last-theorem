@@ -10,7 +10,10 @@
     {
       "cite": "Kollar-Ronyai-Szabo 1996; Alon-Ronyai-Szabo 1999",
       "date": "1996-1999",
-      "verified": false
+      "verified": false,
+      "citation_row": "TWINS-batch2",
+      "tier": "STANDARD (declared, not fetched)",
+      "basis": "Row TWINS-batch2 declares N20 as STANDARD rather than fetched; the twin carries its range restriction, tight only for t >= (s-1)!+1."
     }
   ],
   "verification": "STANDARD — not separately fetched this session",

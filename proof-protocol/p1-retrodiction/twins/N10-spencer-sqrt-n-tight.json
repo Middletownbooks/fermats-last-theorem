@@ -11,7 +11,10 @@
     {
       "cite": "Hadamard-matrix lower bound, standard; recent constant work reaches 8 sqrt n for matrix Spencer",
       "date": "1985-2026",
-      "verified": true
+      "verified": true,
+      "citation_row": null,
+      "tier": "STANDARD (declared, not fetched)",
+      "basis": "Declared standard in the twin file with no citations.json row. It was never among the eight STANDARD twins D21 tracked, so how it came to be flagged verified is unrecorded -- recorded here rather than silently corrected."
     }
   ],
   "verification": "VERIFIED by search",

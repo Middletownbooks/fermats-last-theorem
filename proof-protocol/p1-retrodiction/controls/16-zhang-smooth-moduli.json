@@ -24,7 +24,10 @@
     {
       "cite": "Zhang 2013, Theorem 3.2 (y-smooth moduli, Q = x^{1/2+eta}, delta = 1/1168)",
       "date": "2013",
-      "verified": true
+      "verified": true,
+      "citation_row": "C7",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "Row C7 verifies Zhang's Theorem 3.2 (y-smooth moduli, Q = x^{1/2+eta}, delta = 1/1168) as one of the two after-boards, from the Granville transcript."
     }
   ],
   "verification_sources": [
@@ -32,7 +35,10 @@
       "cite": "Granville arXiv:1410.8400 sec. 5",
       "date": "2014",
       "verified": true,
-      "role": "fetched source for the split and the level reading"
+      "role": "fetched source for the split and the level reading",
+      "citation_row": "C7",
+      "tier": "PRIMARY (pasted transcript)",
+      "basis": "The transcript itself; section 5 is what supplies the level reading and the split."
     }
   ],
   "encoder": "citations-response-2026-09-18",

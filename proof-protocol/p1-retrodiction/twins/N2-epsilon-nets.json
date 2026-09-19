@@ -27,17 +27,26 @@
     {
       "cite": "Komlos, Pach, Woeginger 1992",
       "date": "1992",
-      "verified": false
+      "verified": true,
+      "citation_row": "N2-tight",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row N2-tight verifies the KPW almost-tight bounds."
     },
     {
       "cite": "Pach, Tardos 2013",
       "date": "2013",
-      "verified": false
+      "verified": true,
+      "citation_row": "N2-tight",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Same row: the R^4 halfspace construction forcing nets of size (1/(9 eps)) log(1/eps)."
     },
     {
       "cite": "Matousek, Seidel, Welzl",
       "date": "1990",
-      "verified": false
+      "verified": false,
+      "citation_row": "N2-removable",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row N2-removable is PARTIAL: O(1/eps) nets for halfspaces in R^3 are confirmed, but the attribution to Matousek-Seidel-Welzl was not. The mathematical claim stands; the attribution does not."
     }
   ],
   "role": "negative-twin",

@@ -46,6 +46,41 @@ def load(root: pathlib.Path | None = None) -> dict:
     }
 
 
+# The per-source flags inside the ITEM files are a second place where prose can drift from data --
+# D33 was opened when control 14's three sources all said verified: false while row C14 stood
+# VERIFIED. These counts are derived here so no document has to type them.
+ITEM_GLOBS = ("cases/*/before.json", "twins/*.json", "controls/*.json")
+SKIP_STEMS = {"REJECTED"}
+
+
+def item_flags(root: pathlib.Path | None = None) -> dict:
+    root = (root or ROOT) / "p1-retrodiction"
+    n = true = 0
+    n_unrowed = [0]                     # flags, which can exceed the number of FILES they sit in
+    tiers: Counter = Counter()
+    unrowed_true: list[str] = []
+    for g in ITEM_GLOBS:
+        for f in sorted(root.glob(g)):
+            if f.stem in SKIP_STEMS:
+                continue
+            stack = [json.loads(f.read_text(encoding="utf-8"))]
+            while stack:
+                cur = stack.pop()
+                if isinstance(cur, dict):
+                    if "cite" in cur and "verified" in cur:
+                        n += 1
+                        true += bool(cur["verified"])
+                        tiers[str(cur.get("tier", "NONE")).split()[0]] += 1
+                        if cur["verified"] and cur.get("citation_row") is None:
+                            unrowed_true.append(f.parent.name if f.name == "before.json" else f.stem)
+                            n_unrowed[0] += 1
+                    stack.extend(cur.values())
+                elif isinstance(cur, list):
+                    stack.extend(cur)
+    return {"n": n, "verified": true, "tiers": tiers, "unrowed_true": sorted(set(unrowed_true)),
+            "n_unrowed_true": n_unrowed[0]}
+
+
 def caveat(st: dict) -> str:
     """The standing caveat in debts.json, generated rather than typed."""
     lv = ", ".join(f"{v} {k}" for k, v in sorted(st["latest_view"].items(), key=lambda kv: -kv[1]))
@@ -62,6 +97,20 @@ def caveat(st: dict) -> str:
     )
 
 
+def item_caveat(fl: dict) -> str:
+    t = ", ".join(f"{v} {k}" for k, v in sorted(fl["tiers"].items(), key=lambda kv: -kv[1]))
+    return (
+        f"Inside the ITEM files, {fl['n']} per-source flags now each name the citations.json row they "
+        f"stand on, or state that no row covers them: {fl['verified']} read verified, "
+        f"{fl['n'] - fl['verified']} do not, by tier {t}. "
+        f"{fl['n_unrowed_true']} flags across {len(fl['unrowed_true'])} twins read verified on a "
+        f"DECLARED basis with no row at all ({', '.join(fl['unrowed_true']) or 'none'}), which is "
+        f"recorded rather than swept. "
+        f"tools/check_consistency.py fails the tree if a flag reads verified without a row whose "
+        f"status is VERIFIED or CORRECTED, or if any flag lacks a stated basis. Debt D33."
+    )
+
+
 if __name__ == "__main__":
     st = load()
     print(f"rows {len(st['rows'])}  distinct ids {len(st['latest'])}  recurring {st['recurring']}")
@@ -71,3 +120,5 @@ if __name__ == "__main__":
     print("below_primary", st["below_primary"])
     print()
     print(caveat(st))
+    print()
+    print(item_caveat(item_flags()))

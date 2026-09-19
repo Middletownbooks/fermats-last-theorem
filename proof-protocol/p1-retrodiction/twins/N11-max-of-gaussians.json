@@ -10,7 +10,10 @@
     {
       "cite": "Standard extreme-value asymptotics; E max of n iid standard Gaussians is (1+o(1))sqrt(2 log n), asymptotically tight (both bounds converge)",
       "date": "classical",
-      "verified": true
+      "verified": true,
+      "citation_row": "TWINS-batch2",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row TWINS-batch2 upgraded N11: the max of n iid standard Gaussians is asymptotically tight at sqrt(2 log n)."
     }
   ],
   "verification": "VERIFIED by search",

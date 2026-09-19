@@ -10,12 +10,18 @@
     {
       "cite": "Feige, A threshold of ln n for approximating set cover, JACM 1998",
       "date": "1998",
-      "verified": true
+      "verified": true,
+      "citation_row": null,
+      "tier": "STANDARD (declared, not fetched)",
+      "basis": "Declared in the twin file with no citations.json row; not among D21's eight. Same gap as N10."
     },
     {
       "cite": "Dinur, Steurer, Analytical approach to parallel repetition, STOC 2014",
       "date": "2014",
-      "verified": true
+      "verified": true,
+      "citation_row": null,
+      "tier": "STANDARD (declared, not fetched)",
+      "basis": "Same: declared, unrowed."
     }
   ],
   "verification": "VERIFIED by search",

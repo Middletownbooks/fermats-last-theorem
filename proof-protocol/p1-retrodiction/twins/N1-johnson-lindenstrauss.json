@@ -10,7 +10,10 @@
     {
       "cite": "Larsen, Nelson 2017",
       "date": "2017",
-      "verified": false
+      "verified": true,
+      "citation_row": "N1",
+      "tier": "SEARCH (search snippets; no PDF fetched in this container)",
+      "basis": "Row N1 verifies the Omega(eps^{-2} log n) lower bound matching JL, for general and not merely linear maps."
     }
   ],
   "role": "negative-twin",
