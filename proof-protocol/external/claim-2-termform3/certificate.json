@@ -1,0 +1,127 @@
+{
+ "body_budget": 3,
+ "carried_candidates": 7,
+ "certified_out_of_reach": [
+  "least(k: (n // (2 ^ k)))",
+  "count(k: (n % (k + k)))",
+  "count(k: (k - (n // k)))",
+  "count(k: (n // (k * least(k: (n % k)))))",
+  "count(k: (n % (2 ^ k)))",
+  "(1 // count(k: (n % (k * k))))",
+  "count(k: (n % (k * k)))"
+ ],
+ "formation_stats": {
+  "bodies_exhausted": true,
+  "stage1_body_classes": 78,
+  "stage1_formed": 35,
+  "stage2_body_classes": 2520,
+  "stage2_formed_total": 599,
+  "truncated_stage1": false,
+  "truncated_stage2": false
+ },
+ "label": "CERTIFICATE",
+ "method": "the receiving round's own two-stage formation, bodies capped at 3, caps raised to 1e9 and the beam off, so the body space is exhausted",
+ "question": "is each carried term formable by the receiving round at body budget 3?",
+ "rows": [
+  {
+   "formable_at_budget_3": false,
+   "term": "least(k: (n // (2 ^ k)))",
+   "value_vector_head": [
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    4,
+    4
+   ]
+  },
+  {
+   "formable_at_budget_3": false,
+   "term": "count(k: (n % (k + k)))",
+   "value_vector_head": [
+    1,
+    0,
+    2,
+    0,
+    2,
+    0,
+    3,
+    0
+   ]
+  },
+  {
+   "formable_at_budget_3": false,
+   "term": "count(k: (k - (n // k)))",
+   "value_vector_head": [
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3
+   ]
+  },
+  {
+   "formable_at_budget_3": false,
+   "term": "count(k: (n // (k * least(k: (n % k)))))",
+   "value_vector_head": [
+    1,
+    2,
+    2,
+    4,
+    3,
+    6,
+    4,
+    6
+   ]
+  },
+  {
+   "formable_at_budget_3": false,
+   "term": "count(k: (n % (2 ^ k)))",
+   "value_vector_head": [
+    1,
+    0,
+    2,
+    0,
+    1,
+    0,
+    3,
+    0
+   ]
+  },
+  {
+   "formable_at_budget_3": false,
+   "term": "(1 // count(k: (n % (k * k))))",
+   "value_vector_head": [
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "formable_at_budget_3": false,
+   "term": "count(k: (n % (k * k)))",
+   "value_vector_head": [
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2
+   ]
+  }
+ ],
+ "seconds": 3.6,
+ "struck_because_formable": []
+}

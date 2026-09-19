@@ -1,0 +1,303 @@
+{
+ "applied_by": "termform3/promote3.py",
+ "body_budget_of_receiving_round": 3,
+ "count": 19,
+ "count_in_reach": 12,
+ "count_out_of_reach": 7,
+ "label": "PROMOTED_FROM_ROUND2A",
+ "note": "Body sizes are arithmetic, not evidence. certificate.py proves unreachability by exhaustive enumeration before any condition is scored, and strikes anything that turns out formable.",
+ "out_of_reach_tuples": [
+  "('least', ('div', ('var', 'n'), ('pow', ('const', 2), ('var', 'k'))))",
+  "('count', ('mod', ('var', 'n'), ('add', ('var', 'k'), ('var', 'k'))))",
+  "('count', ('sub', ('var', 'k'), ('div', ('var', 'n'), ('var', 'k'))))",
+  "('count', ('div', ('var', 'n'), ('mul', ('var', 'k'), ('least', ('mod', ('var', 'n'), ('var', 'k'))))))",
+  "('count', ('mod', ('var', 'n'), ('pow', ('const', 2), ('var', 'k'))))",
+  "('div', ('const', 1), ('count', ('mod', ('var', 'n'), ('mul', ('var', 'k'), ('var', 'k')))))",
+  "('count', ('mod', ('var', 'n'), ('mul', ('var', 'k'), ('var', 'k'))))"
+ ],
+ "prior_round": "termform2/round2b_A.json (condition A, honoured budget)",
+ "promotion_rule": "promote every certified term, plus every formed term appearing as a NAMED UNIT inside a certified term. Mechanical, applied before any Round-2 result is seen; no hand selection.",
+ "term_tuples": [
+  "('least', ('div', ('var', 'n'), ('pow', ('const', 2), ('var', 'k'))))",
+  "('count', ('mod', ('var', 'n'), ('add', ('var', 'k'), ('var', 'k'))))",
+  "('count', ('mod', ('var', 'k'), ('const', 2)))",
+  "('count', ('mod', ('var', 'k'), ('const', 4)))",
+  "('count', ('sub', ('var', 'k'), ('div', ('var', 'n'), ('var', 'k'))))",
+  "('var', 'n')",
+  "('count', ('mod', ('var', 'k'), ('least', ('mod', ('var', 'n'), ('var', 'k')))))",
+  "('count', ('div', ('var', 'k'), ('var', 'n')))",
+  "('count', ('div', ('var', 'n'), ('mul', ('var', 'k'), ('least', ('mod', ('var', 'n'), ('var', 'k'))))))",
+  "('least', ('mod', ('var', 'n'), ('var', 'k')))",
+  "('count', ('mod', ('var', 'n'), ('var', 'k')))",
+  "('count', ('div', ('var', 'k'), ('count', ('mod', ('var', 'n'), ('var', 'k')))))",
+  "('count', ('mod', ('var', 'n'), ('pow', ('const', 2), ('var', 'k'))))",
+  "('div', ('var', 'n'), ('count', ('sub', ('var', 'n'), ('least', ('mod', ('var', 'n'), ('var', 'k'))))))",
+  "('sub', ('const', 1), ('count', ('mod', ('count', ('mod', ('var', 'n'), ('var', 'k'))), ('const', 2))))",
+  "('div', ('const', 1), ('count', ('mod', ('var', 'n'), ('mul', ('var', 'k'), ('var', 'k')))))",
+  "('count', ('sub', ('var', 'n'), ('least', ('mod', ('var', 'n'), ('var', 'k')))))",
+  "('count', ('mod', ('count', ('mod', ('var', 'n'), ('var', 'k'))), ('const', 2)))",
+  "('count', ('mod', ('var', 'n'), ('mul', ('var', 'k'), ('var', 'k'))))"
+ ],
+ "terms": [
+  {
+   "body_sizes": [
+    5
+   ],
+   "expanded_size": 6,
+   "formable_at_body_3": false,
+   "from": [
+    "untargeted:bit_length"
+   ],
+   "printed_with_units": "<least(k: (n // (2 ^ k)))>",
+   "reason": "certified Round-2-A term",
+   "term": "least(k: (n // (2 ^ k)))"
+  },
+  {
+   "body_sizes": [
+    5
+   ],
+   "expanded_size": 6,
+   "formable_at_body_3": false,
+   "from": [
+    "untargeted:even_divisors"
+   ],
+   "printed_with_units": "<count(k: (n % (k + k)))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (n % (k + k)))"
+  },
+  {
+   "body_sizes": [
+    3
+   ],
+   "expanded_size": 4,
+   "formable_at_body_3": true,
+   "from": [
+    "untargeted:floor_n_2"
+   ],
+   "printed_with_units": "<count(k: (k % 2))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (k % 2))"
+  },
+  {
+   "body_sizes": [
+    3
+   ],
+   "expanded_size": 4,
+   "formable_at_body_3": true,
+   "from": [
+    "untargeted:floor_n_4"
+   ],
+   "printed_with_units": "<count(k: (k % 4))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (k % 4))"
+  },
+  {
+   "body_sizes": [
+    5
+   ],
+   "expanded_size": 6,
+   "formable_at_body_3": false,
+   "from": [
+    "untargeted:isqrt"
+   ],
+   "printed_with_units": "<count(k: (k - (n // k)))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (k - (n // k)))"
+  },
+  {
+   "body_sizes": [],
+   "expanded_size": 1,
+   "formable_at_body_3": true,
+   "from": [
+    "untargeted:n"
+   ],
+   "printed_with_units": "n",
+   "reason": "certified Round-2-A term",
+   "term": "n"
+  },
+  {
+   "body_sizes": [
+    3,
+    3
+   ],
+   "expanded_size": 7,
+   "formable_at_body_3": true,
+   "from": [
+    "untargeted:n_div_spf",
+    "target:n_div_spf"
+   ],
+   "printed_with_units": "<count(k: (k % <least(k: (n % k))>))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (k % least(k: (n % k))))"
+  },
+  {
+   "body_sizes": [
+    3
+   ],
+   "expanded_size": 4,
+   "formable_at_body_3": true,
+   "from": [
+    "untargeted:n_minus_1"
+   ],
+   "printed_with_units": "<count(k: (k // n))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (k // n))"
+  },
+  {
+   "body_sizes": [
+    5,
+    3
+   ],
+   "expanded_size": 9,
+   "formable_at_body_3": false,
+   "from": [
+    "untargeted:n_minus_n_div_spf"
+   ],
+   "printed_with_units": "<count(k: (n // (k * <least(k: (n % k))>)))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (n // (k * least(k: (n % k)))))"
+  },
+  {
+   "body_sizes": [
+    3
+   ],
+   "expanded_size": 4,
+   "formable_at_body_3": true,
+   "from": [
+    "untargeted:spf",
+    "untargeted:n_div_spf",
+    "untargeted:n_minus_n_div_spf",
+    "target:is_prime",
+    "target:n_div_spf"
+   ],
+   "printed_with_units": "<least(k: (n % k))>",
+   "reason": "certified Round-2-A term",
+   "term": "least(k: (n % k))"
+  },
+  {
+   "body_sizes": [
+    3
+   ],
+   "expanded_size": 4,
+   "formable_at_body_3": true,
+   "from": [
+    "untargeted:tau",
+    "untargeted:tau_minus_1",
+    "target:is_square"
+   ],
+   "printed_with_units": "<count(k: (n % k))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (n % k))"
+  },
+  {
+   "body_sizes": [
+    3,
+    3
+   ],
+   "expanded_size": 7,
+   "formable_at_body_3": true,
+   "from": [
+    "untargeted:tau_minus_1"
+   ],
+   "printed_with_units": "<count(k: (k // <count(k: (n % k))>))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (k // count(k: (n % k))))"
+  },
+  {
+   "body_sizes": [
+    5
+   ],
+   "expanded_size": 6,
+   "formable_at_body_3": false,
+   "from": [
+    "untargeted:v_2",
+    "target:v_2"
+   ],
+   "printed_with_units": "<count(k: (n % (2 ^ k)))>",
+   "reason": "certified Round-2-A term",
+   "term": "count(k: (n % (2 ^ k)))"
+  },
+  {
+   "body_sizes": [
+    3,
+    3
+   ],
+   "expanded_size": 9,
+   "formable_at_body_3": true,
+   "from": [
+    "target:is_prime"
+   ],
+   "printed_with_units": "(n // <count(k: (n - <least(k: (n % k))>))>)",
+   "reason": "certified Round-2-A term",
+   "term": "(n // count(k: (n - least(k: (n % k)))))"
+  },
+  {
+   "body_sizes": [
+    3,
+    3
+   ],
+   "expanded_size": 9,
+   "formable_at_body_3": true,
+   "from": [
+    "target:is_square"
+   ],
+   "printed_with_units": "(1 - <count(k: (<count(k: (n % k))> % 2))>)",
+   "reason": "certified Round-2-A term",
+   "term": "(1 - count(k: (count(k: (n % k)) % 2)))"
+  },
+  {
+   "body_sizes": [
+    5
+   ],
+   "expanded_size": 8,
+   "formable_at_body_3": false,
+   "from": [
+    "target:is_squarefree"
+   ],
+   "printed_with_units": "(1 // <count(k: (n % (k * k)))>)",
+   "reason": "certified Round-2-A term",
+   "term": "(1 // count(k: (n % (k * k))))"
+  },
+  {
+   "body_sizes": [
+    3,
+    3
+   ],
+   "expanded_size": 7,
+   "formable_at_body_3": true,
+   "from": [
+    "target:is_prime"
+   ],
+   "printed_with_units": "count(k: (n - <least(k: (n % k))>))",
+   "reason": "named unit inside a certified term",
+   "term": "count(k: (n - least(k: (n % k))))"
+  },
+  {
+   "body_sizes": [
+    3,
+    3
+   ],
+   "expanded_size": 7,
+   "formable_at_body_3": true,
+   "from": [
+    "target:is_square"
+   ],
+   "printed_with_units": "count(k: (<count(k: (n % k))> % 2))",
+   "reason": "named unit inside a certified term",
+   "term": "count(k: (count(k: (n % k)) % 2))"
+  },
+  {
+   "body_sizes": [
+    5
+   ],
+   "expanded_size": 6,
+   "formable_at_body_3": false,
+   "from": [
+    "target:is_squarefree"
+   ],
+   "printed_with_units": "count(k: (n % (k * k)))",
+   "reason": "named unit inside a certified term",
+   "term": "count(k: (n % (k * k)))"
+  }
+ ]
+}
