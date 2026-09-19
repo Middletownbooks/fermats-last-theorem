@@ -19,10 +19,11 @@
     {
       "id": "roth-2023",
       "kind": "control pair (both must-not-fire)",
-      "status": "AVAILABLE NOW, no new source needed",
-      "halves": "Kelley-Meka (Feb 2023, new play on the density-increment board) against Bloom-Sisask (Feb 2023, days later: the same board re-presented with classical Bohr set machinery plus a better exponent)",
+      "status": "ENCODED as controls 15 and 17",
+      "halves": "control 15 (Kelley-Meka, Feb 2023, new play on the density-increment board) against control 17 (Bloom-Sisask, Feb 2023, days later: the same board re-presented with classical Bohr set machinery plus announced exponent improvements)",
       "sourced": "PRIMARY, arXiv:2302.07211v3 -- the authors state 'our sole contribution is at the technical level ... all of the main ideas are the same as in [14]'",
-      "does_not_count_toward_five": "Both halves are must-not-fire, so there is no 'which is which' to score. What it measures is SPECIFICITY inside one problem-period: a diagnostic that fires on either half is firing on better play. Worth encoding, different number."
+      "does_not_count_toward_five": "Both halves are must-not-fire, so there is no 'which is which' to score. What it measures is SPECIFICITY inside one problem-period: a diagnostic that fires on either half is firing on better play. Worth encoding, different number.",
+      "asymmetry_declared_in_the_item": "Control 17's half is a LOW-STAKES advance while every other P1 item is a headline result, so a rater could separate the halves by prominence rather than mechanism. Harmless for a control pair, where no separation is asked; recorded so the item cannot be reused in a discrimination pair without the caveat."
     }
   ],
   "candidates": [

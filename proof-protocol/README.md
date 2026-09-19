@@ -39,7 +39,7 @@ else here is an instrument, not a result.
 
 | Part | What it is | State |
 |---|---|---|
-| **P1** | Retrodiction benchmark: 13 cases, **20 negative twins**, **3 controls**, 3 calibration exclusions | Encoded as data. Cases 2, 5, 8, 9 **corrected**. Citation state is generated in `CITATIONS.md`; **the last unsourced control is closed** (15, at primary tier), and control 16 arrived with the case 7 split. **Still single-encoder**; L2 found real errors but its own κ was never measured. |
+| **P1** | Retrodiction benchmark: 13 cases, **20 negative twins**, **4 controls**, 3 calibration exclusions | Encoded as data. Cases 2, 5, 8, 9 **corrected**. Citation state is generated in `CITATIONS.md`; **the last unsourced control is closed** (15, at primary tier); control 16 arrived with the case 7 split and control 17 with the Bloom-Sisask transcript, making a same-period control pair with 15. **Still single-encoder**; L2 found real errors but its own κ was never measured. |
 | **P2** | Template-ablation study: 20 arms, planted-truth battery, two judges | Ported, fidelity-tested against the artifact's own JavaScript, and **one defect in the published instrument found and fixed** (`p2-ablation/DEFECTS.md`). Repo corpus R1–R6 swapped in with machine-verified ground truths. **Never run against a live model — no API key here.** |
 | **P3** | The diagnostic | The five-transformation catalogue is **dead** (κ = 0.048). Rebuilt on the fields that reproduce: `p3-taxonomy/DIAGNOSTIC.md`. Zero false positives over 14 negatives, and one principled false negative that splits the catalogue. |
 | **P4** | The v3 prescription | **Still deliberately unwritten.** |

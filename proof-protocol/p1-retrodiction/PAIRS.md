@@ -40,13 +40,13 @@ answer to it.
 | | kind | status |
 |---|---|---|
 | **bounded gaps 2013** — case 07a (Maynard–Tao, board changed) vs control 16 (Zhang, level-*n* board unchanged) | discrimination | **encoded**, sourced at primary tier, not run |
-| **Roth 2023** — Kelley–Meka vs Bloom–Sisask, days apart, both on the density-increment board | **control pair** | available now, no new source needed |
+| **Roth 2023** — control 15 (Kelley–Meka) vs control 17 (Bloom–Sisask), days apart, both on the density-increment board | **control pair** | **encoded**, sourced at primary tier |
 
 The Roth 2023 pair **does not count toward the five**: both halves are must-not-fire, so there is no
 "which is which" to score. What it measures is *specificity inside one problem-period* — a diagnostic
 that fires on either half is firing on better play — and the authors' own words make the encoding
 unusually clean: *"our sole contribution is at the technical level … all of the main ideas are the
-same as in [14]."* Different number, worth having, one pair short of nothing.
+same as in [14]."* Different number, worth having, one pair short of nothing. It is now encoded as controls 15 and 17, and control 17 declares the asymmetry that would matter if it were ever reused inside a discrimination pair: its half is a low-stakes advance, while every other item in P1 is a headline result, so a rater could separate the halves by prominence rather than by mechanism.
 
 ## The candidate list, ranked
 
