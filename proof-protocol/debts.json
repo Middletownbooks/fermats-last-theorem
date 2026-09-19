@@ -253,11 +253,11 @@
     {
       "id": "D25",
       "kind": "benchmark-invalidity",
-      "status": "measured",
+      "status": "route-found-negative-control",
       "where": "p3-taxonomy/BASELINE.md",
       "claim": "The retrospective arm cannot measure a diagnostic's value. A rule-less rater given the same item scored J = 1.000 (5/5 positives, 8/8 negatives) against product-law matching's 0.675, a lift of -0.325, with a recognition probe of 13/13.",
-      "action": "Nothing to fix; this is a property of retrospective cases, not a bug. What it CHANGES: no retrospective 2x2 in this tree may be quoted as evidence that a diagnostic works. The prospective arm is now the only instrument that can answer the question, and this is the third independent measurement saying so (step D 100%, L2 5-of-5, this 13/13).",
-      "state": "standing"
+      "action": "NO LONGER STANDING, and the route came from outside this tree. D25 held that the retrospective arm cannot be rescued because a rater who recognises the problem needs no rule -- and every negative in the corpus is a FAMOUS problem, which is what makes recall sufficient. The Banaszczyk/Guo-Fang-Lu audit supplies a negative that is not a famous problem at all: all four models in that corpus converged on a class closed under convolution with the terminal property, and one PROVED such a class exists IF AND ONLY IF Komlos holds. That board is a RESTATEMENT of the conjecture, its invariant is not verifiable on the starting state, and telling it apart from Banaszczyk's real board requires the computation rather than the memory. WHAT TO BUILD: negative controls of that SHAPE -- an invariant provably equivalent to the theorem it is meant to prove. They are generic, so there is nothing to recall; they are constructible rather than found, so the corpus is not limited to history (which also speaks to D26, where the corpus has no failed board changes); and a rater who cannot separate one from a real board is measured as not measuring board-finding. The discriminator is stated in Claim-2 board-finder/FINDER.md 4b: can the invariant be verified on the STARTING STATE by an independent computation, without knowing whether the theorem is true? This does not retract the measurement. J = 1.000 with 13/13 recognition stands exactly as measured on the items that existed. What changes is that the arm is not necessarily dead -- it was dead on a corpus of famous problems.",
+      "state": "open"
     },
     {
       "id": "D26",
@@ -366,6 +366,17 @@
       "where": "p1-retrodiction/cases/*/before.json move_kind; controls/*.json move_kind",
       "claim": "`move_kind` is the binding conjunct of the transformable-board screen -- it is what makes the screen selective, since extending the tightness field cannot create a fire without it -- and it was assigned by one instance, for debt D9, with no second reading.",
       "action": "A one-field blind rating sheet, the cheapest test this tree has left: is the move a formula that is carried out, or an existence theorem that asserts a good object exists? Two categories, 17 items, and the D20 instrument already built. If move_kind does not reproduce, the screen has no selectivity and FINDER.md's precision figure is noise."
+    },
+    {
+      "id": "D36",
+      "kind": "convergence",
+      "state": "closed",
+      "status": "recorded",
+      "confidence": "certain -- two independent derivations, both on the record",
+      "where": "p1-retrodiction/cases/*/before.json move_kind; Claim-2 board-finder/FINDER.md 4b",
+      "claim": "THE SAME DISCRIMINATOR WAS DERIVED TWICE FROM UNRELATED ARGUMENTS. This tree's `move_kind` field -- is the move a formula that is carried out, or an existence theorem that asserts a good object exists -- was added for debt D9, from adjudicating a contested criterion. The line-by-line audit of Banaszczyk against Guo-Fang-Lu arrived at it from reading the papers: Odin's T_v is a formula, Bansal-Jiang needs SDP duality to guarantee a legal move at every step, and 'that gap is most of the complexity difference between the two papers'.",
+      "why_it_matters": "Nothing else in this programme has two independent derivations. The five-label vocabulary has one and scored 0.048; product-law matching has one and was shown surplus by a one-line test. A field two arguments reach separately is the best candidate the tree has for something real -- which makes D35, its single-rater status, the cheapest high-value test left.",
+      "action": "Nothing to close. Recorded so that D35's one-field blind rating is understood as testing the most-corroborated field in the tree rather than a housekeeping detail."
     }
   ],
   "failure_register": [

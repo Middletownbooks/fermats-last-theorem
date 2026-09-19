@@ -44,3 +44,24 @@ honestly unprompted. Plus a six-item benchmark, because the rule here is to buil
 benchmark before the pipeline.
 
 Debts **D34** and **D35** in this tree track what remains untested.
+
+## The audit's anatomy closed the loop back onto this tree
+
+The full Banaszczyk → Guo–Fang–Lu audit supplied the mechanism: the move, the state and
+the geometry are unchanged and the terminal check got *easier* — only the invariant
+changed, from a **multiplicative** certificate (Gaussian measure, threshold ≍ √(2 ln d))
+to an **averaging** one (directional total variation, bound uniform in d). Verified
+here from the composition laws alone in `board-finder/verify_mechanism.py`, which also
+caught two errors in my own statement of it.
+
+Three consequences for this tree:
+
+* **D25 is no longer standing.** Its negatives are all famous problems, which is what
+  made recall sufficient. An invariant *provably equivalent to the theorem* — the
+  convolution-compiler board four models converged on, one of them proving the
+  equivalence and reporting it as a find — is a negative that recall cannot crack, and
+  it is constructible rather than found.
+* **D36: `move_kind` has two independent derivations.** This tree got it from
+  adjudicating D9; the audit got it from reading two papers. Nothing else here has that.
+* **D35 is therefore the cheapest high-value test left** — one field, two categories,
+  17 items, on the most-corroborated field in the tree.
