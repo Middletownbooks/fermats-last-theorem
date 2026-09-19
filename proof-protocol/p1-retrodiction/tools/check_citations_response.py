@@ -76,3 +76,33 @@ if bad:
     print(f"{len(bad)} check(s) FAILED: {', '.join(bad)}")
     sys.exit(1)
 print("All four derivations in the citations response verify.")
+
+print("\n=== (e) control 15: the Kelley-Meka exponent ladder, and the board's ceiling ===")
+# Bound shape: |A| <= N/exp(c (log N)^e). LARGER e = stronger bound.
+ladder = {"Kelley-Meka (Thm 1)": 1/12, "Bloom-Sisask clean modification": 1/9,
+          "Bloom-Sisask technical optimisation": 5/41,
+          "stated natural limit of these methods": 1/7,
+          "stated limit of ANY density-increment-with-Bohr-sets argument": 1/3,
+          "Behrend lower bound (the truth is at least this strong)": 1/2}
+prev = None
+for name, e in ladder.items():
+    print(f"     {e:8.5f}  {name}")
+    if prev is not None:
+        ck(f"  ladder ordering", e > prev, f"{e:.5f} > {prev:.5f}")
+    prev = e
+ck("5/41 beats 1/9", 5/41 > 1/9, f"5/41 = {5/41:.5f} > 1/9 = {1/9:.5f}, so the technical "
+   "optimisation is stronger than the clean one -- larger exponent means a smaller bound")
+ck("P1's figure is doubly stale", 1/12 < 1/9 < 5/41,
+   "P1 records 1/12; Bloom-Sisask themselves give 1/9 cleanly and 5/41 with more work")
+ck("the board is capped SHORT of the truth", 1/3 < 1/2,
+   "Bloom-Sisask state 1/3 (perhaps 1/4) as the limit of ANY density-increment-with-Bohr-sets "
+   "argument, while Behrend's construction gives 1/2. The board has a stated ceiling below the "
+   "answer -- which is the leak structure this benchmark is about, sourced and contemporary.")
+ck("gap the board cannot close", abs((1/2) - (1/3)) > 0.16,
+   f"the unreachable interval is ({1/3:.4f}, {1/2:.4f}] in the exponent")
+
+print()
+if bad:
+    print(f"{len(bad)} check(s) FAILED: {', '.join(bad)}")
+    sys.exit(1)
+print("Control-15 exponent ladder verified.")

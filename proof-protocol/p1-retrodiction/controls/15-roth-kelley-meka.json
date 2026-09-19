@@ -9,15 +9,45 @@
     "S": "A 3AP-free subset of [N].",
     "I": "Density increment."
   },
-  "what_happened": "The work stayed on the density-increment board and improved the play (sifting and higher energies), giving exp(-c log^{1/12} N).",
+  "what_happened": "The work stayed on the density-increment board and improved the play, giving exp(-c log^{1/12} N). Bloom-Sisask's exposition breaks the argument into five steps and names the last one 'Density increment': a deficiency <mu_A * mu_A, mu_C> <= 1/2 yields an affine subspace of codimension O(L(alpha)^4 L(gamma)^4) on which A is denser by (1 + 1/100), and 'this density increment condition can now be iteratively applied'. The new play is Steps 1-4: Hoelder lifting, unbalancing (which rests on the Fourier transform of mu_A o mu_A - 1 being non-negative), dependent random choice, and almost-periodicity. The primary source's own framing of the novelty is that the methods are 'mostly physical-based ... rather than the Fourier-based methods that have dominated the study of three-term progressions thus far' -- a change of technique on an unchanged board, which is exactly what this control tests.",
   "tests_for": "False board-change alarms where better play on an unchanged board produced a headline result.",
+  "exponent_ladder": {
+    "note": "Bound shape |A| <= exp(-c (log N)^e) N for the integer problem; LARGER e is a STRONGER bound. P1 records 1/12, which the primary source itself supersedes twice in the same paragraph.",
+    "0.08333 = 1/12": "Kelley-Meka, Theorem 1 as P1 records it.",
+    "0.11111 = 1/9": "Bloom-Sisask: 'the 1/12 of Theorem 1 can be replaced by 1/9 with a relatively clean argument (the only modification required is to the almost-periodicity part).'",
+    "0.12195 = 5/41": "Bloom-Sisask: 'A further tedious lengthy technical optimisation allows for an exponent of 5/41.'",
+    "0.14286 = 1/7": "Bloom-Sisask: 'We believe that an exponent of 1/7 (in the statement of Theorem 1) is the natural limit of these methods, in that achieving anything better will require significant new ideas.'",
+    "0.33333 = 1/3": "Bloom-Sisask: 'an exponent of 1/3 (or perhaps even 1/4) seems to be the limit of any argument that uses any sort of \"density increment\" argument with Bohr sets (whether using Kelley-Meka ideas or a more traditional Fourier analytic approach).'",
+    "0.50000 = 1/2": "Behrend's construction: 3AP-free subsets of [N] of size at least exp(-c (log N)^{1/2}) N, so the truth is at least this strong. Small improvements by Elkin (Israel J. Math. 184 (2011), 93-128) and Green-Wolf (Additive number theory, 141-144, Springer 2010).",
+    "do_not_conflate": "1/7 appears twice in the source with two different meanings. The IMPROVED FINITE-FIELD exponent of Theorem 2 goes 1/9 -> 1/7 (bound q^{n - c n^{1/7}} in F_q^n); separately, 1/7 in THEOREM 1 (the integers) is what they believe is the natural limit of the method. The ladder entry above is the integer one.",
+    "checked_by": "p1-retrodiction/tools/check_citations_response.py section (e)"
+  },
+  "board_ceiling": {
+    "finding": "The primary source states a CEILING ON THE BOARD ITSELF, not just on the current argument: 1/3, perhaps 1/4, is the limit of ANY density-increment-with-Bohr-sets argument, 'whether using Kelley-Meka ideas or a more traditional Fourier analytic approach'. Behrend's construction puts the truth at 1/2.",
+    "why_it_matters": "This is the leak structure the whole benchmark is about -- a board whose best conceivable play falls short of the answer -- stated by the practitioners, contemporaneously, about a live problem, rather than reconstructed by us after the fact. The interval (1/3, 1/2] in the exponent is unreachable from this board on the source's own account.",
+    "what_it_does_NOT_license": "It does not make control 15 a board change, and it does not license the diagnostic firing here. A stated ceiling is a prediction that the board will eventually have to be left; what happened in 2023 is that it was not. The control still reads must-not-fire.",
+    "recorded_as": "debt D32"
+  },
+  "terminology": {
+    "sifting": "Kelley-Meka's own term for Step 3. Bloom-Sisask: 'The proof of this step, called sifting in [14], is completely elementary, and uses dependent random choice.' So 'sifting' in this item's earlier wording was faithful to Kelley-Meka, but the mechanism is dependent random choice.",
+    "higher_energies": "DROPPED from what_happened. The earlier wording said the play improved by 'sifting and higher energies'. The primary source uses the word 'energy' nowhere except in a reference title (Shkredov, 'Some new results on higher energies'). The mechanism is large L^p norms of mu_A o mu_A - 1, which are higher energies only loosely; the source's own five names are used instead."
+  },
   "sources": [
     {
-      "cite": "Kelley, Meka 2023",
+      "cite": "Kelley, Meka, 'Strong bounds for 3-progressions', arXiv:2302.05537, Theorem 1 (exponent 1/12) and Theorem 2 (F_q^n, exponent 1/9)",
       "date": "2023",
-      "verified": false
+      "verified": true
+    }
+  ],
+  "verification_sources": [
+    {
+      "cite": "Bloom, Sisask, 'The Kelley-Meka bounds for sets free of three-term arithmetic progressions', arXiv:2302.07211v3",
+      "date": "2023-2025",
+      "verified": true,
+      "role": "fetched primary source (pasted transcript) for the five steps, the step-5 title 'Density increment', the exponent ladder, and the stated ceiling on the board. Closes debt D29."
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated"
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "sourcing_pass": "bloom-sisask-transcript-2026-09-18"
 }

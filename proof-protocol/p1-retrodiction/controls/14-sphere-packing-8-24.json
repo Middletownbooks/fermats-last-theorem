@@ -21,19 +21,23 @@
     {
       "cite": "Cohn, Elkies 2003",
       "date": "2003",
-      "verified": false
+      "verified": true,
+      "tier": "SEARCH (citations.json row C14 and adjudication ADJ-14; no PDF was fetched)"
     },
     {
       "cite": "Viazovska 2016",
       "date": "2016",
-      "verified": false
+      "verified": false,
+      "note": "NOT verified by any citations.json row. The row that carries this control (C14) verifies the BOARD claim -- Cohn-Elkies 2003 as the first improvement since Kabatyanskii-Levenshtein 1978, and the authors' own conjecture that their board would settle 8 and 24 -- not Viazovska's certificate, which no pass has checked."
     },
     {
       "cite": "Kabatiansky, Levenshtein 1978",
       "date": "1978",
-      "verified": false
+      "verified": true,
+      "tier": "SEARCH (citations.json row C14 and adjudication ADJ-14; no PDF was fetched)"
     }
   ],
   "encoder": "seed-chat-instance-2026-09-18",
-  "encoding_pass": "v0-single-encoder-contaminated"
+  "encoding_pass": "v0-single-encoder-contaminated",
+  "sourcing_pass": "flags reconciled with citations.json 2026-09-19: they had said verified: false for all three sources while row C14 stood VERIFIED, which is the same prose-versus-data drift recorded in D19."
 }

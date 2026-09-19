@@ -1,6 +1,6 @@
 # Citation verification (task 1)
 
-*Generated from `citations.json` by `tools/render_citations.py`. As of 2026-09-18.*
+*Generated from `citations.json` by `tools/render_citations.py`. As of 2026-09-19.*
 
 ## What could be checked, and what could not
 
@@ -12,13 +12,29 @@
 
 | status | rows |
 |---|---|
-| VERIFIED | 28 |
-| UNVERIFIED | 4 |
+| VERIFIED | 33 |
+| UNVERIFIED | 3 |
 | CORRECTED | 2 |
 | PARTIAL | 2 |
 | DISPUTED | 1 |
 | SEARCH | 1 |
-| **total** | **38** |
+| **total** | **42** |
+
+## Current state (last row per id)
+
+The table above counts **every row ever written**, including superseded ones: 42 rows cover 39 distinct claims, because 3 ids recur (`C10`, `C12`, `C15`) where a later pass superseded an earlier row instead of rewriting it. Counting the latest row per id:
+
+| status | claims |
+|---|---|
+| VERIFIED | 32 |
+| CORRECTED | 2 |
+| PARTIAL | 2 |
+| DISPUTED | 1 |
+| SEARCH | 1 |
+| UNVERIFIED | 1 |
+| **distinct claims** | **39** |
+
+**Still UNVERIFIED:** `C1-gotsman`. **Below fetched-primary tier:** `C10`, `C12`, `N2-removable`. Two VERIFIED twin rows, `N16` and `N20`, rest on STANDARD-tier claims and say so.
 
 ## Rows that changed a claim
 
@@ -34,7 +50,7 @@ These are the ones downstream work must read instead of P1's original.
 
 **Correction.** P1 writes the bound as 'n^{1+eps}', dropping the 3^n. In a column whose neighbouring entry is '3^n/n', that reads as a bound OF SIZE n^{1+eps} rather than a denominator. It is shorthand that becomes an error in context. Field corrected to 3^n/n^{1+eps}.
 
-*Source:* arXiv:1101.5851; JAMS 25(2), 2012
+*Source:* arXiv:1101.5851; JAMS 25(2), 2012; publication data corroborated from primary (Bloom-Sisask ref [1]): J. Amer. Math. Soc. 25 (2012), no. 2, 585-613
 
 ### C5-4n7 — DISPUTED
 
@@ -103,7 +119,11 @@ These are the ones downstream work must read instead of P1's original.
 | `C10` | case 10 | **SEARCH** | Fortnow then Feige counterexamples; Raz 1995 / Holenstein 2007 after-boards | Search reaches it in substance, including the Fortnow-then-Feige ordering the row asserts (Feige-Verbitsky 2002 the simpler example), Raz's sub-exponential decay and Holenstein's simplification. The primaries are largely pre-arXiv, so a transcript is unlikely to improve it. |
 | `C12` | case 12 | **PARTIAL** | Perelman W-entropy and reduced volume give kappa-noncollapsing | Bibliographic record confirmed (math/0211159, 11 Nov 2002); the cigar-soliton obstruction and the entropy-plus-reduced-distance remedy corroborated from a secondary source. |
 | `C2-after-split` | heldout/02-cap-set | **VERIFIED** | P1 credited Croot-Lev-Pach and Ellenberg-Gijswijt jointly for the cap-set after-board. | Peluse: CLP proved a bound for (Z/4Z)^n (O(3.61^n), improving Sanders); EG ADAPTED THE METHOD to prove the cap-set theorem. CLP supplied the method, EG the theorem. |
-| `C15` | controls/15-roth-kelley-meka.json | **UNVERIFIED** | Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N). | STILL UNSOURCED. The Peluse survey was expected to cover it and does not: it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere. |
+| `C15` | controls/15-roth-kelley-meka.json | **VERIFIED** | Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N). | CLOSED FROM PRIMARY. Bloom-Sisask arXiv:2302.07211v3 is an exposition of Kelley-Meka that breaks the argument into five steps and names the fifth 'Density increment': 'If <mu_A * mu_A, mu_C> <= 1/2, then there is an affine subspace V of codimension O(L(alpha)^4 L(gamma)^4) on which A has density at least (1 + 1/100) alpha ... This density increment condition can now be iteratively applied.' The board P1 assigns to control 15 is the one the primary source says the argument runs on. Theorem 1 is stated with exponent 1/12, as P1 records. |
+| `C15-ladder` | controls/15-roth-kelley-meka.json exponent_ladder | **VERIFIED** | NEW ROW. The exponent record for r_3(N) around Kelley-Meka, largest exponent = strongest bound. | 1/12 Kelley-Meka Thm 1; 1/9 Bloom-Sisask clean modification ('the only modification required is to the almost-periodicity part'); 5/41 after technical optimisation; 1/7 'the natural limit of these methods, in that achieving anything better will require significant new ideas'; 1/3 (perhaps 1/4) the limit of any density-increment-with-Bohr-sets argument; 1/2 from Behrend's construction, which is where the truth is at least. Ordering and the two gaps checked in check_citations_response.py section (e). |
+| `C15-ceiling` | controls/15-roth-kelley-meka.json board_ceiling | **VERIFIED** | NEW ROW. The density-increment board has a stated ceiling below the known truth. | Bloom-Sisask: 'an exponent of 1/3 (or perhaps even 1/4) seems to be the limit of any argument that uses any sort of "density increment" argument with Bohr sets (whether using Kelley-Meka ideas or a more traditional Fourier analytic approach)', against Behrend's 1/2. The interval (1/3, 1/2] in the exponent is, on the practitioners' own account, unreachable from this board. |
+| `N3-polynomial-method` | twin N3, the load-bearing half | **VERIFIED** | N3's discriminator against case 2 is the ABSENCE of a slice-rank/polynomial-method route in [N]. Previously carried as structural reasoning, not as a sourced statement. | Bloom-Sisask state it outright: 'Unfortunately, however, there is no known analogue of the polynomial method for the integer problem, so achieving strong bounds for the integer problem via this method is out of reach.' They also give the contrast N3 needs: in F_q^n the polynomial method gives \|A\| <= q^{n-cn} (Ellenberg-Gijswijt), stronger than Kelley-Meka's q^{n-cn^{1/9}}, while over the integers the Kelley-Meka route is the one that generalises. |
+| `N3-behrend-improvements` | twin N3 refinement | **VERIFIED** | The N3 refinement recorded arXiv:2406.12290 as 'the first quasipolynomial improvement to Behrend since 1946', which reads as though nothing happened in between. | Bloom-Sisask: Behrend [2] (PNAS 32 (1946), 331-332) gives exp(-c (log N)^{1/2}) N, and 'small improvements have also been established by Elkin [9] (Israel J. Math. 184 (2011), 93-128) and Green and Wolf [13] (Additive number theory, 141-144, Springer 2010)'. |
 
 ## Refinements worth carrying
 
@@ -112,12 +132,17 @@ These are the ones downstream work must read instead of P1's original.
 - **C2-after** — COMPUTED here: the exact constant is 2.7551046..., so 2.756 is correct as an upper bound but is not the constant itself. P1's 'approximately 2.756^n' is sound as written.
 - **C3-shannon** — A search snippet relayed earlier said FIVE vertices; the transcript says six. Use six. Load-bearing and it holds: case 3 is the one principled false negative precisely because chi_f is multiplicative under the strong product and merely not tight -- and chi_f(C5) = 5/2 is COMPUTED here (vertex-transitive, n/alpha), ratio 1.118 to sqrt5, a constant factor.
 - **N2-tight** — Kupavskii-Mustafa-Pach later generalised the Pach-Tardos construction to halfspaces in R^d for every d >= 4.
-- **C15** — NEW SINCE THE SEED: Bloom-Sisask improved the exponent from 1/12 to 1/9 a few months later (arXiv:2309.02353). The control's status is unaffected — both stayed on the same board — but the figure in P1 is no longer the record.
+- **C15** — NEW SINCE THE SEED: Bloom-Sisask improved the exponent from 1/12 to 1/9 a few months later (arXiv:2309.02353). The control's status is unaffected — both stayed on the same board — but the figure in P1 is no longer the record. FROM PRIMARY: the 1/9 improvement is announced in arXiv:2302.07211 ITSELF ('we will detail these improvements in a separate forthcoming note'), together with 5/41. This row credited the improvement to arXiv:2309.02353, the promised note; the announcement is earlier than that row implies.
 - **C7** — Three additions. (1) The invariant's threshold is not literally 1: Prop. 6.3 gives rho(F) > 4h unconditionally, > 2h under Elliott-Halberstam. (2) bound_then named only theta, but D = [d_1,d_2] <= R^2 binds the sieve as R < x^{1/4-o(1)}, which sec. 4.2 calls 'an important barrier' -- the same barrier from two sides, and a field naming one loses the form in which it bites, exactly as case 5's single-regime field lost a dimension range. (3) Two EMPTY slots are now filled: move = Selberg's explicit formula lambda(d) = mu(d)G(log d/log R), composition = multiplicativity of omega. The leak is DERIVED: rho_k caps at 4 independent of k, so the criterion caps at 2*theta and theta > 1/2 follows.
 - **C9** — The leak is now a DEMONSTRATION rather than a claim: each block of k variables multiplies the defect by a fixed fraction, so burning k^2/2 to O(1) needs ~k log(k^2/2) contractions and s ~ 2k^2 log k. THE log k IS THE CONTRACTION COUNT. Case 9 was one of only two cases where L2's encoders agreed on the leading mechanism, and this is why. D1 CLOSES.
 - **N3** — The exclusion is ASYMPTOTIC and the crossover is large: N > 10^10 for delta = 0.5 but N > 10^241 for delta = 0.1 (derived and verified here). The item now says so. Also logged: arXiv:2406.12290 is the first quasipolynomial improvement to Behrend since 1946 -- it does not change N3's status, but it is the class of event that rejected the Erdos-R^3 candidate.
 - **TWINS-batch2** — N16 (matrix-multiplication exponent) and N20 (Kovari-Sos-Turan) remain STANDARD and are declared so. Every twin now carries a recheck_by date, per D21 — twin candidates decay, as the rejected Erdos-R^3 candidate showed.
 - **C2-after-split** — Same transcript confirms Meshulam O(3^n/n), Bateman-Katz O(3^n/n^{1+c}), Edel Omega(2.217^n), EG O(2.756^n).
+- **C15** — P1's exponent 1/12 is DOUBLY STALE and the primary source says so in one paragraph: 1/9 'with a relatively clean argument', then 5/41 after 'a further tedious lengthy technical optimisation'. The control's status is unaffected -- every one of these stayed on the density-increment board -- but the figure in the item is not the record. Full ladder in row C15-ladder and in the item's exponent_ladder block.
+- **C15-ladder** — TRAP RECORDED: 1/7 occurs twice in the source with different referents. Theorem 2 (the F_q^n model case) improves from 1/9 to 1/7 under the same modification; 1/7 in Theorem 1 (the integers) is the believed natural limit. Reading one for the other would put a finite-field exponent on the integer ladder.
+- **C15-ceiling** — This is the benchmark's own subject matter stated by the people on the board, contemporaneously, about a live problem -- not reconstructed by us after the fact. It does NOT reclassify control 15: a stated ceiling predicts the board will have to be left, and what happened in 2023 is that it was not. Debt D32.
+- **N3-polynomial-method** — This upgrades the part of N3 the rebuilt diagnostic actually leans on. The N3 row's own note said the diagnostic's use of N3 'rests on the ABSENCE of a product structure on [N], which is structural and does not depend on Behrend' -- that absence is now a quoted primary claim rather than our inference.
+- **N3-behrend-improvements** — The claim N3 needs -- Behrend's shape excludes power savings, and is still essentially best-known -- is untouched: Elkin and Green-Wolf improve the lower-order factor, not the (log N)^{1/2}. But 'since 1946' needed the qualifier, and it was my phrasing that needed it, not the source's.
 
 ## Adjudications
 
@@ -142,4 +167,3 @@ Declaring what could not be checked is part of the deliverable.
 - **C10** (`case 10`) — Fortnow/Feige counterexamples; Raz 1995 and Holenstein 2007 after-boards
 - **C12** (`case 12`) — Perelman W-entropy and reduced volume give kappa-noncollapsing
 - **C1-gotsman** (`case 1 state slot`) — the Gotsman-Linial 1992 reduction
-- **C15** (`controls/15-roth-kelley-meka.json`) — Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N).

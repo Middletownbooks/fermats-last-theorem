@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 """Render DEBTS.md from debts.json, so the prose cannot drift from the data."""
 from __future__ import annotations
-import json, pathlib
+import json, pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import citation_status                                   # noqa: E402
+
 d = json.loads((ROOT / "debts.json").read_text(encoding="utf-8"))
+
+# A standing caveat that states counts is GENERATED, never typed: typed counts in this tree have
+# been wrong in both directions (see D19). debts.json carries the marker, this fills it.
+GENERATORS = {"{{GENERATED:citation_status}}": lambda: citation_status.caveat(citation_status.load(ROOT))}
+d["global"] = [GENERATORS[g]() if g in GENERATORS else g for g in d["global"]]
 
 L = ["# Verification debts and the failure register",
      "",

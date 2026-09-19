@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Render CITATIONS.md from citations.json so the prose cannot drift from the data."""
 from __future__ import annotations
-import json, pathlib
+import json, pathlib, sys
 from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import citation_status                                   # noqa: E402
+
 d = json.loads((ROOT / "citations.json").read_text(encoding="utf-8"))
 rows = d["rows"]
 c = Counter(r["status"].split()[0] for r in rows)
+st = citation_status.load(ROOT)
 
 L = ["# Citation verification (task 1)", "",
      f"*Generated from `citations.json` by `tools/render_citations.py`. As of {d['as_of']}.*", "",
@@ -18,6 +22,22 @@ L = ["# Citation verification (task 1)", "",
 for k, v in sorted(c.items(), key=lambda kv: -kv[1]):
     L.append(f"| {k} | {v} |")
 L += [f"| **total** | **{len(rows)}** |", ""]
+
+# Rows are APPENDED when a later pass supersedes an earlier one, so the table above counts some
+# claims twice. The current state is the last row per id, and it is the only view a sentence about
+# what is still open may be written from. See tools/citation_status.py and debt D19.
+L += ["## Current state (last row per id)", "",
+      f"The table above counts **every row ever written**, including superseded ones: "
+      f"{len(rows)} rows cover {len(st['latest'])} distinct claims, because "
+      f"{len(st['recurring'])} ids recur ({', '.join(f'`{i}`' for i in st['recurring'])}) where a "
+      f"later pass superseded an earlier row instead of rewriting it. Counting the latest row per id:",
+      "", "| status | claims |", "|---|---|"]
+for k, v in sorted(st["latest_view"].items(), key=lambda kv: -kv[1]):
+    L.append(f"| {k} | {v} |")
+L += [f"| **distinct claims** | **{len(st['latest'])}** |", "",
+      f"**Still UNVERIFIED:** {', '.join(f'`{i}`' for i in st['unverified']) or 'none'}. "
+      f"**Below fetched-primary tier:** {', '.join(f'`{i}`' for i in st['below_primary']) or 'none'}. "
+      f"Two VERIFIED twin rows, `N16` and `N20`, rest on STANDARD-tier claims and say so.", ""]
 
 changed = [r for r in rows if r["status"].startswith(("CORRECTED", "DISPUTED"))]
 if changed:

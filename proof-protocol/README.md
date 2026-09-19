@@ -28,7 +28,7 @@ else here is an instrument, not a result.
 
 | Part | What it is | State |
 |---|---|---|
-| **P1** | Retrodiction benchmark: 13 cases, **20 negative twins**, 2 controls, 3 calibration exclusions | Encoded as data. Cases 2, 5, 8, 9 **corrected**. 20 of 33 citations verified. **Still single-encoder**; L2 found real errors but its own κ was never measured. |
+| **P1** | Retrodiction benchmark: 13 cases, **20 negative twins**, **3 controls**, 3 calibration exclusions | Encoded as data. Cases 2, 5, 8, 9 **corrected**. Citation state is generated in `CITATIONS.md`; **the last unsourced control is closed** (15, at primary tier), and control 16 arrived with the case 7 split. **Still single-encoder**; L2 found real errors but its own κ was never measured. |
 | **P2** | Template-ablation study: 20 arms, planted-truth battery, two judges | Ported, fidelity-tested against the artifact's own JavaScript, and **one defect in the published instrument found and fixed** (`p2-ablation/DEFECTS.md`). Repo corpus R1–R6 swapped in with machine-verified ground truths. **Never run against a live model — no API key here.** |
 | **P3** | The diagnostic | The five-transformation catalogue is **dead** (κ = 0.048). Rebuilt on the fields that reproduce: `p3-taxonomy/DIAGNOSTIC.md`. Zero false positives over 14 negatives, and one principled false negative that splits the catalogue. |
 | **P4** | The v3 prescription | **Still deliberately unwritten.** |
@@ -72,7 +72,7 @@ python3 proof-protocol/p1-retrodiction/tools/pack.py --id 01-sensitivity
 
 | # | Task | State |
 |---|---|---|
-| 1 | Verify the citation layer | `CITATIONS.md`: **23 verified**, 1 corrected, 1 disputed, 2 partial, **7 declared unverified**. Two errors found. Both reclassifications adjudicated. Every egress route is blocked; search only. |
+| 1 | Verify the citation layer | **Three passes done; counts are generated, not typed** — see the *Current state* table in `CITATIONS.md` (from `tools/citation_status.py`). Two errors found and one claim dropped as unsourced; both reclassifications adjudicated; **one row is still UNVERIFIED** (`C1-gotsman`). Every egress route is blocked for the whole session, so every primary-tier closure came from a pasted transcript: C3, C7, C9, N3, C15. |
 | 2 | Fix and port the harness | **Done.** DEFECT-1 fixed and recorded; fidelity test runs the artifact's own JavaScript; non-repeating placebos; two judge families; exact arithmetic in code. |
 | 3 | Replace the battery's weakest items | **Corpus in, ground truths machine-verified. Pilot not run** — no API key here, so the retirement list is a labelled prediction. |
 | 4 | Rebuild the diagnostic on fields that reproduce | **Done.** `p3-taxonomy/DIAGNOSTIC.md`. |

@@ -1,6 +1,6 @@
 {
   "purpose": "Every prediction this programme has made, and how it turned out. MEASUREMENTS.md records what was measured; this records what was EXPECTED, so the next instance's judgement is calibratable instead of confident. Rendered to LEDGER.md by tools/render_ledger.py.",
-  "as_of": "2026-09-18",
+  "as_of": "2026-09-19",
   "scoring": "correct | wrong | partly | open | unscored. 'unscored' means the instrument to settle it exists but has not been run; 'open' means it cannot be settled yet.",
   "predictions": [
     {
@@ -194,6 +194,14 @@
       "outcome": "WRONG in the direction that matters: all four verify (23 checks). The two failures my test reported were MY bugs -- a hand-arithmetic error on the Behrend coefficient (I claimed 2.3542 against the document's correct 2.3548) and a too-tight tolerance plus a coding slip on the C9 ratio.",
       "status": "wrong",
       "cost": "none, but it is the second time this session that checking someone else's work surfaced an error of mine rather than theirs"
+    },
+    {
+      "id": "P-25",
+      "by": "this session (in CITATIONS-NEEDED.md and D29)",
+      "predicted": "'Control 15 is the one to ask for ... a single transcript of arXiv:2302.07211 closes it.' Named one document, in advance, as sufficient to close the highest-stakes open row.",
+      "outcome": "CORRECT, and it over-delivered. The transcript closes C15 at PRIMARY tier (Step 5 is titled 'Density increment'), and also: supersedes P1's exponent twice over (1/9 clean, 5/41 optimised, 1/7 believed limit), supplies a PRIMARY statement of the half of N3 the diagnostic leans on ('there is no known analogue of the polynomial method for the integer problem'), corroborates the Bateman-Katz and Ellenberg-Gijswijt publication data, adds Elkin and Green-Wolf as small improvements to Behrend, and states a ceiling on the board itself (D32). Five rows from one document.",
+      "status": "correct",
+      "cost": "none, but score it honestly: this was the LOW-RISK kind of prediction -- that the source of a claim states the claim. It is not evidence of calibration about whether anything WORKS, which is where this ledger's wrong answers all are. Compare P-23, which was the same shape of bet on a SURVEY covering a paper it did not cover, and lost."
     }
   ],
   "lessons": [
@@ -204,6 +212,8 @@
     "Twice now a criterion has been dropped for the same reason: no computable diagnostic (auxiliary-witness lift, and the E5(b) replacement). Both were phrased as insights rather than as procedures. A criterion that cannot say what it reads off the page is not a criterion, and the catalogue has shrunk from five transformations plus two proposals to two tested rules.",
     "Pre-registering my own answer before the audit was worth more than the audit alone. It showed that self-analysis reached the right VERDICT on all three points but missed the two strongest ARGUMENTS on the decisive one. The pattern across this session is consistent: self-scoring finds bugs, external checks find substantive errors.",
     "The rebuild produced four findings and no working rule. Every finding came from something BREAKING: a unanimous rater disagreement (N8), an adversarial audit (N9), a baseline (D25), and a simpler rival (D28). Nothing came from the rule working. Build the rival and the baseline FIRST next time — they are cheaper than the rule and they are what produces the findings.",
-    "Twice this session I set out to check another party's work and found my own error instead: the positive-class vocabulary bug, and now the Behrend coefficient. Both times the other party was right. Combined with N8 (three raters right, me wrong) and the N9 audit (auditor right on all three points), the pattern is now unambiguous: on this project my error rate on substantive checks is higher than that of the people and agents I am checking. Weight external results accordingly."
+    "Twice this session I set out to check another party's work and found my own error instead: the positive-class vocabulary bug, and now the Behrend coefficient. Both times the other party was right. Combined with N8 (three raters right, me wrong) and the N9 audit (auditor right on all three points), the pattern is now unambiguous: on this project my error rate on substantive checks is higher than that of the people and agents I am checking. Weight external results accordingly.",
+    "The two citation predictions in this ledger point the same way. P-23 bet that a survey would cover a paper outside its scope and lost; P-25 bet that a paper would state its own theorem and won. What closes rows here is naming the RIGHT document, not trying harder with the wrong one -- and the right document is almost always the primary one.",
+    "Rendering the markdown from JSON stops the prose drifting from the data, but it does not stop a hand-written field INSIDE the data from being wrong, and this one was wrong twice in a row in opposite directions. D19's action text listed four open citation rows and omitted a fifth that the data had always carried as UNVERIFIED (C1-gotsman); the replacement I wrote while closing control 15 then called three rows UNVERIFIED when later rows had already moved two of them to SEARCH and PARTIAL. Reading the sentence caught neither; a derived count caught both immediately. Counts that can be derived must be derived -- tools/citation_status.py now computes them, the standing caveat is generated from it, and tools/check_consistency.py fails the tree if the prose drifts again."
   ]
 }

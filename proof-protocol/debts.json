@@ -1,9 +1,9 @@
 {
   "note": "Every claim this project inherited that has not been verified. DEBTS.md is generated from this file by tools/render_debts.py; edit this, not that.",
-  "as_of": "2026-09-18 (second pass: step D, L2, tasks 1-8)",
+  "as_of": "2026-09-19",
   "global": [
     "Step D measured label kappa = 0.048 and L2 measured 2-of-5 leak agreement. Both are FINISHED. See MEASUREMENTS.md before reading anything else here.",
-    "Of P1's citation layer, 20 rows are now VERIFIED and 10 remain UNVERIFIED. See CITATIONS.md; arxiv.org, Crossref and Semantic Scholar are egress-blocked from this container, so web search was the only route and no PDF was fetched.",
+    "{{GENERATED:citation_status}}",
     "arXiv:2609.11189 post-dates the seed instance's knowledge and was taken on trust; commission items E3 and E4 were taken as given."
   ],
   "debts": [
@@ -166,10 +166,25 @@
     {
       "id": "D19",
       "kind": "citation",
-      "status": "four-rows-left",
+      "status": "one-unverified-three-below-primary",
       "where": "CITATIONS.md",
       "claim": "Ten citation rows remain unverified: cases 4, 7, 9, 10, 11, 12, 13, twin N3, the Gotsman-Linial reduction, and Shannon's 5/2 upper bound.",
-      "action": "Down from ten rows to FOUR (C10, C12, N16, N20), plus control 15. C3, C7, C9 and N3 closed at PRIMARY tier from pasted transcripts -- which count as fetched primary sources by this project's standard. Routes for the rest: control 15 needs arXiv:2302.07211; C12 needs math/0211159 (low stakes, case 12 fits no transformation); C10's primaries are largely pre-arXiv and probably unimprovable by transcript; N16 and N20 are already there in substance and now carry their qualifiers."
+      "action": "Control 15 is CLOSED (D29). Current state, derived from citations.json rather than typed: ONE row is still UNVERIFIED -- C1-gotsman, the Gotsman-Linial 1992 reduction, never checked in any pass. THREE sit below fetched-primary tier: C10 (parallel repetition, SEARCH; the primaries are largely pre-arXiv and probably unimprovable by transcript), C12 (Perelman, PARTIAL; bibliographic record confirmed, the substantive claims not, and case 12 fits no transformation so it does the least work of any row), and N2-removable (PARTIAL). TWO VERIFIED twin rows rest on STANDARD-tier claims and say so: N16 (border rank) and N20 (Kovari-Sos-Turan). THIS ROW'S PROSE HAS NOW BEEN WRONG TWICE, IN OPPOSITE DIRECTIONS, AND BOTH ARE THE SAME MISTAKE. First it said 'FOUR (C10, C12, N16, N20), plus control 15' and omitted C1-gotsman, undercounting what was open. Then, closing control 15, I replaced that with 'THREE rows still UNVERIFIED -- C10, C12, C1-gotsman', which overcounted: later rows had already moved C10 to SEARCH and C12 to PARTIAL. Neither error survived contact with a derived count, and neither was caught by reading the sentence. The counts now come from tools/citation_status.py, the standing caveat is generated from it, and tools/check_consistency.py fails the tree if this row's lists drift from the data.",
+      "derived": {
+        "note": "These lists are ASSERTED against citations.json by tools/check_consistency.py, not typed.",
+        "unverified": [
+          "C1-gotsman"
+        ],
+        "below_primary": [
+          "C10",
+          "C12",
+          "N2-removable"
+        ],
+        "standard_tier_twins": [
+          "N16",
+          "N20"
+        ]
+      }
     },
     {
       "id": "D20",
@@ -247,10 +262,10 @@
     {
       "id": "D29",
       "kind": "unsourced",
-      "status": "open",
+      "status": "closed",
       "where": "p1-retrodiction/controls/15-roth-kelley-meka.json",
       "claim": "Control 15 (Kelley-Meka) is still unsourced. The Peluse survey was expected to cover it and does NOT -- it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere.",
-      "action": "arXiv:2302.07211 is the candidate; one transcript closes it. Recorded as an error in the citations response's own sec. 5, which is the standard this project asks for."
+      "action": "CLOSED from primary. arXiv:2302.07211v3 (Bloom-Sisask, the Kelley-Meka exposition) was pasted in as a transcript, which this project counts as a fetched primary source. It confirms the control on its own terms: its five-step breakdown names Step 5 'Density increment' and says the increment 'can now be iteratively applied', so the board P1 assigns to control 15 is the board the primary source says the argument runs on. Theorem 1 carries exponent 1/12 as P1 records. Rows C15, C15-ladder and C15-ceiling in citations.json; sources in the item are now verified: true."
     },
     {
       "id": "D30",
@@ -268,6 +283,26 @@
       "claim": "The case 7 split gives the benchmark its FIRST CONTEMPORANEOUS WITHIN-PROBLEM CONTROL: 7a (Maynard-Tao, board changed) against 16 (Zhang, level-n board unchanged) -- one problem, one year, two teams, with the counterfactual actually run. Every other positive/control comparison in P1 is cross-problem and confounded by difficulty.",
       "why_it_matters": "D25 measured that a rule-less rater ceilings the benchmark at J = 1.000 with 13/13 recognition -- it only has to NAME the problem. A contemporaneous within-problem pair is the one structure recall cannot crack: both halves are 'bounded prime gaps, 2013', so the rater must separate Maynard-Tao from Zhang ON MECHANISM. This is the most promising response to D25 that does not require waiting for the prospective arm.",
       "action": "NOT run this session, deliberately. The pair is n = 2, and a rater scoring 2/2 or 1/2 on two items would produce a number that cannot be interpreted -- exactly the underpowered measurement this project keeps flagging. FINDING MORE CONTEMPORANEOUS WITHIN-PROBLEM PAIRS COMES FIRST, and it should take priority over adding more twins: a twin tests specificity against a rater who already knows the answer, whereas a contemporaneous pair is the only retrospective structure that denies recall its shortcut. Candidates to look for: two teams on one problem in one period, one changing the board and one not. Then run the rule-less baseline on the set."
+    },
+    {
+      "id": "D32",
+      "kind": "finding",
+      "status": "open",
+      "confidence": "high -- a direct quotation from the practitioners about their own board",
+      "where": "p1-retrodiction/controls/15-roth-kelley-meka.json board_ceiling; citations.json row C15-ceiling",
+      "claim": "THE BENCHMARK'S SUBJECT MATTER, STATED BY THE PEOPLE ON THE BOARD, CONTEMPORANEOUSLY. Bloom-Sisask write that an exponent of 1/3, 'or perhaps even 1/4', 'seems to be the limit of any argument that uses any sort of \"density increment\" argument with Bohr sets (whether using Kelley-Meka ideas or a more traditional Fourier analytic approach)', while Behrend's construction puts the truth at 1/2. So the density-increment board has a ceiling below the known answer, and the interval (1/3, 1/2] in the exponent is unreachable from it on the practitioners' own account.",
+      "why_it_matters": "Every leak in P1's retrospective corpus is one WE identified after the board was left, which is the contamination D25 showed the retrospective arm cannot escape: a rater who recognises the problem already knows the answer. This is a leak identified BEFORE the board was left, in print, by the people playing on it, with a number attached. That is the shape of item the prospective arm is trying to manufacture, and here the literature supplies one for free.",
+      "action": "DO NOT convert it into a case yet, and do not let it reclassify control 15 -- a stated ceiling predicts the board will have to be left, and in 2023 it was not, so the control still reads must-not-fire. The work is to look for the SAME SHAPE elsewhere: a sourced, pre-resolution statement by practitioners that their board is capped short of the known truth, with the cap and the truth both quantified. If a handful exist, they are the first retrospective items whose leak was not identified with hindsight, and they answer D25 in a way the corpus currently cannot. One item is an anecdote; the search comes first. Note also that the ceiling is a BELIEF ('seems to be'), not a theorem, so any item built on it must be encoded as a stated expectation, not as an established barrier."
+    },
+    {
+      "id": "D33",
+      "kind": "prose-versus-data",
+      "status": "open",
+      "confidence": "certain -- counted, not estimated",
+      "where": "p1-retrodiction/cases/*/before.json, twins/*.json, controls/*.json",
+      "claim": "The per-source `verified` flags inside the ITEM files are not linked to citations.json and have gone stale: 27 of 56 source entries across cases, twins and controls still say verified: false while the citation layer carries 32 VERIFIED claims. Found by reconciling control 14, whose three sources all said verified: false while row C14 stood VERIFIED and ADJ-14 had been adjudicated on them.",
+      "why_it_matters": "The item file is what a scorer or a rater is handed; citations.json is what the verification pass wrote. A rater reading 'verified: false' on a source that has in fact been checked is being shown the wrong provenance, and the direction of this error is the flattering one for the verification pass and the unflattering one for the items.",
+      "action": "DO NOT sweep the 27 flags. Each needs its cite matched to the row that covers it, and the tier recorded with it -- most of this layer is SEARCH tier, not fetched, and a flag that says true without saying which tier repeats the mistake in the other direction. Add a `citation_row` field per source, then make tools/check_consistency.py fail on a mismatch the way it now does for D19's derived lists. Controls 14 and 15 are done and show the shape: 14 carries tier notes and leaves Viazovska 2016 false, because no row covers it."
     }
   ],
   "failure_register": [

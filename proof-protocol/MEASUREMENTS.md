@@ -171,8 +171,10 @@ two items is the signature of a rule being **fitted rather than tested**.
 
 ## Citation work, second pass — and a structural finding
 
-`CITATIONS.md`: **28 verified**, 2 corrected, 1 disputed, 2 partial, **4 unverified**. Pasted
-transcripts closed C3, C7, C9 and N3 at primary tier. Two changes of substance:
+*Counts in this section are frozen at the end of that pass and are not maintained; the live
+state is the generated **Current state** table in `CITATIONS.md`.* As that pass ended:
+**28 verified**, 2 corrected, 1 disputed, 2 partial, **4 unverified**, with pasted transcripts
+closing C3, C7, C9 and N3 at primary tier. Two changes of substance:
 
 - **C4 closed as a NEGATIVE result.** Neither Weaver nor Marcus–Spielman–Srivastava states the
   threshold `δ ≲ 1/log n`. The number is **dropped** and the sourced log-dimension loss written
@@ -199,6 +201,68 @@ Carried with it, honestly: Zhang is **not** simply better play. He changed the *
 board one level down — smooth moduli, factored modulus, Graham–Ringrose. So control 16 is a
 **level-(n−1) board change feeding an unchanged level-n board**, a third category the catalogue never
 had (debt **D30**). The control is valid only with the level stated.
+
+---
+
+## Citation work, third pass — the last open control closes, and the board has a stated ceiling
+
+One pasted transcript, arXiv:2302.07211v3 (Bloom–Sisask, *The Kelley–Meka bounds for sets free of
+three-term arithmetic progressions*), closed the only unsourced **control** in the benchmark and
+carried four more rows with it. Live counts are the generated table in `CITATIONS.md`; the standing
+caveat in `DEBTS.md` is generated from the same function.
+
+**Control 15 verified on its own terms (D29 closed).** The exposition breaks Kelley–Meka into five
+steps and names the fifth **"Density increment"** — *"there is an affine subspace V of codimension
+O(L(α)⁴L(γ)⁴) on which A has density at least (1 + 1/100)α … This density increment condition can now
+be iteratively applied."* So the board P1 assigns to the control is the board the primary source says
+the argument runs on, and the new play is Steps 1–4 (Hölder lifting, unbalancing, dependent random
+choice, almost-periodicity), described by the authors as *"mostly physical-based methods, rather than
+the Fourier-based methods that have dominated the study of three-term progressions thus far."* A
+change of technique on an unchanged board is exactly what this control tests for.
+
+**P1's exponent is doubly stale, and the source says so in one paragraph.** Larger exponent = stronger
+bound, for `|A| ≤ exp(−c(log N)^e)N`:
+
+| e | value | what it is |
+|---|---|---|
+| 1/12 | 0.08333 | Kelley–Meka Theorem 1 — the figure P1 records |
+| 1/9 | 0.11111 | Bloom–Sisask, *"a relatively clean argument (the only modification required is to the almost-periodicity part)"* |
+| 5/41 | 0.12195 | after *"a further tedious lengthy technical optimisation"* |
+| 1/7 | 0.14286 | *"the natural limit of these methods, in that achieving anything better will require significant new ideas"* |
+| **1/3** | **0.33333** | **the stated limit of _any_ density-increment-with-Bohr-sets argument** (*"or perhaps even 1/4"*) |
+| 1/2 | 0.50000 | Behrend's construction — so the truth is at least this strong |
+
+Ordering and both gaps are verified in `p1-retrodiction/tools/check_citations_response.py` §(e). One
+trap is recorded rather than smoothed over: **1/7 appears twice with different referents** — it is the
+improved *finite-field* exponent of Theorem 2, and separately the believed limit of Theorem 1 over the
+integers. Reading one for the other puts a finite-field exponent on the integer ladder.
+
+**The finding worth more than the row (D32).** The interval **(1/3, 1/2] is unreachable from this
+board on the practitioners' own account**, stated in print, contemporaneously, about a live problem.
+Every leak in P1's retrospective corpus is one *we* identified after the board was left — which is the
+contamination D25 showed the retrospective arm cannot escape. This is a leak identified **before** the
+board was left, by the people playing on it, with the cap and the truth both quantified. It does not
+reclassify control 15: a stated ceiling predicts the board will have to be left, and in 2023 it was
+not, so the control still reads must-not-fire. What it does is name the shape of item the benchmark
+actually needs, and the search for more of that shape now outranks adding twins.
+
+**Three smaller things.** Twin N3's load-bearing half is now a quoted primary claim rather than our
+inference — *"there is no known analogue of the polynomial method for the integer problem, so
+achieving strong bounds for the integer problem via this method is out of reach"*. The N3 refinement's
+"first improvement to Behrend since 1946" needed a qualifier, and it was my phrasing that needed it:
+Elkin (2011) and Green–Wolf (2010) are small improvements, to the lower-order factor rather than to
+(log N)^{1/2}. And "sifting" — the item's own word for Step 3 — is Kelley–Meka's term, which the
+exposition names *dependent random choice*; "higher energies" was dropped from the item, because the
+source uses the word "energy" nowhere but in a reference title.
+
+**A bookkeeping failure, recorded because this project records them.** Closing the row exposed that
+**D19's prose had been wrong twice in opposite directions**: first it listed four open citation rows
+and omitted a fifth the data had always carried (`C1-gotsman`), then my replacement called three rows
+UNVERIFIED when later rows had moved two of them to SEARCH and PARTIAL. Reading the sentence caught
+neither; a derived count caught both at once. Counts now come from `tools/citation_status.py`, the
+`DEBTS.md` caveat and the `CITATIONS.md` current-state table are generated from it, and
+`tools/check_consistency.py` fails the tree if any of it drifts again — including a stale render or a
+reference to a debt that does not exist.
 
 ---
 

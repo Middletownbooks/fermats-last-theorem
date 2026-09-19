@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-18",
+  "as_of": "2026-09-19",
   "environment": "arxiv.org, export.arxiv.org, api.crossref.org and semanticscholar were EGRESS-BLOCKED from this container; direct curl and WebFetch to arxiv both failed. Web search was the only route, so every row below is verified against secondary sources and abstracts reached through search, not against a fetched PDF. Rows marked COMPUTED were checked by arithmetic here and need no source.",
   "standard": "A claim is VERIFIED only if a source reached this session states it. Where the source could not be reached, the row says UNVERIFIED rather than accepting the claim.",
   "rows": [
@@ -36,7 +36,7 @@
       "status": "CORRECTED",
       "correction": "P1 writes the bound as 'n^{1+eps}', dropping the 3^n. In a column whose neighbouring entry is '3^n/n', that reads as a bound OF SIZE n^{1+eps} rather than a denominator. It is shorthand that becomes an error in context. Field corrected to 3^n/n^{1+eps}.",
       "refinement": "Dating: arXiv:1101.5851 was posted January 2011; JAMS published April 2012 (electronic November 2011). Under the arXiv-dating rule adopted after the case 9 error, this work dates to 2011, not 2012.",
-      "source": "arXiv:1101.5851; JAMS 25(2), 2012"
+      "source": "arXiv:1101.5851; JAMS 25(2), 2012; publication data corroborated from primary (Bloom-Sisask ref [1]): J. Amer. Math. Soc. 25 (2012), no. 2, 585-613"
     },
     {
       "id": "C2-after",
@@ -45,7 +45,7 @@
       "found": "Ellenberg-Gijswijt bound the largest cap in F_3^n by O(2.756^n); the exact constant is 3(207+33*sqrt 33)^{1/3}/8.",
       "status": "VERIFIED",
       "refinement": "COMPUTED here: the exact constant is 2.7551046..., so 2.756 is correct as an upper bound but is not the constant itself. P1's 'approximately 2.756^n' is sound as written.",
-      "source": "Croot-Lev-Pach arXiv:1605.01506; Ellenberg-Gijswijt arXiv:1605.09223; Tao's slice-rank formulation"
+      "source": "Croot-Lev-Pach arXiv:1605.01506; Ellenberg-Gijswijt arXiv:1605.09223; Tao's slice-rank formulation; publication data corroborated from primary (Bloom-Sisask ref [8]): Ann. of Math. (2) 185, 1 (2017), 339-343"
     },
     {
       "id": "C3-theta",
@@ -195,7 +195,7 @@
       "claim": "Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N)",
       "found": "Kelley-Meka: a 3AP-free A in [N] has |A| <= exp(-c (log N)^{1/12}) N.",
       "status": "VERIFIED",
-      "refinement": "NEW SINCE THE SEED: Bloom-Sisask improved the exponent from 1/12 to 1/9 a few months later (arXiv:2309.02353). The control's status is unaffected — both stayed on the same board — but the figure in P1 is no longer the record.",
+      "refinement": "NEW SINCE THE SEED: Bloom-Sisask improved the exponent from 1/12 to 1/9 a few months later (arXiv:2309.02353). The control's status is unaffected — both stayed on the same board — but the figure in P1 is no longer the record. FROM PRIMARY: the 1/9 improvement is announced in arXiv:2302.07211 ITSELF ('we will detail these improvements in a separate forthcoming note'), together with 5/41. This row credited the improvement to arXiv:2309.02353, the promised note; the announcement is earlier than that row implies.",
       "source": "arXiv:2302.05537"
     },
     {
@@ -321,9 +321,48 @@
       "id": "C15",
       "where": "controls/15-roth-kelley-meka.json",
       "claim": "Kelley-Meka stayed on the density-increment board, giving exp(-c log^{1/12} N).",
-      "found": "STILL UNSOURCED. The Peluse survey was expected to cover it and does not: it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere.",
-      "status": "UNVERIFIED",
-      "note": "Recorded as an error in the citations response's own error section. arXiv:2302.07211 is the candidate; one transcript closes it. Debt D29."
+      "found": "CLOSED FROM PRIMARY. Bloom-Sisask arXiv:2302.07211v3 is an exposition of Kelley-Meka that breaks the argument into five steps and names the fifth 'Density increment': 'If <mu_A * mu_A, mu_C> <= 1/2, then there is an affine subspace V of codimension O(L(alpha)^4 L(gamma)^4) on which A has density at least (1 + 1/100) alpha ... This density increment condition can now be iteratively applied.' The board P1 assigns to control 15 is the one the primary source says the argument runs on. Theorem 1 is stated with exponent 1/12, as P1 records.",
+      "status": "VERIFIED",
+      "note": "Superseded in place, per the tier rule that a transcript corrects a row rather than reconciling with it. The previous text of this row is kept in `previously`. Debt D29 is closed.",
+      "previously": "STILL UNSOURCED. The Peluse survey was expected to cover it and does not: it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere.",
+      "source": "arXiv:2302.07211v3 (PRIMARY, pasted transcript); arXiv:2302.05537 for Theorem 1 itself",
+      "refinement": "P1's exponent 1/12 is DOUBLY STALE and the primary source says so in one paragraph: 1/9 'with a relatively clean argument', then 5/41 after 'a further tedious lengthy technical optimisation'. The control's status is unaffected -- every one of these stayed on the density-increment board -- but the figure in the item is not the record. Full ladder in row C15-ladder and in the item's exponent_ladder block."
+    },
+    {
+      "id": "C15-ladder",
+      "where": "controls/15-roth-kelley-meka.json exponent_ladder",
+      "claim": "NEW ROW. The exponent record for r_3(N) around Kelley-Meka, largest exponent = strongest bound.",
+      "found": "1/12 Kelley-Meka Thm 1; 1/9 Bloom-Sisask clean modification ('the only modification required is to the almost-periodicity part'); 5/41 after technical optimisation; 1/7 'the natural limit of these methods, in that achieving anything better will require significant new ideas'; 1/3 (perhaps 1/4) the limit of any density-increment-with-Bohr-sets argument; 1/2 from Behrend's construction, which is where the truth is at least. Ordering and the two gaps checked in check_citations_response.py section (e).",
+      "status": "VERIFIED",
+      "refinement": "TRAP RECORDED: 1/7 occurs twice in the source with different referents. Theorem 2 (the F_q^n model case) improves from 1/9 to 1/7 under the same modification; 1/7 in Theorem 1 (the integers) is the believed natural limit. Reading one for the other would put a finite-field exponent on the integer ladder.",
+      "source": "arXiv:2302.07211v3 (PRIMARY), 'Improvements' paragraph"
+    },
+    {
+      "id": "C15-ceiling",
+      "where": "controls/15-roth-kelley-meka.json board_ceiling",
+      "claim": "NEW ROW. The density-increment board has a stated ceiling below the known truth.",
+      "found": "Bloom-Sisask: 'an exponent of 1/3 (or perhaps even 1/4) seems to be the limit of any argument that uses any sort of \"density increment\" argument with Bohr sets (whether using Kelley-Meka ideas or a more traditional Fourier analytic approach)', against Behrend's 1/2. The interval (1/3, 1/2] in the exponent is, on the practitioners' own account, unreachable from this board.",
+      "status": "VERIFIED",
+      "refinement": "This is the benchmark's own subject matter stated by the people on the board, contemporaneously, about a live problem -- not reconstructed by us after the fact. It does NOT reclassify control 15: a stated ceiling predicts the board will have to be left, and what happened in 2023 is that it was not. Debt D32.",
+      "source": "arXiv:2302.07211v3 (PRIMARY), 'Improvements' paragraph"
+    },
+    {
+      "id": "N3-polynomial-method",
+      "where": "twin N3, the load-bearing half",
+      "claim": "N3's discriminator against case 2 is the ABSENCE of a slice-rank/polynomial-method route in [N]. Previously carried as structural reasoning, not as a sourced statement.",
+      "found": "Bloom-Sisask state it outright: 'Unfortunately, however, there is no known analogue of the polynomial method for the integer problem, so achieving strong bounds for the integer problem via this method is out of reach.' They also give the contrast N3 needs: in F_q^n the polynomial method gives |A| <= q^{n-cn} (Ellenberg-Gijswijt), stronger than Kelley-Meka's q^{n-cn^{1/9}}, while over the integers the Kelley-Meka route is the one that generalises.",
+      "status": "VERIFIED",
+      "refinement": "This upgrades the part of N3 the rebuilt diagnostic actually leans on. The N3 row's own note said the diagnostic's use of N3 'rests on the ABSENCE of a product structure on [N], which is structural and does not depend on Behrend' -- that absence is now a quoted primary claim rather than our inference.",
+      "source": "arXiv:2302.07211v3 (PRIMARY), section on the finite field case"
+    },
+    {
+      "id": "N3-behrend-improvements",
+      "where": "twin N3 refinement",
+      "claim": "The N3 refinement recorded arXiv:2406.12290 as 'the first quasipolynomial improvement to Behrend since 1946', which reads as though nothing happened in between.",
+      "found": "Bloom-Sisask: Behrend [2] (PNAS 32 (1946), 331-332) gives exp(-c (log N)^{1/2}) N, and 'small improvements have also been established by Elkin [9] (Israel J. Math. 184 (2011), 93-128) and Green and Wolf [13] (Additive number theory, 141-144, Springer 2010)'.",
+      "status": "VERIFIED",
+      "refinement": "The claim N3 needs -- Behrend's shape excludes power savings, and is still essentially best-known -- is untouched: Elkin and Green-Wolf improve the lower-order factor, not the (log N)^{1/2}. But 'since 1946' needed the qualifier, and it was my phrasing that needed it, not the source's.",
+      "source": "arXiv:2302.07211v3 (PRIMARY), reference list and opening"
     }
   ],
   "adjudications": [
