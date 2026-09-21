@@ -70,8 +70,8 @@ DEBTS.md debts.json                                       — every recalled cit
 ## The one structural rule
 
 `p1-retrodiction/heldout/` holds the answers. A scored agent must never see it.
-`tools/pack.py` is the only supported way to build what an agent is shown; it reads `cases/` and
-refuses to open `heldout/` at all. `tools/validate.py` fails the tree if an after-board string
+`p1-retrodiction/tools/pack.py` is the only supported way to build what an agent is shown; it reads `cases/` and
+refuses to open `heldout/` at all. `p1-retrodiction/tools/validate.py` fails the tree if an after-board string
 appears in a before-board, or if a before-board cites a source dated on or after its superseding
 paper. Run both before any scoring round:
 

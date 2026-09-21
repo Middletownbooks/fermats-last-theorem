@@ -256,7 +256,7 @@ exposition names *dependent random choice*; "higher energies" was dropped from t
 source uses the word "energy" nowhere but in a reference title.
 
 **What was built from the finding, and what the second instance did to it.** The ceiling register
-(`p1-retrodiction/CEILINGS.md`, sealed data in `ceilings/register.jsonl`, tool `tools/ceilings.py`)
+(`p1-retrodiction/CEILINGS.md`, sealed data in `ceilings/register.jsonl`, tool `p1-retrodiction/tools/ceilings.py`)
 holds **two** entries, not the one anecdote D32 was opened on. The second — GPY's one-dimensional
 sieve, whose ρ_k(F) saturates at 4 for every *k*, so under Bombieri–Vinogradov the criterion caps at
 exactly the value it must exceed — was **already in this repository** and cost no new source. It then
@@ -329,7 +329,7 @@ transformation vocabulary is untouched and still closed; this is a separate fiel
 separate question.
 
 All **17** scoreable items now carry `level.axis` (`p1-retrodiction/tools/assign_levels.py`, audited
-by `tools/level_audit.py`, gated by `validate.py`, which now fails a missing or invalid axis and any
+by `p1-retrodiction/tools/level_audit.py`, gated by `validate.py`, which now fails a missing or invalid axis and any
 control marked `same-level` — the gate was negative-tested):
 
 | axis | n | items |

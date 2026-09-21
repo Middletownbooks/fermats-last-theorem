@@ -1,6 +1,6 @@
 {
  "note": "Every claim this project inherited that has not been verified. DEBTS.md is generated from this file by tools/render_debts.py; edit this, not that.",
- "as_of": "2026-09-19",
+ "as_of": "2026-09-21",
  "global": [
   "Step D measured label kappa = 0.048 and L2 measured 2-of-5 leak agreement. Both are FINISHED. See MEASUREMENTS.md before reading anything else here.",
   "{{GENERATED:citation_status}}",
@@ -443,6 +443,17 @@
    "claim": "AN EMPTY SLOT WAS UNDEFINED FOR THE KILL TEST, AND THAT ALONE FLIPPED A VERDICT. Both arm-3 respondents found the same hole -- a translation that preserves the invariant exactly while never reaching the terminal condition -- and both marked COMPOSITION as `none recorded`. Respondent 1 read the empty slot as NO CONSTRAINT and called the board dead. Respondent 2 read it as UNSPECIFIED and called the board not yet an argument. Step 1 tells a respondent to write `none recorded` and calls that a finding; step 5 never said how an empty slot may be used in a refutation.",
    "why_it_matters": "It is the only instrument defect here found by a DISAGREEMENT between blind respondents rather than by a single response, which makes it the best-evidenced clause in the prompt -- better evidenced than any of T3's three patches (D41). It also shows the failure is cheap to miss: both respondents were right, the ambiguity was mine, and a single run would have reported whichever verdict it happened to draw as the finding.",
    "action": "FIXED. Step 1 now says a slot marked `none recorded` is not a licence, and step 5's kill test now requires a refutation to state whether it exploits a slot the source STATES or one it leaves EMPTY -- the first kills the board, the second says the board is not yet an argument. Standing consequence for this programme's own inputs: two of the five slots in the arm-3 input were underspecified (the dropped symmetry qualifier and the empty COMPOSITION), and BOTH underspecifications became the substance of a respondent's verdict. Before any future arm, check every slot is either stated or deliberately and recordedly empty."
+  },
+  {
+   "id": "D43",
+   "kind": "unfalsifiable-claim",
+   "state": "closed",
+   "status": "measured-and-fixed",
+   "confidence": "found five instances in this tree on the check's first honest run, after the first version of the check could not have found any",
+   "where": "tools/check_consistency.py check_cited_paths_resolve(); MEASUREMENTS.md, README.md, SOURCE-RESPONSE.md",
+   "claim": "A CITED FILE PATH IS A CLAIM, AND IT WAS THE ONLY CLAIM IN THIS TREE THAT NOTHING COULD FALSIFY. Claim-2's RESULT_GAP_v2.md opened with \"Response stored at `sources/GAP_V2_RESPONSE_RAW.md`\" and that file had never been written; the sentence sat in a pushed commit for a day reading exactly like a receipt. The check written for it then found FIVE more here, all of the same shape: MEASUREMENTS.md, README.md and SOURCE-RESPONSE.md cited \"tools/pack.py\", \"tools/validate.py\", \"tools/ceilings.py\" and \"tools/level_audit.py\" -- all of which live in `p1-retrodiction/tools/`, while `proof-protocol/tools/` exists and contains none of them. README.md contradicted itself six lines apart: the prose said \"tools/pack.py\", the code block said the full path under p1-retrodiction.",
+   "why_it_matters": "Every other check here compares a number against data that can disagree with it. A path citation had no such counterparty, so it carried the rhetorical weight of provenance at zero cost -- the same defect as a number that cannot fall, and it had been sitting in the four most-read documents in the tree. Two refinements were needed before the check was honest rather than merely strict: a citation resolves from the containing file's directory OR ANY ANCESTOR, because that is what a reader does (`p1-retrodiction/heldout/README.md` saying `tools/pack.py` is not a defect); and a path named in a .gitignore is exempt, because a regenerable intermediate documented as a script's output is a build description, not a receipt. Claim-2's leanboard subtree returns ten citations of the first kind and zero of the second, and all ten are named in a nested leanboard/.gitignore.",
+   "action": "Closed: the five are fixed, the check is check 14, and it is negative-tested six ways. Residual limitation, recorded rather than fixed: the check reads intent off .gitignore because it cannot read it off the prose, so a receipt-shaped citation to a file someone deliberately did not commit would still pass. It also guards this tree only -- Claim-2 has no hook, and was scanned by hand from here. One wrinkle the check surfaced against itself: quoting a broken path in backticks while DESCRIBING the defect makes the check fire on the description, so D43 names those four in plain quotes."
   }
  ],
  "failure_register": [

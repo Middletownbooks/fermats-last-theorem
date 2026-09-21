@@ -72,7 +72,7 @@ encoded as data in `p1-retrodiction/`. The encoding is one-to-one with this tabl
 
 ### 1.3 Held-out answers (keep separate from anything a scored agent sees)
 
-*(Encoded in `p1-retrodiction/heldout/`, which `tools/pack.py` is structurally unable to read.)*
+*(Encoded in `p1-retrodiction/heldout/`, which `p1-retrodiction/tools/pack.py` is structurally unable to read.)*
 
 | # | After-board | Source |
 |---|---|---|

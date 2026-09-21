@@ -11,6 +11,10 @@ Three kinds of drift have actually happened here, which is why each is checked:
      tools/citation_status.py, D19 carries the derived lists, and they are asserted here.
   3. A cross-reference points at nothing. Debt ids are quoted all over the tree; a reference to a
      debt that does not exist reads as provenance and is not.
+  4. A CITED FILE PATH DOES NOT EXIST. Claim-2's RESULT_GAP_v2.md opened with "Response stored at
+     `sources/GAP_V2_RESPONSE_RAW.md`" and that file was never written; the citation sat in a
+     pushed commit for a day, reading exactly like a receipt. Same defect class as a number that
+     cannot fall: it looks like evidence and nothing can make it fail.
 
 Exit 0 and a list of what was checked, or exit 1 naming the disagreement.
 """
@@ -174,6 +178,69 @@ def check_item_sources() -> None:
                    f"covers a neighbouring claim -- each says which in `basis`")
 
 
+PATH_TOKEN = re.compile(r"`([A-Za-z0-9_][A-Za-z0-9_./-]*\.(?:md|py|json|jsonl))`")
+
+
+def _is_ignored(path: pathlib.Path) -> bool:
+    """True if git is told to ignore this path.
+
+    A regenerable intermediate named in .gitignore is not a broken citation. Claim-2's
+    leanboard/README.md documents `s/kinds.json` as the output of a script, and .gitignore says
+    it is a 45 MB regenerable file; the citation is a build description, not a receipt. The check
+    cannot read that difference off the prose, so it reads it off the tree owner's own statement
+    of intent.
+    """
+    try:
+        return subprocess.run(["git", "check-ignore", "-q", str(path)],
+                              cwd=path.parent if path.parent.exists() else ROOT,
+                              capture_output=True).returncode == 0
+    except OSError:
+        return False
+
+
+def dangling_citations(root: pathlib.Path) -> list[tuple[str, str]]:
+    """Backtick-quoted paths whose FIRST SEGMENT exists but whose full path does not.
+
+    The first-segment rule is what keeps this usable across a tree that legitimately cites other
+    repositories: a path is only checked if its first segment names something that exists at one
+    of the reading positions. `hadamard/findings/FINDING_05.md` lives in Cooperative-AI-Defense
+    and is skipped, because no `hadamard/` exists here. But `p1-retrodiction/d35/SHEET.md` is
+    enforced down to the filename, because `p1-retrodiction/` is right here -- and that is
+    exactly where a typo or an unwritten file hides.
+
+    Resolution follows the reader, not the interpreter: a citation resolves if it lands from the
+    containing file's directory or ANY ancestor of it up to the tree root. That is deliberate.
+    `p1-retrodiction/heldout/README.md` says `tools/pack.py` and means
+    `p1-retrodiction/tools/pack.py`, which anybody working in that subtree finds immediately;
+    flagging it would be pedantry. A citation no ancestor can resolve is a different thing.
+    """
+    bad = []
+    for md in sorted(root.rglob("*.md")):
+        if any(part in {".git", "__pycache__"} for part in md.parts):
+            continue
+        bases = [md.parent, *md.parent.parents]
+        bases = [b for b in bases if root in b.parents or b == root or b == root.parent]
+        for cited in sorted(set(PATH_TOKEN.findall(md.read_text()))):
+            head = cited.split("/", 1)[0]
+            anchored = [b for b in bases if (b / head).exists()]
+            if not anchored:
+                continue                          # not a path into this tree; nothing to check
+            if any((b / cited).exists() for b in anchored):
+                continue
+            if any(_is_ignored(b / cited) for b in anchored):
+                continue                          # deliberately uncommitted: intent is on record
+            bad.append((str(md.relative_to(root)), cited))
+    return bad
+
+
+def check_cited_paths_resolve() -> None:
+    bad = dangling_citations(ROOT)
+    for where, cited in bad:
+        fail.append(f"{where} cites `{cited}`, whose directory exists here and whose file does not")
+    if not bad:
+        did.append("every backtick-quoted path whose first segment is in this tree resolves")
+
+
 def check_debt_states() -> None:
     """Every debt carries an explicit state, and the rendered count comes from that field.
 
@@ -242,6 +309,7 @@ def main() -> int:
     check_item_sources()
     check_move_kind_second_reading()
     check_debt_states()
+    check_cited_paths_resolve()
     for d in did:
         print(f"  ok      {d}")
     for f in fail:
