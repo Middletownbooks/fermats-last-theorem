@@ -1,550 +1,561 @@
 {
- "note": "Every claim this project inherited that has not been verified. DEBTS.md is generated from this file by tools/render_debts.py; edit this, not that.",
- "as_of": "2026-09-21",
- "global": [
-  "Step D measured label kappa = 0.048 and L2 measured 2-of-5 leak agreement. Both are FINISHED. See MEASUREMENTS.md before reading anything else here.",
-  "{{GENERATED:citation_status}}",
-  "{{GENERATED:item_flags}}",
-  "arXiv:2609.11189 post-dates the seed instance's knowledge and was taken on trust; commission items E3 and E4 were taken as given."
- ],
- "debts": [
-  {
-   "id": "D1",
-   "kind": "citation",
-   "status": "closed",
-   "confidence": "medium",
-   "where": "p1-retrodiction/cases/09-vinogradov-mean-value/",
-   "claim": "The pre-Wooley bound is s >~ c*k^2*log k, and the leak is that each congruencing iteration recovers a fixed fraction of the defect so about log k rounds are needed.",
-   "action": "CLOSED by the citations response (PRIMARY: Pierce, arXiv:1707.00119). The classical bound is confirmed as a shape and the constant's history recorded (3 -> 2 -> 1). The leak is now DERIVED, not asserted: eta_{s+k,k} <= eta_{s,k}(1-1/k), so the log k IS the contraction count, s ~ 2k^2 log k. Wooley's posting date independently confirmed.",
-   "state": "closed"
-  },
-  {
-   "id": "D2",
-   "kind": "citation",
-   "status": "resolved-as-error",
-   "confidence": "high",
-   "where": "p1-retrodiction/cases/05-finite-field-kakeya/",
-   "claim": "The best pre-Dvir exponent was about q^{4n/7}.",
-   "action": "CLOSED by finding the error. CITATIONS.md row C5-4n7: 4n/7 + 3/7 is Katz-Tao's EUCLIDEAN Minkowski-dimension bound; no source states it for |K| in F_q^n. The seed's low confidence was warranted. The two-regime structure survives; the exponent does not.",
-   "state": "closed"
-  },
-  {
-   "id": "D3",
-   "kind": "citation",
-   "status": "verified",
-   "confidence": "medium",
-   "where": "p1-retrodiction/cases/01-sensitivity/",
-   "claim": "Chung-Fueredi-Graham-Seymour 1988 gives Delta >= (1/2 - o(1)) log n.",
-   "action": "CLOSED. CFGS 1988 give (1/2 - o(1)) log_2 n — note base 2, which P1 left unstated — and themselves construct the matching ceil(sqrt n) example.",
-   "state": "closed"
-  },
-  {
-   "id": "D4",
-   "kind": "citation",
-   "status": "verified",
-   "confidence": "medium",
-   "where": "p1-retrodiction/twins/N4-shannon-capacity-c7.json",
-   "claim": "Polak-Schrijver 2019 give a lower bound of about 3.258 for Theta(C7), against theta(C7) about 3.318.",
-   "action": "CLOSED. Polak-Schrijver: 367^(1/5) > 3.2578 (IPL 143, 2019). theta(C7) = 3.3176672 computed here. Both figures confirmed.",
-   "state": "closed"
-  },
-  {
-   "id": "D5",
-   "kind": "dated-fact",
-   "status": "verified-but-dated",
-   "confidence": "medium",
-   "where": "p2-ablation/blocks.json (battery item O3)",
-   "claim": "x^3 + y^3 + z^3 = 114 has no known integer solution and the problem is open.",
-   "action": "Verified today: 114 is described as the lowest unsolved case. STILL A DATED FACT — re-check on the day of freezing.",
-   "blocking": "p2-ablation freeze",
-   "state": "open"
-  },
-  {
-   "id": "D6",
-   "kind": "reclassification",
-   "status": "adjudicated-upheld",
-   "where": "p1-retrodiction/controls/14-sphere-packing-8-24.json",
-   "claim": "Sphere packing in dimensions 8 and 24 is NOT a board change. The board is Cohn-Elkies 2003; Viazovska supplied the terminal certificate on that board, and numerics had already shown it was tight. The actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies.",
-   "action": "CLOSED. CITATIONS.md ADJ-14. Cohn-Elkies 2003 was itself the first improvement since Kabatyanskii-Levenshtein 1978, and Cohn and Elkies themselves conjectured their board would settle dimensions 8 and 24. Supported by sources now, not argument.",
-   "consequence_if_wrong": "The base rate '2 of 15 headline results were better play on an unchanged board' loses one of its two members.",
-   "state": "closed"
-  },
-  {
-   "id": "D7",
-   "kind": "reclassification",
-   "status": "adjudicated-upheld",
-   "where": "p1-retrodiction/cases/13-pcp-weak/",
-   "claim": "PCP is demoted to fit-testing only, because its 'before' was a successful proof rather than a failing bound.",
-   "action": "CLOSED. CITATIONS.md ADJ-13. Noted that the rebuilt diagnostic WOULD fire on it, which is evidence the item is well-formed, not that it should be scored.",
-   "state": "closed"
-  },
-  {
-   "id": "D8",
-   "kind": "contested-claim",
-   "status": "addressed-in-part",
-   "where": "p3-taxonomy/taxonomy.json -> candidate_replacements",
-   "claim": "'Product-law matching' should replace 'de-tensorize': compute how the target behaves on the product construction of the extremal family, and require the invariant to obey the same law.",
-   "action": "Restated leak-free in p3-taxonomy/DIAGNOSTIC.md and tested against 13 in-domain items with zero false positives. Circularity is REDUCED, not removed: the rules are mechanical but the assignment of laws is still mine. The remaining test is D20.",
-   "attack_requested_of": "the originating instance",
-   "state": "open"
-  },
-  {
-   "id": "D9",
-   "kind": "contested-claim",
-   "status": "closed-dropped",
-   "where": "SOURCE-RESPONSE.md, P3 item 7",
-   "claim": "Against E5(b): the better discriminator is whether the existence guarantee is strictly cheaper than the target, not formula versus existence. Banaszczyk's move, Marcus-Spielman-Srivastava and Dvir all rest on existence statements and all succeed.",
-   "action": "CLOSED. See p3-taxonomy/D9-ADJUDICATION.md. The ORIGINAL criterion is now mechanically scoreable (move_kind added to every case): 2 of 10 scoreable successes had existence-theorem moves, which refutes any reading where existence moves are disqualifying but cannot test it as a discriminator, because all 13 P1 cases are SUCCESSES. The REPLACEMENT is DROPPED: 'strictly cheaper than the target' states no metric for cheapness, so it is not computable from the before-board — the same standard that dropped auxiliary-witness lift. Also note E5(b)'s exact statement is absent from the seed material, as with the unnamed transformations (D12).",
-   "attack_requested_of": "the originating instance",
-   "state": "closed"
-  },
-  {
-   "id": "D10",
-   "kind": "contested-claim",
-   "status": "measured",
-   "where": "p1-retrodiction/README.md -> contamination control",
-   "claim": "Forced-choice discrimination fails as a contamination control, because it is still solved by recognition; the four-layer alternative (score the procedure, negative twins, telegraph baseline, recognition probe, prospective arm) is better.",
-   "action": "CLOSED as a question. Step D measured 100% recognition and L2 measured 5 of 5, on encoders that were trying to comply. The seed's concern was correct and cutoff discipline does not fix it. The prospective arm (p1-retrodiction/prospective/) is the only remaining route. THIRD confirmation, and the first with the consequence quantified: the rule-less baseline ceilings the benchmark at J = 1.000 (D25).",
-   "attack_requested_of": "the commission",
-   "state": "closed"
-  },
-  {
-   "id": "D11",
-   "kind": "contested-claim",
-   "status": "upheld",
-   "where": "p1-retrodiction/README.md -> base rate",
-   "claim": "2 of 15 headline results (Viazovska, Kelley-Meka) were better play on an unchanged board, so the programme's core hypothesis should carry that denominator.",
-   "action": "D6 adjudicated in favour, so the denominator stands: 2 of 15 headline results were better play on an unchanged board.",
-   "state": "closed"
-  },
-  {
-   "id": "D12",
-   "kind": "gap",
-   "status": "superseded",
-   "where": "p3-taxonomy/taxonomy.json",
-   "claim": "Transformations #3 and #5 have NO NAME anywhere in the seed material; they are referenced only by number. #3 is fitted weakly by one case and #5 by none.",
-   "action": "Moot. Step D measured kappa = 0.048 on the five-entry catalogue, so the vocabulary is not operational and the entries' names no longer matter. auxiliary-witness-lift has been DROPPED; the rebuild in DIAGNOSTIC.md replaces the rest. Do not recover the names; do not add a sixth.",
-   "state": "closed"
-  },
-  {
-   "id": "D13",
-   "kind": "method-limit",
-   "status": "acknowledged",
-   "where": "p2-ablation/analysis/preregistration.md §5",
-   "claim": "Judges cannot be blinded to arm: the protocol's own tags and the numbered return fields leak the condition into the graded text.",
-   "action": "Record it as a limitation in the write-up. Do not describe the judges as blind. Not fixable within this design.",
-   "state": "standing"
-  },
-  {
-   "id": "D14",
-   "kind": "method-limit",
-   "status": "acknowledged",
-   "where": "p2-ablation/config.py",
-   "claim": "Temperature cannot be controlled: sampling parameters were removed from the current Claude models and sending one returns a 400.",
-   "action": "Report `effort` instead, which is recorded per run. Do not report temperature as held constant. This is a change in the world since the handoff was written, not an omission.",
-   "state": "standing"
-  },
-  {
-   "id": "D15",
-   "kind": "missing-input",
-   "status": "closed",
-   "where": "p2-ablation/battery.py",
-   "claim": "Handoff task 1 - replace the weakest battery items with the repository's own real agent failures (E7 the false impossibility theorem with a published counterexample, E8 the two unsupported 'this forces that' steps, E9 the variance-1 Monte Carlo check).",
-   "action": "CLOSED. The corpus was supplied as R1-R6 and every checkable number in its ground truths was verified by exact computation (p2-ablation/tools/verify_corpus.py): 48 counterexamples below 400, 8,977 primes, zero mismatches over q = 1..800. Swapped in via `cli.py battery --swap-in-corpus`.",
-   "blocking": "the whole point of P2's battery",
-   "state": "closed"
-  },
-  {
-   "id": "D16",
-   "kind": "method-limit",
-   "status": "addressed-in-part",
-   "where": "p1-retrodiction/",
-   "claim": "P1 v0 is single-encoder and contaminated: one model encoded all 23 items while knowing every answer.",
-   "action": "L2 ran on five cases and found real errors, but its own pre-registered kappa was never measured (D22) and case 9 was void. The re-run instrument with all four design fixes is built: p1-retrodiction/L2-RERUN.md.",
-   "state": "open"
-  },
-  {
-   "id": "D17",
-   "kind": "instrument-defect",
-   "status": "fixed-and-recorded",
-   "where": "p2-ablation/DEFECTS.md",
-   "claim": "DEFECT-1: the published harness's exportData calls outcome(r, r.j2), and outcome() opens `j = j || r.j1`, so judge 2's exported column is scored from judge 1 on every row where the second judge did not run.",
-   "action": "Fixed at the call site (the frozen rule is untouched) and pinned by tests/test_export_defect.py. Recorded as a PRE-FREEZE defect: it changes what the published instrument would have reported, and belongs in the write-up as such.",
-   "state": "closed"
-  },
-  {
-   "id": "D18",
-   "kind": "not-run",
-   "status": "blocked",
-   "where": "p2-ablation",
-   "claim": "The pilot has not been run, so no per-item failure rate exists.",
-   "action": "No ANTHROPIC_API_KEY and no `ant` CLI in this container. The retirement list in battery.py is a PREDICTION and is labelled one. Run `cli.py pilot` with a key and re-choose the retired items from the measured rates.",
-   "blocking": "tasks 3 and 6 both need pilot data",
-   "state": "open"
-  },
-  {
-   "id": "D19",
-   "kind": "citation",
-   "status": "zero-unverified-three-below-primary",
-   "where": "CITATIONS.md",
-   "claim": "Ten citation rows remain unverified: cases 4, 7, 9, 10, 11, 12, 13, twin N3, the Gotsman-Linial reduction, and Shannon's 5/2 upper bound.",
-   "action": "CLOSED. Zero rows are UNVERIFIED. The last one, C1-gotsman, closed from the Huang transcript, which states the Gotsman-Linial equivalence as its own Theorem 1.3; it was also the only row no pass had ever looked at, which is why it outlived rows with far higher stakes. The debt opened on ten unverified rows and ends on none. WHAT REMAINS IS NOT THIS DEBT: three rows sit BELOW fetched-primary tier -- C10 (SEARCH; the primaries are largely pre-arXiv and probably unimprovable by transcript), C12 (PARTIAL; bibliographic record only, and case 12 fits no transformation so it does the least work of any row) and N2-removable (PARTIAL; the mathematical claim stands, the attribution to Matousek-Seidel-Welzl does not). Two VERIFIED twin rows rest on STANDARD-tier claims and say so, N16 and N20, which is tracked by D21 and not here. CITATIONS-NEEDED.md carries the routes. THIS ROW'S PROSE WAS WRONG TWICE BEFORE IT WAS RIGHT, in opposite directions -- it undercounted by omitting C1-gotsman, then overcounted by calling C10 and C12 UNVERIFIED after later rows had moved them. Both were caught by a derived count and neither by reading the sentence, and the third time was caught by the checker itself: closing C1-gotsman made this row's derived list stale and tools/check_consistency.py failed the tree until it was updated. That is the mechanism working as intended rather than a fourth error.",
-   "derived": {
-    "note": "These lists are ASSERTED against citations.json by tools/check_consistency.py, not typed.",
-    "unverified": [],
-    "below_primary": [
-     "C10",
-     "C12",
-     "N2-removable"
-    ],
-    "standard_tier_twins": [
-     "N16",
-     "N20"
-    ]
-   },
-   "state": "closed"
-  },
-  {
-   "id": "D20",
-   "kind": "the-test-that-settles-it",
-   "status": "closed-split-result",
-   "where": "p3-taxonomy/DIAGNOSTIC.md",
-   "claim": "The rebuilt diagnostic's only judgement calls are two closed-vocabulary fields, target_law and bound_law.",
-   "action": "RUN. p3-taxonomy/d20/ holds the inputs, the three filled rater sheets and the verbatim scorer output. Fields reproduce (target_law Fleiss kappa +0.811 [+0.570,+1.000]; bound_law +0.755 [+0.494,+1.000]) against the measured 0.048 baseline — a real improvement. The RULE reproduces worse (+0.618 [+0.220,+0.904]), because it consumes the DIFFERENCE of two labels and disagreement concentrates where they are close. The zero-false-positive claim FAILED: all three raters fire on N8. See d20/PROVENANCE.md for the integrity account — partial results were seen before the full run and the scorer's verdict logic was changed afterwards, in the stricter direction.",
-   "blocking": "any claim that the rebuild succeeded",
-   "state": "closed"
-  },
-  {
-   "id": "D21",
-   "kind": "coverage",
-   "status": "mostly-closed",
-   "where": "p1-retrodiction/twins/",
-   "claim": "Twenty negatives against a target of ~25, and 8 of the 20 are STANDARD rather than fetched.",
-   "action": "Six of the eight STANDARD twins upgraded to verified (N11, N12, N13, N17, N18, N19); N13 was settled by exact computation rather than citation. Only N16 and N20 remain STANDARD and are declared so. Every twin now carries a recheck_by date. The count is still 20 of a target 25 — but per the task list, verifying the existing eight mattered more than adding five, because a twin whose tightness is merely recalled cannot distinguish a false positive from a wrong twin. N8 proved that: it was the one twin that fired, and adjudicating it needed the mathematics, not a citation.",
-   "state": "open"
-  },
-  {
-   "id": "D22",
-   "kind": "unmeasured",
-   "status": "open",
-   "where": "MEASUREMENTS.md",
-   "claim": "L2's pre-registered kappa was never measured; the substitute 0.286 [0.000, 0.667] at n = 5 is unmeasured, not a bound.",
-   "action": "The instrument is built (tools/make_rating_sheet.py, schema v2). Use fresh cases and fresh encoders; do NOT reuse the original five blind encodings.",
-   "state": "open"
-  },
-  {
-   "id": "D23",
-   "kind": "diagnostic-defect",
-   "status": "open",
-   "where": "p3-taxonomy/d20/N8-adjudication.md",
-   "claim": "Product-law matching's domain condition is too weak. 'A product operation exists and the size parameter is additive' is satisfied literally by disjoint union, which moves BOTH coordinates of a two-parameter family, so target and bound can differ with no board change available. Every case the diagnostic gets right is a single-parameter family; its one false positive is the two-parameter one.",
-   "action": "A candidate repair (require the operation to preserve the family's full parameterisation) is stated and DELIBERATELY NOT ADOPTED, because it was derived from the item it would exclude. It needs items chosen by someone who has not seen the adjudication, including two-parameter families where the board DID change.",
-   "state": "open"
-  },
-  {
-   "id": "D24",
-   "kind": "vocabulary-gap",
-   "status": "answered-not-fixed",
-   "where": "p3-taxonomy/D24-ADJUDICATION.md, verified by p3-taxonomy/tools/check_d24.py",
-   "claim": "The five-category law vocabulary cannot express 'the right law, degraded by a log'. Rater B declined to fire on case 4 (Kadison-Singer) by reading the matrix-Chernoff penalty that way, which is arguably exactly what that board did.",
-   "action": "ANSWERED by its own decision rule, and the answer is NOT to add a category. The rule said: if the gap explains only case 4 it is a property of that case. It explains THREE items -- cases 1, 2 and 4 -- so it is a property of the vocabulary. In cases 1 and 2 ALL THREE RATERS STATE THE SAME MATHEMATICS and differ only on which of five words to force it into: 'log(n1+n2) = max + O(1)' (verified: the difference is <= 1 exactly and the ratio tends to 1) and '3^n times a polynomial saving that does not tensor' (verified: the defect is n1n2/(n1+n2), 500 at n = 1000, against a main term of 10^954). A SECOND GAP D24 DID NOT NAME explains two more items: the vocabulary cannot say SUPERmultiplicative, which is why one rater codes 'none' on both Shannon-capacity items (verified: alpha(C5 box C5) = 5 > 4, and 367 > 3^5) while the others code the limit as multiplicative. That is the distinction twin N16 already carried for border rank; it was in the tree and nobody had connected it to the vocabulary. One divergence (N2) is a genuine disagreement about the mathematics and is not a vocabulary gap at all. WHY NOT GROW THE VOCABULARY: adding 'max-degraded' does not decide the case it was invented for. Case 4's firing splits A-fires / B-declines / C-fires, and the new code leaves exactly the same question -- is max-degraded EQUAL to max for firing? -- so it relocates the judgement instead of resolving it. The decision is about MAGNITUDE, not about which law, and the D28 one-line test already reads magnitude directly: it fires on case 4 because 'the gap is an unbounded log factor', agreeing with A and C with no category at all. Third independent appearance of the surplus-machinery finding. A post-hoc recode would lift the field kappas from +0.811/+0.755 to +0.941/+0.930. That is FITTING, is printed as an upper bound rather than a measurement, and MUST NOT be quoted: the published numbers stand.",
-   "state": "closed"
-  },
-  {
-   "id": "D25",
-   "kind": "benchmark-invalidity",
-   "status": "route-found-negative-control",
-   "where": "p3-taxonomy/BASELINE.md",
-   "claim": "The retrospective arm cannot measure a diagnostic's value. A rule-less rater given the same item scored J = 1.000 (5/5 positives, 8/8 negatives) against product-law matching's 0.675, a lift of -0.325, with a recognition probe of 13/13.",
-   "action": "NO LONGER STANDING, and the route came from outside this tree. D25 held that the retrospective arm cannot be rescued because a rater who recognises the problem needs no rule -- and every negative in the corpus is a FAMOUS problem, which is what makes recall sufficient. The Banaszczyk/Guo-Fang-Lu audit supplies a negative that is not a famous problem at all: all four models in that corpus converged on a class closed under convolution with the terminal property, and one PROVED such a class exists IF AND ONLY IF Komlos holds. That board is a RESTATEMENT of the conjecture, its invariant is not verifiable on the starting state, and telling it apart from Banaszczyk's real board requires the computation rather than the memory. WHAT TO BUILD: negative controls of that SHAPE -- an invariant provably equivalent to the theorem it is meant to prove. They are generic, so there is nothing to recall; they are constructible rather than found, so the corpus is not limited to history (which also speaks to D26, where the corpus has no failed board changes); and a rater who cannot separate one from a real board is measured as not measuring board-finding. The discriminator is stated in Claim-2 board-finder/FINDER.md 4b: can the invariant be verified on the STARTING STATE by an independent computation, without knowing whether the theorem is true? This does not retract the measurement. J = 1.000 with 13/13 recognition stands exactly as measured on the items that existed. What changes is that the arm is not necessarily dead -- it was dead on a corpus of famous problems.",
-   "state": "open"
-  },
-  {
-   "id": "D26",
-   "kind": "corpus-limitation",
-   "status": "structural",
-   "where": "p3-taxonomy/D9-ADJUDICATION.md",
-   "claim": "The benchmark cannot evaluate any criterion about success versus failure, because all 13 P1 cases are successes. The negative twins are negatives about the TIGHTNESS of a bound, not about moves that failed.",
-   "action": "Needs a corpus of FAILED board changes — attempts that changed the board and did not work. The seed flagged survivorship selection as blocking PPV estimates; this is the second distinct thing it blocks. Collecting failed attempts is harder than collecting famous successes and is the main thing that would make the benchmark able to test a criterion rather than merely fit one.",
-   "state": "standing"
-  },
-  {
-   "id": "D27",
-   "kind": "diagnostic-defect",
-   "status": "open",
-   "where": "p3-taxonomy/d20/N9-audit-result.md",
-   "claim": "Product-law matching is UNDEFINED where the feasible set is not closed under the product operation. For the hypercube problem the constraint is a density threshold and density is multiplicative, so the product of two extremal examples is a quarter of the cube, not half: there is no product of extremal examples to read a target law off. Case 1 and N9 are removed from the domain.",
-   "action": "The obvious patch -- require closure -- is NOT adopted, because it was derived from the item it excludes. Note this is the SECOND such patch (D23 was the first, from N8). Two post-hoc patches from two items is the signature of a rule being fitted rather than tested; a third should be read as a refutation, not a repair.",
-   "state": "open"
-  },
-  {
-   "id": "D28",
-   "kind": "confound",
-   "status": "closed-diagnostic-is-surplus",
-   "where": "p3-taxonomy/d20/N9-audit-result.md",
-   "claim": "The rule 'does the best known lower bound match the upper bound to within a constant factor?' reproduces product-law matching's verdicts on the hypercube boards exactly, needs no product-law machinery, and is immune to the rater dispute over the counting board's label. Verified: the l2-vs-max distinction can carry at most a factor sqrt(2), and it was being used to flag a polynomial (log n vs sqrt n) gap.",
-   "action": "RUN. d28_bound_strength.json + BASELINE.md. The one-line test 'is the bound tight to within a constant factor?' scores J = +0.750 against product-law matching's +0.607, with ZERO false positives where the diagnostic takes one, and differs on exactly one item — N8, where the diagnostic is wrong. The product-law machinery is SURPLUS: more complicated, worse-performing, and needing two post-hoc domain patches the one-line test does not need. Both lose to the rule-less rater (+1.000). What survives of the rebuild is D20's field kappa and the falsifications themselves, not the rule.",
-   "state": "closed"
-  },
-  {
-   "id": "D29",
-   "kind": "unsourced",
-   "status": "closed",
-   "where": "p1-retrodiction/controls/15-roth-kelley-meka.json",
-   "claim": "Control 15 (Kelley-Meka) is still unsourced. The Peluse survey was expected to cover it and does NOT -- it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere.",
-   "action": "CLOSED from primary. arXiv:2302.07211v3 (Bloom-Sisask, the Kelley-Meka exposition) was pasted in as a transcript, which this project counts as a fetched primary source. It confirms the control on its own terms: its five-step breakdown names Step 5 'Density increment' and says the increment 'can now be iteratively applied', so the board P1 assigns to control 15 is the board the primary source says the argument runs on. Theorem 1 carries exponent 1/12 as P1 records. Rows C15, C15-ladder and C15-ceiling in citations.json; sources in the item are now verified: true.",
-   "state": "closed"
-  },
-  {
-   "id": "D30",
-   "kind": "catalogue-gap",
-   "status": "axis-encoded-unvalidated",
-   "where": "p3-taxonomy/taxonomy.json -> level_axis; p1-retrodiction/heldout/*.json and controls/*.json -> level; p1-retrodiction/tools/assign_levels.py, tools/level_audit.py",
-   "claim": "The catalogue has no axis for WHAT LEVEL and IN WHAT SUBSTRATE a change occurred. Two independent signs: (a) Zhang changed the equidistribution board one level DOWN while leaving the GPY sieve unchanged, so 7b is a level-(n-1) board change feeding an unchanged level-n board; (b) Pierce sec. 8.5 argues efficient congruencing and l^2 decoupling share rescaling, multilinear estimates, iteration and transversality, quoting Wooley that they may be 'p-adic and Archimedean perspectives of one unified method' -- a same-mechanism-two-substrates claim about a case the taxonomy calls a board change, made by the survey author rather than by us.",
-   "action": "THE AXIS IS ENCODED, as an axis and not as a sixth transformation -- the transformation vocabulary is untouched and still closed. Six values, every one instantiated except `unclear`, which is deliberately kept unused so a later encoder is not forced to choose (a forced label is what produced kappa = 0.048). All 17 scoreable items carry it: 10 same-level, 3 none (the controls 14, 15, 17), 2 reduction-level (cases 6 and 11), 1 substrate (case 9), 1 input-level (control 16 -- the item the axis exists for). tools/validate.py now FAILS the tree on a missing or invalid axis and on any control marked same-level, and the gate was negative-tested. The level cannot leak: it is in the held-out half, FORBIDDEN_IN_BEFORE covers it, and pack.py builds items from an allowlist. WHAT THE FULL PASS SHOWS, none of it visible from control 16 alone: (a) the corpus is 10 of 13 same-level and the ONLY input-level item is a control, so the axis is nearly constant on the positives and cannot discriminate on its own -- it must not be sold as if it could; (b) case 7a and control 16 are EXACT COMPLEMENTS on the axis, which is why that pair works; (c) case 13's old board CONSUMED case 10's object, and Dinur's same-level change ELIMINATED that level rather than improving it -- one instance, so no axis value was added for it. STILL OPEN BECAUSE IT IS UNVALIDATED. The assignments are mine alone, single-encoder, exactly like the v0 labels. The only reason to expect better than 0.048 is D20's split: closed-vocabulary FIELDS reproduced at +0.811 and +0.755 where the rule did not, and this is a field. Reason for optimism, not evidence. The test is the D20 instrument over these 17 items with raters who have not read taxonomy.json -- one field, so cheaper than D20. Cases 6 and 11 are at MEDIUM confidence on the same-level/reduction-level boundary and are the first two to ask about.",
-   "state": "open"
-  },
-  {
-   "id": "D31",
-   "kind": "the-best-answer-to-D25-so-far",
-   "status": "candidates-listed-target-computed",
-   "where": "p1-retrodiction/PAIRS.md, p1-retrodiction/pairs/candidates.json, p1-retrodiction/tools/pair_power.py, p1-retrodiction/controls/16-zhang-smooth-moduli.json",
-   "claim": "The case 7 split gives the benchmark its FIRST CONTEMPORANEOUS WITHIN-PROBLEM CONTROL: 7a (Maynard-Tao, board changed) against 16 (Zhang, level-n board unchanged) -- one problem, one year, two teams, with the counterfactual actually run. Every other positive/control comparison in P1 is cross-problem and confounded by difficulty.",
-   "why_it_matters": "D25 measured that a rule-less rater ceilings the benchmark at J = 1.000 with 13/13 recognition -- it only has to NAME the problem. A contemporaneous within-problem pair is the one structure recall cannot crack: both halves are 'bounded prime gaps, 2013', so the rater must separate Maynard-Tao from Zhang ON MECHANISM. This is the most promising response to D25 that does not require waiting for the prospective arm.",
-   "action": "STILL NOT RUN, and now with a number saying why that is right. tools/pair_power.py: each pair is one binary decision at chance 1/2, so an exact one-sided sign test needs FIVE pairs scored perfectly to clear alpha = 0.05 (p = 0.0312) and EIGHT to survive one miss (p = 0.0352; at n = 7 one miss gives 0.0625 and fails). One discrimination pair is in hand. CANDIDATES RANKED in PAIRS.md, every claim recalled rather than sourced, each with the document that would settle it and the way it might fail: (1) sunflower 2019, Alweiss-Lovett-Wu-Zhang against Rao weeks later on the new board -- two teams, one season, and NEITHER half is a failure, which is what makes it the best candidate; (2) bounded gaps extended to a triple with Polymath8a/8b, which would put board change, level-(n-1) change and better play on ONE problem and is the sharpest test of D30's level axis; (3) matrix multiplication 2021-2023, where refinement versus new mechanism is genuinely contested; (4) Spencer constructive, recorded as PARALLEL BOARDS and explicitly not a pair; (5) strong parallel repetition 2008, not a pair -- it is a twin and already is one. Cap set 2016 and sphere packing 2016 are REJECTED as pairs with reasons, so they are not proposed again. ONE PAIR IS AVAILABLE NOW WITH NO NEW SOURCE: Roth 2023, Kelley-Meka against Bloom-Sisask days later on the same board, both must-not-fire. It does NOT count toward the five -- with no 'which is which' there is nothing to score -- but it measures specificity inside one problem-period and the authors' own words make the encoding clean. THE HONEST ARITHMETIC, stated in PAIRS.md rather than buried: one pair in hand, four candidates, at most three of which survive their stated risks, against a floor of five. This route does not reach the floor on current material. It is still the cheaper route to be wrong about -- a failed candidate costs one transcript, a failed prospective prediction costs months.",
-   "state": "open"
-  },
-  {
-   "id": "D32",
-   "kind": "finding",
-   "status": "instrument-built-two-instances",
-   "confidence": "high -- a direct quotation from the practitioners about their own board",
-   "where": "p1-retrodiction/CEILINGS.md, p1-retrodiction/ceilings/register.jsonl, p1-retrodiction/tools/ceilings.py; citations.json row C15-ceiling",
-   "claim": "THE BENCHMARK'S SUBJECT MATTER, STATED BY THE PEOPLE ON THE BOARD, CONTEMPORANEOUSLY. Bloom-Sisask write that an exponent of 1/3, 'or perhaps even 1/4', 'seems to be the limit of any argument that uses any sort of \"density increment\" argument with Bohr sets (whether using Kelley-Meka ideas or a more traditional Fourier analytic approach)', while Behrend's construction puts the truth at 1/2. So the density-increment board has a ceiling below the known answer, and the interval (1/3, 1/2] in the exponent is unreachable from it on the practitioners' own account.",
-   "why_it_matters": "Every leak in P1's retrospective corpus is one WE identified after the board was left, which is the contamination D25 showed the retrospective arm cannot escape: a rater who recognises the problem already knows the answer. This is a leak identified BEFORE the board was left, in print, by the people playing on it, with a number attached. That is the shape of item the prospective arm is trying to manufacture, and here the literature supplies one for free.",
-   "action": "INSTRUMENT BUILT, and it already holds TWO instances rather than the one anecdote this debt was opened on. (1) Roth/density-increment-with-Bohr-sets, STATED-BY-AUTHORS, OPEN: cap 1/3 against a truth of 1/2 that Behrend's construction proves, with the authors' prediction sealed. (2) GPY/one-dimensional-sieve, DERIVED-FROM-PRIMARY, RESOLVED as held-and-board-left: rho_k(F) saturates at 4 for every k, so under Bombieri-Vinogradov the criterion caps at exactly the value it must exceed, and the advance came twice by leaving a board -- Maynard-Tao leaving the sieve, Zhang leaving the equidistribution board one level down (D30). The second instance was already in the repository and cost no new source. WHAT THE TWO INSTANCES TAUGHT, none of it anticipated when this debt was written: a cap can be an UNATTAINED SUPREMUM (so the tool allows cap == truth with cap_attained false and a boundary note, rather than fudging 3.999); the truth a cap falls short of may be a CONJECTURE rather than a theorem, which is a second axis in the record; a resolution must state the LEVEL at which a board changed, because Zhang beat the requirement without touching the capped sieve; and NEITHER diagnostic covers both instances -- product-law matching is silent on Roth (no product structure in [N]) while the D28 one-line test fires, and the D28 test has nothing to read on GPY because the cap is on a criterion rather than on a bound against a construction. STILL OPEN AND THIS IS THE WORK: two items are an instrument, not a measurement. Four candidates are named in CEILINGS.md with the one document each needs (Selberg's parity problem; a pre-2020 statement of the logarithmic barrier; the n/2 barrier for bush/hairbrush in F_q^n; the laser method's proved limit for omega, which would need a PROVED evidence tier that is deliberately not added until an instance arrives). Do not add tiers or entries without a source reached in-session.",
-   "state": "open"
-  },
-  {
-   "id": "D33",
-   "kind": "prose-versus-data",
-   "status": "closed-with-an-invariant",
-   "confidence": "certain -- counted, not estimated",
-   "where": "p1-retrodiction/cases/*/before.json, twins/*.json, controls/*.json",
-   "claim": "The per-source `verified` flags inside the ITEM files are not linked to citations.json and have gone stale: 27 of 56 source entries across cases, twins and controls still say verified: false while the citation layer carries 32 VERIFIED claims. Found by reconciling control 14, whose three sources all said verified: false while row C14 stood VERIFIED and ADJ-14 had been adjudicated on them.",
-   "why_it_matters": "The item file is what a scorer or a rater is handed; citations.json is what the verification pass wrote. A rater reading 'verified: false' on a source that has in fact been checked is being shown the wrong provenance, and the direction of this error is the flattering one for the verification pass and the unflattering one for the items.",
-   "action": "DONE, and the sweep it warned against was avoided: every one of the 55 per-source flags now carries `citation_row` (or null), `tier` and `basis`, decided cite by cite against the row that does or does not cover it. 43 read verified, 12 do not. 13 flags moved false -> true, NONE moved the other way, so the drift was entirely in the direction that understated the verification pass. The invariant is ONE-DIRECTIONAL on purpose: verified: true requires a linked row whose status is VERIFIED or CORRECTED, while verified: false beside a VERIFIED row is legitimate and now must say which NEIGHBOURING claim the row covers instead -- three do, and they are the interesting ones (row C13 verifies Dinur 2007, not Arora-Safra; row C4 verifies that NOBODY states the threshold attached to Weaver; row C12 is about Perelman's entropy, not Hamilton's programme). WHAT THE SWEEP FOUND THAT WAS NOT THE ORIGINAL COMPLAINT: three twins (N10, N14, N15) read verified on a DECLARED basis with no citations.json row at all, and they were never among the eight STANDARD twins D21 tracked -- so how they came to be flagged verified is unrecorded. Left standing and labelled, not quietly downgraded; the generated caveat in DEBTS.md names them. Also: eight flags now read tier NONE, meaning no row covers them -- that list is the honest version of what was previously 27 undifferentiated falses. The before-board schema now requires citation_row and basis; twins and controls have no schema, so for them the checker is the only enforcement.",
-   "derived": {
-    "note": "Asserted against citations.json by tools/check_consistency.py, not typed.",
-    "flags": 55,
-    "verified": 43,
-    "unrowed_true": [
-     "N10-spencer-sqrt-n-tight",
-     "N14-set-cover-greedy",
-     "N15-shearer-lll"
-    ]
-   },
-   "state": "closed"
-  },
-  {
-   "id": "D34",
-   "kind": "finding",
-   "state": "open",
-   "status": "screen-built-untested",
-   "confidence": "the taxonomy is a post-hoc fit and says so; the underlying leak quotes are verbatim",
-   "where": "Claim-2 board-finder/ (FINDER.md, leaks.json, screen.py); p1-retrodiction/tools/finder.py",
-   "claim": "A LEAK TAXONOMY READ OFF THE BEFORE-BOARD does what the five-transformation catalogue cannot, because a finder never has the after-board. Every case's `leak` field, read verbatim, falls into ACCUMULATION (5: the loss is rounds x per-step cost), SATURATION (2: the invariant caps regardless of the parameter) or WRONG_STATISTIC (6: it measures the wrong quantity). Only the first two prescribe anything; the third is satisfied by almost any board change and predicts nothing, so the usable yield is 7 of 13, not 13 of 13.",
-   "why_it_matters": "The parent project's REPORT_AB measured that four independent models converge on the SAME board, so board-finding is the abundant step and the scarce object is a functional the move conserves. The trio's own encodings show it: K1 and K3 share a state and a move, and differ only in whether the invariant degrades -- O(sqrt log n) against O(1).",
-   "action": "THE FIT IS 13/13 AND THAT IS THE PROBLEM: I assigned every kind knowing every after-board. Run the D20 instrument -- three raters, before-boards only, Fleiss kappa against the measured 0.048 baseline -- before quoting the taxonomy as anything but a hypothesis. Second, the earlier mechanical screen (existence-type move AND bound not tight) was NOT APPLICABLE to 15 of 17 items for want of a filled field, at precision 2/2 on the two it could read: coverage, not the criterion, is the bottleneck. Third, recorded against the newest case: D28's ratio test goes BLIND where the bound and the truth are both O(1) and only the constant is open (Guo-Fang-Lu, 7.52 against 2.414)."
-  },
-  {
-   "id": "D35",
-   "kind": "single-rater-field",
-   "state": "closed",
-   "status": "measured",
-   "confidence": "measured blind on all 17 items, and the result is negative: kappa 0.430 on the codable 15",
-   "where": "p1-retrodiction/cases/*/before.json move_kind; controls/*.json move_kind",
-   "claim": "`move_kind` is the binding conjunct of the transformable-board screen -- it is what makes the screen selective, since extending the tightness field cannot create a fire without it -- and it was assigned by one instance, for debt D9, with no second reading. MEASURED, AND IT DOES NOT REPRODUCE: Cohen's kappa = 0.430 on the 15 items whose recorded text does not state its own answer (0.463 on all 17, 0.286 on the two-class subset), against a pre-registered threshold of 0.6. All six disagreements run ONE WAY -- my column says formula where the blind rater says existence-theorem or no-move-recorded -- so it is a systematic criterion difference, not noise: I asked whether the record's prose reads like a computation, the rater asked whether the move can proceed before a good object is shown to exist by pigeonhole, averaging or the probabilistic method. The rater's criterion is the better one.",
-   "action": "DONE, and the consequence is not the one the prereg predicted. Run in p1-retrodiction/d35: sheet DERIVED from the case files by build_sheet.py, scored by score_d35.py against PREREG_D35.md, both committed before the answer existed; write-up in REPORT_D35.md. Two findings the prereg did not anticipate. (1) The screen's OUTPUT IS UNCHANGED under the rater's column -- it still fires on 02-cap-set and 04-kadison-singer alone -- because it is gated on the tightness field, which only 2 of 17 items have, so the unreliability is MASKED BY THE COVERAGE BOTTLENECK rather than absent (screen_under_rater2.py computes both columns). (2) Precision 2/2 was therefore never a measurement: all 13 cases are successes whose board changed, so every fire is a true positive by construction, and a figure that survives redefining a third of its input is arithmetic. FINDER.md now says so. Remedy applied: the instrument's T2 demands the NAMED OBJECT (which theorem and what it costs, or the formula written out) rather than the label, which is the same remedy the D20 run forced on the five-transformation vocabulary; and every move_kind field now carries the blind second reading beside my code, with a negative-tested gate in check_consistency.py that fails if a second reading is missing, if all 17 come to agree (the disagreements overwritten), or if agrees_with_first is flipped to hide one. My column was NOT overwritten: it is the only measurement of itself there is."
-  },
-  {
-   "id": "D36",
-   "kind": "convergence",
-   "state": "closed",
-   "status": "recorded",
-   "confidence": "certain -- two independent derivations, both on the record",
-   "where": "p1-retrodiction/cases/*/before.json move_kind; Claim-2 board-finder/FINDER.md 4b",
-   "claim": "THE SAME DISCRIMINATOR WAS DERIVED TWICE FROM UNRELATED ARGUMENTS. This tree's `move_kind` field -- is the move a formula that is carried out, or an existence theorem that asserts a good object exists -- was added for debt D9, from adjudicating a contested criterion. The line-by-line audit of Banaszczyk against Guo-Fang-Lu arrived at it from reading the papers: Odin's T_v is a formula, Bansal-Jiang needs SDP duality to guarantee a legal move at every step, and 'that gap is most of the complexity difference between the two papers'.",
-   "why_it_matters": "Nothing else in this programme has two independent derivations. The five-label vocabulary has one and scored 0.048; product-law matching has one and was shown surplus by a one-line test. A field two arguments reach separately is the best candidate the tree has for something real -- which makes D35, its single-rater status, the cheapest high-value test left.",
-   "action": "Nothing to close. Recorded so that D35's one-field blind rating is understood as testing the most-corroborated field in the tree rather than a housekeeping detail."
-  },
-  {
-   "id": "D37",
-   "kind": "post-hoc-patch",
-   "state": "closed",
-   "status": "measured",
-   "confidence": "the discrimination is measured on the pre-registered pair AND replicated by a second blind respondent; the construction errors in the pair are recorded against it",
-   "where": "Claim-2 board-finder/PROMPT.md step 5 (T3); controls/REPORT_CONTROLS.md sec. 3",
-   "claim": "T3 -- evaluate the invariant's threshold on the TARGET state and ask whether it already caps the bound -- was ADDED AFTER the control runs, FROM one of them. Both respondents independently found that a board can pass T1 and T2 and still be capped: the invariant is exactly conserved along the steps, so the whole cost is paid at initialisation, and Banaszczyk's board is capped at Theta(sqrt log n) by that computation alone.",
-   "why_it_matters": "This is the D23/D27 pattern exactly -- a patch derived from the item that broke the rule -- and this tree's standing finding is that two such patches are the signature of fitting rather than testing. The difference this time is that the patch is being tested on a fresh item before it is quoted, which is what D23 and D27 never got.",
-   "action": "The test is the discriminating pair: same problem, same target, SAME MOVE, only the invariant changed -- Gaussian measure bounded below against a carried density with bounded directional total variation. T3 must answer differently across that pair while T1 and T2 do not. Pre-registered in Claim-2 board-finder/controls/PREREG_ARM3.md with the failure condition stated (A-5: if T3 reports a cap on both, it is re-detecting T1/T2 and does not discriminate). Do not quote T3 as a discriminator until that arm is scored. Coverage was measured first, in Claim-2 board-finder/t3_coverage.json: T3's question parses on 3 of 6 benchmark boards (K1-to-K3, 04-kadison-singer, 08-spencer) and does not parse on the three whose loss is rounds x per-step cost (02-cap-set, 09-vinogradov, 13-pcp), so T3 and the leak taxonomy are complementary rather than overlapping. PROMPT.md now lets T3 be answered \"does not parse for this board\", on the same principle as \"none recorded\" for the five slots. That coverage column is itself single-rater with hindsight, which is D39. T3's wording has since taken a SECOND patch from a control run -- a blind coverage rater showed the clause 'no improvement to the move can reach O(1)' overstates what a cap licenses, since a cap computed from the invariant binds only moves certified by that invariant; T3 now asks whether the move is monotone in the invariant. That patch narrows a claim rather than adding a discriminator, which is the better kind, but it is still a patch from the item that produced it and is counted here. SCORED. Arm 3 returned and A-5 DID NOT FIRE: T3 discriminates. Across the pair T1 answers yes/yes and T2 answers existence-theorem/existence-theorem, and only T3 separates -- a cap at Theta(sqrt log n) on the measure invariant against NO CAP on the total-variation one (min kappa = Theta(1/C)). A-2 was wrong -- I predicted formula -- and its being wrong is what makes the test pass, since the arm needed T1 and T2 to agree. A-4 over-delivered: the respondent derived the averaging behaviour itself and gave the optimal constant via the minimum Fisher information 4 pi^2/L^2, all reproduced in Claim-2 board-finder/controls/verify_response_arm3.py. THREE THINGS GO THE OTHER WAY. (1) The board is dead: V_u is translation-invariant and the terminal condition is not, so a translated run has identical invariant values at every step and a final body missing the origin -- T1 and T3 both PASSED it and the KILL TEST caught it, for the second time in this programme. (2) My pair differed in TWO slots: I dropped the symmetry qualifier from STATE, which is the slot the kill test exploits, and the contradiction was already visible in FINDER.md's own table. Second symmetry mis-statement of mine in a control input. A-3 survives because both T3 computations are thresholds on the same target and reference no intermediate state. (3) 'No cap' came back for the wrong reason -- the threshold DECREASES in C, so the invariant relaxes as the body grows and is not binding at any scale. T3 gains that third answer, which is its THIRD patch from a run designed here. Standing limit, recorded as D41: T3's next use must be scored on an item this project did not construct. REPLICATED. A second respondent got the same input verbatim, blind, with no knowledge of the first -- the first replication in this programme, n = 2 on one item. All four scored predictions repeat WITH THE SAME CERTIFICATE (the cos^2 product density, I(g) = pi^2/C^2, the projection bound 1/C), which is convergence on a construction rather than on a word. A-3 came back stronger: respondent 2 computed T3 on THREE invariants unprompted -- Gaussian measure capped at sqrt(2 ln n), subgaussian-in-every-direction (the Gram-Schmidt-walk invariant) capped at Theta(sqrt log n), directional TV dimension-free -- so the discriminator separates on a triple and the third leg came from someone who did not know what was being tested. It also quantified T2's cost (a free convolution half, then a conditioning half needing O(1/n) mass and O(kappa/n) added TV per cut) and added a verified cap: on the box sub-board the move grows one coordinate and shrinks all others, the invariant specialises exactly to min_j c_j >= pi/kappa, and the budget forces C = Omega(sqrt n), so the board can only work through non-product objects. BUT THE TWO RESPONDENTS SPLIT ON THE VERDICT while finding the same hole, and the instrument caused it -- see D42."
-  },
-  {
-   "id": "D38",
-   "kind": "instrument-validated",
-   "state": "closed",
-   "status": "measured",
-   "confidence": "n = 2, and the two verdicts are backed by quotes checked verbatim",
-   "where": "Claim-2 board-finder/controls/ (PREREG_CONTROLS.md, both responses, score_controls.py)",
-   "claim": "The board-search instrument's checkability discriminator SEPARATES a real board from a restatement, measured rather than argued: the positive control returned T1 = yes ('a clean pass'), the negative returned 'No -- as recorded this is a RESTATEMENT'. Respondents were fresh contexts, tools forbidden, each given one board and no knowledge of the other.",
-   "why_it_matters": "It is the first instrument in this programme that was validated against a NEGATIVE CONTROL before being used. D25's problem was that every negative in the retrospective corpus is a famous problem, so recall suffices; this negative is a generic trap -- an invariant that cannot be checked until its class is named -- and both respondents recognised the underlying problem yet still had to compute to separate the two boards.",
-   "action": "Nothing to close. Three corrections the runs forced are recorded in REPORT_CONTROLS.md: Banaszczyk's move is an existence theorem and not a formula (my prediction was wrong); the negative control's input wrongly said 'symmetric' convex bodies, which the gluing lemma's bodies are not; and the reference corpus's 'if and only if' between the closure scheme and the conjecture is declined by the respondent -- closure implies the conjecture, the converse is not automatic -- so that iff is now the claim needing a check."
-  },
-  {
-   "id": "D39",
-   "kind": "single-rater-with-hindsight",
-   "state": "closed",
-   "status": "measured",
-   "confidence": "6/6 agreement from a blind second rater, with the ceiling the prereg named in advance: two raters of similar training are consistency, not replication",
-   "where": "Claim-2 board-finder/t3_coverage.json; controls/PREREG_COVERAGE.md and score_coverage.py",
-   "claim": "T3's COVERAGE -- the claim that its question parses on exactly 3 of the 6 benchmark boards -- was assessed by one rater (this session) with hindsight of every after-board. The classification may be a property of the boards or a judgement of mine, and the file as written cannot tell the two apart.",
-   "why_it_matters": "This tree's standing finding is that a verdict scored by whoever chose the items is not a measurement (D23, D27). A coverage column is weaker than a verdict -- it asks only whether a question is well-posed -- but it is doing load-bearing work: it is the reason PROMPT.md now permits T3 to be declined, and the reason T3 is claimed to be complementary to rather than redundant with the leak taxonomy.",
-   "action": "DONE. Scored by Claim-2 board-finder/controls/score_coverage.py against PREREG_COVERAGE.md; verdicts in coverage_verdicts.json, write-up in REPORT_COVERAGE.md. Agreement 6/6 -- the same three boards decline -- so both pre-registered failure conditions are retired, the worse one (a DIFFERENT three) included. One quantity prediction missed (04-kadison-singer's scale is the constant in 1/2 + C sqrt(delta), not delta), and the committed scorer over-credited it on a substring; the rule was left as committed and the adjudication recorded beside it. Three corrections the rater forced: T3's inference sentence overstated what a cap licenses (now fixed, with a monotonicity check); only one of the three parsing boards is a LITERAL fit, the other two need one step of interpretation; and forcing a scale on 13-pcp yields a threshold pointing the WRONG way, which would have scored as a pass. Residual, and it is not closable here: the second rater is the same kind of rater as the first."
-  },
-  {
-   "id": "D40",
-   "kind": "masked-by-coverage",
-   "state": "open",
-   "status": "registered-prediction",
-   "confidence": "the masking is computed, not argued (screen_under_rater2.py); what happens when it lifts is a prediction",
-   "where": "p1-retrodiction/tools/finder.py; p3-taxonomy/d28_bound_strength.json; Claim-2 board-finder/FINDER.md sec. 5",
-   "claim": "THE SCREEN IS CURRENTLY INSENSITIVE TO ITS OWN UNRELIABLE INPUT, and only because of a second scarcity. move_kind does not reproduce between raters (D35, kappa 0.430), but the screen fires on move_kind AND a tightness assignment, and only 2 of 17 items have both. The four items the blind rater moved into the existence-theorem class have no tightness assignment, so they never reach the screen. Fill the tightness field and the screen's yield becomes column-dependent: 2 fires under my column against up to 6 under the rater's.",
-   "why_it_matters": "It is the wrong kind of stability. The screen looks robust -- identical output under a column that reclassifies a third of the corpus -- and the robustness is an artefact of reading almost nothing. Any work that improves coverage, which FINDER.md sec. 5 names as the priority, will convert this hidden disagreement into a visible one, and whoever does that work should know the number they are about to change.",
-   "action": "Before the tightness field is extended, fix the criterion the two columns differ on and record it as a rule that a third party can apply: name the object the move needs (a theorem, or the formula) rather than choosing a label. Then re-rate blind, both columns, and report the kappa with the coverage figure beside it. Prediction registered as P-28 so the outcome is scoreable either way."
-  },
-  {
-   "id": "D41",
-   "kind": "fitted-instrument",
-   "state": "standing",
-   "status": "limit-on-use",
-   "confidence": "certain -- the three patches are in the file's own history",
-   "where": "Claim-2 board-finder/PROMPT.md step 5 (T3); controls/REPORT_COVERAGE.md, REPORT_ARM3.md",
-   "claim": "EVERY CLAUSE OF T3 WAS ADDED HERE, AFTER SEEING A RESPONSE TO A RUN DESIGNED HERE. Three patches: the 'does not parse' escape, from the coverage measurement; the monotonicity clause, from the blind coverage rater; and the 'not binding at any scale' third answer, from arm 3. T3 did discriminate on the one pair built to test it -- and that pair turned out to differ in two slots rather than the one registered.",
-   "why_it_matters": "This tree's standing finding is that two patches from the items that produced them are the signature of fitting rather than testing (D23, D27). T3 is at three. Each patch individually narrowed a claim or added an honest escape, which is the better kind, but the count is what the finding is about: an instrument refined only against its designers' own items has no measured generalisation, however sound each refinement looked.",
-   "action": "T3 is quotable as A QUESTION WORTH ASKING and not as a validated screen. Its next use must be scored on an item this project did not construct -- an externally chosen board, or a ProofAtlas workspace nobody here selected (see Claim-2 board-finder/PROOFATLAS_FIT.md). Do not patch T3 again from a run designed here: fix the next finding by recording it, and let the instrument stay wrong until an outside item scores it."
-  },
-  {
-   "id": "D42",
-   "kind": "instrument-ambiguity",
-   "state": "closed",
-   "status": "measured-and-fixed",
-   "confidence": "the best-evidenced finding about this instrument: two blind respondents, one input, opposite verdicts from identical mathematics",
-   "where": "Claim-2 board-finder/PROMPT.md steps 1 and 5; controls/REPORT_ARM3_REPLICATION.md",
-   "claim": "AN EMPTY SLOT WAS UNDEFINED FOR THE KILL TEST, AND THAT ALONE FLIPPED A VERDICT. Both arm-3 respondents found the same hole -- a translation that preserves the invariant exactly while never reaching the terminal condition -- and both marked COMPOSITION as `none recorded`. Respondent 1 read the empty slot as NO CONSTRAINT and called the board dead. Respondent 2 read it as UNSPECIFIED and called the board not yet an argument. Step 1 tells a respondent to write `none recorded` and calls that a finding; step 5 never said how an empty slot may be used in a refutation.",
-   "why_it_matters": "It is the only instrument defect here found by a DISAGREEMENT between blind respondents rather than by a single response, which makes it the best-evidenced clause in the prompt -- better evidenced than any of T3's three patches (D41). It also shows the failure is cheap to miss: both respondents were right, the ambiguity was mine, and a single run would have reported whichever verdict it happened to draw as the finding.",
-   "action": "FIXED. Step 1 now says a slot marked `none recorded` is not a licence, and step 5's kill test now requires a refutation to state whether it exploits a slot the source STATES or one it leaves EMPTY -- the first kills the board, the second says the board is not yet an argument. Standing consequence for this programme's own inputs: two of the five slots in the arm-3 input were underspecified (the dropped symmetry qualifier and the empty COMPOSITION), and BOTH underspecifications became the substance of a respondent's verdict. Before any future arm, check every slot is either stated or deliberately and recordedly empty."
-  },
-  {
-   "id": "D43",
-   "kind": "unfalsifiable-claim",
-   "state": "closed",
-   "status": "measured-and-fixed",
-   "confidence": "found five instances in this tree on the check's first honest run, after the first version of the check could not have found any",
-   "where": "tools/check_consistency.py check_cited_paths_resolve(); MEASUREMENTS.md, README.md, SOURCE-RESPONSE.md",
-   "claim": "A CITED FILE PATH IS A CLAIM, AND IT WAS THE ONLY CLAIM IN THIS TREE THAT NOTHING COULD FALSIFY. Claim-2's RESULT_GAP_v2.md opened with \"Response stored at `sources/GAP_V2_RESPONSE_RAW.md`\" and that file had never been written; the sentence sat in a pushed commit for a day reading exactly like a receipt. The check written for it then found FIVE more here, all of the same shape: MEASUREMENTS.md, README.md and SOURCE-RESPONSE.md cited \"tools/pack.py\", \"tools/validate.py\", \"tools/ceilings.py\" and \"tools/level_audit.py\" -- all of which live in `p1-retrodiction/tools/`, while `proof-protocol/tools/` exists and contains none of them. README.md contradicted itself six lines apart: the prose said \"tools/pack.py\", the code block said the full path under p1-retrodiction.",
-   "why_it_matters": "Every other check here compares a number against data that can disagree with it. A path citation had no such counterparty, so it carried the rhetorical weight of provenance at zero cost -- the same defect as a number that cannot fall, and it had been sitting in the four most-read documents in the tree. Two refinements were needed before the check was honest rather than merely strict: a citation resolves from the containing file's directory OR ANY ANCESTOR, because that is what a reader does (`p1-retrodiction/heldout/README.md` saying `tools/pack.py` is not a defect); and a path named in a .gitignore is exempt, because a regenerable intermediate documented as a script's output is a build description, not a receipt. Claim-2's leanboard subtree returns ten citations of the first kind and zero of the second, and all ten are named in a nested leanboard/.gitignore.",
-   "action": "Closed: the five are fixed, the check is check 14, and it is negative-tested six ways. Residual limitation, recorded rather than fixed: the check reads intent off .gitignore because it cannot read it off the prose, so a receipt-shaped citation to a file someone deliberately did not commit would still pass. It also guards this tree only -- Claim-2 has no hook, and was scanned by hand from here. One wrinkle the check surfaced against itself: quoting a broken path in backticks while DESCRIBING the defect makes the check fire on the description, so D43 names those four in plain quotes."
-  },
-  {
-   "id": "D44",
-   "kind": "prediction-design",
-   "state": "closed",
-   "status": "measured-and-recorded",
-   "confidence": "the answer landed in the gap under every one of the four readings available",
-   "where": "Claim-2 board-finder/pte/PREREG_PTE11.md sec 5 (A-4); VERDICT_PTE11.md sec 2",
-   "claim": "A TWO-SIDED PREDICTION WITH AN UNREGISTERED MIDDLE IS A TEST THAT CAN DECLINE TO FIRE. A-4 was registered as 'the published height bound is at least 1000x ours -> confirmed; within 10x -> falsified'. The bound arrived: size 11 empty below height 3500. Against our reach the ratio is 22x, 35x, 44x, 49x, 70x or 97x depending on which of our two searches you compare and whether the literature's 'height' is max|element| or the diameter. EVERY ONE of those lands in the unlabelled band, and the scorer returns NOT-SCORED. The bands were three orders of magnitude apart because I had no idea whether the answer would be 100 or a million, and instead of recording that ignorance I picked two thresholds and left the gap silent.",
-   "why_it_matters": "It is the mirror of the failure this tree already has a name for. D-series debts and the ledger are full of numbers that cannot fall; this is a test that can decline to fire, which is worse in one specific way -- a number that cannot fall at least reports something, while A-4 consumed a promoting search, got a clean answer, and returned nothing scorable. The scorer behaved correctly and said so in its own words, which is the only reason this is visible rather than quietly rounded to a pass.",
-   "action": "Closed as recorded, not as fixed: the bands are NOT being redrawn after the fact. The rule for next time is to register the middle as well -- either a third verdict for it, or a single threshold with no gap, or an explicit 'I cannot bracket this, so it is a measurement and not a prediction'. The last option is honest and was available. A second branch of the same prereg failed the same way and is recorded with it: section 6 registered 'if A-5 fails, the asymmetric region is the target'. A-5 did fail -- the published searches are symmetric-only -- and the branch is worthless, because the asymmetric region has 10 degrees of freedom against 6 and is 1e20 candidates at height 100. The branch assumed UNSWEPT implies ATTACKABLE. A registered fallback has to be costed before it is registered, or it is not a fallback."
-  }
- ],
- "failure_register": [
-  {
-   "tried": "Forced-choice discrimination as the contamination control",
-   "outcome": "Rejected on argument; not tested",
-   "cost": "reasoning only"
-  },
-  {
-   "tried": "Sphere packing as a board-change case",
-   "outcome": "Reclassified as a same-board control",
-   "cost": "reasoning only"
-  },
-  {
-   "tried": "PCP as a scoreable case",
-   "outcome": "Demoted to fit-testing only",
-   "cost": "reasoning only"
-  },
-  {
-   "tried": "Running P2 in chat",
-   "outcome": "Impossible (no agent substrate); a browser harness was built instead",
-   "cost": "one artifact"
-  },
-  {
-   "tried": "Raw-API harness with token counts (in the browser)",
-   "outcome": "Blocked by the published-page runtime; fell back to a sampling capability",
-   "cost": "lost O5 precision — now recovered by the Python port"
-  },
-  {
-   "tried": "Live integration test of the harness",
-   "outcome": "Not done; logic tested against mocks only (600 simulated runs)",
-   "cost": "—"
-  },
-  {
-   "tried": "Controlling temperature in the Python port",
-   "outcome": "Not possible: the parameter was removed from the current models",
-   "cost": "one design assumption; `effort` recorded instead"
-  },
-  {
-   "tried": "Sourcing the real-failure battery items from this repository",
-   "outcome": "Not present here; the slot is built and empty",
-   "cost": "P2's first priority remains blocked"
-  },
-  {
-   "tried": "Erdos distinct distances in R^3 as a negative twin",
-   "outcome": "REJECTED — a recent paper claims N^{2/3-o(1)}, so it is not open",
-   "cost": "one search; the candidate is recorded so it is not proposed again"
-  },
-  {
-   "tried": "Reading arXiv directly to verify citations",
-   "outcome": "Egress-blocked; web search was the only route and no PDF was fetched",
-   "cost": "10 of 33 citation rows remain unverified"
-  },
-  {
-   "tried": "Running the P2 pilot",
-   "outcome": "No API key in the container; the battery retirement list stays a prediction",
-   "cost": "tasks 3 and 6 still lack pilot data"
-  },
-  {
-   "tried": "Scoring both rebuilt diagnostics against one positive-class vocabulary",
-   "outcome": "Wrong table — cases 4 and 8 came out as false positives when 'the log is removable' IS the positive class. Each item now carries an explicit class field",
-   "cost": "one wrong table, caught and corrected before it was written up"
-  },
-  {
-   "tried": "A substring test for whether a second rater named the right scale parameter",
-   "outcome": "Wrong predicate: the 08-spencer list held the bare substring \" t\", which matches the word \"the\" and so would have passed on any text at all. Tightened to word-bounded regexes by the harness self-test, before the rater's answer existed",
-   "cost": "none -- the fifth wrong verification predicate of mine this programme has found, and the first caught before it could score anything"
-  }
- ],
- "do_not_do": [
-  "Do not write template v3 before P2 data exists. The v3 hypotheses are already encoded as arms.",
-  "Do not add a sixth transformation, and do not try to rescue the five. Step D measured kappa = 0.048 on the catalogue that exists; its problem is not that it is too small.",
-  "Do not report harness results with judge kappa below about 0.6 without reading transcripts first.",
-  "Do not score the three calibration items (Banaszczyk, Bansal-Jiang, Guo-Fang-Lu).",
-  "Do not interpret two-way interactions in the P2 factorial. The aliases are verified and listed in analysis/preregistration.md: AB=CE, AC=BE, AD=EF, AE=BC=DF, AF=DE, BD=CF, BF=CD.",
-  "Do not rescue a failed prediction with an unregistered collapse. L2's prediction L2-1 failed on both halves and survives only if PARTIAL is counted with AGREE; it was scored as failed. Keep that standard.",
-  "Do not treat P1's numbers as verified beyond the 20 rows CITATIONS.md marks VERIFIED.",
-  "Do not reuse L2's five original blind encodings in a re-run; they would contaminate new raters.",
-  "Do not log a prospective prediction after glancing at a method section. One unsealed prediction and that arm is worth no more than the retrospective cases.",
-  "Do not quote any retrospective 2x2 in this tree as evidence that a diagnostic WORKS. Measured: a rule-less rater beats the best diagnostic here by 0.325 in Youden's J, with 13/13 recognition (D25). Quote them, if at all, as self-consistency against a baseline that beats them.",
-  "Do not score a new candidate diagnostic against chance (J = 0). The bar is now the one-line bound-strength test, J = +0.750, and the rule-less rater, J = +1.000. Scoring against chance is the error the baseline work corrected."
- ]
+  "note": "Every claim this project inherited that has not been verified. DEBTS.md is generated from this file by tools/render_debts.py; edit this, not that.",
+  "as_of": "2026-09-21",
+  "global": [
+    "Step D measured label kappa = 0.048 and L2 measured 2-of-5 leak agreement. Both are FINISHED. See MEASUREMENTS.md before reading anything else here.",
+    "{{GENERATED:citation_status}}",
+    "{{GENERATED:item_flags}}",
+    "arXiv:2609.11189 post-dates the seed instance's knowledge and was taken on trust; commission items E3 and E4 were taken as given."
+  ],
+  "debts": [
+    {
+      "id": "D1",
+      "kind": "citation",
+      "status": "closed",
+      "confidence": "medium",
+      "where": "p1-retrodiction/cases/09-vinogradov-mean-value/",
+      "claim": "The pre-Wooley bound is s >~ c*k^2*log k, and the leak is that each congruencing iteration recovers a fixed fraction of the defect so about log k rounds are needed.",
+      "action": "CLOSED by the citations response (PRIMARY: Pierce, arXiv:1707.00119). The classical bound is confirmed as a shape and the constant's history recorded (3 -> 2 -> 1). The leak is now DERIVED, not asserted: eta_{s+k,k} <= eta_{s,k}(1-1/k), so the log k IS the contraction count, s ~ 2k^2 log k. Wooley's posting date independently confirmed.",
+      "state": "closed"
+    },
+    {
+      "id": "D2",
+      "kind": "citation",
+      "status": "resolved-as-error",
+      "confidence": "high",
+      "where": "p1-retrodiction/cases/05-finite-field-kakeya/",
+      "claim": "The best pre-Dvir exponent was about q^{4n/7}.",
+      "action": "CLOSED by finding the error. CITATIONS.md row C5-4n7: 4n/7 + 3/7 is Katz-Tao's EUCLIDEAN Minkowski-dimension bound; no source states it for |K| in F_q^n. The seed's low confidence was warranted. The two-regime structure survives; the exponent does not.",
+      "state": "closed"
+    },
+    {
+      "id": "D3",
+      "kind": "citation",
+      "status": "verified",
+      "confidence": "medium",
+      "where": "p1-retrodiction/cases/01-sensitivity/",
+      "claim": "Chung-Fueredi-Graham-Seymour 1988 gives Delta >= (1/2 - o(1)) log n.",
+      "action": "CLOSED. CFGS 1988 give (1/2 - o(1)) log_2 n — note base 2, which P1 left unstated — and themselves construct the matching ceil(sqrt n) example.",
+      "state": "closed"
+    },
+    {
+      "id": "D4",
+      "kind": "citation",
+      "status": "verified",
+      "confidence": "medium",
+      "where": "p1-retrodiction/twins/N4-shannon-capacity-c7.json",
+      "claim": "Polak-Schrijver 2019 give a lower bound of about 3.258 for Theta(C7), against theta(C7) about 3.318.",
+      "action": "CLOSED. Polak-Schrijver: 367^(1/5) > 3.2578 (IPL 143, 2019). theta(C7) = 3.3176672 computed here. Both figures confirmed.",
+      "state": "closed"
+    },
+    {
+      "id": "D5",
+      "kind": "dated-fact",
+      "status": "verified-but-dated",
+      "confidence": "medium",
+      "where": "p2-ablation/blocks.json (battery item O3)",
+      "claim": "x^3 + y^3 + z^3 = 114 has no known integer solution and the problem is open.",
+      "action": "Verified today: 114 is described as the lowest unsolved case. STILL A DATED FACT — re-check on the day of freezing.",
+      "blocking": "p2-ablation freeze",
+      "state": "open"
+    },
+    {
+      "id": "D6",
+      "kind": "reclassification",
+      "status": "adjudicated-upheld",
+      "where": "p1-retrodiction/controls/14-sphere-packing-8-24.json",
+      "claim": "Sphere packing in dimensions 8 and 24 is NOT a board change. The board is Cohn-Elkies 2003; Viazovska supplied the terminal certificate on that board, and numerics had already shown it was tight. The actual board change was Kabatiansky-Levenshtein -> Cohn-Elkies.",
+      "action": "CLOSED. CITATIONS.md ADJ-14. Cohn-Elkies 2003 was itself the first improvement since Kabatyanskii-Levenshtein 1978, and Cohn and Elkies themselves conjectured their board would settle dimensions 8 and 24. Supported by sources now, not argument.",
+      "consequence_if_wrong": "The base rate '2 of 15 headline results were better play on an unchanged board' loses one of its two members.",
+      "state": "closed"
+    },
+    {
+      "id": "D7",
+      "kind": "reclassification",
+      "status": "adjudicated-upheld",
+      "where": "p1-retrodiction/cases/13-pcp-weak/",
+      "claim": "PCP is demoted to fit-testing only, because its 'before' was a successful proof rather than a failing bound.",
+      "action": "CLOSED. CITATIONS.md ADJ-13. Noted that the rebuilt diagnostic WOULD fire on it, which is evidence the item is well-formed, not that it should be scored.",
+      "state": "closed"
+    },
+    {
+      "id": "D8",
+      "kind": "contested-claim",
+      "status": "addressed-in-part",
+      "where": "p3-taxonomy/taxonomy.json -> candidate_replacements",
+      "claim": "'Product-law matching' should replace 'de-tensorize': compute how the target behaves on the product construction of the extremal family, and require the invariant to obey the same law.",
+      "action": "Restated leak-free in p3-taxonomy/DIAGNOSTIC.md and tested against 13 in-domain items with zero false positives. Circularity is REDUCED, not removed: the rules are mechanical but the assignment of laws is still mine. The remaining test is D20.",
+      "attack_requested_of": "the originating instance",
+      "state": "open"
+    },
+    {
+      "id": "D9",
+      "kind": "contested-claim",
+      "status": "closed-dropped",
+      "where": "SOURCE-RESPONSE.md, P3 item 7",
+      "claim": "Against E5(b): the better discriminator is whether the existence guarantee is strictly cheaper than the target, not formula versus existence. Banaszczyk's move, Marcus-Spielman-Srivastava and Dvir all rest on existence statements and all succeed.",
+      "action": "CLOSED. See p3-taxonomy/D9-ADJUDICATION.md. The ORIGINAL criterion is now mechanically scoreable (move_kind added to every case): 2 of 10 scoreable successes had existence-theorem moves, which refutes any reading where existence moves are disqualifying but cannot test it as a discriminator, because all 13 P1 cases are SUCCESSES. The REPLACEMENT is DROPPED: 'strictly cheaper than the target' states no metric for cheapness, so it is not computable from the before-board — the same standard that dropped auxiliary-witness lift. Also note E5(b)'s exact statement is absent from the seed material, as with the unnamed transformations (D12).",
+      "attack_requested_of": "the originating instance",
+      "state": "closed"
+    },
+    {
+      "id": "D10",
+      "kind": "contested-claim",
+      "status": "measured",
+      "where": "p1-retrodiction/README.md -> contamination control",
+      "claim": "Forced-choice discrimination fails as a contamination control, because it is still solved by recognition; the four-layer alternative (score the procedure, negative twins, telegraph baseline, recognition probe, prospective arm) is better.",
+      "action": "CLOSED as a question. Step D measured 100% recognition and L2 measured 5 of 5, on encoders that were trying to comply. The seed's concern was correct and cutoff discipline does not fix it. The prospective arm (p1-retrodiction/prospective/) is the only remaining route. THIRD confirmation, and the first with the consequence quantified: the rule-less baseline ceilings the benchmark at J = 1.000 (D25).",
+      "attack_requested_of": "the commission",
+      "state": "closed"
+    },
+    {
+      "id": "D11",
+      "kind": "contested-claim",
+      "status": "upheld",
+      "where": "p1-retrodiction/README.md -> base rate",
+      "claim": "2 of 15 headline results (Viazovska, Kelley-Meka) were better play on an unchanged board, so the programme's core hypothesis should carry that denominator.",
+      "action": "D6 adjudicated in favour, so the denominator stands: 2 of 15 headline results were better play on an unchanged board.",
+      "state": "closed"
+    },
+    {
+      "id": "D12",
+      "kind": "gap",
+      "status": "superseded",
+      "where": "p3-taxonomy/taxonomy.json",
+      "claim": "Transformations #3 and #5 have NO NAME anywhere in the seed material; they are referenced only by number. #3 is fitted weakly by one case and #5 by none.",
+      "action": "Moot. Step D measured kappa = 0.048 on the five-entry catalogue, so the vocabulary is not operational and the entries' names no longer matter. auxiliary-witness-lift has been DROPPED; the rebuild in DIAGNOSTIC.md replaces the rest. Do not recover the names; do not add a sixth.",
+      "state": "closed"
+    },
+    {
+      "id": "D13",
+      "kind": "method-limit",
+      "status": "acknowledged",
+      "where": "p2-ablation/analysis/preregistration.md §5",
+      "claim": "Judges cannot be blinded to arm: the protocol's own tags and the numbered return fields leak the condition into the graded text.",
+      "action": "Record it as a limitation in the write-up. Do not describe the judges as blind. Not fixable within this design.",
+      "state": "standing"
+    },
+    {
+      "id": "D14",
+      "kind": "method-limit",
+      "status": "acknowledged",
+      "where": "p2-ablation/config.py",
+      "claim": "Temperature cannot be controlled: sampling parameters were removed from the current Claude models and sending one returns a 400.",
+      "action": "Report `effort` instead, which is recorded per run. Do not report temperature as held constant. This is a change in the world since the handoff was written, not an omission.",
+      "state": "standing"
+    },
+    {
+      "id": "D15",
+      "kind": "missing-input",
+      "status": "closed",
+      "where": "p2-ablation/battery.py",
+      "claim": "Handoff task 1 - replace the weakest battery items with the repository's own real agent failures (E7 the false impossibility theorem with a published counterexample, E8 the two unsupported 'this forces that' steps, E9 the variance-1 Monte Carlo check).",
+      "action": "CLOSED. The corpus was supplied as R1-R6 and every checkable number in its ground truths was verified by exact computation (p2-ablation/tools/verify_corpus.py): 48 counterexamples below 400, 8,977 primes, zero mismatches over q = 1..800. Swapped in via `cli.py battery --swap-in-corpus`.",
+      "blocking": "the whole point of P2's battery",
+      "state": "closed"
+    },
+    {
+      "id": "D16",
+      "kind": "method-limit",
+      "status": "addressed-in-part",
+      "where": "p1-retrodiction/",
+      "claim": "P1 v0 is single-encoder and contaminated: one model encoded all 23 items while knowing every answer.",
+      "action": "L2 ran on five cases and found real errors, but its own pre-registered kappa was never measured (D22) and case 9 was void. The re-run instrument with all four design fixes is built: p1-retrodiction/L2-RERUN.md.",
+      "state": "open"
+    },
+    {
+      "id": "D17",
+      "kind": "instrument-defect",
+      "status": "fixed-and-recorded",
+      "where": "p2-ablation/DEFECTS.md",
+      "claim": "DEFECT-1: the published harness's exportData calls outcome(r, r.j2), and outcome() opens `j = j || r.j1`, so judge 2's exported column is scored from judge 1 on every row where the second judge did not run.",
+      "action": "Fixed at the call site (the frozen rule is untouched) and pinned by tests/test_export_defect.py. Recorded as a PRE-FREEZE defect: it changes what the published instrument would have reported, and belongs in the write-up as such.",
+      "state": "closed"
+    },
+    {
+      "id": "D18",
+      "kind": "not-run",
+      "status": "blocked",
+      "where": "p2-ablation",
+      "claim": "The pilot has not been run, so no per-item failure rate exists.",
+      "action": "No ANTHROPIC_API_KEY and no `ant` CLI in this container. The retirement list in battery.py is a PREDICTION and is labelled one. Run `cli.py pilot` with a key and re-choose the retired items from the measured rates.",
+      "blocking": "tasks 3 and 6 both need pilot data",
+      "state": "open"
+    },
+    {
+      "id": "D19",
+      "kind": "citation",
+      "status": "zero-unverified-three-below-primary",
+      "where": "CITATIONS.md",
+      "claim": "Ten citation rows remain unverified: cases 4, 7, 9, 10, 11, 12, 13, twin N3, the Gotsman-Linial reduction, and Shannon's 5/2 upper bound.",
+      "action": "CLOSED. Zero rows are UNVERIFIED. The last one, C1-gotsman, closed from the Huang transcript, which states the Gotsman-Linial equivalence as its own Theorem 1.3; it was also the only row no pass had ever looked at, which is why it outlived rows with far higher stakes. The debt opened on ten unverified rows and ends on none. WHAT REMAINS IS NOT THIS DEBT: three rows sit BELOW fetched-primary tier -- C10 (SEARCH; the primaries are largely pre-arXiv and probably unimprovable by transcript), C12 (PARTIAL; bibliographic record only, and case 12 fits no transformation so it does the least work of any row) and N2-removable (PARTIAL; the mathematical claim stands, the attribution to Matousek-Seidel-Welzl does not). Two VERIFIED twin rows rest on STANDARD-tier claims and say so, N16 and N20, which is tracked by D21 and not here. CITATIONS-NEEDED.md carries the routes. THIS ROW'S PROSE WAS WRONG TWICE BEFORE IT WAS RIGHT, in opposite directions -- it undercounted by omitting C1-gotsman, then overcounted by calling C10 and C12 UNVERIFIED after later rows had moved them. Both were caught by a derived count and neither by reading the sentence, and the third time was caught by the checker itself: closing C1-gotsman made this row's derived list stale and tools/check_consistency.py failed the tree until it was updated. That is the mechanism working as intended rather than a fourth error.",
+      "derived": {
+        "note": "These lists are ASSERTED against citations.json by tools/check_consistency.py, not typed.",
+        "unverified": [],
+        "below_primary": [
+          "C10",
+          "C12",
+          "N2-removable"
+        ],
+        "standard_tier_twins": [
+          "N16",
+          "N20"
+        ]
+      },
+      "state": "closed"
+    },
+    {
+      "id": "D20",
+      "kind": "the-test-that-settles-it",
+      "status": "closed-split-result",
+      "where": "p3-taxonomy/DIAGNOSTIC.md",
+      "claim": "The rebuilt diagnostic's only judgement calls are two closed-vocabulary fields, target_law and bound_law.",
+      "action": "RUN. p3-taxonomy/d20/ holds the inputs, the three filled rater sheets and the verbatim scorer output. Fields reproduce (target_law Fleiss kappa +0.811 [+0.570,+1.000]; bound_law +0.755 [+0.494,+1.000]) against the measured 0.048 baseline — a real improvement. The RULE reproduces worse (+0.618 [+0.220,+0.904]), because it consumes the DIFFERENCE of two labels and disagreement concentrates where they are close. The zero-false-positive claim FAILED: all three raters fire on N8. See d20/PROVENANCE.md for the integrity account — partial results were seen before the full run and the scorer's verdict logic was changed afterwards, in the stricter direction.",
+      "blocking": "any claim that the rebuild succeeded",
+      "state": "closed"
+    },
+    {
+      "id": "D21",
+      "kind": "coverage",
+      "status": "mostly-closed",
+      "where": "p1-retrodiction/twins/",
+      "claim": "Twenty negatives against a target of ~25, and 8 of the 20 are STANDARD rather than fetched.",
+      "action": "Six of the eight STANDARD twins upgraded to verified (N11, N12, N13, N17, N18, N19); N13 was settled by exact computation rather than citation. Only N16 and N20 remain STANDARD and are declared so. Every twin now carries a recheck_by date. The count is still 20 of a target 25 — but per the task list, verifying the existing eight mattered more than adding five, because a twin whose tightness is merely recalled cannot distinguish a false positive from a wrong twin. N8 proved that: it was the one twin that fired, and adjudicating it needed the mathematics, not a citation.",
+      "state": "open"
+    },
+    {
+      "id": "D22",
+      "kind": "unmeasured",
+      "status": "open",
+      "where": "MEASUREMENTS.md",
+      "claim": "L2's pre-registered kappa was never measured; the substitute 0.286 [0.000, 0.667] at n = 5 is unmeasured, not a bound.",
+      "action": "The instrument is built (tools/make_rating_sheet.py, schema v2). Use fresh cases and fresh encoders; do NOT reuse the original five blind encodings.",
+      "state": "open"
+    },
+    {
+      "id": "D23",
+      "kind": "diagnostic-defect",
+      "status": "open",
+      "where": "p3-taxonomy/d20/N8-adjudication.md",
+      "claim": "Product-law matching's domain condition is too weak. 'A product operation exists and the size parameter is additive' is satisfied literally by disjoint union, which moves BOTH coordinates of a two-parameter family, so target and bound can differ with no board change available. Every case the diagnostic gets right is a single-parameter family; its one false positive is the two-parameter one.",
+      "action": "A candidate repair (require the operation to preserve the family's full parameterisation) is stated and DELIBERATELY NOT ADOPTED, because it was derived from the item it would exclude. It needs items chosen by someone who has not seen the adjudication, including two-parameter families where the board DID change.",
+      "state": "open"
+    },
+    {
+      "id": "D24",
+      "kind": "vocabulary-gap",
+      "status": "answered-not-fixed",
+      "where": "p3-taxonomy/D24-ADJUDICATION.md, verified by p3-taxonomy/tools/check_d24.py",
+      "claim": "The five-category law vocabulary cannot express 'the right law, degraded by a log'. Rater B declined to fire on case 4 (Kadison-Singer) by reading the matrix-Chernoff penalty that way, which is arguably exactly what that board did.",
+      "action": "ANSWERED by its own decision rule, and the answer is NOT to add a category. The rule said: if the gap explains only case 4 it is a property of that case. It explains THREE items -- cases 1, 2 and 4 -- so it is a property of the vocabulary. In cases 1 and 2 ALL THREE RATERS STATE THE SAME MATHEMATICS and differ only on which of five words to force it into: 'log(n1+n2) = max + O(1)' (verified: the difference is <= 1 exactly and the ratio tends to 1) and '3^n times a polynomial saving that does not tensor' (verified: the defect is n1n2/(n1+n2), 500 at n = 1000, against a main term of 10^954). A SECOND GAP D24 DID NOT NAME explains two more items: the vocabulary cannot say SUPERmultiplicative, which is why one rater codes 'none' on both Shannon-capacity items (verified: alpha(C5 box C5) = 5 > 4, and 367 > 3^5) while the others code the limit as multiplicative. That is the distinction twin N16 already carried for border rank; it was in the tree and nobody had connected it to the vocabulary. One divergence (N2) is a genuine disagreement about the mathematics and is not a vocabulary gap at all. WHY NOT GROW THE VOCABULARY: adding 'max-degraded' does not decide the case it was invented for. Case 4's firing splits A-fires / B-declines / C-fires, and the new code leaves exactly the same question -- is max-degraded EQUAL to max for firing? -- so it relocates the judgement instead of resolving it. The decision is about MAGNITUDE, not about which law, and the D28 one-line test already reads magnitude directly: it fires on case 4 because 'the gap is an unbounded log factor', agreeing with A and C with no category at all. Third independent appearance of the surplus-machinery finding. A post-hoc recode would lift the field kappas from +0.811/+0.755 to +0.941/+0.930. That is FITTING, is printed as an upper bound rather than a measurement, and MUST NOT be quoted: the published numbers stand.",
+      "state": "closed"
+    },
+    {
+      "id": "D25",
+      "kind": "benchmark-invalidity",
+      "status": "route-found-negative-control",
+      "where": "p3-taxonomy/BASELINE.md",
+      "claim": "The retrospective arm cannot measure a diagnostic's value. A rule-less rater given the same item scored J = 1.000 (5/5 positives, 8/8 negatives) against product-law matching's 0.675, a lift of -0.325, with a recognition probe of 13/13.",
+      "action": "NO LONGER STANDING, and the route came from outside this tree. D25 held that the retrospective arm cannot be rescued because a rater who recognises the problem needs no rule -- and every negative in the corpus is a FAMOUS problem, which is what makes recall sufficient. The Banaszczyk/Guo-Fang-Lu audit supplies a negative that is not a famous problem at all: all four models in that corpus converged on a class closed under convolution with the terminal property, and one PROVED such a class exists IF AND ONLY IF Komlos holds. That board is a RESTATEMENT of the conjecture, its invariant is not verifiable on the starting state, and telling it apart from Banaszczyk's real board requires the computation rather than the memory. WHAT TO BUILD: negative controls of that SHAPE -- an invariant provably equivalent to the theorem it is meant to prove. They are generic, so there is nothing to recall; they are constructible rather than found, so the corpus is not limited to history (which also speaks to D26, where the corpus has no failed board changes); and a rater who cannot separate one from a real board is measured as not measuring board-finding. The discriminator is stated in Claim-2 board-finder/FINDER.md 4b: can the invariant be verified on the STARTING STATE by an independent computation, without knowing whether the theorem is true? This does not retract the measurement. J = 1.000 with 13/13 recognition stands exactly as measured on the items that existed. What changes is that the arm is not necessarily dead -- it was dead on a corpus of famous problems.",
+      "state": "open"
+    },
+    {
+      "id": "D26",
+      "kind": "corpus-limitation",
+      "status": "structural",
+      "where": "p3-taxonomy/D9-ADJUDICATION.md",
+      "claim": "The benchmark cannot evaluate any criterion about success versus failure, because all 13 P1 cases are successes. The negative twins are negatives about the TIGHTNESS of a bound, not about moves that failed.",
+      "action": "Needs a corpus of FAILED board changes — attempts that changed the board and did not work. The seed flagged survivorship selection as blocking PPV estimates; this is the second distinct thing it blocks. Collecting failed attempts is harder than collecting famous successes and is the main thing that would make the benchmark able to test a criterion rather than merely fit one.",
+      "state": "standing"
+    },
+    {
+      "id": "D27",
+      "kind": "diagnostic-defect",
+      "status": "open",
+      "where": "p3-taxonomy/d20/N9-audit-result.md",
+      "claim": "Product-law matching is UNDEFINED where the feasible set is not closed under the product operation. For the hypercube problem the constraint is a density threshold and density is multiplicative, so the product of two extremal examples is a quarter of the cube, not half: there is no product of extremal examples to read a target law off. Case 1 and N9 are removed from the domain.",
+      "action": "The obvious patch -- require closure -- is NOT adopted, because it was derived from the item it excludes. Note this is the SECOND such patch (D23 was the first, from N8). Two post-hoc patches from two items is the signature of a rule being fitted rather than tested; a third should be read as a refutation, not a repair.",
+      "state": "open"
+    },
+    {
+      "id": "D28",
+      "kind": "confound",
+      "status": "closed-diagnostic-is-surplus",
+      "where": "p3-taxonomy/d20/N9-audit-result.md",
+      "claim": "The rule 'does the best known lower bound match the upper bound to within a constant factor?' reproduces product-law matching's verdicts on the hypercube boards exactly, needs no product-law machinery, and is immune to the rater dispute over the counting board's label. Verified: the l2-vs-max distinction can carry at most a factor sqrt(2), and it was being used to flag a polynomial (log n vs sqrt n) gap.",
+      "action": "RUN. d28_bound_strength.json + BASELINE.md. The one-line test 'is the bound tight to within a constant factor?' scores J = +0.750 against product-law matching's +0.607, with ZERO false positives where the diagnostic takes one, and differs on exactly one item — N8, where the diagnostic is wrong. The product-law machinery is SURPLUS: more complicated, worse-performing, and needing two post-hoc domain patches the one-line test does not need. Both lose to the rule-less rater (+1.000). What survives of the rebuild is D20's field kappa and the falsifications themselves, not the rule.",
+      "state": "closed"
+    },
+    {
+      "id": "D29",
+      "kind": "unsourced",
+      "status": "closed",
+      "where": "p1-retrodiction/controls/15-roth-kelley-meka.json",
+      "claim": "Control 15 (Kelley-Meka) is still unsourced. The Peluse survey was expected to cover it and does NOT -- it is Bourbaki June 2022 on Bloom-Sisask 2020, its table of records ends at Schoen 2021, and Kelley-Meka appears nowhere.",
+      "action": "CLOSED from primary. arXiv:2302.07211v3 (Bloom-Sisask, the Kelley-Meka exposition) was pasted in as a transcript, which this project counts as a fetched primary source. It confirms the control on its own terms: its five-step breakdown names Step 5 'Density increment' and says the increment 'can now be iteratively applied', so the board P1 assigns to control 15 is the board the primary source says the argument runs on. Theorem 1 carries exponent 1/12 as P1 records. Rows C15, C15-ladder and C15-ceiling in citations.json; sources in the item are now verified: true.",
+      "state": "closed"
+    },
+    {
+      "id": "D30",
+      "kind": "catalogue-gap",
+      "status": "axis-encoded-unvalidated",
+      "where": "p3-taxonomy/taxonomy.json -> level_axis; p1-retrodiction/heldout/*.json and controls/*.json -> level; p1-retrodiction/tools/assign_levels.py, tools/level_audit.py",
+      "claim": "The catalogue has no axis for WHAT LEVEL and IN WHAT SUBSTRATE a change occurred. Two independent signs: (a) Zhang changed the equidistribution board one level DOWN while leaving the GPY sieve unchanged, so 7b is a level-(n-1) board change feeding an unchanged level-n board; (b) Pierce sec. 8.5 argues efficient congruencing and l^2 decoupling share rescaling, multilinear estimates, iteration and transversality, quoting Wooley that they may be 'p-adic and Archimedean perspectives of one unified method' -- a same-mechanism-two-substrates claim about a case the taxonomy calls a board change, made by the survey author rather than by us.",
+      "action": "THE AXIS IS ENCODED, as an axis and not as a sixth transformation -- the transformation vocabulary is untouched and still closed. Six values, every one instantiated except `unclear`, which is deliberately kept unused so a later encoder is not forced to choose (a forced label is what produced kappa = 0.048). All 17 scoreable items carry it: 10 same-level, 3 none (the controls 14, 15, 17), 2 reduction-level (cases 6 and 11), 1 substrate (case 9), 1 input-level (control 16 -- the item the axis exists for). tools/validate.py now FAILS the tree on a missing or invalid axis and on any control marked same-level, and the gate was negative-tested. The level cannot leak: it is in the held-out half, FORBIDDEN_IN_BEFORE covers it, and pack.py builds items from an allowlist. WHAT THE FULL PASS SHOWS, none of it visible from control 16 alone: (a) the corpus is 10 of 13 same-level and the ONLY input-level item is a control, so the axis is nearly constant on the positives and cannot discriminate on its own -- it must not be sold as if it could; (b) case 7a and control 16 are EXACT COMPLEMENTS on the axis, which is why that pair works; (c) case 13's old board CONSUMED case 10's object, and Dinur's same-level change ELIMINATED that level rather than improving it -- one instance, so no axis value was added for it. STILL OPEN BECAUSE IT IS UNVALIDATED. The assignments are mine alone, single-encoder, exactly like the v0 labels. The only reason to expect better than 0.048 is D20's split: closed-vocabulary FIELDS reproduced at +0.811 and +0.755 where the rule did not, and this is a field. Reason for optimism, not evidence. The test is the D20 instrument over these 17 items with raters who have not read taxonomy.json -- one field, so cheaper than D20. Cases 6 and 11 are at MEDIUM confidence on the same-level/reduction-level boundary and are the first two to ask about.",
+      "state": "open"
+    },
+    {
+      "id": "D31",
+      "kind": "the-best-answer-to-D25-so-far",
+      "status": "candidates-listed-target-computed",
+      "where": "p1-retrodiction/PAIRS.md, p1-retrodiction/pairs/candidates.json, p1-retrodiction/tools/pair_power.py, p1-retrodiction/controls/16-zhang-smooth-moduli.json",
+      "claim": "The case 7 split gives the benchmark its FIRST CONTEMPORANEOUS WITHIN-PROBLEM CONTROL: 7a (Maynard-Tao, board changed) against 16 (Zhang, level-n board unchanged) -- one problem, one year, two teams, with the counterfactual actually run. Every other positive/control comparison in P1 is cross-problem and confounded by difficulty.",
+      "why_it_matters": "D25 measured that a rule-less rater ceilings the benchmark at J = 1.000 with 13/13 recognition -- it only has to NAME the problem. A contemporaneous within-problem pair is the one structure recall cannot crack: both halves are 'bounded prime gaps, 2013', so the rater must separate Maynard-Tao from Zhang ON MECHANISM. This is the most promising response to D25 that does not require waiting for the prospective arm.",
+      "action": "STILL NOT RUN, and now with a number saying why that is right. tools/pair_power.py: each pair is one binary decision at chance 1/2, so an exact one-sided sign test needs FIVE pairs scored perfectly to clear alpha = 0.05 (p = 0.0312) and EIGHT to survive one miss (p = 0.0352; at n = 7 one miss gives 0.0625 and fails). One discrimination pair is in hand. CANDIDATES RANKED in PAIRS.md, every claim recalled rather than sourced, each with the document that would settle it and the way it might fail: (1) sunflower 2019, Alweiss-Lovett-Wu-Zhang against Rao weeks later on the new board -- two teams, one season, and NEITHER half is a failure, which is what makes it the best candidate; (2) bounded gaps extended to a triple with Polymath8a/8b, which would put board change, level-(n-1) change and better play on ONE problem and is the sharpest test of D30's level axis; (3) matrix multiplication 2021-2023, where refinement versus new mechanism is genuinely contested; (4) Spencer constructive, recorded as PARALLEL BOARDS and explicitly not a pair; (5) strong parallel repetition 2008, not a pair -- it is a twin and already is one. Cap set 2016 and sphere packing 2016 are REJECTED as pairs with reasons, so they are not proposed again. ONE PAIR IS AVAILABLE NOW WITH NO NEW SOURCE: Roth 2023, Kelley-Meka against Bloom-Sisask days later on the same board, both must-not-fire. It does NOT count toward the five -- with no 'which is which' there is nothing to score -- but it measures specificity inside one problem-period and the authors' own words make the encoding clean. THE HONEST ARITHMETIC, stated in PAIRS.md rather than buried: one pair in hand, four candidates, at most three of which survive their stated risks, against a floor of five. This route does not reach the floor on current material. It is still the cheaper route to be wrong about -- a failed candidate costs one transcript, a failed prospective prediction costs months.",
+      "state": "open"
+    },
+    {
+      "id": "D32",
+      "kind": "finding",
+      "status": "instrument-built-two-instances",
+      "confidence": "high -- a direct quotation from the practitioners about their own board",
+      "where": "p1-retrodiction/CEILINGS.md, p1-retrodiction/ceilings/register.jsonl, p1-retrodiction/tools/ceilings.py; citations.json row C15-ceiling",
+      "claim": "THE BENCHMARK'S SUBJECT MATTER, STATED BY THE PEOPLE ON THE BOARD, CONTEMPORANEOUSLY. Bloom-Sisask write that an exponent of 1/3, 'or perhaps even 1/4', 'seems to be the limit of any argument that uses any sort of \"density increment\" argument with Bohr sets (whether using Kelley-Meka ideas or a more traditional Fourier analytic approach)', while Behrend's construction puts the truth at 1/2. So the density-increment board has a ceiling below the known answer, and the interval (1/3, 1/2] in the exponent is unreachable from it on the practitioners' own account.",
+      "why_it_matters": "Every leak in P1's retrospective corpus is one WE identified after the board was left, which is the contamination D25 showed the retrospective arm cannot escape: a rater who recognises the problem already knows the answer. This is a leak identified BEFORE the board was left, in print, by the people playing on it, with a number attached. That is the shape of item the prospective arm is trying to manufacture, and here the literature supplies one for free.",
+      "action": "INSTRUMENT BUILT, and it already holds TWO instances rather than the one anecdote this debt was opened on. (1) Roth/density-increment-with-Bohr-sets, STATED-BY-AUTHORS, OPEN: cap 1/3 against a truth of 1/2 that Behrend's construction proves, with the authors' prediction sealed. (2) GPY/one-dimensional-sieve, DERIVED-FROM-PRIMARY, RESOLVED as held-and-board-left: rho_k(F) saturates at 4 for every k, so under Bombieri-Vinogradov the criterion caps at exactly the value it must exceed, and the advance came twice by leaving a board -- Maynard-Tao leaving the sieve, Zhang leaving the equidistribution board one level down (D30). The second instance was already in the repository and cost no new source. WHAT THE TWO INSTANCES TAUGHT, none of it anticipated when this debt was written: a cap can be an UNATTAINED SUPREMUM (so the tool allows cap == truth with cap_attained false and a boundary note, rather than fudging 3.999); the truth a cap falls short of may be a CONJECTURE rather than a theorem, which is a second axis in the record; a resolution must state the LEVEL at which a board changed, because Zhang beat the requirement without touching the capped sieve; and NEITHER diagnostic covers both instances -- product-law matching is silent on Roth (no product structure in [N]) while the D28 one-line test fires, and the D28 test has nothing to read on GPY because the cap is on a criterion rather than on a bound against a construction. STILL OPEN AND THIS IS THE WORK: two items are an instrument, not a measurement. Four candidates are named in CEILINGS.md with the one document each needs (Selberg's parity problem; a pre-2020 statement of the logarithmic barrier; the n/2 barrier for bush/hairbrush in F_q^n; the laser method's proved limit for omega, which would need a PROVED evidence tier that is deliberately not added until an instance arrives). Do not add tiers or entries without a source reached in-session.",
+      "state": "open"
+    },
+    {
+      "id": "D33",
+      "kind": "prose-versus-data",
+      "status": "closed-with-an-invariant",
+      "confidence": "certain -- counted, not estimated",
+      "where": "p1-retrodiction/cases/*/before.json, twins/*.json, controls/*.json",
+      "claim": "The per-source `verified` flags inside the ITEM files are not linked to citations.json and have gone stale: 27 of 56 source entries across cases, twins and controls still say verified: false while the citation layer carries 32 VERIFIED claims. Found by reconciling control 14, whose three sources all said verified: false while row C14 stood VERIFIED and ADJ-14 had been adjudicated on them.",
+      "why_it_matters": "The item file is what a scorer or a rater is handed; citations.json is what the verification pass wrote. A rater reading 'verified: false' on a source that has in fact been checked is being shown the wrong provenance, and the direction of this error is the flattering one for the verification pass and the unflattering one for the items.",
+      "action": "DONE, and the sweep it warned against was avoided: every one of the 55 per-source flags now carries `citation_row` (or null), `tier` and `basis`, decided cite by cite against the row that does or does not cover it. 43 read verified, 12 do not. 13 flags moved false -> true, NONE moved the other way, so the drift was entirely in the direction that understated the verification pass. The invariant is ONE-DIRECTIONAL on purpose: verified: true requires a linked row whose status is VERIFIED or CORRECTED, while verified: false beside a VERIFIED row is legitimate and now must say which NEIGHBOURING claim the row covers instead -- three do, and they are the interesting ones (row C13 verifies Dinur 2007, not Arora-Safra; row C4 verifies that NOBODY states the threshold attached to Weaver; row C12 is about Perelman's entropy, not Hamilton's programme). WHAT THE SWEEP FOUND THAT WAS NOT THE ORIGINAL COMPLAINT: three twins (N10, N14, N15) read verified on a DECLARED basis with no citations.json row at all, and they were never among the eight STANDARD twins D21 tracked -- so how they came to be flagged verified is unrecorded. Left standing and labelled, not quietly downgraded; the generated caveat in DEBTS.md names them. Also: eight flags now read tier NONE, meaning no row covers them -- that list is the honest version of what was previously 27 undifferentiated falses. The before-board schema now requires citation_row and basis; twins and controls have no schema, so for them the checker is the only enforcement.",
+      "derived": {
+        "note": "Asserted against citations.json by tools/check_consistency.py, not typed.",
+        "flags": 55,
+        "verified": 43,
+        "unrowed_true": [
+          "N10-spencer-sqrt-n-tight",
+          "N14-set-cover-greedy",
+          "N15-shearer-lll"
+        ]
+      },
+      "state": "closed"
+    },
+    {
+      "id": "D34",
+      "kind": "finding",
+      "state": "open",
+      "status": "screen-built-untested",
+      "confidence": "the taxonomy is a post-hoc fit and says so; the underlying leak quotes are verbatim",
+      "where": "Claim-2 board-finder/ (FINDER.md, leaks.json, screen.py); p1-retrodiction/tools/finder.py",
+      "claim": "A LEAK TAXONOMY READ OFF THE BEFORE-BOARD does what the five-transformation catalogue cannot, because a finder never has the after-board. Every case's `leak` field, read verbatim, falls into ACCUMULATION (5: the loss is rounds x per-step cost), SATURATION (2: the invariant caps regardless of the parameter) or WRONG_STATISTIC (6: it measures the wrong quantity). Only the first two prescribe anything; the third is satisfied by almost any board change and predicts nothing, so the usable yield is 7 of 13, not 13 of 13.",
+      "why_it_matters": "The parent project's REPORT_AB measured that four independent models converge on the SAME board, so board-finding is the abundant step and the scarce object is a functional the move conserves. The trio's own encodings show it: K1 and K3 share a state and a move, and differ only in whether the invariant degrades -- O(sqrt log n) against O(1).",
+      "action": "THE FIT IS 13/13 AND THAT IS THE PROBLEM: I assigned every kind knowing every after-board. Run the D20 instrument -- three raters, before-boards only, Fleiss kappa against the measured 0.048 baseline -- before quoting the taxonomy as anything but a hypothesis. Second, the earlier mechanical screen (existence-type move AND bound not tight) was NOT APPLICABLE to 15 of 17 items for want of a filled field, at precision 2/2 on the two it could read: coverage, not the criterion, is the bottleneck. Third, recorded against the newest case: D28's ratio test goes BLIND where the bound and the truth are both O(1) and only the constant is open (Guo-Fang-Lu, 7.52 against 2.414)."
+    },
+    {
+      "id": "D35",
+      "kind": "single-rater-field",
+      "state": "closed",
+      "status": "measured",
+      "confidence": "measured blind on all 17 items, and the result is negative: kappa 0.430 on the codable 15",
+      "where": "p1-retrodiction/cases/*/before.json move_kind; controls/*.json move_kind",
+      "claim": "`move_kind` is the binding conjunct of the transformable-board screen -- it is what makes the screen selective, since extending the tightness field cannot create a fire without it -- and it was assigned by one instance, for debt D9, with no second reading. MEASURED, AND IT DOES NOT REPRODUCE: Cohen's kappa = 0.430 on the 15 items whose recorded text does not state its own answer (0.463 on all 17, 0.286 on the two-class subset), against a pre-registered threshold of 0.6. All six disagreements run ONE WAY -- my column says formula where the blind rater says existence-theorem or no-move-recorded -- so it is a systematic criterion difference, not noise: I asked whether the record's prose reads like a computation, the rater asked whether the move can proceed before a good object is shown to exist by pigeonhole, averaging or the probabilistic method. The rater's criterion is the better one.",
+      "action": "DONE, and the consequence is not the one the prereg predicted. Run in p1-retrodiction/d35: sheet DERIVED from the case files by build_sheet.py, scored by score_d35.py against PREREG_D35.md, both committed before the answer existed; write-up in REPORT_D35.md. Two findings the prereg did not anticipate. (1) The screen's OUTPUT IS UNCHANGED under the rater's column -- it still fires on 02-cap-set and 04-kadison-singer alone -- because it is gated on the tightness field, which only 2 of 17 items have, so the unreliability is MASKED BY THE COVERAGE BOTTLENECK rather than absent (screen_under_rater2.py computes both columns). (2) Precision 2/2 was therefore never a measurement: all 13 cases are successes whose board changed, so every fire is a true positive by construction, and a figure that survives redefining a third of its input is arithmetic. FINDER.md now says so. Remedy applied: the instrument's T2 demands the NAMED OBJECT (which theorem and what it costs, or the formula written out) rather than the label, which is the same remedy the D20 run forced on the five-transformation vocabulary; and every move_kind field now carries the blind second reading beside my code, with a negative-tested gate in check_consistency.py that fails if a second reading is missing, if all 17 come to agree (the disagreements overwritten), or if agrees_with_first is flipped to hide one. My column was NOT overwritten: it is the only measurement of itself there is."
+    },
+    {
+      "id": "D36",
+      "kind": "convergence",
+      "state": "closed",
+      "status": "recorded",
+      "confidence": "certain -- two independent derivations, both on the record",
+      "where": "p1-retrodiction/cases/*/before.json move_kind; Claim-2 board-finder/FINDER.md 4b",
+      "claim": "THE SAME DISCRIMINATOR WAS DERIVED TWICE FROM UNRELATED ARGUMENTS. This tree's `move_kind` field -- is the move a formula that is carried out, or an existence theorem that asserts a good object exists -- was added for debt D9, from adjudicating a contested criterion. The line-by-line audit of Banaszczyk against Guo-Fang-Lu arrived at it from reading the papers: Odin's T_v is a formula, Bansal-Jiang needs SDP duality to guarantee a legal move at every step, and 'that gap is most of the complexity difference between the two papers'.",
+      "why_it_matters": "Nothing else in this programme has two independent derivations. The five-label vocabulary has one and scored 0.048; product-law matching has one and was shown surplus by a one-line test. A field two arguments reach separately is the best candidate the tree has for something real -- which makes D35, its single-rater status, the cheapest high-value test left.",
+      "action": "Nothing to close. Recorded so that D35's one-field blind rating is understood as testing the most-corroborated field in the tree rather than a housekeeping detail."
+    },
+    {
+      "id": "D37",
+      "kind": "post-hoc-patch",
+      "state": "closed",
+      "status": "measured",
+      "confidence": "the discrimination is measured on the pre-registered pair AND replicated by a second blind respondent; the construction errors in the pair are recorded against it",
+      "where": "Claim-2 board-finder/PROMPT.md step 5 (T3); controls/REPORT_CONTROLS.md sec. 3",
+      "claim": "T3 -- evaluate the invariant's threshold on the TARGET state and ask whether it already caps the bound -- was ADDED AFTER the control runs, FROM one of them. Both respondents independently found that a board can pass T1 and T2 and still be capped: the invariant is exactly conserved along the steps, so the whole cost is paid at initialisation, and Banaszczyk's board is capped at Theta(sqrt log n) by that computation alone.",
+      "why_it_matters": "This is the D23/D27 pattern exactly -- a patch derived from the item that broke the rule -- and this tree's standing finding is that two such patches are the signature of fitting rather than testing. The difference this time is that the patch is being tested on a fresh item before it is quoted, which is what D23 and D27 never got.",
+      "action": "The test is the discriminating pair: same problem, same target, SAME MOVE, only the invariant changed -- Gaussian measure bounded below against a carried density with bounded directional total variation. T3 must answer differently across that pair while T1 and T2 do not. Pre-registered in Claim-2 board-finder/controls/PREREG_ARM3.md with the failure condition stated (A-5: if T3 reports a cap on both, it is re-detecting T1/T2 and does not discriminate). Do not quote T3 as a discriminator until that arm is scored. Coverage was measured first, in Claim-2 board-finder/t3_coverage.json: T3's question parses on 3 of 6 benchmark boards (K1-to-K3, 04-kadison-singer, 08-spencer) and does not parse on the three whose loss is rounds x per-step cost (02-cap-set, 09-vinogradov, 13-pcp), so T3 and the leak taxonomy are complementary rather than overlapping. PROMPT.md now lets T3 be answered \"does not parse for this board\", on the same principle as \"none recorded\" for the five slots. That coverage column is itself single-rater with hindsight, which is D39. T3's wording has since taken a SECOND patch from a control run -- a blind coverage rater showed the clause 'no improvement to the move can reach O(1)' overstates what a cap licenses, since a cap computed from the invariant binds only moves certified by that invariant; T3 now asks whether the move is monotone in the invariant. That patch narrows a claim rather than adding a discriminator, which is the better kind, but it is still a patch from the item that produced it and is counted here. SCORED. Arm 3 returned and A-5 DID NOT FIRE: T3 discriminates. Across the pair T1 answers yes/yes and T2 answers existence-theorem/existence-theorem, and only T3 separates -- a cap at Theta(sqrt log n) on the measure invariant against NO CAP on the total-variation one (min kappa = Theta(1/C)). A-2 was wrong -- I predicted formula -- and its being wrong is what makes the test pass, since the arm needed T1 and T2 to agree. A-4 over-delivered: the respondent derived the averaging behaviour itself and gave the optimal constant via the minimum Fisher information 4 pi^2/L^2, all reproduced in Claim-2 board-finder/controls/verify_response_arm3.py. THREE THINGS GO THE OTHER WAY. (1) The board is dead: V_u is translation-invariant and the terminal condition is not, so a translated run has identical invariant values at every step and a final body missing the origin -- T1 and T3 both PASSED it and the KILL TEST caught it, for the second time in this programme. (2) My pair differed in TWO slots: I dropped the symmetry qualifier from STATE, which is the slot the kill test exploits, and the contradiction was already visible in FINDER.md's own table. Second symmetry mis-statement of mine in a control input. A-3 survives because both T3 computations are thresholds on the same target and reference no intermediate state. (3) 'No cap' came back for the wrong reason -- the threshold DECREASES in C, so the invariant relaxes as the body grows and is not binding at any scale. T3 gains that third answer, which is its THIRD patch from a run designed here. Standing limit, recorded as D41: T3's next use must be scored on an item this project did not construct. REPLICATED. A second respondent got the same input verbatim, blind, with no knowledge of the first -- the first replication in this programme, n = 2 on one item. All four scored predictions repeat WITH THE SAME CERTIFICATE (the cos^2 product density, I(g) = pi^2/C^2, the projection bound 1/C), which is convergence on a construction rather than on a word. A-3 came back stronger: respondent 2 computed T3 on THREE invariants unprompted -- Gaussian measure capped at sqrt(2 ln n), subgaussian-in-every-direction (the Gram-Schmidt-walk invariant) capped at Theta(sqrt log n), directional TV dimension-free -- so the discriminator separates on a triple and the third leg came from someone who did not know what was being tested. It also quantified T2's cost (a free convolution half, then a conditioning half needing O(1/n) mass and O(kappa/n) added TV per cut) and added a verified cap: on the box sub-board the move grows one coordinate and shrinks all others, the invariant specialises exactly to min_j c_j >= pi/kappa, and the budget forces C = Omega(sqrt n), so the board can only work through non-product objects. BUT THE TWO RESPONDENTS SPLIT ON THE VERDICT while finding the same hole, and the instrument caused it -- see D42."
+    },
+    {
+      "id": "D38",
+      "kind": "instrument-validated",
+      "state": "closed",
+      "status": "measured",
+      "confidence": "n = 2, and the two verdicts are backed by quotes checked verbatim",
+      "where": "Claim-2 board-finder/controls/ (PREREG_CONTROLS.md, both responses, score_controls.py)",
+      "claim": "The board-search instrument's checkability discriminator SEPARATES a real board from a restatement, measured rather than argued: the positive control returned T1 = yes ('a clean pass'), the negative returned 'No -- as recorded this is a RESTATEMENT'. Respondents were fresh contexts, tools forbidden, each given one board and no knowledge of the other.",
+      "why_it_matters": "It is the first instrument in this programme that was validated against a NEGATIVE CONTROL before being used. D25's problem was that every negative in the retrospective corpus is a famous problem, so recall suffices; this negative is a generic trap -- an invariant that cannot be checked until its class is named -- and both respondents recognised the underlying problem yet still had to compute to separate the two boards.",
+      "action": "Nothing to close. Three corrections the runs forced are recorded in REPORT_CONTROLS.md: Banaszczyk's move is an existence theorem and not a formula (my prediction was wrong); the negative control's input wrongly said 'symmetric' convex bodies, which the gluing lemma's bodies are not; and the reference corpus's 'if and only if' between the closure scheme and the conjecture is declined by the respondent -- closure implies the conjecture, the converse is not automatic -- so that iff is now the claim needing a check."
+    },
+    {
+      "id": "D39",
+      "kind": "single-rater-with-hindsight",
+      "state": "closed",
+      "status": "measured",
+      "confidence": "6/6 agreement from a blind second rater, with the ceiling the prereg named in advance: two raters of similar training are consistency, not replication",
+      "where": "Claim-2 board-finder/t3_coverage.json; controls/PREREG_COVERAGE.md and score_coverage.py",
+      "claim": "T3's COVERAGE -- the claim that its question parses on exactly 3 of the 6 benchmark boards -- was assessed by one rater (this session) with hindsight of every after-board. The classification may be a property of the boards or a judgement of mine, and the file as written cannot tell the two apart.",
+      "why_it_matters": "This tree's standing finding is that a verdict scored by whoever chose the items is not a measurement (D23, D27). A coverage column is weaker than a verdict -- it asks only whether a question is well-posed -- but it is doing load-bearing work: it is the reason PROMPT.md now permits T3 to be declined, and the reason T3 is claimed to be complementary to rather than redundant with the leak taxonomy.",
+      "action": "DONE. Scored by Claim-2 board-finder/controls/score_coverage.py against PREREG_COVERAGE.md; verdicts in coverage_verdicts.json, write-up in REPORT_COVERAGE.md. Agreement 6/6 -- the same three boards decline -- so both pre-registered failure conditions are retired, the worse one (a DIFFERENT three) included. One quantity prediction missed (04-kadison-singer's scale is the constant in 1/2 + C sqrt(delta), not delta), and the committed scorer over-credited it on a substring; the rule was left as committed and the adjudication recorded beside it. Three corrections the rater forced: T3's inference sentence overstated what a cap licenses (now fixed, with a monotonicity check); only one of the three parsing boards is a LITERAL fit, the other two need one step of interpretation; and forcing a scale on 13-pcp yields a threshold pointing the WRONG way, which would have scored as a pass. Residual, and it is not closable here: the second rater is the same kind of rater as the first."
+    },
+    {
+      "id": "D40",
+      "kind": "masked-by-coverage",
+      "state": "open",
+      "status": "registered-prediction",
+      "confidence": "the masking is computed, not argued (screen_under_rater2.py); what happens when it lifts is a prediction",
+      "where": "p1-retrodiction/tools/finder.py; p3-taxonomy/d28_bound_strength.json; Claim-2 board-finder/FINDER.md sec. 5",
+      "claim": "THE SCREEN IS CURRENTLY INSENSITIVE TO ITS OWN UNRELIABLE INPUT, and only because of a second scarcity. move_kind does not reproduce between raters (D35, kappa 0.430), but the screen fires on move_kind AND a tightness assignment, and only 2 of 17 items have both. The four items the blind rater moved into the existence-theorem class have no tightness assignment, so they never reach the screen. Fill the tightness field and the screen's yield becomes column-dependent: 2 fires under my column against up to 6 under the rater's.",
+      "why_it_matters": "It is the wrong kind of stability. The screen looks robust -- identical output under a column that reclassifies a third of the corpus -- and the robustness is an artefact of reading almost nothing. Any work that improves coverage, which FINDER.md sec. 5 names as the priority, will convert this hidden disagreement into a visible one, and whoever does that work should know the number they are about to change.",
+      "action": "Before the tightness field is extended, fix the criterion the two columns differ on and record it as a rule that a third party can apply: name the object the move needs (a theorem, or the formula) rather than choosing a label. Then re-rate blind, both columns, and report the kappa with the coverage figure beside it. Prediction registered as P-28 so the outcome is scoreable either way."
+    },
+    {
+      "id": "D41",
+      "kind": "fitted-instrument",
+      "state": "standing",
+      "status": "limit-on-use",
+      "confidence": "certain -- the three patches are in the file's own history",
+      "where": "Claim-2 board-finder/PROMPT.md step 5 (T3); controls/REPORT_COVERAGE.md, REPORT_ARM3.md",
+      "claim": "EVERY CLAUSE OF T3 WAS ADDED HERE, AFTER SEEING A RESPONSE TO A RUN DESIGNED HERE. Three patches: the 'does not parse' escape, from the coverage measurement; the monotonicity clause, from the blind coverage rater; and the 'not binding at any scale' third answer, from arm 3. T3 did discriminate on the one pair built to test it -- and that pair turned out to differ in two slots rather than the one registered.",
+      "why_it_matters": "This tree's standing finding is that two patches from the items that produced them are the signature of fitting rather than testing (D23, D27). T3 is at three. Each patch individually narrowed a claim or added an honest escape, which is the better kind, but the count is what the finding is about: an instrument refined only against its designers' own items has no measured generalisation, however sound each refinement looked.",
+      "action": "T3 is quotable as A QUESTION WORTH ASKING and not as a validated screen. Its next use must be scored on an item this project did not construct -- an externally chosen board, or a ProofAtlas workspace nobody here selected (see Claim-2 board-finder/PROOFATLAS_FIT.md). Do not patch T3 again from a run designed here: fix the next finding by recording it, and let the instrument stay wrong until an outside item scores it."
+    },
+    {
+      "id": "D42",
+      "kind": "instrument-ambiguity",
+      "state": "closed",
+      "status": "measured-and-fixed",
+      "confidence": "the best-evidenced finding about this instrument: two blind respondents, one input, opposite verdicts from identical mathematics",
+      "where": "Claim-2 board-finder/PROMPT.md steps 1 and 5; controls/REPORT_ARM3_REPLICATION.md",
+      "claim": "AN EMPTY SLOT WAS UNDEFINED FOR THE KILL TEST, AND THAT ALONE FLIPPED A VERDICT. Both arm-3 respondents found the same hole -- a translation that preserves the invariant exactly while never reaching the terminal condition -- and both marked COMPOSITION as `none recorded`. Respondent 1 read the empty slot as NO CONSTRAINT and called the board dead. Respondent 2 read it as UNSPECIFIED and called the board not yet an argument. Step 1 tells a respondent to write `none recorded` and calls that a finding; step 5 never said how an empty slot may be used in a refutation.",
+      "why_it_matters": "It is the only instrument defect here found by a DISAGREEMENT between blind respondents rather than by a single response, which makes it the best-evidenced clause in the prompt -- better evidenced than any of T3's three patches (D41). It also shows the failure is cheap to miss: both respondents were right, the ambiguity was mine, and a single run would have reported whichever verdict it happened to draw as the finding.",
+      "action": "FIXED. Step 1 now says a slot marked `none recorded` is not a licence, and step 5's kill test now requires a refutation to state whether it exploits a slot the source STATES or one it leaves EMPTY -- the first kills the board, the second says the board is not yet an argument. Standing consequence for this programme's own inputs: two of the five slots in the arm-3 input were underspecified (the dropped symmetry qualifier and the empty COMPOSITION), and BOTH underspecifications became the substance of a respondent's verdict. Before any future arm, check every slot is either stated or deliberately and recordedly empty."
+    },
+    {
+      "id": "D43",
+      "kind": "unfalsifiable-claim",
+      "state": "closed",
+      "status": "measured-and-fixed",
+      "confidence": "found five instances in this tree on the check's first honest run, after the first version of the check could not have found any",
+      "where": "tools/check_consistency.py check_cited_paths_resolve(); MEASUREMENTS.md, README.md, SOURCE-RESPONSE.md",
+      "claim": "A CITED FILE PATH IS A CLAIM, AND IT WAS THE ONLY CLAIM IN THIS TREE THAT NOTHING COULD FALSIFY. Claim-2's RESULT_GAP_v2.md opened with \"Response stored at `sources/GAP_V2_RESPONSE_RAW.md`\" and that file had never been written; the sentence sat in a pushed commit for a day reading exactly like a receipt. The check written for it then found FIVE more here, all of the same shape: MEASUREMENTS.md, README.md and SOURCE-RESPONSE.md cited \"tools/pack.py\", \"tools/validate.py\", \"tools/ceilings.py\" and \"tools/level_audit.py\" -- all of which live in `p1-retrodiction/tools/`, while `proof-protocol/tools/` exists and contains none of them. README.md contradicted itself six lines apart: the prose said \"tools/pack.py\", the code block said the full path under p1-retrodiction.",
+      "why_it_matters": "Every other check here compares a number against data that can disagree with it. A path citation had no such counterparty, so it carried the rhetorical weight of provenance at zero cost -- the same defect as a number that cannot fall, and it had been sitting in the four most-read documents in the tree. Two refinements were needed before the check was honest rather than merely strict: a citation resolves from the containing file's directory OR ANY ANCESTOR, because that is what a reader does (`p1-retrodiction/heldout/README.md` saying `tools/pack.py` is not a defect); and a path named in a .gitignore is exempt, because a regenerable intermediate documented as a script's output is a build description, not a receipt. Claim-2's leanboard subtree returns ten citations of the first kind and zero of the second, and all ten are named in a nested leanboard/.gitignore.",
+      "action": "Closed: the five are fixed, the check is check 14, and it is negative-tested six ways. Residual limitation, recorded rather than fixed: the check reads intent off .gitignore because it cannot read it off the prose, so a receipt-shaped citation to a file someone deliberately did not commit would still pass. It also guards this tree only -- Claim-2 has no hook, and was scanned by hand from here. One wrinkle the check surfaced against itself: quoting a broken path in backticks while DESCRIBING the defect makes the check fire on the description, so D43 names those four in plain quotes."
+    },
+    {
+      "id": "D44",
+      "kind": "prediction-design",
+      "state": "closed",
+      "status": "measured-and-recorded",
+      "confidence": "the answer landed in the gap under every one of the four readings available",
+      "where": "Claim-2 board-finder/pte/PREREG_PTE11.md sec 5 (A-4); VERDICT_PTE11.md sec 2",
+      "claim": "A TWO-SIDED PREDICTION WITH AN UNREGISTERED MIDDLE IS A TEST THAT CAN DECLINE TO FIRE. A-4 was registered as 'the published height bound is at least 1000x ours -> confirmed; within 10x -> falsified'. The bound arrived: size 11 empty below height 3500. Against our reach the ratio is 22x, 35x, 44x, 49x, 70x or 97x depending on which of our two searches you compare and whether the literature's 'height' is max|element| or the diameter. EVERY ONE of those lands in the unlabelled band, and the scorer returns NOT-SCORED. The bands were three orders of magnitude apart because I had no idea whether the answer would be 100 or a million, and instead of recording that ignorance I picked two thresholds and left the gap silent.",
+      "why_it_matters": "It is the mirror of the failure this tree already has a name for. D-series debts and the ledger are full of numbers that cannot fall; this is a test that can decline to fire, which is worse in one specific way -- a number that cannot fall at least reports something, while A-4 consumed a promoting search, got a clean answer, and returned nothing scorable. The scorer behaved correctly and said so in its own words, which is the only reason this is visible rather than quietly rounded to a pass.",
+      "action": "Closed as recorded, not as fixed: the bands are NOT being redrawn after the fact. The rule for next time is to register the middle as well -- either a third verdict for it, or a single threshold with no gap, or an explicit 'I cannot bracket this, so it is a measurement and not a prediction'. The last option is honest and was available. A second branch of the same prereg failed the same way and is recorded with it: section 6 registered 'if A-5 fails, the asymmetric region is the target'. A-5 did fail -- the published searches are symmetric-only -- and the branch is worthless, because the asymmetric region has 10 degrees of freedom against 6 and is 1e20 candidates at height 100. The branch assumed UNSWEPT implies ATTACKABLE. A registered fallback has to be costed before it is registered, or it is not a fallback."
+    },
+    {
+      "id": "D45",
+      "kind": "prediction-design",
+      "state": "closed",
+      "status": "recorded-not-fixed",
+      "confidence": "the sequence of events is on the record in three commits and is not reconstructable any other way",
+      "where": "Claim-2 board-finder/fallbacks/RESULT_MAPPING_C.md sec 3 (the replacement metric); RESULT_MAPPING_D.md sec 2 (its only out-of-sample test)",
+      "claim": "A REPLACEMENT METRIC WAS TESTED OUT OF SAMPLE WITH NO BAR REGISTERED, SO THE TEST CANNOT FAIL. The NONE-rate screen was registered across four mapping chunks and falsified on chunk C. The replacement -- quantity is a NUMBER and mover is CONSTRUCTION or COMPUTATION -- was written in RESULT_MAPPING_C.md sec 3 and applied retroactively to A, B and C, every one of which had already been read. Chunk D was still unrun, and it is the only out-of-sample data the metric will ever get. It was then read and scored without any threshold having been written down first. The result happens to be the unflattering one (2 of 27 selected, both dead, zero new candidates), which is why this is a debt and not a failure -- but 8 of 27, or 0 of 27, would each have been narratable as the metric working.",
+      "why_it_matters": "This is the D44 family again at one remove. D44 left a gap between two registered bands; this leaves the bands out entirely and relies on the outcome being modest enough that nobody asks. The instrument being measured here is not a search cost or a frontier, it is our own screening rubric, which makes an unfalsifiable test of it more expensive than usual: a rubric that cannot be shown to be wrong keeps selecting candidates for as long as we keep paying to screen them. The one thing that does carry weight is independent of the bar -- the metric re-selected record 235 from a cold corpus scan and 235 is a target this project had already found and killed by an unrelated route, so two screens agreed on held-out data. That agreement is evidence; the count is not.",
+      "action": "Closed as recorded. No bar is being back-dated onto chunk D, and RESULT_MAPPING_D.md sec 2 states the limitation in place rather than claiming vindication. The forward rule, which is the only part that transfers: when a registered prediction fails and the instrument is replaced, reserve an unrun slice DELIBERATELY and register what result would discredit the replacement before reading it. There is no further mapping data to which this applies -- all 106 records are now mapped -- so the rule is for the next instrument, not this one."
+    }
+  ],
+  "failure_register": [
+    {
+      "tried": "Forced-choice discrimination as the contamination control",
+      "outcome": "Rejected on argument; not tested",
+      "cost": "reasoning only"
+    },
+    {
+      "tried": "Sphere packing as a board-change case",
+      "outcome": "Reclassified as a same-board control",
+      "cost": "reasoning only"
+    },
+    {
+      "tried": "PCP as a scoreable case",
+      "outcome": "Demoted to fit-testing only",
+      "cost": "reasoning only"
+    },
+    {
+      "tried": "Running P2 in chat",
+      "outcome": "Impossible (no agent substrate); a browser harness was built instead",
+      "cost": "one artifact"
+    },
+    {
+      "tried": "Raw-API harness with token counts (in the browser)",
+      "outcome": "Blocked by the published-page runtime; fell back to a sampling capability",
+      "cost": "lost O5 precision — now recovered by the Python port"
+    },
+    {
+      "tried": "Live integration test of the harness",
+      "outcome": "Not done; logic tested against mocks only (600 simulated runs)",
+      "cost": "—"
+    },
+    {
+      "tried": "Controlling temperature in the Python port",
+      "outcome": "Not possible: the parameter was removed from the current models",
+      "cost": "one design assumption; `effort` recorded instead"
+    },
+    {
+      "tried": "Sourcing the real-failure battery items from this repository",
+      "outcome": "Not present here; the slot is built and empty",
+      "cost": "P2's first priority remains blocked"
+    },
+    {
+      "tried": "Erdos distinct distances in R^3 as a negative twin",
+      "outcome": "REJECTED — a recent paper claims N^{2/3-o(1)}, so it is not open",
+      "cost": "one search; the candidate is recorded so it is not proposed again"
+    },
+    {
+      "tried": "Reading arXiv directly to verify citations",
+      "outcome": "Egress-blocked; web search was the only route and no PDF was fetched",
+      "cost": "10 of 33 citation rows remain unverified"
+    },
+    {
+      "tried": "Running the P2 pilot",
+      "outcome": "No API key in the container; the battery retirement list stays a prediction",
+      "cost": "tasks 3 and 6 still lack pilot data"
+    },
+    {
+      "tried": "Scoring both rebuilt diagnostics against one positive-class vocabulary",
+      "outcome": "Wrong table — cases 4 and 8 came out as false positives when 'the log is removable' IS the positive class. Each item now carries an explicit class field",
+      "cost": "one wrong table, caught and corrected before it was written up"
+    },
+    {
+      "tried": "A substring test for whether a second rater named the right scale parameter",
+      "outcome": "Wrong predicate: the 08-spencer list held the bare substring \" t\", which matches the word \"the\" and so would have passed on any text at all. Tightened to word-bounded regexes by the harness self-test, before the rater's answer existed",
+      "cost": "none -- the fifth wrong verification predicate of mine this programme has found, and the first caught before it could score anything"
+    }
+  ],
+  "do_not_do": [
+    "Do not write template v3 before P2 data exists. The v3 hypotheses are already encoded as arms.",
+    "Do not add a sixth transformation, and do not try to rescue the five. Step D measured kappa = 0.048 on the catalogue that exists; its problem is not that it is too small.",
+    "Do not report harness results with judge kappa below about 0.6 without reading transcripts first.",
+    "Do not score the three calibration items (Banaszczyk, Bansal-Jiang, Guo-Fang-Lu).",
+    "Do not interpret two-way interactions in the P2 factorial. The aliases are verified and listed in analysis/preregistration.md: AB=CE, AC=BE, AD=EF, AE=BC=DF, AF=DE, BD=CF, BF=CD.",
+    "Do not rescue a failed prediction with an unregistered collapse. L2's prediction L2-1 failed on both halves and survives only if PARTIAL is counted with AGREE; it was scored as failed. Keep that standard.",
+    "Do not treat P1's numbers as verified beyond the 20 rows CITATIONS.md marks VERIFIED.",
+    "Do not reuse L2's five original blind encodings in a re-run; they would contaminate new raters.",
+    "Do not log a prospective prediction after glancing at a method section. One unsealed prediction and that arm is worth no more than the retrospective cases.",
+    "Do not quote any retrospective 2x2 in this tree as evidence that a diagnostic WORKS. Measured: a rule-less rater beats the best diagnostic here by 0.325 in Youden's J, with 13/13 recognition (D25). Quote them, if at all, as self-consistency against a baseline that beats them.",
+    "Do not score a new candidate diagnostic against chance (J = 0). The bar is now the one-line bound-strength test, J = +0.750, and the rule-less rater, J = +1.000. Scoring against chance is the error the baseline work corrected."
+  ]
 }
